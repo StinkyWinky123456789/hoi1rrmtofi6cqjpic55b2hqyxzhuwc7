@@ -9,9 +9,9 @@ const WORDS = {
   gym: ["leg day", "pre-workout", "protein shake", "squat rack", "rest day", "bulking", "gym crush", "foam roller", "deadlift", "mirror selfie", "6 AM alarm", "spotter", "shaker bottle", "cardio", "PR attempt"],
   anime: ["filler arc", "power level", "training montage", "side character", "season finale", "manhwa chapter", "plot armor", "villain monologue", "opening song", "cliffhanger", "beach episode", "time skip", "tournament arc", "rival", "sensei"],
   money: ["portfolio", "payday", "budget app", "rent day", "savings account", "market dip", "index fund", "impulse buy", "coffee habit", "credit score", "tax refund", "subscription", "paycheck", "piggy bank", "red candle"],
-  relatable: ["group chat", "alarm clock", "Monday meeting", "laundry pile", "social battery", "voice note", "3 AM thoughts", "inbox", "weekend plans", "snooze button", "leftovers", "small talk", "unread texts", "to-do list", "nap"],
+  shitpost: ["group chat", "alarm clock", "Monday meeting", "laundry pile", "social battery", "voice note", "3 AM thoughts", "inbox", "weekend plans", "snooze button", "leftovers", "small talk", "unread texts", "to-do list", "nap"],
 };
-function pageFromSystem(sys) { const m = /about ([^.]+)\./.exec(sys || ""); const t = (m ? m[1] : "").toLowerCase(); return t.includes("gym") ? "gym" : t.includes("anime") ? "anime" : t.includes("finance") ? "money" : "relatable"; }
+function pageFromSystem(sys) { const m = /about ([^.]+)\./.exec(sys || ""); const t = (m ? m[1] : "").toLowerCase(); return t.includes("gym") ? "gym" : t.includes("anime") ? "anime" : t.includes("finance") ? "money" : "shitpost"; }
 
 function claudeHandler(body) {
   const tool = body.tools[0].name, prompt = body.messages[0].content;

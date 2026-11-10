@@ -9,24 +9,24 @@
   "carouselDays": [0, 1, 3, 5],
   "pages": {
     "gym": {
-      "name": "Gym Goblin", "handle": "@gymgoblin.daily", "mono": "GG", "noun": "gym",
+      "name": "Caffeine Junkey", "handle": "@caffeinejunkey", "mono": "CJ", "noun": "gym",
       "bg": "#0c0d0c", "card": "#171a17", "text": "#f4f4f0", "muted": "#8a8f86", "accent": "#3dff6e", "accInk": "#0c0d0c",
       "head": "Anton", "headFb": "Impact", "headW": "400", "upper": true,
-      "niche": "gym and grindset humor",
-      "voice": "a self-aware gym rat roasting gym culture and themselves",
-      "pillars": ["gym-bro behavior", "bulking vs cutting", "the January resolution crowd", "grindset parody", "rest days and soreness"],
-      "rules": "Never shame bodies, weight or eating habits; joke about gym culture, not about how people look.",
-      "tags": ["#gymmemes", "#gymhumor", "#gymlife", "#legday", "#fitnessmemes"],
+      "niche": "gym, pre-workout and caffeine humor",
+      "voice": "an over-caffeinated gym rat who runs on pre-workout and cold brew, roasting gym culture and themselves",
+      "pillars": ["pre-workout and caffeine addiction", "gym-bro behavior", "bulking vs cutting", "the January resolution crowd", "grindset parody", "rest days and soreness"],
+      "rules": "Never shame bodies, weight or eating habits; joke about gym culture, not about how people look. Caffeine jokes stay light: no jokes about overdosing or dangerous amounts.",
+      "tags": ["#gymmemes", "#gymhumor", "#preworkout", "#gymlife", "#fitnessmemes"],
       "slots": ["06:30", "09:30", "12:30", "15:30", "18:30"],
       "reelSlot": 0, "carouselSlot": 3,
-      "xQuery": "(gym OR \"leg day\" OR bulking OR \"gym bro\" OR \"pre workout\") -is:retweet -is:reply lang:en"
+      "xQuery": "(gym OR \"leg day\" OR \"pre workout\" OR preworkout OR \"gym bro\" OR bulking) -is:retweet -is:reply lang:en"
     },
     "anime": {
-      "name": "S-Rank Memes", "handle": "@srank.memes", "mono": "S", "noun": "anime and manhwa",
+      "name": "Gombare Gombare", "handle": "@gombaregombare", "mono": "GG", "noun": "anime and manhwa",
       "bg": "#070d24", "card": "#0e1a3d", "text": "#e9f1ff", "muted": "#7d8fb8", "accent": "#48b4ff", "accInk": "#04102a",
       "head": "Rajdhani", "headFb": "Bahnschrift", "headW": "700", "upper": true,
       "niche": "anime and manhwa humor",
-      "voice": "a lifelong anime and manhwa fan joking about fandom and real life",
+      "voice": "a lifelong anime and manhwa fan cheering everyone on ('gombare!') while joking about fandom and real life",
       "pillars": ["power-scaling debates", "protagonist logic vs real life", "seasonal anime and weekly episodes", "reading manhwa at 3 AM", "video-game style system notifications"],
       "rules": "Show titles may be named in words, but never describe or depend on official character art. No spoilers for episodes airing this week.",
       "tags": ["#animememes", "#manhwamemes", "#animehumor", "#otaku", "#anime"],
@@ -35,30 +35,30 @@
       "xQuery": "(anime OR manhwa OR manga OR \"new episode\" OR \"this season\") -is:retweet -is:reply lang:en"
     },
     "money": {
-      "name": "Buy High Sell Low", "handle": "@buyhigh.selllow", "mono": "$", "noun": "money",
+      "name": "Money For Dummees", "handle": "@moneyfordummees", "mono": "$", "noun": "money and betting",
       "bg": "#05241a", "card": "#0b3426", "text": "#f3efe0", "muted": "#8fb3a3", "accent": "#e2b84a", "accInk": "#05241a", "up": "#35d07f", "down": "#ff5a5a",
       "head": "Archivo Black", "headFb": "\"Arial Black\"", "headW": "400", "upper": true,
-      "niche": "personal finance, investing and money humor",
-      "voice": "a broke but hopeful retail investor laughing at their own money mistakes",
-      "pillars": ["portfolio pain", "market-day reactions", "broke vs rich", "budgeting chaos", "payday and spending"],
-      "rules": "Never recommend, name or hint at real stocks, coins or companies as investments. Stay clearly comedic; nothing that reads as financial advice.",
-      "tags": ["#stockmarketmemes", "#financememes", "#investingmemes", "#moneymemes", "#personalfinance"],
+      "niche": "personal finance, investing, sports betting and money humor",
+      "voice": "a broke but hopeful retail investor and weekend parlay builder laughing at their own money mistakes",
+      "pillars": ["portfolio pain", "market-day reactions", "parlays that miss by one leg and bad beats", "broke vs rich", "budgeting chaos and payday"],
+      "rules": "Never recommend, name or hint at real stocks, coins or companies as investments. Never give betting picks, odds, 'locks' or name real sportsbooks or betting apps, and never encourage betting or chasing losses; the joke is always on the bettor. Nothing aimed at minors. Stay clearly comedic; nothing that reads as financial or betting advice.",
+      "tags": ["#moneymemes", "#financememes", "#sportsbettingmemes", "#parlay", "#stockmarketmemes"],
       "slots": ["07:30", "10:30", "13:15", "16:15", "19:30"],
       "reelSlot": 3, "carouselSlot": 1,
-      "xQuery": "(stocks OR \"my portfolio\" OR \"the market\" OR budgeting OR paycheck) -is:retweet -is:reply lang:en"
+      "xQuery": "(parlay OR \"bad beat\" OR \"my portfolio\" OR stocks OR paycheck OR budgeting) -is:retweet -is:reply lang:en"
     },
-    "relatable": {
-      "name": "Barely Functioning", "handle": "@barely.functioning.daily", "mono": "bf", "noun": "relatable",
-      "bg": "#f4efe6", "card": "#ffffff", "text": "#161513", "muted": "#7a7469", "accent": "#ff6b3d", "accInk": "#ffffff",
-      "head": "Inter", "headFb": "", "headW": "800", "upper": false,
-      "niche": "relatable everyday life humor",
-      "voice": "a tired, lovable adult narrating work, school, friends and sleep",
-      "pillars": ["work and school", "adulting", "sleep schedule", "texting and the group chat", "social battery"],
-      "rules": "Keep it kind: joke about situations everyone shares, never about specific groups of people.",
-      "tags": ["#relatablememes", "#memesdaily", "#adulting", "#workmemes", "#relatable"],
+    "shitpost": {
+      "name": "Zero Sensei", "handle": "@rottenmemeengine", "mono": "ZS", "noun": "cursed",
+      "bg": "#111111", "card": "#1d1d1d", "text": "#f5f5f0", "muted": "#8f8f8f", "accent": "#ff3df5", "accInk": "#111111",
+      "head": "Anton", "headFb": "Impact", "headW": "400", "upper": true,
+      "niche": "absurdist shitposting humor",
+      "voice": "a deadpan internet sensei posting cursed thoughts with zero context and total confidence",
+      "pillars": ["cursed shower thoughts", "absurd fake headlines and system notifications", "unhinged 3 AM logic", "deadpan non-sequiturs", "tiny everyday things treated as epic events"],
+      "rules": "Absurd and chaotic, never mean: no slurs, no punching at real people or groups, nothing sexual or gross-out. The weirdness should feel clever, not random noise.",
+      "tags": ["#shitpost", "#memes", "#brainrot", "#shitposting", "#dankmemes"],
       "slots": ["08:00", "11:00", "14:00", "17:00", "21:30"],
       "reelSlot": 1, "carouselSlot": 3,
-      "xQuery": "(\"me at 3am\" OR adulting OR \"my boss\" OR \"group chat\" OR \"social battery\") -is:retweet -is:reply lang:en"
+      "xQuery": "(\"shower thought\" OR \"3am\" OR \"brain rot\" OR unhinged OR \"no context\") -is:retweet -is:reply lang:en"
     }
   }
 }

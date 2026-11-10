@@ -37,7 +37,7 @@ const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47
     NO_GIT: "1", SITE_DIR: SITE, ANTHROPIC_API_KEY: "test", ANTHROPIC_BASE_URL: base,
     NODE_PATH: "/opt/npm-tools/node_modules", CHROME_PATH: "/usr/bin/google-chrome",
     IG_API_BASE: base, MEDIA_BASE_URL: `${base}/site`, PUBLISH_ENABLED: "true",
-    ...Object.fromEntries(["GYM", "ANIME", "MONEY", "RELATABLE"].flatMap((k, i) => [[`IG_USER_ID_${k}`, `17841400000${i}`], [`IG_TOKEN_${k}`, `tok_${k}`]])),
+    ...Object.fromEntries(["GYM", "ANIME", "MONEY", "SHITPOST"].flatMap((k, i) => [[`IG_USER_ID_${k}`, `17841400000${i}`], [`IG_TOKEN_${k}`, `tok_${k}`]])),
   };
 
   try {
@@ -50,7 +50,7 @@ const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47
 
     console.log("2. Generate (Claude stand-in; real trend sources are offline here)");
     const out = await run("engine/generate.js", ENV, ["2026-11-16"]);
-    for (const page of ["gym", "anime", "money", "relatable"]) {
+    for (const page of ["gym", "anime", "money", "shitpost"]) {
       const q = readQ(page), c = (f) => q.posts.filter((p) => p.format === f).length;
       ok(q.posts.length === 35 && c("reel") === 7 && c("carousel") === 4 && c("image") === 24, `${page}: 35 posts (7 Reels, 4 carousels, 24 images)`);
     }
@@ -63,7 +63,7 @@ const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47
     ok(pick(gym)[0].scheduledAt === "2026-11-16T11:30:00.000Z", "first gym slot is Mon 6:30 AM Eastern");
 
     console.log("3. Render images, carousels and Reels");
-    if (QUICK) for (const page of ["anime", "relatable"]) { const q = readQ(page); q.posts.forEach((p) => (p.needsRender = false)); writeQ(page, q); }
+    if (QUICK) for (const page of ["anime", "shitpost"]) { const q = readQ(page); q.posts.forEach((p) => (p.needsRender = false)); writeQ(page, q); }
     // Use an uploaded clip for one gym Reel
     const firstReel = gym.posts.find((p) => p.format === "reel");
     const clipRel = `uploads/gym/${firstReel.id}-${Date.now()}.mp4`;
@@ -73,7 +73,7 @@ const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47
     const t0 = Date.now();
     await run("engine/render.js", ENV);
     console.log(`   (render took ${((Date.now() - t0) / 1000).toFixed(0)}s)`);
-    for (const page of QUICK ? ["gym", "money"] : ["gym", "anime", "money", "relatable"]) {
+    for (const page of QUICK ? ["gym", "money"] : ["gym", "anime", "money", "shitpost"]) {
       const q = readQ(page);
       ok(q.posts.every((p) => !p.needsRender && p.renderVersion === 1 && p.media.length && p.media.every((m) => fs.existsSync(path.join(SITE, m)))), `${page}: every post rendered with files on disk`);
     }

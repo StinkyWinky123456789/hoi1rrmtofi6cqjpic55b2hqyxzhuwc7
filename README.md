@@ -1,6 +1,6 @@
 # Meme Engine
 
-Automated content pipeline for the four meme pages: **Gym Goblin, S-Rank Memes, Buy High Sell Low and Barely Functioning**.
+Automated content pipeline for the four meme pages: **Caffeine Junkey (@caffeinejunkey), Gombare Gombare (@gombaregombare), Money For Dummees (@moneyfordummees) and Zero Sensei (@rottenmemeengine)**.
 
 Every Saturday it collects trends, has Claude write and score twice as many memes as needed, keeps the best 35 per page (5 a day), renders images, carousels and finished Reel videos, and puts them in a review queue. You approve or fix them from your PC or phone. Approved posts go out on schedule, about every 20 minutes, through Instagram's official API, even when your computer is off. After posts go live, their reach and DM shares are fed back into next week's writing.
 
@@ -35,7 +35,7 @@ Every 20 min      Publisher posts the next approved post for each page (never tw
 ## One-time setup (about 1 to 2 hours)
 
 ### 1. Instagram accounts
-Create the four accounts. In each one go to **Settings → Account type and tools → Switch to professional account → Business**. Business accounts get full API support for posting, Reels and insights.
+In each of the four accounts go to **Settings → Account type and tools → Switch to professional account**. Instagram's API works with professional accounts (Creator or Business). **Creator** is recommended: it keeps the full music library for any Reels you post by hand. Test posting with one account first; if Meta rejects it for account type, switch that account to Business (it takes seconds and can be switched back).
 
 ### 2. GitHub repository
 1. Create a free GitHub account, then a **public** repository named `meme-engine`. It must be public so GitHub Pages and Actions are free. Your upcoming post queue will be visible to anyone who finds the repo.
@@ -65,10 +65,10 @@ In the repo: **Settings → Secrets and variables → Actions → New repository
 | `ANTHROPIC_API_KEY` | Claude API key |
 | `X_BEARER_TOKEN` | X bearer token |
 | `PEXELS_API_KEY` | Pexels key |
-| `IG_USER_ID_GYM`, `IG_TOKEN_GYM` | Gym Goblin's Instagram user ID and token |
-| `IG_USER_ID_ANIME`, `IG_TOKEN_ANIME` | S-Rank Memes |
-| `IG_USER_ID_MONEY`, `IG_TOKEN_MONEY` | Buy High Sell Low |
-| `IG_USER_ID_RELATABLE`, `IG_TOKEN_RELATABLE` | Barely Functioning |
+| `IG_USER_ID_GYM`, `IG_TOKEN_GYM` | @caffeinejunkey's Instagram user ID and token |
+| `IG_USER_ID_ANIME`, `IG_TOKEN_ANIME` | @gombaregombare |
+| `IG_USER_ID_MONEY`, `IG_TOKEN_MONEY` | @moneyfordummees |
+| `IG_USER_ID_SHITPOST`, `IG_TOKEN_SHITPOST` | @rottenmemeengine (Zero Sensei) |
 | `GH_PAT` | Optional but recommended: a fine-grained GitHub token for this repo with **Secrets: Read and write**, so Instagram tokens renew themselves every 2 weeks (they expire after 60 days) |
 
 On the **Variables** tab, add `PUBLISH_ENABLED` = `false` for now.
@@ -90,7 +90,7 @@ Leave `PUBLISH_ENABLED` as `false` for the first day and check **Actions → Pub
 - **Saturday:** next week's 140 posts arrive in the review queue.
 - **Saturday to Monday morning:** review them. Use **Videos to review** to clear the Reels in one pass, and **Approve all shown scoring ≥ 8** to clear the strongest images quickly. Keys: `J`/`K` move, `A` approve, `R` reject, `E` edit, `Space` play the video.
 - **Editing:** caption edits save instantly. Text edits, **Swap footage**, **Swap audio** and **Use my own clip** re-render within about 20 minutes, then the post needs approving again.
-- The first slot each week is Monday 6:30 AM ET (Gym Goblin), so finish reviewing by then.
+- The first slot each week is Monday 6:30 AM ET (@caffeinejunkey), so finish reviewing by then.
 
 ## Changing things
 Everything lives in `config/pages.json`: names, handles, colors, posting times (Eastern), posts per day, which slot is the Reel, carousel days, hashtags, X search queries, the Claude model and the X monthly cap.

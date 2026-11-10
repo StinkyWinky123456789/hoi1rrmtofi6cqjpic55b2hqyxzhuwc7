@@ -23,5 +23,5 @@ jobs:
           IG_TOKEN_GYM: ${{ secrets.IG_TOKEN_GYM }}
           IG_TOKEN_ANIME: ${{ secrets.IG_TOKEN_ANIME }}
           IG_TOKEN_MONEY: ${{ secrets.IG_TOKEN_MONEY }}
-          IG_TOKEN_RELATABLE: ${{ secrets.IG_TOKEN_RELATABLE }}
+          IG_TOKEN_SHITPOST: ${{ secrets.IG_TOKEN_SHITPOST }}
         run: node engine/refresh-tokens.js

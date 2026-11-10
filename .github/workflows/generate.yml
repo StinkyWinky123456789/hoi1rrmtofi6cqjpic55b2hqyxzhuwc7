@@ -11,7 +11,7 @@ on:
         description: "Monday to generate (YYYY-MM-DD). Blank = next Monday."
         required: false
       page:
-        description: "Only this page (gym, anime, money, relatable). Blank = all."
+        description: "Only this page (gym, anime, money, shitpost). Blank = all."
         required: false
       force:
         description: "Regenerate even if the week already exists"
@@ -34,8 +34,8 @@ env:
   IG_TOKEN_ANIME: ${{ secrets.IG_TOKEN_ANIME }}
   IG_USER_ID_MONEY: ${{ secrets.IG_USER_ID_MONEY }}
   IG_TOKEN_MONEY: ${{ secrets.IG_TOKEN_MONEY }}
-  IG_USER_ID_RELATABLE: ${{ secrets.IG_USER_ID_RELATABLE }}
-  IG_TOKEN_RELATABLE: ${{ secrets.IG_TOKEN_RELATABLE }}
+  IG_USER_ID_SHITPOST: ${{ secrets.IG_USER_ID_SHITPOST }}
+  IG_TOKEN_SHITPOST: ${{ secrets.IG_TOKEN_SHITPOST }}
 
 jobs:
   build:
