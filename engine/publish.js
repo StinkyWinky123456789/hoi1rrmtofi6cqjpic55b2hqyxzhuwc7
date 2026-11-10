@@ -50,6 +50,7 @@ async function main() {
     if (!urls.length) { U.log(`${p.id}: no media`); continue; }
     if (!(await reachable(urls[0]))) { U.log(`${p.id}: media not live yet at ${urls[0]} (Pages still deploying?); will retry`); continue; }
     if (!LIVE) { U.log(`[dry run] would post ${p.id} (${p.format}) to ${cfg.pages[key].handle}: ${urls[0]}`); continue; }
+    if (!IG.creds(key)) { U.log(`${key}: no Instagram secrets yet (IG_USER_ID_${key.toUpperCase()} / IG_TOKEN_${key.toUpperCase()}); skipping until they're added`); continue; }
     try {
       U.log(`posting ${p.id} (${p.format}) to ${cfg.pages[key].handle}`);
       const res = await IG.publish(key, p, urls);
