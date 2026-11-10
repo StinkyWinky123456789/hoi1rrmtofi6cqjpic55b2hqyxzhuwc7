@@ -1,0 +1,20 @@
+{
+  "name": "meme-engine",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Trend-driven meme generation, review queue and Instagram auto-posting for four meme pages.",
+  "license": "UNLICENSED",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "generate": "node engine/generate.js",
+    "render": "node engine/render.js",
+    "publish": "node engine/publish.js",
+    "metrics": "node engine/metrics.js",
+    "fonts": "node engine/fetch-fonts.js",
+    "site": "node engine/site.js",
+    "test": "node test/run-tests.js"
+  },
+  "dependencies": {
+    "playwright-core": "^1.50.0"
+  }
+}

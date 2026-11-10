@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Meme Engine renderer</title>
+<style>
+  @font-face{font-family:Inter;src:url(../fonts/Inter-Regular.otf);font-weight:400}
+  @font-face{font-family:Inter;src:url(../fonts/Inter-Medium.otf);font-weight:500}
+  @font-face{font-family:Inter;src:url(../fonts/Inter-SemiBold.otf);font-weight:600}
+  @font-face{font-family:Inter;src:url(../fonts/Inter-Bold.otf);font-weight:700}
+  @font-face{font-family:Inter;src:url(../fonts/Inter-ExtraBold.otf);font-weight:800}
+  @font-face{font-family:Anton;src:url(../fonts/Anton-Regular.ttf);font-weight:400}
+  @font-face{font-family:Rajdhani;src:url(../fonts/Rajdhani-Bold.ttf);font-weight:700}
+  @font-face{font-family:"Archivo Black";src:url(../fonts/ArchivoBlack-Regular.ttf);font-weight:400}
+  @font-face{font-family:"JetBrains Mono";src:url(../fonts/JetBrainsMono.ttf);font-weight:100 900}
+</style>
+<script src="../shared/templates.js"></script>
+</head>
+<body>
+<script>
+  const FONT_SPECS = ['400 40px Anton', '700 40px Rajdhani', '400 40px "Archivo Black"', '500 40px "JetBrains Mono"', '700 40px "JetBrains Mono"',
+    '400 40px Inter', '500 40px Inter', '600 40px Inter', '700 40px Inter', '800 40px Inter'];
+  window.fontsReady = Promise.all(FONT_SPECS.map((f) => document.fonts.load(f).catch(() => null)))
+    .then(() => FONT_SPECS.map((f) => [f, document.fonts.check(f)]));
+
+  /** Render every frame a post needs. Returns [{name, mime, dataUrl}] */
+  window.renderPost = async function (page, post) {
+    await window.fontsReady;
+    return MemeTemplates.framesFor(post).map((fr) => {
+      const c = document.createElement("canvas"); c.width = fr.w; c.height = fr.h;
+      MemeTemplates.drawPost(c.getContext("2d"), fr.w, fr.h, page, post, { kind: fr.kind, slide: fr.slide });
+      const png = fr.kind === "overlay";
+      return { name: fr.name, mime: png ? "image/png" : "image/jpeg", dataUrl: c.toDataURL(png ? "image/png" : "image/jpeg", 0.92) };
+    });
+  };
+  window.renderProfile = async function (page) {
+    await window.fontsReady;
+    const c = document.createElement("canvas"); c.width = c.height = 1080;
+    MemeTemplates.renderProfile(c.getContext("2d"), 1080, page);
+    return c.toDataURL("image/jpeg", 0.95);
+  };
+</script>
+</body>
+</html>

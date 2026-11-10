@@ -1,0 +1,92 @@
+name: Publish
+
+# Every 20 minutes: post approved memes whose time has come, then re-render anything you edited
+# in the review queue (new text, swapped footage or audio, your own clip).
+on:
+  schedule:
+    - cron: "7,27,47 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: meme-pipeline
+  cancel-in-progress: false
+
+env:
+  PUBLISH_ENABLED: ${{ vars.PUBLISH_ENABLED }}
+  MEDIA_BASE_URL: ${{ vars.MEDIA_BASE_URL }}
+  IG_USER_ID_GYM: ${{ secrets.IG_USER_ID_GYM }}
+  IG_TOKEN_GYM: ${{ secrets.IG_TOKEN_GYM }}
+  IG_USER_ID_ANIME: ${{ secrets.IG_USER_ID_ANIME }}
+  IG_TOKEN_ANIME: ${{ secrets.IG_TOKEN_ANIME }}
+  IG_USER_ID_MONEY: ${{ secrets.IG_USER_ID_MONEY }}
+  IG_TOKEN_MONEY: ${{ secrets.IG_TOKEN_MONEY }}
+  IG_USER_ID_RELATABLE: ${{ secrets.IG_USER_ID_RELATABLE }}
+  IG_TOKEN_RELATABLE: ${{ secrets.IG_TOKEN_RELATABLE }}
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    outputs:
+      needs_render: ${{ steps.check.outputs.needs_render }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: |
+          git config user.name "meme-engine bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Post what's due
+        run: node engine/publish.js
+      - name: Anything edited that needs re-rendering?
+        id: check
+        if: always()
+        run: |
+          git pull -q --rebase origin main || true
+          n=$(node -e 'const U=require("./engine/lib/util");let n=0;for(const q of U.listQueueFiles())for(const p of U.readJSON(q.file).posts)if(p.needsRender&&!["rejected","posted","missed"].includes(p.status))n++;console.log(n)')
+          echo "needs_render=$n" >> "$GITHUB_OUTPUT"
+          echo "$n post(s) waiting to render"
+
+  render:
+    needs: publish
+    if: always() && needs.publish.outputs.needs_render != '0' && needs.publish.outputs.needs_render != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - run: bash scripts/site-checkout.sh
+      - name: Tools
+        run: |
+          node engine/fetch-fonts.js
+          which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+          echo "CHROME_PATH=$(command -v google-chrome || command -v chromium || true)" >> "$GITHUB_ENV"
+      - name: Re-render edited posts
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+        run: node engine/render.js --commit
+      - run: |
+          node engine/site.js
+          bash scripts/site-push.sh "Re-render edited posts"
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: render
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    steps:
+      - uses: actions/deploy-pages@v4

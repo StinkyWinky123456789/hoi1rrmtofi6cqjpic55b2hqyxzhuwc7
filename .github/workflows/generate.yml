@@ -1,0 +1,102 @@
+name: Generate next week
+
+# Every Saturday at 10:15 AM Eastern (15:15 UTC): collect trends, write and score memes with Claude,
+# render images and Reels, and put them in the review queue for next Monday-Sunday.
+on:
+  schedule:
+    - cron: "15 15 * * 6"
+  workflow_dispatch:
+    inputs:
+      week_start:
+        description: "Monday to generate (YYYY-MM-DD). Blank = next Monday."
+        required: false
+      page:
+        description: "Only this page (gym, anime, money, relatable). Blank = all."
+        required: false
+      force:
+        description: "Regenerate even if the week already exists"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: meme-pipeline
+  cancel-in-progress: false
+
+env:
+  IG_USER_ID_GYM: ${{ secrets.IG_USER_ID_GYM }}
+  IG_TOKEN_GYM: ${{ secrets.IG_TOKEN_GYM }}
+  IG_USER_ID_ANIME: ${{ secrets.IG_USER_ID_ANIME }}
+  IG_TOKEN_ANIME: ${{ secrets.IG_TOKEN_ANIME }}
+  IG_USER_ID_MONEY: ${{ secrets.IG_USER_ID_MONEY }}
+  IG_TOKEN_MONEY: ${{ secrets.IG_TOKEN_MONEY }}
+  IG_USER_ID_RELATABLE: ${{ secrets.IG_USER_ID_RELATABLE }}
+  IG_TOKEN_RELATABLE: ${{ secrets.IG_TOKEN_RELATABLE }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - name: Prepare media site
+        run: bash scripts/site-checkout.sh
+      - name: Tools
+        run: |
+          node engine/fetch-fonts.js
+          which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+          echo "CHROME_PATH=$(command -v google-chrome || command -v chromium || true)" >> "$GITHUB_ENV"
+
+      - name: Learn from last week's posts (Instagram insights)
+        run: node engine/metrics.js
+        continue-on-error: true
+
+      - name: Collect trends and write memes with Claude
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
+        run: |
+          args=""
+          [ -n "${{ inputs.week_start }}" ] && args="$args ${{ inputs.week_start }}"
+          [ -n "${{ inputs.page }}" ] && args="$args --page ${{ inputs.page }}"
+          [ "${{ inputs.force }}" = "true" ] && args="$args --force"
+          node engine/generate.js $args
+      - name: Save the new queue
+        run: |
+          git add queue state
+          git diff --cached --quiet || git commit -q -m "Generate queue"
+          for i in 1 2 3 4; do git push -q origin HEAD:main && exit 0; git pull -q --rebase origin main; done
+          echo "could not push the new queue" >&2; exit 1
+
+      - name: Render images, carousels and Reels
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+        run: node engine/render.js --commit
+
+      - name: Update review app and clean old media
+        run: |
+          node engine/site.js
+          bash scripts/site-push.sh "Weekly media update"
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

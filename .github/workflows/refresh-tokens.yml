@@ -1,0 +1,27 @@
+name: Refresh Instagram tokens
+
+# Instagram tokens expire after 60 days. This refreshes them on the 1st and 15th of every month.
+on:
+  schedule:
+    - cron: "40 13 1,15 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Refresh and save tokens
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+          IG_TOKEN_GYM: ${{ secrets.IG_TOKEN_GYM }}
+          IG_TOKEN_ANIME: ${{ secrets.IG_TOKEN_ANIME }}
+          IG_TOKEN_MONEY: ${{ secrets.IG_TOKEN_MONEY }}
+          IG_TOKEN_RELATABLE: ${{ secrets.IG_TOKEN_RELATABLE }}
+        run: node engine/refresh-tokens.js

@@ -1,0 +1,5 @@
+node_modules/
+site/
+*.log
+test/*.png
+.DS_Store
