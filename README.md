@@ -44,6 +44,8 @@ In each of the four accounts go to **Settings → Account type and tools → Swi
 4. **Settings → Actions → General → Workflow permissions: Read and write permissions.**
 
 ### 3. Meta (Instagram) developer app
+> **New Meta apps (created from late 2026) only get "Instagram API with Unified Login".** On the Instagram setup page, create a configuration (Login variation: General; Access token: System-user access token; Business assets: Instagram account; permissions incl. `instagram_basic`, `instagram_content_publish`, `instagram_manage_insights`), register a redirect URL (your review page URL works), add the Instagram accounts to your business portfolio, then generate the token. These tokens start with `EAA`, never expire, and the engine automatically posts through graph.facebook.com with them. The steps below describe the older Instagram Login flow, which existing apps may still have.
+
 1. Go to [developers.facebook.com](https://developers.facebook.com), choose **My Apps → Create app**, and pick the Instagram use case. Meta renames these options often; pick the one that includes the *Instagram API*.
 2. Open **Instagram → API setup with Instagram business login**.
 3. Under **App roles → Roles**, add each of your four Instagram accounts as an **Instagram tester**, and accept the invite in each account (Settings → Apps and websites).

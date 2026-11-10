@@ -1,8 +1,15 @@
-// Instagram API with Instagram Login (graph.instagram.com): publish images, carousels and Reels; read insights.
+// Instagram publishing and insights. Works with both Meta token types:
+//  - Unified Login / Facebook Login tokens (start with "EAA", used by new Meta apps) -> graph.facebook.com
+//  - Instagram Login tokens (start with "IG") -> graph.instagram.com
+// The publishing endpoints are the same on both hosts.
 "use strict";
 const { sleep, log } = require("./util");
 
-const BASE = (process.env.IG_API_BASE || "https://graph.instagram.com").replace(/\/$/, "");
+function baseFor(token) {
+  if (process.env.IG_API_BASE) return process.env.IG_API_BASE.replace(/\/$/, "");
+  return /^EAA/.test(token || "") ? "https://graph.facebook.com" : "https://graph.instagram.com";
+}
+const isSystemUserToken = (token) => /^EAA/.test(token || "");
 const VER = process.env.IG_API_VERSION || "v27.0";
 
 function creds(pageKey) {
@@ -12,7 +19,7 @@ function creds(pageKey) {
 }
 
 async function call(method, pathname, params, token) {
-  const url = new URL(`${BASE}/${VER}/${pathname.replace(/^\//, "")}`);
+  const url = new URL(`${baseFor(token)}/${VER}/${pathname.replace(/^\//, "")}`);
   const body = new URLSearchParams({ ...params, access_token: token });
   let r;
   if (method === "GET") { for (const [k, v] of body) url.searchParams.set(k, v); r = await fetch(url); }
@@ -77,11 +84,12 @@ async function insights(pageKey, mediaId) {
 }
 
 async function refreshToken(token) {
-  const url = new URL(`${BASE}/refresh_access_token`);
+  if (isSystemUserToken(token)) return { access_token: token, expires_in: 0, neverExpires: true };
+  const url = new URL(`${baseFor(token)}/refresh_access_token`);
   url.searchParams.set("grant_type", "ig_refresh_token"); url.searchParams.set("access_token", token);
   const r = await fetch(url); const j = await r.json().catch(() => ({}));
   if (!r.ok || !j.access_token) throw new Error(`refresh failed: ${j.error?.message || r.status}`);
   return j; // {access_token, token_type, expires_in}
 }
 
-module.exports = { publish, insights, refreshToken, creds };
+module.exports = { publish, insights, refreshToken, creds, isSystemUserToken };

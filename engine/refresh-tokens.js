@@ -12,6 +12,7 @@ const IG = require("./lib/instagram");
     const name = `IG_TOKEN_${key.toUpperCase()}`, token = process.env[name];
     if (!token) { U.log(`${key}: no ${name} secret yet`); continue; }
     try {
+      if (IG.isSystemUserToken(token)) { U.log(`${key}: Unified Login system-user token; it never expires, nothing to refresh`); continue; }
       const j = await IG.refreshToken(token);
       console.log(`::add-mask::${j.access_token}`);
       const days = Math.round((j.expires_in || 0) / 86400);
