@@ -12,4 +12,3 @@ else
 fi
 git -C site config user.name "meme-engine bot"
 git -C site config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-echo "MEDIA_BASE_SHA=$(git -C site rev-parse HEAD 2>/dev/null || echo none)" >> "${GITHUB_ENV:-/dev/null}"
