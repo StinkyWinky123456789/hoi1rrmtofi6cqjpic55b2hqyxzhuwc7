@@ -83,6 +83,14 @@
     c.restore();
   }
 
+  function photoBg(c, img, x, y, w, h, r, shade) {
+    cover(c, img, x, y, w, h, r);
+    c.save(); rr(c, x, y, w, h, r || 0); c.clip();
+    const g = c.createLinearGradient(0, y, 0, y + h);
+    g.addColorStop(0, `rgba(0,0,0,${shade})`); g.addColorStop(1, `rgba(0,0,0,${Math.min(0.9, shade + 0.2)})`);
+    c.fillStyle = g; c.fillRect(x, y, w, h); c.restore();
+  }
+
   /* ---------- Feed templates ---------- */
   function tClassic(c, W, H, t, d, s) {
     bgFill(c, W, H, t);
@@ -165,23 +173,25 @@
     const x = 50, w = W - 100, top = 50, gap = 30, bottom = 112;
     const ph = (H - top - bottom - gap) / 2;
     const labels = d.l && d.l.length === 2 ? d.l : ["Expectation", "Reality"];
-    [[labels[0], d.a, 0], [labels[1], d.b, 1]].forEach(([lab, txt, i]) => {
+    [[labels[0], d.a, 0, d.img], [labels[1], d.b, 1, d.img2 || d.img]].forEach(([lab, txt, i, photo]) => {
       const y = top + i * (ph + gap);
+      if (photo) photoBg(c, photo, x, y, w, ph, 32, 0.45);
       rr(c, x, y, w, ph, 32);
-      if (i === 1) { c.fillStyle = hexA(t.accent, 0.12); c.fill(); c.lineWidth = 4; c.strokeStyle = t.accent; c.stroke(); }
-      else { c.fillStyle = t.card; c.fill(); }
+      if (i === 1) { if (!photo) { c.fillStyle = hexA(t.accent, 0.12); c.fill(); } c.lineWidth = 4; c.strokeStyle = t.accent; c.stroke(); }
+      else if (!photo) { c.fillStyle = t.card; c.fill(); }
       c.font = inter(800, 32);
       const L = String(lab || "").toUpperCase(), lw = c.measureText(L).width + 44;
       rr(c, x + 36, y + 36, lw, 58, 29); c.fillStyle = i === 1 ? t.accent : t.muted; c.fill();
       c.fillStyle = i === 1 ? t.accInk : t.bg; c.textAlign = "left"; c.textBaseline = "middle";
       c.fillText(L, x + 58, y + 66);
       const f = fit(c, up(t, txt || ""), (n) => (t.upper ? headFont(t, n) : inter(800, n)), w - 100, ph - 170, 84 * s, 30, 1.12);
-      draw(c, f, W / 2, y + 110 + (ph - 110 - f.h) / 2 - 10, 1.12, "center", t.text);
+      draw(c, f, W / 2, y + 110 + (ph - 110 - f.h) / 2 - 10, 1.12, "center", photo ? "#ffffff" : t.text, photo ? "#000000" : null);
     });
     watermark(c, W, H, t);
   }
   function tTicker(c, W, H, t, d, s) {
     bgFill(c, W, H, t);
+    if (d.img) { c.save(); c.globalAlpha = 0.3; cover(c, d.img, 0, 0, W, H, 0); c.restore(); c.fillStyle = hexA(t.bg, 0.45); c.fillRect(0, 0, W, H); }
     const a = String(d.a || "").replace(/ ([▲▼]) /g, " $1 ");
     const isDown = a.includes("▼");
     const col = isDown ? t.down || "#ff5a5a" : a.includes("▲") ? t.up || "#35d07f" : t.accent;
@@ -208,8 +218,9 @@
 
   /* ---------- Carousel ---------- */
   function slideList(post) { return [post.a || "", ...(post.s || []).filter((x) => String(x).trim()), "__cta__"]; }
-  function tSlide(c, W, H, t, post, s, k) {
+  function tSlide(c, W, H, t, post, s, k, img) {
     bgFill(c, W, H, t);
+    if (img) { photoBg(c, img, 0, 0, W, H, 0, 0.5); t = Object.assign({}, t, { text: "#ffffff", muted: "rgba(255,255,255,.75)" }); }
     const list = slideList(post), n = list.length, pad = 90;
     c.font = inter(800, 30); c.textAlign = "left"; c.textBaseline = "top"; c.fillStyle = t.accent;
     c.fillText(t.name.toUpperCase(), pad, 64);
@@ -264,8 +275,8 @@
   function drawPost(c, W, H, page, post, opts) {
     const o = opts || {}, s = o.scale || 1;
     if (o.kind === "overlay") return tOverlay(c, W, H, page, post, s);
-    if (o.kind === "slide") return tSlide(c, W, H, page, post, s, o.slide || 0);
-    const d = { tpl: post.template, a: post.a, b: post.b, l: post.l, img: o.img || null };
+    if (o.kind === "slide") return tSlide(c, W, H, page, post, s, o.slide || 0, o.img || null);
+    const d = { tpl: post.template, a: post.a, b: post.b, l: post.l, img: o.img || null, img2: o.img2 || null };
     (FEED[post.template] || tClassic)(c, W, H, page, d, s);
   }
 
