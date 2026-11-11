@@ -33,6 +33,8 @@ const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47
   execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-f", "lavfi", "-i", "sine=frequency=330:duration=12", "-c:a", "libmp3lame", path.join(TMP, "assets/audio/funny/test-tone.mp3")]);
   const ASSETS = path.join(TMP, "test-assets"); fs.mkdirSync(ASSETS);
   for (const [k, c] of [[1, "red"], [2, "blue"], [3, "green"]]) execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-f", "lavfi", "-i", `testsrc2=size=1280x853`, "-frames:v", "1", "-vf", `drawbox=x=0:y=0:w=200:h=200:color=${c}:t=fill`, path.join(ASSETS, `photo${k}.jpg`)]);
+  execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-f", "lavfi", "-i", "color=c=0x3366cc:s=600x600", "-frames:v", "1", path.join(ASSETS, "meme.png")]);
+  execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-f", "lavfi", "-i", "sine=frequency=80:duration=1", "-ac", "2", path.join(ASSETS, "sfx.mp3")]);
   for (const k of [1, 2]) execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-f", "lavfi", "-i", "testsrc2=size=1080x1920:rate=30:duration=6", "-pix_fmt", "yuv420p", path.join(ASSETS, `clip${k}.mp4`)]);
   const { server, port, log } = await mock.start({ siteDir: SITE, ghRoot: TMP, assetDir: ASSETS });
   const base = `http://127.0.0.1:${port}`;
@@ -40,6 +42,7 @@ const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47
     NO_GIT: "1", SITE_DIR: SITE, ANTHROPIC_API_KEY: "test", ANTHROPIC_BASE_URL: base,
     NODE_PATH: "/opt/npm-tools/node_modules", CHROME_PATH: "/usr/bin/google-chrome",
     PIXABAY_API_KEY: "test", PIXABAY_BASE: `${base}/pixabay/api`,
+    MEMEGEN_BASE: `${base}/memegen`, FREESOUND_API_KEY: "test", FREESOUND_BASE: `${base}/freesound`,
     IG_API_BASE: base, MEDIA_BASE_URL: `${base}/site`, PUBLISH_ENABLED: "true",
     ...Object.fromEntries(["GYM", "ANIME", "MONEY", "SHITPOST"].flatMap((k, i) => [[`IG_USER_ID_${k}`, `17841400000${i}`], [`IG_TOKEN_${k}`, `tok_${k}`]])),
   };
@@ -91,11 +94,19 @@ const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47
     ok(car.media.length === 6 && car.media.every((m) => m.endsWith(".jpg")), "carousel rendered to 6 JPEG slides (title + 4 + follow)");
     ok(g2.posts.filter((p) => p.format === "image").every((p) => p.media[0].endsWith(".jpg")), "images are JPEG (Instagram requires JPEG)");
     const stills = g2.posts.filter((p) => p.format !== "reel");
-    ok(stills.every((p) => p.visual && /photo \d of 3/.test(p.renderNote || "") && p.visualSource), `all ${stills.length} image and carousel memes got stock photos`);
+    const photoStills = stills.filter((p) => p.template !== "meme"), memePosts = stills.filter((p) => p.template === "meme");
+    ok(photoStills.every((p) => p.visual && /photo \d of 3/.test(p.renderNote || "") && p.visualSource), `all ${photoStills.length} photo memes got stock photos`);
+    ok(memePosts.length >= 4 && memePosts.every((p) => p.mt && p.ml.length >= 2 && /meme template/.test(p.renderNote) && /\/memegen\/images\//.test(p.visualSource)), `${memePosts.length} classic meme-template posts rendered via Memegen`);
+    ok(memePosts.some((p) => p.mt === "db" && p.ml.length === 3), "meme lines padded to the template's line count");
     const vs = stills.find((p) => p.template === "versus");
     ok(!vs || (vs.renderNote.match(/photo/g) || []).length === 2, "versus memes get a photo for each panel");
     const stockReel = g2.posts.find((p) => p.format === "reel" && !p.customClip);
     ok(/Pixabay clip/.test(stockReel.renderNote), "Reels use Pixabay stock footage");
+    ok(stockReel.sfx === "vine boom" && /sfx "boom\d" \(Freesound \d, CC0\)/.test(stockReel.renderNote) && log.freesound >= 1, "Reels get a CC0 Freesound effect on the punchline");
+    // the punchline should only appear after the beat: compare a frame before and after
+    const frame = (t) => execFileSync("ffmpeg", ["-loglevel", "error", "-ss", String(t), "-i", path.join(SITE, stockReel.media.find((m) => m.endsWith(".mp4"))), "-frames:v", "1", "-vf", "crop=1080:500:0:1000,scale=54:25,format=gray", "-f", "rawvideo", "-"]);
+    const f1 = frame(0.8), f2 = frame(5); let diff = 0; for (let i = 0; i < f1.length; i++) diff += Math.abs(f1[i] - f2[i]);
+    ok(diff / f1.length > 4, `punchline lands later in the Reel (lower-frame change ${(diff / f1.length).toFixed(1)})`);
 
     console.log("4. Publisher (Instagram stand-in)");
     const now = Date.now(), iso = (ms) => new Date(ms).toISOString();
@@ -127,6 +138,16 @@ const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47
     const igBefore = log.ig.length, postedBefore = readQ("money").posts.filter((p) => p.status === "posted").length;
     const dry = await run("engine/publish.js", { ...ENV, PUBLISH_ENABLED: "false" });
     ok(/\[dry run\] would post money-/.test(dry) && log.ig.length === igBefore && readQ("money").posts.filter((p) => p.status === "posted").length === postedBefore, "dry-run mode (the default) logs what it would post and posts nothing");
+
+    const cfgPath = path.join(TMP, "config/pages.json"), cfgRaw = fs.readFileSync(cfgPath, "utf8"), cfgJ = JSON.parse(cfgRaw);
+    cfgJ.pages.money.manualReels = true; fs.writeFileSync(cfgPath, JSON.stringify(cfgJ));
+    const mq2 = readQ("money"); mq2.posts.forEach((p) => { if (p.postedAt) p.postedAt = iso(now - 3 * 3600e3); });
+    const mr = mq2.posts.find((p) => p.format === "reel" && p.status !== "posted"); Object.assign(mr, { status: "approved", approvedVersion: mr.renderVersion, scheduledAt: iso(now - 16 * 3600e3) });
+    mq2.posts.filter((p) => p.status === "approved" && p !== mr).forEach((p) => (p.scheduledAt = iso(now + 864e5))); writeQ("money", mq2);
+    await run("engine/publish.js", ENV);
+    const mr2 = readQ("money").posts.find((p) => p.id === mr.id);
+    ok(mr2.status === "approved", "manualReels: approved Reels are left for you to post by hand (not posted, not marked missed)");
+    fs.writeFileSync(cfgPath, cfgRaw);
 
     console.log("5. Insights loop");
     for (const page of ["gym", "money"]) { const q = readQ(page); q.posts.filter((p) => p.status === "posted").forEach((p) => (p.postedAt = iso(now - 3 * 864e5))); writeQ(page, q); }
@@ -171,6 +192,19 @@ const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47
     await pg.click(".card.focus >> text=Save and re-render"); await pg.waitForTimeout(3500);
     ok(readQ("gym").posts.some((p) => p.a === "When the edit lands" && p.needsRender), "text edits save and queue a re-render");
     await pg.screenshot({ path: path.join(SRC, "test", "review-edit.png") });
+    ok(await pg.$$eval(".card a[download]", (as) => as.length) >= 1, "Reels have a Download video button");
+    // Bulk: delete everything shown in the gym "Needs review" view, then clear the money tab
+    pg.on("dialog", (d) => d.accept());
+    const gymBefore = readQ("gym").posts.length, postedGym = readQ("gym").posts.filter((p) => p.status === "posted").length;
+    await pg.click("#bulkDelete"); await pg.waitForFunction(() => /Saved|failed/.test(document.getElementById("save").textContent), null, { timeout: 20000 }).catch(() => {}); await pg.waitForTimeout(500);
+    const gymAfter = readQ("gym").posts;
+    ok(gymAfter.length < gymBefore && !gymAfter.some((p) => p.status === "pending" && !p.needsRender), `Delete all shown removed ${gymBefore - gymAfter.length} posts from the queue`);
+    ok(gymAfter.filter((p) => p.status === "posted").length === postedGym, "bulk delete never touches posted posts");
+    await pg.click("text=Approved").catch(() => {}); await pg.waitForTimeout(300);
+    await pg.click("#bulkReject"); await pg.waitForTimeout(3500);
+    ok(!readQ("gym").posts.some((p) => p.status === "approved"), "Reject all shown rejects every approved post in view");
+    await pg.click("#clearAll"); await pg.waitForFunction(() => /Saved|failed/.test(document.getElementById("save").textContent), null, { timeout: 20000 }).catch(() => {}); await pg.waitForTimeout(3500);
+    ok(readQ("gym").posts.every((p) => p.status === "posted"), "Clear queue empties the tab except for posts already on Instagram");
     ok(errs.length === 0, "no page errors" + (errs.length ? ": " + errs.join("; ") : ""));
     await browser.close();
 

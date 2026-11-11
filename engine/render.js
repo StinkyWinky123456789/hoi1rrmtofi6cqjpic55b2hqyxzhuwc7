@@ -7,6 +7,7 @@ const path = require("path");
 const os = require("os");
 const { execFileSync } = require("child_process");
 const U = require("./lib/util");
+const Memes = require("./lib/memes");
 const { contentHash, applyChanges, commitQueue, pushSite } = require("./lib/changes");
 
 const REEL_SECONDS = 9;
@@ -52,6 +53,10 @@ async function pixabayImages(query) {
 
 /** Photos for a post as data: URLs. Images get 1 (versus 2: one per panel), carousels one per slide. */
 async function photosFor(post) {
+  if (post.format === "image" && post.template === "meme") {
+    try { return { urls: [await Memes.render(post.mt, post.ml || [])], note: `meme template "${post.mt}"`, source: Memes.imageUrl(post.mt, post.ml || []) }; }
+    catch (e) { return { urls: [], note: `meme template error (${e.message})` }; }
+  }
   if (!["image", "carousel"].includes(post.format) || !post.visual) return { urls: [], note: "" };
   const want = post.format === "carousel" ? MemeTemplates_slideCount(post) : 1;
   const out = [], notes = [], sources = [];
@@ -140,24 +145,68 @@ function audioTracks(mood) {
   return byMood.length ? byMood : all;
 }
 
-function ffmpegReel({ footage, bgColor, overlay, audio, out }) {
+/** When the punchline lands: later for longer setups (seconds). */
+function punchTime(post) { const words = String(post.a || "").split(/\s+/).filter(Boolean).length; return Math.max(2.0, Math.min(3.8, 1.4 + words * 0.17)); }
+
+/**
+ * Build the Reel: footage (or a plain background), setup text the whole time, punchline from P seconds
+ * with a zoom punch and a quick flash, music ducked under an optional sound effect that hits on the punchline.
+ */
+function ffmpegReel({ footage, bgColor, overlayA, overlayB, audio, sfx, punch, out }) {
+  const P = punch || 2.6, dur = REEL_SECONDS;
   const args = ["-y", "-hide_banner", "-loglevel", "error"];
-  if (footage) args.push("-stream_loop", "-1", "-i", footage);
-  else args.push("-f", "lavfi", "-i", `color=c=${bgColor.replace("#", "0x")}:s=1080x1920:r=30`);
-  args.push("-loop", "1", "-i", overlay);
-  if (audio) args.push("-stream_loop", "-1", "-i", audio);
-  else args.push("-f", "lavfi", "-i", "anullsrc=channel_layout=stereo:sample_rate=44100");
-  const bg = footage
-    ? "[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1,fps=30,eq=brightness=-0.07:saturation=0.92[bg]"
-    : "[0:v]setsar=1[bg]";
-  const filter = `${bg};[bg][1:v]overlay=0:0:format=auto,format=yuv420p[v];[2:a]afade=t=out:st=${REEL_SECONDS - 0.7}:d=0.7,aresample=44100[a]`;
-  args.push("-filter_complex", filter, "-map", "[v]", "-map", "[a]", "-t", String(REEL_SECONDS),
+  let n = 0;
+  if (footage) args.push("-stream_loop", "-1", "-i", footage); else args.push("-f", "lavfi", "-i", `color=c=${bgColor.replace("#", "0x")}:s=1080x1920:r=30`);
+  const vIdx = n++;
+  args.push("-loop", "1", "-i", overlayA); const aIdx = n++;
+  let bIdx = null; if (overlayB) { args.push("-loop", "1", "-i", overlayB); bIdx = n++; }
+  if (audio) args.push("-stream_loop", "-1", "-i", audio); else args.push("-f", "lavfi", "-i", "anullsrc=channel_layout=stereo:sample_rate=44100");
+  const mIdx = n++;
+  let sIdx = null; if (sfx && overlayB) { args.push("-i", sfx); sIdx = n++; }
+  const f = [];
+  f.push(`[${vIdx}:v]` + (footage ? "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1,fps=30,eq=brightness=-0.07:saturation=0.95" : "setsar=1,fps=30") + "[bg]");
+  if (overlayB) f.push(`[bg]zoompan=z='if(gte(it,${P}),1.10,1)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1080x1920:fps=30[z]`);
+  else f.push("[bg]null[z]");
+  f.push(`[z][${aIdx}:v]overlay=0:0:format=auto[v1]`);
+  if (overlayB) {
+    f.push(`[v1][${bIdx}:v]overlay=0:0:format=auto:enable='gte(t,${P})'[v2]`);
+    f.push(`[v2]drawbox=x=0:y=0:w=iw:h=ih:color=white@0.28:t=fill:enable='between(t,${P},${(P + 0.07).toFixed(2)})',format=yuv420p[v]`);
+  } else f.push("[v1]format=yuv420p[v]");
+  const musicVol = sIdx !== null ? 0.6 : 0.9;
+  f.push(`[${mIdx}:a]aresample=44100,volume=${musicVol},afade=t=out:st=${dur - 0.7}:d=0.7[m]`);
+  if (sIdx !== null) {
+    const ms = Math.round(P * 1000);
+    f.push(`[${sIdx}:a]aresample=44100,volume=1.4,adelay=${ms}|${ms},apad[s]`);
+    f.push(`[m][s]amix=inputs=2:normalize=0:duration=first[a]`);
+  } else f.push("[m]anull[a]");
+  args.push("-filter_complex", f.join(";"), "-map", "[v]", "-map", "[a]", "-t", String(dur),
     "-c:v", "libx264", "-preset", "veryfast", "-crf", "23", "-maxrate", "8M", "-bufsize", "16M", "-profile:v", "high", "-pix_fmt", "yuv420p",
     "-c:a", "aac", "-b:a", "128k", "-ac", "2", "-movflags", "+faststart", out);
   execFileSync("ffmpeg", args, { stdio: ["ignore", "inherit", "inherit"] });
 }
 
-async function renderReel(post, page, overlayFile, outDir, ver) {
+/* ---------- Sound effects: Freesound, CC0 only (no attribution needed) ---------- */
+const FREESOUND = (process.env.FREESOUND_BASE || "https://freesound.org/apiv2").replace(/\/$/, "");
+async function soundEffect(query, index) {
+  const key = U.secret("FREESOUND_API_KEY");
+  if (!key || !query) return { file: null, note: key ? "" : "no FREESOUND_API_KEY" };
+  const cacheFile = path.join(U.ROOT, "state", "freesound-cache.json"), cache = U.readJSON(cacheFile, {});
+  let hits = cache[query] && Date.now() - cache[query].t < 7 * 864e5 ? cache[query].hits : null;
+  if (!hits) {
+    const params = new URLSearchParams({ query, filter: 'license:"Creative Commons 0" duration:[0.2 TO 4]', fields: "id,name,previews,duration", sort: "rating_desc", page_size: "15", token: key });
+    const r = await fetchRetry(`${FREESOUND}/search/text/?${params}`);
+    if (!r.ok) return { file: null, note: `Freesound ${r.status}` };
+    const j = await r.json();
+    hits = (j.results || []).map((x) => ({ id: x.id, name: x.name, url: x.previews && (x.previews["preview-hq-mp3"] || x.previews["preview-lq-mp3"]) })).filter((x) => x.url);
+    cache[query] = { t: Date.now(), hits }; U.writeJSON(cacheFile, cache);
+  }
+  if (!hits.length) return { file: null, note: `no CC0 sound for "${query}"` };
+  const h = hits[(index || 0) % hits.length];
+  const file = await download(h.url, path.join(os.tmpdir(), "meme-sfx", `${h.id}.mp3`));
+  return { file, note: `sfx "${h.name}" (Freesound ${h.id}, CC0)` };
+}
+
+async function renderReel(post, page, overlays, outDir, ver) {
   let footage = null, note = "";
   if (post.customClip) {
     footage = path.join(U.SITE, post.customClip);
@@ -177,11 +226,13 @@ async function renderReel(post, page, overlayFile, outDir, ver) {
     } catch (e) { note = `footage error (${e.message}); plain background`; }
   }
   const tracks = audioTracks(post.mood), audio = tracks.length ? tracks[(post.audioIndex || 0) % tracks.length] : null;
+  let sfx = { file: null, note: "" };
+  if (post.sfx && overlays[1]) { try { sfx = await soundEffect(post.sfx, post.sfxIndex || 0); } catch (e) { sfx = { file: null, note: `sfx error (${e.message})` }; } }
   const out = path.join(outDir, `v${ver}.mp4`);
-  ffmpegReel({ footage, bgColor: page.bg, overlay: overlayFile, audio, out });
+  ffmpegReel({ footage, bgColor: page.bg, overlayA: overlays[0], overlayB: overlays[1] || null, audio, sfx: sfx.file, punch: punchTime(post), out });
   const cover = path.join(outDir, `v${ver}-cover.jpg`);
   execFileSync("ffmpeg", ["-y", "-hide_banner", "-loglevel", "error", "-ss", "1.5", "-i", out, "-frames:v", "1", "-q:v", "3", cover]);
-  post.renderNote = `${note}; audio: ${audio ? path.basename(audio) : "silent (add tracks to assets/audio)"}`;
+  post.renderNote = `${note}; music: ${audio ? path.basename(audio) : "none (add tracks to assets/audio)"}${sfx.note ? "; " + sfx.note : ""}`;
   return [out, cover];
 }
 
@@ -229,7 +280,7 @@ async function renderPending() {
           files.push(file);
         }
         let media = files;
-        if (post.format === "reel") { media = await renderReel(post, page, files[0], outDir, ver); fs.rmSync(files[0], { force: true }); }
+        if (post.format === "reel") { media = await renderReel(post, page, files, outDir, ver); files.forEach((f) => fs.rmSync(f, { force: true })); }
         for (const f of fs.readdirSync(outDir)) if (!f.startsWith(`v${ver}`)) fs.rmSync(path.join(outDir, f), { force: true });
         const patch = {
           media: media.map((f) => path.posix.join(rel, path.basename(f))), renderVersion: ver, needsRender: false,
@@ -258,5 +309,5 @@ async function main() {
   }
 }
 
-module.exports = { ffmpegReel, renderPending, pixabayClips, pixabayImages };
+module.exports = { ffmpegReel, renderPending, pixabayClips, pixabayImages, soundEffect, punchTime };
 if (require.main === module) main().catch((e) => { console.error(e); process.exit(1); });

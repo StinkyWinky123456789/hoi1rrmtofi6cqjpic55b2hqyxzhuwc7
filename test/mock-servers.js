@@ -24,9 +24,10 @@ function claudeHandler(body) {
       const syl = ["ka", "zo", "mi", "ru", "te", "lo", "vu", "ne", "pa", "shi", "bo", "ga"], R = () => Math.floor(Math.random() * 1e6), word = () => { const k = R(); return syl[k % 12] + syl[(k >> 4) % 12] + syl[(k >> 8) % 12] + syl[(k >> 12) % 12]; };
       const u1 = word(), u2 = word(), u3 = word();
       const base = { a: `When ${u1} ${x} ${u2}`, b: `${u3} ${y} mode`, caption: `This one is about ${x}.`, inspiredBy: i % 3 ? "evergreen" : "Dates coming up" };
+      if (kind === "IMAGE" && i % 3 === 2) return { ...base, template: "meme", mt: ["drake", "db", "fine"][Math.floor(i / 3) % 3], ml: [`${u1} ${x}`, `${u2} ${y}`] };
       if (kind === "IMAGE") { const t = tpls[i % tpls.length]; return { ...base, template: t, visual: `${x} person close up`, visual2: `${y} person relaxing`, ...(t === "versus" ? { l: ["What I planned", "What I did"] } : {}), ...(t === "ticker" ? { a: `$${x.replace(/\W/g, "").toUpperCase().slice(0, 8)} ▼ ${10 + i}%` } : {}) }; }
       if (kind === "CAROUSEL") return { ...base, visual: `${x} people`, a: `Types of ${u1} at the ${x}`, b: "", s: [`The ${u2} expert`, `The ${x} rookie`, `The one who forgot the ${u3}`, `You, reading this`] };
-      return { ...base, footage: `${x} close up`, mood: ["dramatic", "hype", "chill", "sad", "funny"][i % 5] };
+      return { ...base, footage: `${x} close up`, mood: ["dramatic", "hype", "chill", "sad", "funny"][i % 5], sfx: "vine boom" };
     });
     return { content: [{ type: "tool_use", id: "t1", name: tool, input: { memes } }], usage: { input_tokens: 1200, output_tokens: 3000 } };
   }
@@ -52,9 +53,23 @@ function start({ siteDir, ghRoot, assetDir }) {
       if (u.pathname === "/pixabay/api/videos/" || u.pathname === "/pixabay/api/videos") {
         return send(200, { hits: [1, 2].map((k) => ({ id: k, duration: 6, pageURL: `https://pixabay.example/video/${k}`, videos: { large: { url: `http://127.0.0.1:${server.address().port}/assets/clip${k}.mp4`, width: 1080, height: 1920 } } })) });
       }
+      // Memegen stand-in
+      if (u.pathname === "/memegen/templates/" || u.pathname === "/memegen/templates") {
+        return send(200, [["drake", "Drakeposting", 2], ["db", "Distracted Boyfriend", 3], ["fine", "This is Fine", 2]].map(([id, name, lines]) => ({ id, name, lines, keywords: [] })));
+      }
+      if (u.pathname.startsWith("/memegen/images/") && assetDir) {
+        log.memegen = (log.memegen || 0) + 1;
+        res.writeHead(200, { "content-type": "image/png" }); return fs.createReadStream(path.join(assetDir, "meme.png")).pipe(res);
+      }
+      // Freesound stand-in
+      if (u.pathname.startsWith("/freesound/search/text")) {
+        log.freesound = (log.freesound || 0) + 1;
+        const q = u.searchParams; if (!/Creative Commons 0/.test(q.get("filter") || "")) return send(400, { detail: "expected CC0 filter" });
+        return send(200, { results: [1, 2].map((k) => ({ id: k, name: `boom${k}`, duration: 1, previews: { "preview-hq-mp3": `http://127.0.0.1:${server.address().port}/assets/sfx.mp3` } })) });
+      }
       if (u.pathname.startsWith("/assets/") && assetDir) {
         const f = path.join(assetDir, path.basename(u.pathname));
-        if (fs.existsSync(f)) { res.writeHead(200, { "content-type": f.endsWith(".mp4") ? "video/mp4" : "image/jpeg" }); return fs.createReadStream(f).pipe(res); }
+        if (fs.existsSync(f)) { res.writeHead(200, { "content-type": f.endsWith(".mp4") ? "video/mp4" : f.endsWith(".mp3") ? "audio/mpeg" : f.endsWith(".png") ? "image/png" : "image/jpeg" }); return fs.createReadStream(f).pipe(res); }
       }
       // Claude
       if (u.pathname === "/v1/messages") { log.claude++; return send(200, claudeHandler(JSON.parse(raw))); }

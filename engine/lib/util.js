@@ -91,7 +91,7 @@ function jaccard(a, b) {
   let inter = 0; for (const x of A) if (B.has(x)) inter++;
   return inter / (A.size + B.size - inter);
 }
-function postText(p) { return [p.a, p.b, ...(p.s || [])].filter(Boolean).join(" "); }
+function postText(p) { return [p.a, ...(p.ml || []), p.b, ...(p.s || [])].filter(Boolean).join(" "); }
 
 module.exports = {
   ROOT, SITE, QUEUE, readJSON, writeJSON, loadConfig, log, sleep, secret,

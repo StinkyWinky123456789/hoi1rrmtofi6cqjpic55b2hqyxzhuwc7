@@ -85,6 +85,12 @@
     <input type="text" id="minScore" value="8" style="width:52px">
     <button class="btn sm" id="bulk">Approve</button>
   </div>
+  <div class="toolbar">
+    <span class="help">Bulk actions on everything shown below (posted posts are never touched):</span>
+    <button class="btn sm no" id="bulkReject">Reject all shown</button>
+    <button class="btn sm no" id="bulkDelete">Delete all shown</button>
+    <button class="btn sm no" id="clearAll">Clear queue (this page tab)</button>
+  </div>
   <div class="help">Keys: <kbd>J</kbd>/<kbd>K</kbd> next/previous · <kbd>A</kbd> approve · <kbd>R</kbd> reject · <kbd>E</kbd> edit · <kbd>Space</kbd> play/pause video. Changes save automatically.</div>
   <div id="list"></div>
   <div id="empty" class="hide"></div>
@@ -164,7 +170,10 @@ async function save() {
     for (const [path, list] of Object.entries(byPath)) {
       for (let attempt = 1; ; attempt++) {
         const latest = await getFile(path);
-        for (const c of list) { const p = latest.doc.posts.find((x) => x.id === c.id); if (p) Object.assign(p, c.patch); }
+        for (const c of list) {
+          if (c.patch.__delete) { latest.doc.posts = latest.doc.posts.filter((x) => x.id !== c.id || x.status === "posted"); continue; }
+          const p = latest.doc.posts.find((x) => x.id === c.id); if (p) Object.assign(p, c.patch);
+        }
         const bytes = new TextEncoder().encode(JSON.stringify(latest.doc, null, 2) + "\n");
         try {
           const r = await gh("PUT", `contents/${path}`, { message: `Review: ${list.length} change(s)`, content: b64enc(bytes), sha: latest.sha, branch: "main" });
@@ -173,7 +182,7 @@ async function save() {
       }
     }
     // Re-apply anything changed locally while we were saving
-    rebuild(); S.pending.forEach((c) => { const it = S.posts.find((x) => x.p.id === c.id); if (it) Object.assign(it.p, c.patch); });
+    rebuild(); S.pending.forEach((c) => applyLocal(c));
     status(S.pending.length ? `${S.pending.length} unsaved…` : "Saved ✓");
   } catch (e) { S.pending.unshift(...batch); status("Save failed: " + e.message + " (will retry)", true); setTimeout(save, 10000); }
   finally { S.saving = false; if (S.pending.length) setTimeout(save, 1500); }
@@ -268,12 +277,12 @@ function cardEl(item, idx) {
   card.onclick = () => { if (S.focus !== idx) { S.focus = idx; document.querySelectorAll(".card.focus").forEach((c) => c.classList.remove("focus")); card.classList.add("focus"); } };
   card.appendChild(mediaEl(item));
   const right = document.createElement("div");
-  const fmt = p.format === "reel" ? "Video · Reel" : p.format === "carousel" ? "Carousel" : `Image · ${p.template}`;
+  const fmt = p.format === "reel" ? "Video · Reel" : p.format === "carousel" ? "Carousel" : p.template === "meme" ? `Meme · ${p.mt}` : `Image · ${p.template}`;
   right.innerHTML = `<div class="meta"><span class="dot" style="background:${page.accent}"></span><b style="color:var(--ink)"></b><span></span>
     <span class="pill st-${p.status}">${p.status}</span><span class="pill">${fmt}</span><span>score <span class="score">${Number(p.score || 0).toFixed(1)}</span></span></div>
     <div class="text"></div><div class="sub why"></div><div class="sub note"></div>`;
   right.querySelector("b").textContent = page.name; right.querySelectorAll(".meta span")[1].textContent = when(p);
-  right.querySelector(".text").textContent = [p.a, p.b, ...(p.s || [])].filter(Boolean).join(" / ");
+  right.querySelector(".text").textContent = [p.a, ...(p.ml || []), p.b, ...(p.s || [])].filter(Boolean).join(" / ");
   right.querySelector(".why").textContent = [p.why && `Editor: ${p.why}`, p.inspiredBy && p.inspiredBy !== "evergreen" && `Inspired by: ${p.inspiredBy}`].filter(Boolean).join(" · ");
   right.querySelector(".note").textContent = p.format === "reel" ? [p.renderNote, p.footageSource && `source ${p.footageSource}`].filter(Boolean).join(" · ")
     : p.visual ? [p.renderNote, p.visualSource && `source ${p.visualSource}`].filter(Boolean).join(" · ") : "";
@@ -293,10 +302,18 @@ function cardEl(item, idx) {
     else btn("Undo approval", "", () => change(item, { status: "pending", approvedVersion: null }));
     if (p.status !== "rejected") btn("Reject", "no", () => change(item, { status: "rejected" })); else btn("Restore", "", () => change(item, { status: "pending" }));
     btn("Edit text", "", () => card.classList.toggle("editing"));
-    if (["image", "carousel"].includes(p.format)) btn(p.format === "carousel" ? "Swap photos" : "Swap image", "", () => rerender(item, { imageIndex: (p.imageIndex || 0) + 1 }));
+    if (["image", "carousel"].includes(p.format) && p.template !== "meme") btn(p.format === "carousel" ? "Swap photos" : "Swap image", "", () => rerender(item, { imageIndex: (p.imageIndex || 0) + 1 }));
     if (p.format === "reel") {
       btn("Swap footage", "", () => rerender(item, { footageIndex: (p.footageIndex || 0) + 1, customClip: null }));
-      btn("Swap audio", "", () => rerender(item, { audioIndex: (p.audioIndex || 0) + 1 }));
+      btn("Swap music", "", () => rerender(item, { audioIndex: (p.audioIndex || 0) + 1 }));
+      if (p.sfx) btn("Swap sound effect", "", () => rerender(item, { sfxIndex: (p.sfxIndex || 0) + 1 }));
+      const mp4 = (p.media || []).find((m) => m.endsWith(".mp4"));
+      if (mp4 && !p.needsRender) {
+        const a = document.createElement("a"); a.href = mp4; a.download = `${p.id}.mp4`; a.className = "btn sm"; a.textContent = "Download video";
+        a.onclick = (e) => e.stopPropagation(); actions.appendChild(a);
+      }
+      if (CFG.pages[p.page] && CFG.pages[p.page].manualReels)
+        btn("Mark as posted", "", () => { if (confirm("Mark this Reel as posted? (Do this after you've posted it yourself in the Instagram app.)")) change(item, { status: "posted", postedAt: new Date().toISOString(), manual: true }); });
       const up = document.createElement("input"); up.type = "file"; up.accept = "video/mp4,video/quicktime"; up.style.display = "none";
       up.onchange = () => uploadClip(item, up.files[0]); actions.appendChild(up);
       btn(p.customClip ? "Replace my clip" : "Use my own clip", "", () => up.click());
@@ -308,22 +325,27 @@ function cardEl(item, idx) {
   // Text editor
   const ed = document.createElement("div"); ed.className = "edit";
   const fA = field(p.format === "carousel" ? "Title slide" : p.format === "reel" ? "On-screen hook" : "Text 1", p.a), fB = field(p.format === "reel" ? "Payoff line" : "Text 2", p.b);
-  ed.append(fA); if (p.format !== "carousel" && p.template !== "tweet") ed.append(fB);
+  ed.append(fA); if (p.format !== "carousel" && !["tweet", "meme"].includes(p.template)) ed.append(fB);
+  let fSfx = null; if (p.format === "reel") { fSfx = field("Sound effect on the punchline (e.g. vine boom, record scratch; blank = none)", p.sfx || ""); ed.append(fSfx); }
   let fL1, fL2, fS, fF;
   if (p.template === "versus") { fL1 = field("Top label", p.l?.[0]); fL2 = field("Bottom label", p.l?.[1]); ed.append(fL1, fL2); }
+  let fML;
+  if (p.template === "meme") { fML = field(`Meme lines for "${p.mt}" (one per line)`, (p.ml || []).join("\n"), true); ed.append(fML); }
   if (p.format === "carousel") { fS = field("Slides (one per line)", (p.s || []).join("\n"), true); ed.append(fS); }
   if (p.format === "reel") { fF = field("Footage search words", p.footage); ed.append(fF); }
   let fV, fV2;
-  if (["image", "carousel"].includes(p.format)) { fV = field(p.template === "versus" ? "Top photo search words" : "Photo search words", p.visual); ed.append(fV); }
+  if (["image", "carousel"].includes(p.format) && p.template !== "meme") { fV = field(p.template === "versus" ? "Top photo search words" : "Photo search words", p.visual); ed.append(fV); }
   if (p.template === "versus") { fV2 = field("Bottom photo search words", p.visual2); ed.append(fV2); }
   const eAct = document.createElement("div"); eAct.className = "actions";
   const saveB = document.createElement("button"); saveB.className = "btn sm ok"; saveB.textContent = p.format === "reel" ? "Save and re-render video" : "Save and re-render";
   saveB.onclick = (e) => {
     e.stopPropagation();
     const patch = { a: fA.get().trim() };
-    if (p.format !== "carousel" && p.template !== "tweet") patch.b = fB.get().trim();
+    if (p.format !== "carousel" && !["tweet", "meme"].includes(p.template)) patch.b = fB.get().trim();
+    if (fML) { const n = (p.ml || []).length || 2; const lines = fML.get().split("\n"); patch.ml = Array.from({ length: n }, (_, i) => (lines[i] || "").trim()); }
     if (fL1) patch.l = [fL1.get().trim(), fL2.get().trim()];
     if (fS) patch.s = fS.get().split("\n").map((x) => x.trim()).filter(Boolean);
+    if (fSfx && fSfx.get().trim() !== (p.sfx || "")) { patch.sfx = fSfx.get().trim(); patch.sfxIndex = 0; }
     if (fF && fF.get().trim() !== p.footage) { patch.footage = fF.get().trim(); patch.footageIndex = 0; }
     if (fV && fV.get().trim() !== (p.visual || "")) { patch.visual = fV.get().trim(); patch.imageIndex = 0; }
     if (fV2 && fV2.get().trim() !== (p.visual2 || "")) { patch.visual2 = fV2.get().trim(); patch.imageIndex = 0; }
@@ -369,6 +391,21 @@ $("bulk").onclick = () => {
   list.forEach((x) => { Object.assign(x.p, { status: "approved", approvedVersion: x.p.renderVersion }); S.pending.push({ path: x.path, id: x.p.id, patch: { status: "approved", approvedVersion: x.p.renderVersion } }); });
   status(`Approved ${list.length}; saving…`); render(); save();
 };
+function applyLocal(c) {
+  const f = S.files[c.path]; if (!f) return;
+  if (c.patch.__delete) { f.doc.posts = f.doc.posts.filter((x) => x.id !== c.id || x.status === "posted"); S.posts = S.posts.filter((x) => !(x.p.id === c.id && x.p.status !== "posted")); return; }
+  const it = S.posts.find((x) => x.p.id === c.id); if (it) Object.assign(it.p, c.patch);
+}
+function bulk(items, patch, label) {
+  const list = items.filter((x) => x.p.status !== "posted");
+  if (!list.length) { status("Nothing to " + label); return; }
+  if (!confirm(`${label[0].toUpperCase() + label.slice(1)} ${list.length} post(s)? ${patch.__delete ? "Deleted posts are removed from the queue for good." : ""}`)) return;
+  list.forEach((x) => { const c = { path: x.path, id: x.p.id, patch }; S.pending.push(c); applyLocal(c); });
+  status(`${list.length} post(s) ${patch.__delete ? "deleted" : "rejected"}; saving…`); S.focus = 0; render(); save();
+}
+$("bulkReject").onclick = () => bulk(visible(), { status: "rejected" }, "reject");
+$("bulkDelete").onclick = () => bulk(visible(), { __delete: true }, "delete");
+$("clearAll").onclick = () => bulk(S.posts.filter((x) => S.page === "all" || x.p.page === S.page), { __delete: true }, "delete every unposted post in this tab:");
 $("reload").onclick = () => { if (S.pending.length) save().then(load); else load(); };
 $("openSettings").onclick = () => { $("sRepo").value = S.repo; $("sToken").value = S.token; $("settings").classList.add("show"); };
 $("sClose").onclick = () => $("settings").classList.remove("show");

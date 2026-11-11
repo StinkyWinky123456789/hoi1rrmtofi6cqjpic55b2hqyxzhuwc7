@@ -31,17 +31,19 @@ async function main() {
   const changes = [];
   let hardFail = 0;
   for (const key of Object.keys(cfg.pages)) {
+    // manualReels: Reels are downloaded from the review page and posted by hand (so you can add trending audio)
+    const manual = (p) => p.format === "reel" && cfg.pages[key].manualReels;
     const mine = all.filter((x) => x.p.page === key);
     // Mark long-overdue approved posts as missed
     for (const { rel, p } of mine) {
-      if (["approved", "pending"].includes(p.status) && now - Date.parse(p.scheduledAt) > MISS_AFTER_H * 3600e3) {
+      if (!manual(p) && ["approved", "pending"].includes(p.status) && now - Date.parse(p.scheduledAt) > MISS_AFTER_H * 3600e3) {
         changes.push({ file: rel, id: p.id, patch: { status: "missed", lastError: `not ${p.status === "pending" ? "approved" : "posted"} within ${MISS_AFTER_H}h of its slot` } });
         p.status = "missed";
       }
     }
     const lastPosted = Math.max(0, ...mine.filter((x) => x.p.postedAt).map((x) => Date.parse(x.p.postedAt)));
     if (now - lastPosted < MIN_GAP_MIN * 60e3) continue;
-    const due = mine.filter(({ p }) => p.status === "approved" && !p.needsRender && p.approvedVersion === p.renderVersion
+    const due = mine.filter(({ p }) => !manual(p) && p.status === "approved" && !p.needsRender && p.approvedVersion === p.renderVersion
       && Date.parse(p.scheduledAt) <= now && (p.attempts || 0) < MAX_ATTEMPTS)
       .sort((x, y) => Date.parse(x.p.scheduledAt) - Date.parse(y.p.scheduledAt));
     if (!due.length) continue;

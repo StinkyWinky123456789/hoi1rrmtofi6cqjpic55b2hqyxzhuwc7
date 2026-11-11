@@ -53,6 +53,7 @@
         "15:30",
         "18:30"
       ],
+      "manualReels": false,
       "reelSlot": 0,
       "carouselSlot": 3,
       "xQuery": "(gym OR \"leg day\" OR \"pre workout\" OR preworkout OR \"gym bro\" OR bulking) -is:retweet -is:reply lang:en",
@@ -104,6 +105,7 @@
         "20:00",
         "23:00"
       ],
+      "manualReels": false,
       "reelSlot": 3,
       "carouselSlot": 1,
       "xQuery": "(anime OR manhwa OR manga OR \"new episode\" OR \"this season\") -is:retweet -is:reply lang:en",
@@ -157,6 +159,7 @@
         "16:15",
         "19:30"
       ],
+      "manualReels": false,
       "reelSlot": 3,
       "carouselSlot": 1,
       "xQuery": "(parlay OR \"bad beat\" OR \"my portfolio\" OR stocks OR paycheck OR budgeting) -is:retweet -is:reply lang:en",
@@ -208,6 +211,7 @@
         "17:00",
         "21:30"
       ],
+      "manualReels": false,
       "reelSlot": 1,
       "carouselSlot": 3,
       "xQuery": "(\"shower thought\" OR \"3am\" OR \"brain rot\" OR unhinged OR \"no context\") -is:retweet -is:reply lang:en",

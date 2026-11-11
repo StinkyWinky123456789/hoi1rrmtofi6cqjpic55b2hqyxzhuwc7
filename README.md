@@ -58,6 +58,8 @@ In each of the four accounts go to **Settings → Account type and tools → Swi
 | Claude API | [platform.claude.com](https://platform.claude.com) → API keys | Add $10 of credit and set a monthly spend limit |
 | X API | [developer.x.com](https://developer.x.com) → your app → Bearer token | Buy a small credit pack; the engine stops itself at 2,000 reads a month |
 | Pixabay | [pixabay.com/api/docs](https://pixabay.com/api/docs/) (log in; your key is shown on that page) | Free; provides the stock footage behind Reels. Pexels also works if you already have a key (new Pexels keys are paused) |
+| Freesound | [freesound.org/apiv2/apply](https://freesound.org/apiv2/apply) (make a free account, fill in the short form; copy the **Client secret/Api key**) | Free; supplies the meme sound effects (vine boom, record scratch…) that hit on each Reel's punchline. Only CC0 sounds are used, so no credit is needed |
+| Memegen | nothing to sign up for | Free, open source; supplies the classic meme templates (Drake, Distracted Boyfriend, This Is Fine…). About 40% of image posts use one |
 
 ### 5. Add the secrets
 In the repo: **Settings → Secrets and variables → Actions → New repository secret**.
@@ -67,6 +69,7 @@ In the repo: **Settings → Secrets and variables → Actions → New repository
 | `ANTHROPIC_API_KEY` | Claude API key |
 | `X_BEARER_TOKEN` | X bearer token |
 | `PIXABAY_API_KEY` | Pixabay key (or `PEXELS_API_KEY` if you have one) |
+| `FREESOUND_API_KEY` | Freesound API key (optional; without it Reels have music but no sound effect) |
 | `IG_USER_ID_GYM`, `IG_TOKEN_GYM` | @caffeinejunkey's Instagram user ID and token |
 | `IG_USER_ID_ANIME`, `IG_TOKEN_ANIME` | @gombaregombare |
 | `IG_USER_ID_MONEY`, `IG_TOKEN_MONEY` | @moneyfordummees |
@@ -76,7 +79,9 @@ In the repo: **Settings → Secrets and variables → Actions → New repository
 On the **Variables** tab, add `PUBLISH_ENABLED` = `false` for now.
 
 ### 6. Add music for Reels (recommended)
-Reels posted through the API **can't use Instagram's trending audio**, so the engine adds your own tracks. Download royalty-free MP3s (for example from [Pixabay Music](https://pixabay.com/music/), which allows social media use) and put them in `assets/audio/dramatic`, `hype`, `chill`, `sad` or `funny`. Claude picks a mood for each Reel. With no tracks, Reels are silent.
+Reels posted through the API **can't use Instagram's trending audio**, so the engine adds your own tracks. Download royalty-free MP3s (for example from [Pixabay Music](https://pixabay.com/music/), which allows social media use) and put them in `assets/audio/dramatic`, `hype`, `chill`, `sad` or `funny`. Claude picks a mood for each Reel. With no tracks, Reels have only the sound effect (or are silent without a Freesound key).
+
+**Want trending audio instead?** Set `"manualReels": true` for a page in `config/pages.json`. Approved Reels for that page are then not auto-posted: use **Download video** in the review queue, post it from the Instagram app with a trending sound, then click **Mark as posted**. Everything else on that page still posts automatically.
 
 ### 7. Open the review queue
 1. Create a second fine-grained GitHub token for this repo with **Contents: Read and write**. This one is for the review app.
@@ -91,7 +96,9 @@ Leave `PUBLISH_ENABLED` as `false` for the first day and check **Actions → Pub
 ## Weekly routine (about 20 to 40 minutes)
 - **Saturday:** next week's 140 posts arrive in the review queue.
 - **Saturday to Monday morning:** review them. Use **Videos to review** to clear the Reels in one pass, and **Approve all shown scoring ≥ 8** to clear the strongest images quickly. Keys: `J`/`K` move, `A` approve, `R` reject, `E` edit, `Space` play the video.
-- **Editing:** caption edits save instantly. Text edits, **Swap footage**, **Swap audio** and **Use my own clip** re-render within about 20 minutes, then the post needs approving again.
+- **Clearing out:** the toolbar has **Reject all shown**, **Delete all shown** (deletes whatever the current filter shows) and **Clear queue** (deletes every unposted post in the current page tab). Each asks to confirm first; posts already on Instagram are never touched. After clearing, run **Generate next week** again with **page** blank to refill (a cleared or fully rejected week regenerates without ticking **force**).
+- **Reels** show the setup first, then the punchline lands about 2–3 seconds in with a zoom and a sound effect. **Swap sound effect** picks a different one; you can also type your own (e.g. "airhorn") under **Edit text**.
+- **Editing:** caption edits save instantly. Text edits, **Swap footage**, **Swap music**, **Swap sound effect** and **Use my own clip** re-render within about 20 minutes, then the post needs approving again.
 - The first slot each week is Monday 6:30 AM ET (@caffeinejunkey), so finish reviewing by then.
 
 ## Changing things

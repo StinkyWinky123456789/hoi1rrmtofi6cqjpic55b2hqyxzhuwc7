@@ -35,7 +35,7 @@
     }
     return MemeTemplates.framesFor(post).map((fr) => {
       const c = document.createElement("canvas"); c.width = fr.w; c.height = fr.h;
-      const opts = { kind: fr.kind, slide: fr.slide };
+      const opts = { kind: fr.kind, slide: fr.slide, part: fr.part };
       if (fr.kind === "feed") { opts.img = imgs[0] || null; opts.img2 = imgs[1] || null; }
       if (fr.kind === "slide" && imgs.length) opts.img = imgs[fr.slide % imgs.length];
       MemeTemplates.drawPost(c.getContext("2d"), fr.w, fr.h, page, post, opts);

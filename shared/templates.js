@@ -214,7 +214,33 @@
     if (d.b) { const fb = fit(c, d.b, (n) => inter(800, n), W - 2 * pad, H - (cy0 + chH + 60) - 120, 70 * s, 30, 1.16); draw(c, fb, pad, cy0 + chH + 60, 1.16, "left", t.text); }
     watermark(c, W, H, t);
   }
-  const FEED = { classic: tClassic, pov: tClassic, nobody: tNobody, tweet: tTweet, system: tSystem, versus: tVersus, ticker: tTicker };
+  /** A classic meme template image (rendered by memegen) framed with an optional caption and the page handle. */
+  function tMeme(c, W, H, t, d, s) {
+    bgFill(c, W, H, t);
+    const pad = 64;
+    let y0 = 60;
+    if (d.a) {
+      const top = fit(c, d.a, (n) => inter(700, n), W - 2 * pad, H * 0.22, 60 * s, 28, 1.2);
+      draw(c, top, pad, 50, 1.2, "left", t.text);
+      y0 = top.h + 100;
+    }
+    const bx = 40, bw = W - 80, bh = H - y0 - 112;
+    if (d.img) {
+      const k = Math.min(bw / d.img.width, bh / d.img.height), iw = d.img.width * k, ih = d.img.height * k;
+      const ix = (W - iw) / 2, iy = y0 + (bh - ih) / 2;
+      c.save(); rr(c, ix, iy, iw, ih, 20); c.clip(); c.drawImage(d.img, ix, iy, iw, ih); c.restore();
+    } else {
+      placeholder(c, bx, y0, bw, bh, t);
+      c.font = inter(700, 34); c.textAlign = "center"; c.textBaseline = "middle"; c.fillStyle = t.muted;
+      c.fillText(`Meme template: ${d.mt || "?"}`, W / 2, y0 + bh / 2 - 30);
+      const lines = (d.ml || []).filter(Boolean).join("  /  ");
+      const f = fit(c, lines, (n) => inter(600, n), bw - 80, bh / 2, 36, 22, 1.25);
+      draw(c, f, W / 2, y0 + bh / 2 + 10, 1.25, "center", t.text);
+    }
+    watermark(c, W, H, t);
+  }
+
+  const FEED = { meme: tMeme, classic: tClassic, pov: tClassic, nobody: tNobody, tweet: tTweet, system: tSystem, versus: tVersus, ticker: tTicker };
 
   /* ---------- Carousel ---------- */
   function slideList(post) { return [post.a || "", ...(post.s || []).filter((x) => String(x).trim()), "__cta__"]; }
@@ -246,15 +272,19 @@
   }
 
   /* ---------- Reel text overlay (transparent) ---------- */
-  function tOverlay(c, W, H, t, post, s) {
+  function tOverlay(c, W, H, t, post, s, part) {
     c.clearRect(0, 0, W, H);
+    if (part === "b") {
+      if (post.b) { const fb = fit(c, up(t, post.b), (n) => headFont(t, n), W - 140, 440, 96 * s, 36, 1.08); draw(c, fb, W / 2, H * 0.72 - fb.h, 1.08, "center", "#ffffff", "#000000"); }
+      return;
+    }
     let a = post.a || "";
     if (post.template === "pov" && a && !/^pov/i.test(a)) a = "POV: " + a;
     const fa = fit(c, up(t, a), (n) => headFont(t, n), W - 140, 560, 104 * s, 40, 1.08);
     draw(c, fa, W / 2, 250, 1.08, "center", "#ffffff", "#000000");
     c.font = inter(700, 32); c.textAlign = "center"; c.textBaseline = "top"; c.lineWidth = 7; c.strokeStyle = "rgba(0,0,0,.8)";
     c.strokeText(t.handle, W / 2, 250 + fa.h + 28); c.fillStyle = "#fff"; c.fillText(t.handle, W / 2, 250 + fa.h + 28);
-    if (post.b) {
+    if (post.b && part !== "a") {
       const fb = fit(c, up(t, post.b), (n) => headFont(t, n), W - 140, 440, 92 * s, 36, 1.08);
       draw(c, fb, W / 2, H * 0.72 - fb.h, 1.08, "center", "#ffffff", "#000000");
     }
@@ -274,9 +304,9 @@
   /** Draw one frame of a post. kind: "feed" | "slide" | "overlay". */
   function drawPost(c, W, H, page, post, opts) {
     const o = opts || {}, s = o.scale || 1;
-    if (o.kind === "overlay") return tOverlay(c, W, H, page, post, s);
+    if (o.kind === "overlay") return tOverlay(c, W, H, page, post, s, o.part);
     if (o.kind === "slide") return tSlide(c, W, H, page, post, s, o.slide || 0, o.img || null);
-    const d = { tpl: post.template, a: post.a, b: post.b, l: post.l, img: o.img || null, img2: o.img2 || null };
+    const d = { tpl: post.template, a: post.a, b: post.b, l: post.l, mt: post.mt, ml: post.ml, img: o.img || null, img2: o.img2 || null };
     (FEED[post.template] || tClassic)(c, W, H, page, d, s);
   }
 
@@ -285,7 +315,12 @@
     if (post.format === "carousel") {
       return slideList(post).map((_, k) => ({ kind: "slide", slide: k, w: 1080, h: 1350, name: `${String(k + 1).padStart(2, "0")}` }));
     }
-    if (post.format === "reel") return [{ kind: "overlay", w: 1080, h: 1920, name: "overlay" }];
+    if (post.format === "reel") {
+      // Two beats: the setup (with the handle) shows first, the punchline lands a moment later.
+      const f = [{ kind: "overlay", part: "a", w: 1080, h: 1920, name: "overlay-a" }];
+      if (post.b) f.push({ kind: "overlay", part: "b", w: 1080, h: 1920, name: "overlay-b" });
+      return f;
+    }
     return [{ kind: "feed", w: 1080, h: 1350, name: "feed" }];
   }
 
