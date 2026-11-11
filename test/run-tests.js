@@ -31,11 +31,15 @@ const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47
   fs.rmSync(path.join(TMP, "queue"), { recursive: true, force: true }); fs.mkdirSync(path.join(TMP, "queue"));
   const SITE = path.join(TMP, "site"); fs.mkdirSync(SITE);
   execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-f", "lavfi", "-i", "sine=frequency=330:duration=12", "-c:a", "libmp3lame", path.join(TMP, "assets/audio/funny/test-tone.mp3")]);
-  const { server, port, log } = await mock.start({ siteDir: SITE, ghRoot: TMP });
+  const ASSETS = path.join(TMP, "test-assets"); fs.mkdirSync(ASSETS);
+  for (const [k, c] of [[1, "red"], [2, "blue"], [3, "green"]]) execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-f", "lavfi", "-i", `testsrc2=size=1280x853`, "-frames:v", "1", "-vf", `drawbox=x=0:y=0:w=200:h=200:color=${c}:t=fill`, path.join(ASSETS, `photo${k}.jpg`)]);
+  for (const k of [1, 2]) execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-f", "lavfi", "-i", "testsrc2=size=1080x1920:rate=30:duration=6", "-pix_fmt", "yuv420p", path.join(ASSETS, `clip${k}.mp4`)]);
+  const { server, port, log } = await mock.start({ siteDir: SITE, ghRoot: TMP, assetDir: ASSETS });
   const base = `http://127.0.0.1:${port}`;
   const ENV = {
     NO_GIT: "1", SITE_DIR: SITE, ANTHROPIC_API_KEY: "test", ANTHROPIC_BASE_URL: base,
     NODE_PATH: "/opt/npm-tools/node_modules", CHROME_PATH: "/usr/bin/google-chrome",
+    PIXABAY_API_KEY: "test", PIXABAY_BASE: `${base}/pixabay/api`,
     IG_API_BASE: base, MEDIA_BASE_URL: `${base}/site`, PUBLISH_ENABLED: "true",
     ...Object.fromEntries(["GYM", "ANIME", "MONEY", "SHITPOST"].flatMap((k, i) => [[`IG_USER_ID_${k}`, `17841400000${i}`], [`IG_TOKEN_${k}`, `tok_${k}`]])),
   };
@@ -86,6 +90,12 @@ const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47
     ok(/your uploaded clip/.test(reel.renderNote) && reel.media.some((m) => m.endsWith("cover.jpg")), "custom clip used; cover frame made");
     ok(car.media.length === 6 && car.media.every((m) => m.endsWith(".jpg")), "carousel rendered to 6 JPEG slides (title + 4 + follow)");
     ok(g2.posts.filter((p) => p.format === "image").every((p) => p.media[0].endsWith(".jpg")), "images are JPEG (Instagram requires JPEG)");
+    const stills = g2.posts.filter((p) => p.format !== "reel");
+    ok(stills.every((p) => p.visual && /photo \d of 3/.test(p.renderNote || "") && p.visualSource), `all ${stills.length} image and carousel memes got stock photos`);
+    const vs = stills.find((p) => p.template === "versus");
+    ok(!vs || (vs.renderNote.match(/photo/g) || []).length === 2, "versus memes get a photo for each panel");
+    const stockReel = g2.posts.find((p) => p.format === "reel" && !p.customClip);
+    ok(/Pixabay clip/.test(stockReel.renderNote), "Reels use Pixabay stock footage");
 
     console.log("4. Publisher (Instagram stand-in)");
     const now = Date.now(), iso = (ms) => new Date(ms).toISOString();
@@ -148,7 +158,7 @@ const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47
     ok(playable === "1080x1920", `video actually loads and plays in the browser (${playable})`);
     await pg.screenshot({ path: path.join(SRC, "test", "review-videos.png") });
     const before = log.ghPuts.length;
-    await pg.click(".card.focus >> text=Approve video"); await pg.waitForTimeout(3500);
+    await pg.click(".card.focus >> text=Approve video"); await pg.waitForFunction(() => /Saved|failed/.test(document.getElementById("save").textContent), null, { timeout: 20000 }).catch(() => {}); console.log("   review status: " + await pg.$eval("#save", (e) => e.textContent));
     ok(log.ghPuts.length > before, "approving a video saves to GitHub");
     const savedDoc = readQ("gym"), approvedReel = savedDoc.posts.find((p) => p.format === "reel" && p.status === "approved" && p.approvedVersion === p.renderVersion);
     ok(!!approvedReel, "saved approval is locked to the rendered version");

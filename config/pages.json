@@ -6,59 +6,219 @@
   "judgeModel": "claude-sonnet-5-5",
   "xMonthlyReadCap": 2000,
   "xReadsPerPagePerRun": 100,
-  "carouselDays": [0, 1, 3, 5],
+  "carouselDays": [
+    0,
+    1,
+    3,
+    5
+  ],
   "pages": {
     "gym": {
-      "name": "Caffeine Junkey", "handle": "@caffeinejunkey", "mono": "CJ", "noun": "gym",
-      "bg": "#0c0d0c", "card": "#171a17", "text": "#f4f4f0", "muted": "#8a8f86", "accent": "#3dff6e", "accInk": "#0c0d0c",
-      "head": "Anton", "headFb": "Impact", "headW": "400", "upper": true,
+      "name": "Caffeine Junkey",
+      "handle": "@caffeinejunkey",
+      "mono": "CJ",
+      "noun": "gym",
+      "bg": "#0c0d0c",
+      "card": "#171a17",
+      "text": "#f4f4f0",
+      "muted": "#8a8f86",
+      "accent": "#3dff6e",
+      "accInk": "#0c0d0c",
+      "head": "Anton",
+      "headFb": "Impact",
+      "headW": "400",
+      "upper": true,
       "niche": "gym, pre-workout and caffeine humor",
       "voice": "an over-caffeinated gym rat who runs on pre-workout and cold brew, roasting gym culture and themselves",
-      "pillars": ["pre-workout and caffeine addiction", "gym-bro behavior", "bulking vs cutting", "the January resolution crowd", "grindset parody", "rest days and soreness"],
+      "pillars": [
+        "pre-workout and caffeine addiction",
+        "gym-bro behavior",
+        "bulking vs cutting",
+        "the January resolution crowd",
+        "grindset parody",
+        "rest days and soreness"
+      ],
       "rules": "Never shame bodies, weight or eating habits; joke about gym culture, not about how people look. Caffeine jokes stay light: no jokes about overdosing or dangerous amounts.",
-      "tags": ["#gymmemes", "#gymhumor", "#preworkout", "#gymlife", "#fitnessmemes"],
-      "slots": ["06:30", "09:30", "12:30", "15:30", "18:30"],
-      "reelSlot": 0, "carouselSlot": 3,
-      "xQuery": "(gym OR \"leg day\" OR \"pre workout\" OR preworkout OR \"gym bro\" OR bulking) -is:retweet -is:reply lang:en"
+      "tags": [
+        "#gymmemes",
+        "#gymhumor",
+        "#preworkout",
+        "#gymlife",
+        "#fitnessmemes"
+      ],
+      "slots": [
+        "06:30",
+        "09:30",
+        "12:30",
+        "15:30",
+        "18:30"
+      ],
+      "reelSlot": 0,
+      "carouselSlot": 3,
+      "xQuery": "(gym OR \"leg day\" OR \"pre workout\" OR preworkout OR \"gym bro\" OR bulking) -is:retweet -is:reply lang:en",
+      "visualStyle": "Real gym photos and footage of people: muscular men and women lifting heavy, deadlifts, bench press, squats, flexing in the gym mirror, gym bros spotting each other, sweaty close-ups, pre-workout scoops and shaker bottles, energy drinks and coffee.",
+      "examples": [
+        "classic | Me at 6 AM after two scoops of pre-workout / THE BAR OWES ME MONEY | photo: bodybuilder screaming deadlift",
+        "nobody | The guy who's been on the bench for 45 minutes: / 'Just 3 more sets bro' (he has done zero sets) | photo: man sitting bench gym phone",
+        "tweet | creatine bloat is just my muscles retaining confidence",
+        "system | Pre-workout kicked in at the red light / Current goal: bench press the car",
+        "pov | You hit a PR and now have to walk past the mirror without staring / (you will stare) | photo: man flexing mirror gym"
+      ]
     },
     "anime": {
-      "name": "Gombare Gombare", "handle": "@gombaregombare", "mono": "GG", "noun": "anime and manhwa",
-      "bg": "#070d24", "card": "#0e1a3d", "text": "#e9f1ff", "muted": "#7d8fb8", "accent": "#48b4ff", "accInk": "#04102a",
-      "head": "Rajdhani", "headFb": "Bahnschrift", "headW": "700", "upper": true,
+      "name": "Gombare Gombare",
+      "handle": "@gombaregombare",
+      "mono": "GG",
+      "noun": "anime and manhwa",
+      "bg": "#070d24",
+      "card": "#0e1a3d",
+      "text": "#e9f1ff",
+      "muted": "#7d8fb8",
+      "accent": "#48b4ff",
+      "accInk": "#04102a",
+      "head": "Rajdhani",
+      "headFb": "Bahnschrift",
+      "headW": "700",
+      "upper": true,
       "niche": "anime and manhwa humor",
       "voice": "a lifelong anime and manhwa fan cheering everyone on ('gombare!') while joking about fandom and real life",
-      "pillars": ["power-scaling debates", "protagonist logic vs real life", "seasonal anime and weekly episodes", "reading manhwa at 3 AM", "video-game style system notifications"],
+      "pillars": [
+        "power-scaling debates",
+        "protagonist logic vs real life",
+        "seasonal anime and weekly episodes",
+        "reading manhwa at 3 AM",
+        "video-game style system notifications"
+      ],
       "rules": "Show titles may be named in words, but never describe or depend on official character art. No spoilers for episodes airing this week.",
-      "tags": ["#animememes", "#manhwamemes", "#animehumor", "#otaku", "#anime"],
-      "slots": ["11:00", "14:00", "17:00", "20:00", "23:00"],
-      "reelSlot": 3, "carouselSlot": 1,
-      "xQuery": "(anime OR manhwa OR manga OR \"new episode\" OR \"this season\") -is:retweet -is:reply lang:en"
+      "tags": [
+        "#animememes",
+        "#manhwamemes",
+        "#animehumor",
+        "#otaku",
+        "#anime"
+      ],
+      "slots": [
+        "11:00",
+        "14:00",
+        "17:00",
+        "20:00",
+        "23:00"
+      ],
+      "reelSlot": 3,
+      "carouselSlot": 1,
+      "xQuery": "(anime OR manhwa OR manga OR \"new episode\" OR \"this season\") -is:retweet -is:reply lang:en",
+      "visualStyle": "Atmospheric real-world photos and footage with anime energy, never anime art: neon Tokyo streets at night, rain on city lights, a gamer room lit by a monitor at 3 AM, ramen close-ups, cherry blossoms, dramatic skies, someone in a hoodie on a rooftop, convenience store at night.",
+      "examples": [
+        "versus | Anime protagonists / Me | Train for 3 days, defeat a god / Train for 3 days, need a nap and a snack",
+        "tweet | my sleep schedule is a filler arc that's been running since 2019",
+        "system | Quest: watch ONE episode before bed / Status: it is 4 AM and the season is over",
+        "classic | Walking home after finishing a 200-chapter manhwa / MAIN CHARACTER AURA (EXPIRES IN 10 MIN) | photo: neon street night rain",
+        "nobody | Me hearing my own footsteps in an empty hallway: / (dramatic background music begins)"
+      ]
     },
     "money": {
-      "name": "Money For Dummees", "handle": "@moneyfordummees", "mono": "$", "noun": "money and betting",
-      "bg": "#05241a", "card": "#0b3426", "text": "#f3efe0", "muted": "#8fb3a3", "accent": "#e2b84a", "accInk": "#05241a", "up": "#35d07f", "down": "#ff5a5a",
-      "head": "Archivo Black", "headFb": "\"Arial Black\"", "headW": "400", "upper": true,
+      "name": "Money For Dummees",
+      "handle": "@moneyfordummees",
+      "mono": "$",
+      "noun": "money and betting",
+      "bg": "#05241a",
+      "card": "#0b3426",
+      "text": "#f3efe0",
+      "muted": "#8fb3a3",
+      "accent": "#e2b84a",
+      "accInk": "#05241a",
+      "up": "#35d07f",
+      "down": "#ff5a5a",
+      "head": "Archivo Black",
+      "headFb": "\"Arial Black\"",
+      "headW": "400",
+      "upper": true,
       "niche": "personal finance, investing, sports betting and money humor",
       "voice": "a broke but hopeful retail investor and weekend parlay builder laughing at their own money mistakes",
-      "pillars": ["portfolio pain", "market-day reactions", "parlays that miss by one leg and bad beats", "broke vs rich", "budgeting chaos and payday"],
+      "pillars": [
+        "portfolio pain",
+        "market-day reactions",
+        "parlays that miss by one leg and bad beats",
+        "broke vs rich",
+        "budgeting chaos and payday"
+      ],
       "rules": "Never recommend, name or hint at real stocks, coins or companies as investments. Never give betting picks, odds, 'locks' or name real sportsbooks or betting apps, and never encourage betting or chasing losses; the joke is always on the bettor. Nothing aimed at minors. Stay clearly comedic; nothing that reads as financial or betting advice.",
-      "tags": ["#moneymemes", "#financememes", "#sportsbettingmemes", "#parlay", "#stockmarketmemes"],
-      "slots": ["07:30", "10:30", "13:15", "16:15", "19:30"],
-      "reelSlot": 3, "carouselSlot": 1,
-      "xQuery": "(parlay OR \"bad beat\" OR \"my portfolio\" OR stocks OR paycheck OR budgeting) -is:retweet -is:reply lang:en"
+      "tags": [
+        "#moneymemes",
+        "#financememes",
+        "#sportsbettingmemes",
+        "#parlay",
+        "#stockmarketmemes"
+      ],
+      "slots": [
+        "07:30",
+        "10:30",
+        "13:15",
+        "16:15",
+        "19:30"
+      ],
+      "reelSlot": 3,
+      "carouselSlot": 1,
+      "xQuery": "(parlay OR \"bad beat\" OR \"my portfolio\" OR stocks OR paycheck OR budgeting) -is:retweet -is:reply lang:en",
+      "visualStyle": "Real photos and footage of the money and betting life: a guy staring at his phone in shock, sports fans losing it at a bar or on a couch, trading screens and red charts, cash and empty wallets, a stressed person at a laptop at night, a crowd cheering at a stadium.",
+      "examples": [
+        "classic | My 7-leg parlay after the first game hits / Already picking the color of the boat | photo: man celebrating phone couch",
+        "ticker | $MYPARLAY ▼ 100% / Missed by half a point. Again.",
+        "tweet | my portfolio isn't down, it's just doing a dramatic reading of my life choices",
+        "nobody | Me after one green day: / 'I should start a hedge fund' | photo: man suit laptop confident",
+        "pov | You checked your account right after payday / It's already giving 'see you next month' | photo: man shocked looking at phone"
+      ]
     },
     "shitpost": {
-      "name": "Zero Sensei", "handle": "@rottenmemeengine", "mono": "ZS", "noun": "cursed",
-      "bg": "#111111", "card": "#1d1d1d", "text": "#f5f5f0", "muted": "#8f8f8f", "accent": "#ff3df5", "accInk": "#111111",
-      "head": "Anton", "headFb": "Impact", "headW": "400", "upper": true,
+      "name": "Zero Sensei",
+      "handle": "@rottenmemeengine",
+      "mono": "ZS",
+      "noun": "cursed",
+      "bg": "#111111",
+      "card": "#1d1d1d",
+      "text": "#f5f5f0",
+      "muted": "#8f8f8f",
+      "accent": "#ff3df5",
+      "accInk": "#111111",
+      "head": "Anton",
+      "headFb": "Impact",
+      "headW": "400",
+      "upper": true,
       "niche": "absurdist shitposting humor",
       "voice": "a deadpan internet sensei posting cursed thoughts with zero context and total confidence",
-      "pillars": ["cursed shower thoughts", "absurd fake headlines and system notifications", "unhinged 3 AM logic", "deadpan non-sequiturs", "tiny everyday things treated as epic events"],
+      "pillars": [
+        "cursed shower thoughts",
+        "absurd fake headlines and system notifications",
+        "unhinged 3 AM logic",
+        "deadpan non-sequiturs",
+        "tiny everyday things treated as epic events"
+      ],
       "rules": "Absurd and chaotic, never mean: no slurs, no punching at real people or groups, nothing sexual or gross-out. The weirdness should feel clever, not random noise.",
-      "tags": ["#shitpost", "#memes", "#brainrot", "#shitposting", "#dankmemes"],
-      "slots": ["08:00", "11:00", "14:00", "17:00", "21:30"],
-      "reelSlot": 1, "carouselSlot": 3,
-      "xQuery": "(\"shower thought\" OR \"3am\" OR \"brain rot\" OR unhinged OR \"no context\") -is:retweet -is:reply lang:en"
+      "tags": [
+        "#shitpost",
+        "#memes",
+        "#brainrot",
+        "#shitposting",
+        "#dankmemes"
+      ],
+      "slots": [
+        "08:00",
+        "11:00",
+        "14:00",
+        "17:00",
+        "21:30"
+      ],
+      "reelSlot": 1,
+      "carouselSlot": 3,
+      "xQuery": "(\"shower thought\" OR \"3am\" OR \"brain rot\" OR unhinged OR \"no context\") -is:retweet -is:reply lang:en",
+      "visualStyle": "Weird, funny real-world photos and footage: pigeons, raccoons, goats, cats staring, ducks, a lone traffic cone, people mid-fall, dramatic slow-motion of mundane objects, an empty parking lot at night, a shopping cart abandoned in a field.",
+      "examples": [
+        "classic | This pigeon has seen my search history / AND IT HAS NOTES | photo: pigeon close up staring",
+        "tweet | goats scream because they know something we don't and they're tired of explaining it",
+        "system | You stared at the ceiling at 3 AM / Ceiling gained +1 friendship. You lost 2 hours.",
+        "classic | Me at 2 AM looking for snacks / LEGALLY I AM A RACCOON NOW | photo: raccoon trash can night",
+        "nobody | A lone shopping cart in a field: / Living the life I was too scared to choose | photo: shopping cart empty field"
+      ]
     }
   }
 }

@@ -53,7 +53,9 @@ const ITEM_SCHEMA = {
           a: { type: "string" }, b: { type: "string" },
           l: { type: "array", items: { type: "string" }, description: "versus labels" },
           s: { type: "array", items: { type: "string" }, description: "carousel slides" },
-          footage: { type: "string", description: "reels: 2-5 word stock-footage search" },
+          footage: { type: "string", description: "reels: 3-6 word stock-footage search showing real people or things" },
+          visual: { type: "string", description: "images and carousels: 3-6 word stock-photo search for the photo behind the joke (versus: the TOP panel's photo)" },
+          visual2: { type: "string", description: "versus only: 3-6 word stock-photo search for the BOTTOM panel's photo" },
           mood: { type: "string", enum: ["dramatic", "hype", "chill", "sad", "funny"], description: "reels: audio mood" },
           caption: { type: "string", description: "one short caption line, no hashtags" },
           inspiredBy: { type: "string", description: "which signal inspired it, or 'evergreen'" },
@@ -77,7 +79,18 @@ Hard rules for every meme:
 - No engagement bait ("tag a friend", "like if", "comment YES", "send this to").
 - Punch at situations, never at groups of people. Advertiser-safe: no slurs, sex, drugs or violence.
 - Readable in one second: short, specific, concrete. A good meme makes the viewer think of ONE friend and DM it to them.
-- Vary angles: don't repeat the same setup or punchline structure across memes.`;
+- Vary angles: don't repeat the same setup or punchline structure across memes.
+
+Spice (this matters most):
+- Be SPECIFIC, never general. Name the exact exercise, show, situation, time of day, number, or piece of niche slang. "Me when life is hard" is banned; "Me at 6 AM after two scoops of pre-workout" is the bar.
+- Exaggerate hard, take a side, and lovingly roast the audience. Write like the funniest person in the group chat for this niche, not like a brand.
+- Prefer insider jokes that only this niche gets over broad jokes anyone could make.
+- Punchlines can be loud: caps, absurd escalation, deadpan understatement. Never bland.
+
+Visual style for this page: ${pg.visualStyle || "real-world photos and footage that fit the niche"}
+
+Example memes that set the bar (match this energy, never copy them):
+${(pg.examples || []).map((x) => "- " + x).join("\n")}`;
 }
 
 async function writeCandidates(cfg, key, pg, sig, avoid, format, count) {
@@ -85,10 +98,10 @@ async function writeCandidates(cfg, key, pg, sig, avoid, format, count) {
   for (let left = count; left > 0; left -= 25) {
     const n = Math.min(25, left);
     const spec = format === "image"
-      ? `Write ${n} IMAGE memes. Mix the templates (${key === "money" ? "classic, pov, nobody, tweet, system, versus, ticker" : "classic, pov, nobody, tweet, system, versus"}), no single template more than a third of them.\n${TEMPLATE_GUIDE}`
+      ? `Write ${n} IMAGE memes. Mix the templates (${key === "money" ? "classic, pov, nobody, tweet, system, versus, ticker" : "classic, pov, nobody, tweet, system, versus"}), no single template more than a third of them.\n${TEMPLATE_GUIDE}\nPHOTOS (required): EVERY meme gets a "visual": a 3-6 word stock-photo search for the exact real photo that makes the joke hit (e.g. "bodybuilder flexing gym mirror", "man shocked staring at phone", "raccoon in trash can night"). Describe what's literally in the photo: people, action, place. versus memes also need "visual2" for the bottom panel, so the two photos contrast (e.g. "man sleeping couch" vs "bodybuilder lifting heavy").`
       : format === "carousel"
-        ? `Write ${n} CAROUSEL memes: "a" = title slide (a list people want to save or send, like "Types of people at the gym"), "s" = 3 to 6 slides, each under 14 words. Leave "b" empty.`
-        : `Write ${n} REEL concepts (7-10 second vertical video: text over stock footage). "a" = on-screen hook under 12 words, readable instantly. "b" = payoff line under 12 words, or "". "footage" = a 2-5 word stock-footage search for generic b-roll with no recognizable people or brands (e.g. "dark bedroom phone glow", "loading barbell plates", "rainy window night"). "mood" = audio mood.`;
+        ? `Write ${n} CAROUSEL memes: "a" = title slide (a list people want to save or send, like "Types of people at the gym"), "s" = 3 to 6 slides, each under 14 words. Leave "b" empty. "visual" (required) = a 2-4 word stock-photo search broad enough to return several different photos for the slides (e.g. "gym people lifting", "sports fans watching game").`
+        : `Write ${n} REEL concepts (7-10 second vertical video: text over stock footage). "a" = on-screen hook under 12 words, readable instantly. "b" = payoff line under 12 words, or "". "footage" = a 3-6 word stock-footage search for real footage that matches the joke, showing people or things actually doing it (e.g. "muscular man deadlift gym", "sports fans cheering bar", "pigeon walking city street", "neon tokyo street night"). Describe literally what's on screen; no brands or famous people. "mood" = audio mood.`;
     const prompt = `${signalText(sig)}
 Recently used ideas (do NOT repeat these):
 ${avoid.slice(-60).map((x) => "- " + x).join("\n") || "- none yet"}
@@ -102,16 +115,22 @@ Keep "a" under 90 characters and "b" under 100. Call submit_memes with all ${n}.
   return pieces;
 }
 
+/** If Claude forgets a photo search, use a safe niche default so every meme still gets a photo. */
+const NICHE_PHOTO = { gym: "people lifting weights gym", anime: "neon city street night", money: "man stressed looking at phone", shitpost: "funny animal staring camera" };
+function fallbackVisual(key) { return NICHE_PHOTO[key] || "people laughing"; }
+
 function clean(m, key) {
   const str = (v, n) => String(v || "").replace(/\s+/g, " ").trim().slice(0, n);
   const out = { format: m.format, a: str(m.a, 120), b: str(m.b, 130), caption: str(m.caption, 300), inspiredBy: str(m.inspiredBy, 120) };
   if (m.format === "image") {
+    out.visual = str(m.visual, 70) || fallbackVisual(key, out);
+    if (m.template === "versus") out.visual2 = str(m.visual2, 70) || out.visual;
     const allowed = key === "money" ? ["classic", "pov", "nobody", "tweet", "system", "versus", "ticker"] : ["classic", "pov", "nobody", "tweet", "system", "versus"];
     out.template = allowed.includes(m.template) ? m.template : "classic";
     if (out.template === "versus") out.l = (Array.isArray(m.l) && m.l.length >= 2 ? m.l.slice(0, 2) : ["Expectation", "Reality"]).map((x) => str(x, 40));
     if (out.template === "tweet") out.b = "";
   }
-  if (m.format === "carousel") { out.s = (m.s || []).map((x) => str(x, 140)).filter(Boolean).slice(0, 6); out.b = ""; }
+  if (m.format === "carousel") { out.s = (m.s || []).map((x) => str(x, 140)).filter(Boolean).slice(0, 6); out.b = ""; out.visual = str(m.visual, 70) || fallbackVisual(key, out); }
   if (m.format === "reel") { out.template = "classic"; out.footage = str(m.footage, 60) || "city night timelapse"; out.mood = m.mood || "funny"; }
   return out;
 }
@@ -120,6 +139,7 @@ async function judge(cfg, key, pg, cands) {
   const list = cands.map((c, i) => `${i}. [${c.format}${c.template ? "/" + c.template : ""}] ${U.postText(c)}`).join("\n");
   const prompt = `Score each meme for "${pg.name}" (${pg.niche}) from 1 to 10. Be a tough editor: most should land 4-7.
 10 = people will DM it to a specific friend instantly; it's clear in one second; fresh angle; perfect for the page's voice.
+Mark generic memes down hard: if the joke could appear on any meme page, or doesn't name a specific situation, thing or piece of niche slang, it scores 5 or lower. Reward specificity, edge and escalation.
 Give 1 to anything that breaks the page rules, copies a known joke, needs context to understand, or isn't advertiser-safe.
 Page rules: ${pg.rules}
 
@@ -162,6 +182,7 @@ function assign(slots, cands, pg, cfg, key, weekId) {
       id, page: key, week: weekId, date: s.ymd, time: s.time, scheduledAt: s.at,
       format: c.format, template: c.template || null, a: c.a, b: c.b || "", l: c.l, s: c.s,
       footage: c.footage, mood: c.mood, footageIndex: 0, audioIndex: 0, customClip: null,
+      visual: c.visual || "", visual2: c.visual2 || "", imageIndex: 0,
       caption: `${c.caption}\n\nFollow ${pg.handle} for daily ${pg.noun} memes.\n\n${pg.tags.slice(0, 5).join(" ")}`,
       score: c.score, why: c.why || "", inspiredBy: c.inspiredBy || "",
       status: "pending", needsRender: true, renderVersion: 0, approvedVersion: null,

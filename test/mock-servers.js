@@ -24,8 +24,8 @@ function claudeHandler(body) {
       const syl = ["ka", "zo", "mi", "ru", "te", "lo", "vu", "ne", "pa", "shi", "bo", "ga"], R = () => Math.floor(Math.random() * 1e6), word = () => { const k = R(); return syl[k % 12] + syl[(k >> 4) % 12] + syl[(k >> 8) % 12] + syl[(k >> 12) % 12]; };
       const u1 = word(), u2 = word(), u3 = word();
       const base = { a: `When ${u1} ${x} ${u2}`, b: `${u3} ${y} mode`, caption: `This one is about ${x}.`, inspiredBy: i % 3 ? "evergreen" : "Dates coming up" };
-      if (kind === "IMAGE") { const t = tpls[i % tpls.length]; return { ...base, template: t, ...(t === "versus" ? { l: ["What I planned", "What I did"] } : {}), ...(t === "ticker" ? { a: `$${x.replace(/\W/g, "").toUpperCase().slice(0, 8)} ▼ ${10 + i}%` } : {}) }; }
-      if (kind === "CAROUSEL") return { ...base, a: `Types of ${u1} at the ${x}`, b: "", s: [`The ${u2} expert`, `The ${x} rookie`, `The one who forgot the ${u3}`, `You, reading this`] };
+      if (kind === "IMAGE") { const t = tpls[i % tpls.length]; return { ...base, template: t, visual: `${x} person close up`, visual2: `${y} person relaxing`, ...(t === "versus" ? { l: ["What I planned", "What I did"] } : {}), ...(t === "ticker" ? { a: `$${x.replace(/\W/g, "").toUpperCase().slice(0, 8)} ▼ ${10 + i}%` } : {}) }; }
+      if (kind === "CAROUSEL") return { ...base, visual: `${x} people`, a: `Types of ${u1} at the ${x}`, b: "", s: [`The ${u2} expert`, `The ${x} rookie`, `The one who forgot the ${u3}`, `You, reading this`] };
       return { ...base, footage: `${x} close up`, mood: ["dramatic", "hype", "chill", "sad", "funny"][i % 5] };
     });
     return { content: [{ type: "tool_use", id: "t1", name: tool, input: { memes } }], usage: { input_tokens: 1200, output_tokens: 3000 } };
@@ -34,7 +34,7 @@ function claudeHandler(body) {
   return { content: [{ type: "text", text: "Here are the scores." }, { type: "tool_use", id: "t2", name: tool, input: { scores: nums.map((i) => ({ i, score: 4 + ((i * 37) % 60) / 10, reason: "solid, specific setup" })) } }], usage: { input_tokens: 2000, output_tokens: 800 } };
 }
 
-function start({ siteDir, ghRoot }) {
+function start({ siteDir, ghRoot, assetDir }) {
   const log = { claude: 0, ig: [], ghPuts: [] };
   let n = 1000;
   const server = http.createServer((req, res) => {
@@ -44,6 +44,18 @@ function start({ siteDir, ghRoot }) {
       const send = (code, obj, headers = {}) => { res.writeHead(code, { "content-type": "application/json", "access-control-allow-origin": "*", "access-control-allow-headers": "*", "access-control-allow-methods": "*", ...headers }); res.end(JSON.stringify(obj)); };
       const u = new URL(req.url, "http://x");
       if (req.method === "OPTIONS") return send(204, {});
+      // Pixabay stand-in: photos at /pixabay/api/, videos at /pixabay/api/videos/, files at /assets/*
+      if (u.pathname === "/pixabay/api/" || u.pathname === "/pixabay/api") {
+        log.pixabayImg = (log.pixabayImg || 0) + 1;
+        return send(200, { hits: [1, 2, 3].map((k) => ({ id: k, largeImageURL: `http://127.0.0.1:${server.address().port}/assets/photo${k}.jpg`, pageURL: `https://pixabay.example/photo/${k}` })) });
+      }
+      if (u.pathname === "/pixabay/api/videos/" || u.pathname === "/pixabay/api/videos") {
+        return send(200, { hits: [1, 2].map((k) => ({ id: k, duration: 6, pageURL: `https://pixabay.example/video/${k}`, videos: { large: { url: `http://127.0.0.1:${server.address().port}/assets/clip${k}.mp4`, width: 1080, height: 1920 } } })) });
+      }
+      if (u.pathname.startsWith("/assets/") && assetDir) {
+        const f = path.join(assetDir, path.basename(u.pathname));
+        if (fs.existsSync(f)) { res.writeHead(200, { "content-type": f.endsWith(".mp4") ? "video/mp4" : "image/jpeg" }); return fs.createReadStream(f).pipe(res); }
+      }
       // Claude
       if (u.pathname === "/v1/messages") { log.claude++; return send(200, claudeHandler(JSON.parse(raw))); }
       // Instagram

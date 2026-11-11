@@ -275,7 +275,8 @@ function cardEl(item, idx) {
   right.querySelector("b").textContent = page.name; right.querySelectorAll(".meta span")[1].textContent = when(p);
   right.querySelector(".text").textContent = [p.a, p.b, ...(p.s || [])].filter(Boolean).join(" / ");
   right.querySelector(".why").textContent = [p.why && `Editor: ${p.why}`, p.inspiredBy && p.inspiredBy !== "evergreen" && `Inspired by: ${p.inspiredBy}`].filter(Boolean).join(" · ");
-  right.querySelector(".note").textContent = p.format === "reel" ? [p.renderNote, p.footageSource && `source ${p.footageSource}`].filter(Boolean).join(" · ") : "";
+  right.querySelector(".note").textContent = p.format === "reel" ? [p.renderNote, p.footageSource && `source ${p.footageSource}`].filter(Boolean).join(" · ")
+    : p.visual ? [p.renderNote, p.visualSource && `source ${p.visualSource}`].filter(Boolean).join(" · ") : "";
   if (p.renderError || p.lastError) { const e = document.createElement("div"); e.className = "err"; e.textContent = p.renderError || p.lastError; right.appendChild(e); }
   if (p.permalink) { const a = document.createElement("a"); a.href = p.permalink; a.textContent = "View on Instagram"; a.style.color = "var(--acc)"; right.appendChild(a); }
 
@@ -292,6 +293,7 @@ function cardEl(item, idx) {
     else btn("Undo approval", "", () => change(item, { status: "pending", approvedVersion: null }));
     if (p.status !== "rejected") btn("Reject", "no", () => change(item, { status: "rejected" })); else btn("Restore", "", () => change(item, { status: "pending" }));
     btn("Edit text", "", () => card.classList.toggle("editing"));
+    if (["image", "carousel"].includes(p.format)) btn(p.format === "carousel" ? "Swap photos" : "Swap image", "", () => rerender(item, { imageIndex: (p.imageIndex || 0) + 1 }));
     if (p.format === "reel") {
       btn("Swap footage", "", () => rerender(item, { footageIndex: (p.footageIndex || 0) + 1, customClip: null }));
       btn("Swap audio", "", () => rerender(item, { audioIndex: (p.audioIndex || 0) + 1 }));
@@ -311,6 +313,9 @@ function cardEl(item, idx) {
   if (p.template === "versus") { fL1 = field("Top label", p.l?.[0]); fL2 = field("Bottom label", p.l?.[1]); ed.append(fL1, fL2); }
   if (p.format === "carousel") { fS = field("Slides (one per line)", (p.s || []).join("\n"), true); ed.append(fS); }
   if (p.format === "reel") { fF = field("Footage search words", p.footage); ed.append(fF); }
+  let fV, fV2;
+  if (["image", "carousel"].includes(p.format)) { fV = field(p.template === "versus" ? "Top photo search words" : "Photo search words", p.visual); ed.append(fV); }
+  if (p.template === "versus") { fV2 = field("Bottom photo search words", p.visual2); ed.append(fV2); }
   const eAct = document.createElement("div"); eAct.className = "actions";
   const saveB = document.createElement("button"); saveB.className = "btn sm ok"; saveB.textContent = p.format === "reel" ? "Save and re-render video" : "Save and re-render";
   saveB.onclick = (e) => {
@@ -320,6 +325,8 @@ function cardEl(item, idx) {
     if (fL1) patch.l = [fL1.get().trim(), fL2.get().trim()];
     if (fS) patch.s = fS.get().split("\n").map((x) => x.trim()).filter(Boolean);
     if (fF && fF.get().trim() !== p.footage) { patch.footage = fF.get().trim(); patch.footageIndex = 0; }
+    if (fV && fV.get().trim() !== (p.visual || "")) { patch.visual = fV.get().trim(); patch.imageIndex = 0; }
+    if (fV2 && fV2.get().trim() !== (p.visual2 || "")) { patch.visual2 = fV2.get().trim(); patch.imageIndex = 0; }
     rerender(item, patch);
   };
   eAct.appendChild(saveB); ed.appendChild(eAct); right.appendChild(ed);

@@ -18,6 +18,65 @@ function chromePath() {
 }
 
 /* ---------- Footage: Pixabay (preferred) or Pexels. Both free, no attribution required. ---------- */
+/** fetch with retries for flaky connections (resets, timeouts, 5xx). */
+async function fetchRetry(url, opts) {
+  let lastErr;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try { const r = await fetch(url, opts); if (r.status >= 500) throw new Error(`HTTP ${r.status}`); return r; }
+    catch (e) { lastErr = e; await U.sleep(1000 * attempt); }
+  }
+  throw lastErr;
+}
+const PIXABAY = (process.env.PIXABAY_BASE || "https://pixabay.com/api").replace(/\/$/, "");
+const IMAGE_TEMPLATES = ["classic", "pov", "nobody", "tweet", "system"];
+
+/** Search Pixabay photos, trying shorter versions of the phrase if nothing matches. Cached 24h. */
+async function pixabayImages(query) {
+  const key = U.secret("PIXABAY_API_KEY");
+  if (!key || !query) return [];
+  const cacheFile = path.join(U.ROOT, "state", "pixabay-img-cache.json"), cache = U.readJSON(cacheFile, {});
+  if (cache[query] && Date.now() - cache[query].t < 864e5) return cache[query].imgs;
+  const words = String(query).split(/\s+/).filter(Boolean);
+  let imgs = [];
+  for (const q of [words.join(" "), words.slice(0, 3).join(" "), words.slice(0, 2).join(" ")].filter((v, i, a) => v && a.indexOf(v) === i)) {
+    const params = new URLSearchParams({ key, q, image_type: "photo", safesearch: "true", per_page: "20", order: "popular" });
+    const r = await fetchRetry(`${PIXABAY}/?${params}`);
+    if (!r.ok) { U.log(`Pixabay images ${r.status} for "${q}"`); break; }
+    const j = await r.json();
+    imgs = (j.hits || []).map((h) => ({ id: `pbi${h.id}`, url: h.largeImageURL || h.webformatURL, page: h.pageURL })).filter((x) => x.url);
+    if (imgs.length) break;
+  }
+  cache[query] = { t: Date.now(), imgs }; U.writeJSON(cacheFile, cache);
+  return imgs;
+}
+
+/** Photos for a post as data: URLs. Images get 1 (versus 2: one per panel), carousels one per slide. */
+async function photosFor(post) {
+  if (!["image", "carousel"].includes(post.format) || !post.visual) return { urls: [], note: "" };
+  const want = post.format === "carousel" ? MemeTemplates_slideCount(post) : 1;
+  const out = [], notes = [], sources = [];
+  const searches = [[post.visual, want]];
+  if (post.format === "image" && post.template === "versus") searches.push([post.visual2 || post.visual, 1]);
+  try {
+    for (const [query, count] of searches) {
+      const imgs = await pixabayImages(query);
+      if (!imgs.length) { notes.push(U.secret("PIXABAY_API_KEY") ? `no photo found for "${query}"` : "no PIXABAY_API_KEY"); continue; }
+      // the second versus panel starts one photo later so the two panels differ when they share a search
+      const offset = (post.imageIndex || 0) + (out.length && query === post.visual ? 1 : 0);
+      for (let i = 0; i < count; i++) {
+        const k = (offset + i) % imgs.length, im = imgs[k];
+        const file = await download(im.url, path.join(os.tmpdir(), "meme-photos", `${im.id}${path.extname(new URL(im.url).pathname) || ".jpg"}`));
+        const ext = path.extname(file).toLowerCase(), mime = ext === ".png" ? "image/png" : ext === ".webp" ? "image/webp" : "image/jpeg";
+        out.push(`data:${mime};base64,${fs.readFileSync(file).toString("base64")}`);
+        sources.push(im.page);
+      }
+      notes.push(`photo ${(offset % imgs.length) + 1} of ${imgs.length} for "${query}"`);
+    }
+  } catch (e) { notes.push(`photo error (${e.message})`); }
+  return { urls: out, note: notes.join("; "), source: sources[0] || null };
+}
+function MemeTemplates_slideCount(post) { return 1 + (post.s || []).filter((x) => String(x).trim()).length + 1; }
+
 async function pixabayClips(query) {
   const key = U.secret("PIXABAY_API_KEY");
   if (!key) return [];
@@ -28,7 +87,7 @@ async function pixabayClips(query) {
   // Try the full phrase, then shorter versions if nothing comes back
   for (const q of [words.join(" "), words.slice(0, 2).join(" "), words[0]].filter((v, i, a) => v && a.indexOf(v) === i)) {
     const params = new URLSearchParams({ key, q, per_page: "20", safesearch: "true", order: "popular" });
-    const r = await fetch(`https://pixabay.com/api/videos/?${params}`);
+    const r = await fetchRetry(`${PIXABAY}/videos/?${params}`);
     if (!r.ok) { U.log(`Pixabay ${r.status} for "${q}"`); break; }
     const j = await r.json();
     clips = (j.hits || []).map((h) => {
@@ -49,7 +108,7 @@ async function pexelsClips(query) {
   const cacheFile = path.join(U.ROOT, "state", "pexels-cache.json"), cache = U.readJSON(cacheFile, {});
   if (cache[query] && Date.now() - cache[query].t < 14 * 864e5) return cache[query].clips;
   const q = new URLSearchParams({ query, orientation: "portrait", size: "medium", per_page: "15" });
-  const r = await fetch(`https://api.pexels.com/videos/search?${q}`, { headers: { Authorization: key } });
+  const r = await fetchRetry(`https://api.pexels.com/videos/search?${q}`, { headers: { Authorization: key } });
   if (!r.ok) { U.log(`Pexels ${r.status} for "${query}"`); return []; }
   const j = await r.json();
   const clips = (j.videos || []).map((v) => {
@@ -62,10 +121,16 @@ async function pexelsClips(query) {
 }
 async function download(url, dest) {
   if (fs.existsSync(dest) && fs.statSync(dest).size > 10000) return dest;
-  const r = await fetch(url); if (!r.ok) throw new Error(`download ${r.status}`);
-  fs.mkdirSync(path.dirname(dest), { recursive: true });
-  fs.writeFileSync(dest, Buffer.from(await r.arrayBuffer()));
-  return dest;
+  let lastErr;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      const r = await fetchRetry(url); if (!r.ok) throw new Error(`download ${r.status}`);
+      fs.mkdirSync(path.dirname(dest), { recursive: true });
+      fs.writeFileSync(dest, Buffer.from(await r.arrayBuffer()));
+      return dest;
+    } catch (e) { lastErr = e; await U.sleep(1500 * attempt); }
+  }
+  throw lastErr;
 }
 
 /* ---------- Audio: royalty-free tracks you add to assets/audio/<mood>/ or assets/audio/ ---------- */
@@ -153,7 +218,9 @@ async function renderPending() {
       const outDir = path.join(U.SITE, rel);
       try {
         fs.mkdirSync(outDir, { recursive: true });
-        const frames = await tab.evaluate(([pg, p]) => window.renderPost(pg, p), [page, post]);
+        const photo = await photosFor(post);
+        const frames = await tab.evaluate(([pg, p, imgs]) => window.renderPost(pg, p, imgs), [page, post, photo.urls]);
+        if (post.format !== "reel") { post.renderNote = photo.note || null; post.visualSource = photo.source || null; }
         const files = [];
         for (const f of frames) {
           const ext = f.mime === "image/png" ? "png" : "jpg";
@@ -166,7 +233,7 @@ async function renderPending() {
         for (const f of fs.readdirSync(outDir)) if (!f.startsWith(`v${ver}`)) fs.rmSync(path.join(outDir, f), { force: true });
         const patch = {
           media: media.map((f) => path.posix.join(rel, path.basename(f))), renderVersion: ver, needsRender: false,
-          renderedAt: new Date().toISOString(), renderError: null, renderNote: post.renderNote || null, footageSource: post.footageSource || null,
+          renderedAt: new Date().toISOString(), renderError: null, renderNote: post.renderNote || null, footageSource: post.footageSource || null, visualSource: post.visualSource || null,
         };
         if (post.status === "approved" && post.approvedVersion !== ver) patch.status = "pending"; // approval is tied to the exact render
         changes.push({ file: relFile, id: post.id, expectHash, patch });
@@ -191,5 +258,5 @@ async function main() {
   }
 }
 
-module.exports = { ffmpegReel, renderPending, pixabayClips };
+module.exports = { ffmpegReel, renderPending, pixabayClips, pixabayImages };
 if (require.main === module) main().catch((e) => { console.error(e); process.exit(1); });
