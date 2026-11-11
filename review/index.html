@@ -41,6 +41,12 @@
   .media{position:relative;background:#000;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;min-height:200px}
   .media img,.media video,.media canvas{width:100%;height:auto;display:block}
   .media video{max-height:620px;background:#000}
+  .libgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin-top:10px}
+  .clip{background:var(--card,#1b1b1b);border:1px solid #333;border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+  .clip video{width:100%;aspect-ratio:4/3;object-fit:contain;background:#000;display:block}
+  .clip .body{padding:8px 10px;display:flex;flex-direction:column;gap:6px;font-size:13px}
+  .clip.starred{border-color:#e7c14a}.clip.banned{opacity:.45}
+  .clip .src{color:var(--muted);font-size:12px}.clip .src a{color:var(--muted)}
   .strip{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x mandatory;width:100%}
   .strip img,.strip canvas{flex:0 0 100%;scroll-snap-align:start}
   .badge{position:absolute;top:8px;left:8px;background:rgba(0,0,0,.72);border-radius:999px;padding:4px 10px;font-size:11.5px;font-weight:700}
@@ -111,7 +117,8 @@ const $ = (id) => document.getElementById(id);
 const store = { get(k, d) { try { return localStorage.getItem(k) ?? d; } catch { return d; } }, set(k, v) { try { localStorage.setItem(k, v); } catch {} } };
 let CFG = null;
 const API = store.get("mq-api", "https://api.github.com"); // overridable for testing
-const S = { repo: store.get("mq-repo", ""), token: store.get("mq-token", ""), page: store.get("mq-page", "all"), filter: "review", files: {}, posts: [], pending: [], focus: 0, saving: false };
+const LIB = "library/clips.json";
+const S = { lib: { sha: null, doc: { clips: [] } }, repo: store.get("mq-repo", ""), token: store.get("mq-token", ""), page: store.get("mq-page", "all"), filter: "review", files: {}, posts: [], pending: [], focus: 0, saving: false };
 
 // Guess owner/repo from a GitHub Pages URL: https://owner.github.io/repo/
 if (!S.repo && /\.github\.io$/.test(location.hostname)) S.repo = location.hostname.split(".")[0] + "/" + location.pathname.split("/")[1];
@@ -144,6 +151,7 @@ async function load() {
       const files = await gh("GET", `contents/queue/${w}?ref=main`);
       await Promise.all(files.filter((f) => f.name.endsWith(".json")).map(async (f) => { S.files[`queue/${w}/${f.name}`] = await getFile(`queue/${w}/${f.name}`); }));
     }
+    try { S.lib = await getFile(LIB); } catch (e) { if (e.status !== 404) throw e; S.lib = { sha: null, doc: { clips: [] } }; }
     rebuild(); status(S.pending.length ? `${S.pending.length} unsaved` : "Up to date");
   } catch (e) { status("Couldn't load: " + e.message, true); if (e.status === 401 || e.status === 404) $("settings").classList.add("show"); }
 }
@@ -170,6 +178,12 @@ async function save() {
     for (const [path, list] of Object.entries(byPath)) {
       for (let attempt = 1; ; attempt++) {
         const latest = await getFile(path);
+        if (path === LIB) {
+          for (const c of list) { const x = latest.doc.clips.find((y) => y.id === c.id); if (x) Object.assign(x, c.patch); }
+          const bytes = new TextEncoder().encode(JSON.stringify(latest.doc, null, 2) + "\n");
+          try { const r = await gh("PUT", `contents/${path}`, { message: `Library: ${list.length} change(s)`, content: b64enc(bytes), sha: latest.sha, branch: "main" }); S.lib = { sha: r.content.sha, doc: latest.doc }; break; }
+          catch (e) { if (e.status !== 409 && e.status !== 422 || attempt >= 5) throw e; continue; }
+        }
         for (const c of list) {
           if (c.patch.__delete) { latest.doc.posts = latest.doc.posts.filter((x) => x.id !== c.id || x.status === "posted"); continue; }
           const p = latest.doc.posts.find((x) => x.id === c.id); if (p) Object.assign(p, c.patch);
@@ -201,6 +215,7 @@ const FILTERS = [
   ["all", "All", () => true],
 ];
 function visible() {
+  if (S.filter === "library") return [];
   const f = FILTERS.find((x) => x[0] === S.filter)[2];
   return S.posts.filter((x) => (S.page === "all" || x.p.page === S.page) && f(x.p));
 }
@@ -222,6 +237,45 @@ function renderTabs() {
     b.onclick = () => { S.filter = k; S.focus = 0; render(); };
     $("filters").appendChild(b);
   });
+  const lb = document.createElement("button"); lb.className = "chip" + (S.filter === "library" ? " on" : ""); lb.id = "libChip";
+  lb.innerHTML = `<span>Clip library</span><span class="n">${libClips().length}</span>`;
+  lb.onclick = () => { S.filter = "library"; render(); };
+  $("filters").appendChild(lb);
+}
+/* ---------- Clip library (vintage public-domain clips from the Internet Archive) ---------- */
+function libClips(page) { const pg = page || S.page; return (S.lib.doc.clips || []).filter((c) => pg === "all" || (c.pages || []).includes(pg)); }
+function usableClips(page) { return libClips(page).filter((c) => c.status !== "banned").sort((a, b) => (b.status === "starred") - (a.status === "starred") || (a.uses || 0) - (b.uses || 0) || (b.fit || 0) - (a.fit || 0)); }
+function libChange(clip, patch) {
+  Object.assign(clip, patch);
+  S.pending.push({ path: LIB, id: clip.id, patch });
+  status(`${S.pending.length} unsaved…`); clearTimeout(change.t); change.t = setTimeout(save, 1500);
+  render();
+}
+function renderLibrary() {
+  const list = $("list"); list.innerHTML = "";
+  const clips = libClips().slice().sort((a, b) => (b.status === "starred") - (a.status === "starred") || (a.status === "banned") - (b.status === "banned") || Date.parse(b.addedAt) - Date.parse(a.addedAt));
+  $("empty").classList.toggle("hide", clips.length > 0);
+  $("empty").textContent = "No clips yet. They're harvested from the Internet Archive when Generate runs (or run Actions → Harvest archive clips).";
+  const intro = document.createElement("div"); intro.className = "help";
+  intro.textContent = "Vintage public-domain clips Claude picked from Internet Archive films. Star the funniest so they're used first; ban duds so they're never used (banned clips are deleted at the next harvest). Hover or tap to play.";
+  const grid = document.createElement("div"); grid.className = "libgrid";
+  for (const c of clips) {
+    const el = document.createElement("div"); el.className = `clip ${c.status}`;
+    const v = document.createElement("video"); v.src = c.file; v.poster = c.poster; v.muted = true; v.loop = true; v.playsInline = true; v.preload = "none";
+    v.onmouseenter = () => v.play().catch(() => {}); v.onmouseleave = () => v.pause(); v.onclick = () => (v.paused ? v.play() : v.pause());
+    const body = document.createElement("div"); body.className = "body";
+    const d = document.createElement("div"); d.textContent = c.desc;
+    const idea = document.createElement("div"); idea.className = "help"; idea.textContent = c.idea ? `Idea: ${c.idea}` : "";
+    const meta = document.createElement("div"); meta.className = "src";
+    meta.innerHTML = `fit ${Number(c.fit || 0).toFixed(0)}/10 · used ${c.uses || 0}× · ${(c.pages || []).map((k) => CFG.pages[k] ? CFG.pages[k].name.split(" ")[0] : k).join(", ")}<br><a target="_blank" rel="noopener"></a>`;
+    const a = meta.querySelector("a"); a.href = c.sourceUrl; a.textContent = `${c.title}${c.year ? ` (${c.year})` : ""}`;
+    const acts = document.createElement("div"); acts.className = "actions";
+    const b = (txt, cls, fn) => { const x = document.createElement("button"); x.className = "btn sm " + cls; x.textContent = txt; x.onclick = fn; acts.appendChild(x); };
+    if (c.status === "starred") b("Unstar", "", () => libChange(c, { status: "new" })); else if (c.status !== "banned") b("★ Star", "ok", () => libChange(c, { status: "starred" }));
+    if (c.status === "banned") b("Unban", "", () => libChange(c, { status: "new" })); else b("Ban", "no", () => libChange(c, { status: "banned" }));
+    body.append(d, idea, meta, acts); el.append(v, body); grid.appendChild(el);
+  }
+  list.append(intro, grid);
 }
 function when(p) { return new Date(p.scheduledAt).toLocaleString(undefined, { weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }); }
 function previewCanvas(page, p, kind, slide) {
@@ -260,6 +314,7 @@ function mediaEl(item) {
 function render() {
   if (!CFG) return;
   renderTabs();
+  if (S.filter === "library") return renderLibrary();
   const list = $("list"), items = visible(); list.innerHTML = "";
   $("empty").classList.toggle("hide", items.length > 0);
   $("empty").textContent = S.filter === "review" ? "Nothing waiting for review. New posts are generated every Saturday." : "Nothing here.";
@@ -302,9 +357,17 @@ function cardEl(item, idx) {
     else btn("Undo approval", "", () => change(item, { status: "pending", approvedVersion: null }));
     if (p.status !== "rejected") btn("Reject", "no", () => change(item, { status: "rejected" })); else btn("Restore", "", () => change(item, { status: "pending" }));
     btn("Edit text", "", () => card.classList.toggle("editing"));
-    if (["image", "carousel"].includes(p.format) && p.template !== "meme") btn(p.format === "carousel" ? "Swap photos" : "Swap image", "", () => rerender(item, { imageIndex: (p.imageIndex || 0) + 1 }));
+    if (p.still) btn("Stock photo instead", "", () => rerender(item, { still: null }));
+    if (["image", "carousel"].includes(p.format) && p.template !== "meme") btn(p.format === "carousel" ? "Swap photos" : "Swap image", "", () => rerender(item, { imageIndex: (p.imageIndex || 0) + 1, still: null }));
     if (p.format === "reel") {
-      btn("Swap footage", "", () => rerender(item, { footageIndex: (p.footageIndex || 0) + 1, customClip: null }));
+      const pool = usableClips(p.page);
+      if (p.clip) {
+        btn("Another archive clip", "", () => { const others = pool.filter((c) => c.id !== p.clip); if (others.length) rerender(item, { clip: others[0].id, clipDesc: others[0].desc, customClip: null }); });
+        const cl = (S.lib.doc.clips || []).find((c) => c.id === p.clip);
+        if (cl && cl.hasAudio) btn(p.clipAudio === false ? "Film sound: off" : "Film sound: on", "", () => rerender(item, { clipAudio: p.clipAudio === false }));
+        btn("Stock footage instead", "", () => rerender(item, { clip: null, clipDesc: "" }));
+      } else if (pool.length) btn("Use an archive clip", "", () => rerender(item, { clip: pool[0].id, clipDesc: pool[0].desc, customClip: null }));
+      btn("Swap footage", "", () => rerender(item, { footageIndex: (p.footageIndex || 0) + 1, customClip: null, clip: null }));
       btn("Swap music", "", () => rerender(item, { audioIndex: (p.audioIndex || 0) + 1 }));
       if (p.sfx) btn("Swap sound effect", "", () => rerender(item, { sfxIndex: (p.sfxIndex || 0) + 1 }));
       const mp4 = (p.media || []).find((m) => m.endsWith(".mp4"));
@@ -392,6 +455,7 @@ $("bulk").onclick = () => {
   status(`Approved ${list.length}; saving…`); render(); save();
 };
 function applyLocal(c) {
+  if (c.path === LIB) { const x = S.lib.doc.clips.find((y) => y.id === c.id); if (x) Object.assign(x, c.patch); return; }
   const f = S.files[c.path]; if (!f) return;
   if (c.patch.__delete) { f.doc.posts = f.doc.posts.filter((x) => x.id !== c.id || x.status === "posted"); S.posts = S.posts.filter((x) => !(x.p.id === c.id && x.p.status !== "posted")); return; }
   const it = S.posts.find((x) => x.p.id === c.id); if (it) Object.assign(it.p, c.patch);

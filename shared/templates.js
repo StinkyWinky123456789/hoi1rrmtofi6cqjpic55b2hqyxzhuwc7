@@ -214,6 +214,22 @@
     if (d.b) { const fb = fit(c, d.b, (n) => inter(800, n), W - 2 * pad, H - (cy0 + chH + 60) - 120, 70 * s, 30, 1.16); draw(c, fb, pad, cy0 + chH + 60, 1.16, "left", t.text); }
     watermark(c, W, H, t);
   }
+  /** Archive-clip Reels: the clip sits in the middle with black bars; setup text in the top bar, punchline in the bottom bar. */
+  function tOverlayBox(c, W, H, t, post, s, part) {
+    const top = 120, bottom = 1430; // the punch zoom grows the clip to ~1405
+    if (part !== "b") {
+      let a = post.a || "";
+      if (post.template === "pov" && a && !/^pov/i.test(a)) a = "POV: " + a;
+      const fa = fit(c, up(t, a), (n) => headFont(t, n), W - 120, 330, 92 * s, 34, 1.08);
+      draw(c, fa, W / 2, top + Math.max(0, (330 - fa.h) / 2), 1.08, "center", "#ffffff", "#000000");
+      c.font = inter(700, 30); c.textAlign = "center"; c.textBaseline = "top"; c.fillStyle = "rgba(255,255,255,.75)"; c.fillText(t.handle, W / 2, top + 345);
+    }
+    if (post.b && part !== "a") {
+      const fb = fit(c, up(t, post.b), (n) => headFont(t, n), W - 120, 380, 96 * s, 34, 1.08);
+      draw(c, fb, W / 2, bottom, 1.08, "center", "#ffffff", "#000000");
+    }
+  }
+
   /** A classic meme template image (rendered by memegen) framed with an optional caption and the page handle. */
   function tMeme(c, W, H, t, d, s) {
     bgFill(c, W, H, t);
@@ -274,6 +290,7 @@
   /* ---------- Reel text overlay (transparent) ---------- */
   function tOverlay(c, W, H, t, post, s, part) {
     c.clearRect(0, 0, W, H);
+    if (post.clip && !post.customClip) return tOverlayBox(c, W, H, t, post, s, part);
     if (part === "b") {
       if (post.b) { const fb = fit(c, up(t, post.b), (n) => headFont(t, n), W - 140, 440, 96 * s, 36, 1.08); draw(c, fb, W / 2, H * 0.72 - fb.h, 1.08, "center", "#ffffff", "#000000"); }
       return;

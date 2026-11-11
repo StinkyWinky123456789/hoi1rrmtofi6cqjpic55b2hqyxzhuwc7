@@ -8,6 +8,7 @@ const U = require("./lib/util");
 const { askJSON } = require("./lib/claude");
 const { collectSignals } = require("./collect");
 const Memes = require("./lib/memes");
+const Library = require("./lib/library");
 
 const TEMPLATE_GUIDE = `Image templates (the joke must work as text on a branded graphic; no photo is added):
 - classic: "a" = caption bar on top, "b" = big punchline over the graphic.
@@ -60,6 +61,8 @@ const ITEM_SCHEMA = {
           visual2: { type: "string", description: "versus only: 3-6 word stock-photo search for the BOTTOM panel's photo" },
           mood: { type: "string", enum: ["dramatic", "hype", "chill", "sad", "funny"], description: "reels: audio mood" },
           sfx: { type: "string", description: "reels: 1-3 word sound effect that hits on the punchline" },
+          clip: { type: "string", description: "reels: id of an archive clip to use instead of stock footage" },
+          still: { type: "string", description: "images: id of an archive clip whose frame is the photo" },
           caption: { type: "string", description: "one short caption line, no hashtags" },
           mt: { type: "string", description: "meme template id (template 'meme' only)" },
           ml: { type: "array", items: { type: "string" }, description: "meme template text lines (template 'meme' only)" },
@@ -102,6 +105,11 @@ async function writeCandidates(cfg, key, pg, sig, avoid, format, count) {
   const pieces = [];
   const memeList = format === "image" ? await Memes.templates(pg) : [];
   const memeGuide = memeList.length ? `\nMeme templates you can use (id: name, number of text boxes in order${memeList.some((t) => t.example.length) ? ", example" : ""}). Use the template the way the internet uses it (you know these formats by name); "mt" must be the exact id; "ml" has one entry per box, in box order. Templates marked [niche] were picked for this page.\n${memeList.map((t) => `- ${t.id}: ${t.name}, ${t.lines} boxes${t.niche ? " [niche]" : ""}${t.example.length ? `, e.g. ${JSON.stringify(t.example)}` : ""}`).join("\n")}` : "";
+  // Archive clips (public-domain vintage footage) this page can use
+  const lib = format === "reel" ? Library.forPage(key).slice(0, 45) : format === "image" ? Library.forPage(key, { stills: true }).slice(0, 30) : [];
+  const libGuide = !lib.length ? "" : format === "reel"
+    ? `\nARCHIVE CLIPS: real vintage public-domain footage (1940s-60s films). Use one by putting its id in "clip" (then "footage" is ignored). Aim for about half of these Reels to use a clip when one genuinely fits: the old footage IS the joke, so write "a"/"b" that recontextualize exactly what happens on screen (modern problems over 1950s footage). Use each clip at most once. [starred] clips are the editor's favorites.\n${lib.map((c) => `- ${c.id}: ${c.desc}${c.idea ? ` (idea: ${c.idea})` : ""}${c.status === "starred" ? " [starred]" : ""}`).join("\n")}`
+    : `\nARCHIVE STILLS: frames from vintage public-domain films. For a classic, pov or nobody meme you may set "still" to one of these ids instead of a stock photo (it replaces "visual"). Use a few where the frame is funnier than any stock photo; each at most once.\n${lib.map((c) => `- ${c.id}: ${c.desc}${c.status === "starred" ? " [starred]" : ""}`).join("\n")}`;
   for (let left = count; left > 0; left -= 25) {
     const n = Math.min(25, left);
     const spec = format === "image"
@@ -113,7 +121,7 @@ async function writeCandidates(cfg, key, pg, sig, avoid, format, count) {
 Recently used ideas (do NOT repeat these):
 ${avoid.slice(-60).map((x) => "- " + x).join("\n") || "- none yet"}
 
-${spec}
+${spec}${libGuide}
 Keep "a" under 90 characters and "b" under 100. Call submit_memes with all ${n}.`;
     const { data, usage } = await askJSON({ model: cfg.model, system: systemPrompt(pg, key), prompt, toolName: "submit_memes", toolDescription: "Submit the memes", schema: ITEM_SCHEMA });
     U.log(`${key}: Claude wrote ${data.memes?.length || 0} ${format} candidates (${usage?.input_tokens || "?"} in / ${usage?.output_tokens || "?"} out tokens)`);
@@ -127,6 +135,7 @@ const NICHE_PHOTO = { gym: "people lifting weights gym", anime: "neon city stree
 function fallbackVisual(key) { return NICHE_PHOTO[key] || "people laughing"; }
 
 let memeIds = new Map(); // id -> { lines, name }, filled before cleaning
+let libClips = new Map(); // archive clip id -> clip (for this page), filled before cleaning
 function clean(m, key) {
   const str = (v, n) => String(v || "").replace(/\s+/g, " ").trim().slice(0, n);
   const out = { format: m.format, a: str(m.a, 120), b: str(m.b, 130), caption: str(m.caption, 300), inspiredBy: str(m.inspiredBy, 120) };
@@ -139,6 +148,7 @@ function clean(m, key) {
       return out;
     }
     out.visual = str(m.visual, 70) || fallbackVisual(key, out);
+    if (m.still && libClips.has(m.still) && libClips.get(m.still).stillOk && ["classic", "pov", "nobody"].includes(m.template)) { out.still = m.still; out.clipDesc = libClips.get(m.still).desc; }
     if (m.template === "versus") out.visual2 = str(m.visual2, 70) || out.visual;
     const allowed = key === "money" ? ["classic", "pov", "nobody", "tweet", "system", "versus", "ticker"] : ["classic", "pov", "nobody", "tweet", "system", "versus"];
     out.template = allowed.includes(m.template) ? m.template : "classic";
@@ -146,12 +156,15 @@ function clean(m, key) {
     if (out.template === "tweet") out.b = "";
   }
   if (m.format === "carousel") { out.s = (m.s || []).map((x) => str(x, 140)).filter(Boolean).slice(0, 6); out.b = ""; out.visual = str(m.visual, 70) || fallbackVisual(key, out); }
-  if (m.format === "reel") { out.template = "classic"; out.footage = str(m.footage, 60) || "city night timelapse"; out.mood = m.mood || "funny"; out.sfx = str(m.sfx, 30) || "vine boom"; }
+  if (m.format === "reel") {
+    out.template = "classic"; out.footage = str(m.footage, 60) || "city night timelapse"; out.mood = m.mood || "funny"; out.sfx = str(m.sfx, 30) || "vine boom";
+    if (m.clip && libClips.has(m.clip)) { out.clip = m.clip; out.clipDesc = libClips.get(m.clip).desc; }
+  }
   return out;
 }
 
 async function judge(cfg, key, pg, cands) {
-  const list = cands.map((c, i) => `${i}. [${c.format}${c.template ? "/" + c.template : ""}${c.mt ? " " + c.mt : ""}] ${U.postText(c)}`).join("\n");
+  const list = cands.map((c, i) => `${i}. [${c.format}${c.template ? "/" + c.template : ""}${c.mt ? " " + c.mt : ""}] ${U.postText(c)}${c.clipDesc ? ` {vintage footage: ${c.clipDesc}}` : ""}`).join("\n");
   const prompt = `Score each meme for "${pg.name}" (${pg.niche}) from 1 to 10. Be a tough editor: most should land 4-7.
 10 = people will DM it to a specific friend instantly; it's clear in one second; fresh angle; perfect for the page's voice.
 Mark generic memes down hard: if the joke could appear on any meme page, or doesn't name a specific situation, thing or piece of niche slang, it scores 5 or lower. Reward specificity, edge and escalation.
@@ -183,7 +196,7 @@ function dedupe(cands, history, xTexts) {
 function assign(slots, cands, pg, cfg, key, weekId) {
   const pools = { image: [], carousel: [], reel: [] };
   for (const c of cands.sort((x, y) => y.score - x.score)) pools[c.format].push(c);
-  const posts = [];
+  const posts = [], usedClips = new Set();
   let prevTpl = null;
   for (const s of slots) {
     const pool = pools[s.format].length ? pools[s.format] : pools.image; // fall back to an image if a format runs dry
@@ -192,11 +205,12 @@ function assign(slots, cands, pg, cfg, key, weekId) {
     if (idx < 0 || idx > 3) idx = 0; // don't sacrifice much quality for variety
     const c = pool.splice(idx, 1)[0];
     prevTpl = c.template;
+    for (const k of ["clip", "still"]) if (c[k]) { if (usedClips.has(c[k])) { c[k] = null; c.clipDesc = ""; } else usedClips.add(c[k]); }
     const id = `${key}-${s.ymd.replace(/-/g, "")}-${s.index + 1}`;
     posts.push({
       id, page: key, week: weekId, date: s.ymd, time: s.time, scheduledAt: s.at,
       format: c.format, template: c.template || null, a: c.a, b: c.b || "", l: c.l, s: c.s, mt: c.mt, mtName: c.mtName, ml: c.ml,
-      footage: c.footage, mood: c.mood, sfx: c.sfx, sfxIndex: 0, footageIndex: 0, audioIndex: 0, customClip: null,
+      footage: c.footage, mood: c.mood, sfx: c.sfx, clip: c.clip || null, still: c.still || null, clipDesc: c.clipDesc || "", clipAudio: true, sfxIndex: 0, footageIndex: 0, audioIndex: 0, customClip: null,
       visual: c.visual || "", visual2: c.visual2 || "", imageIndex: 0,
       caption: `${c.caption}\n\nFollow ${pg.handle} for daily ${pg.noun} memes.\n\n${pg.tags.slice(0, 5).join(" ")}`,
       score: c.score, why: c.why || "", inspiredBy: c.inspiredBy || "",
@@ -213,6 +227,7 @@ async function generatePage(cfg, key, weekStart, signals, force) {
   const live = fs.existsSync(file) ? U.readJSON(file, { posts: [] }).posts.filter((p) => !["rejected"].includes(p.status)) : [];
   if (fs.existsSync(file) && !force && live.length) { U.log(`${key}: ${weekId} already generated, skipping (use --force to redo)`); return null; }
   memeIds = new Map((await Memes.templates(pg)).map((t) => [t.id, { lines: t.lines, name: t.name }]));
+  libClips = new Map(Library.forPage(key).map((c) => [c.id, c]));
   const slots = buildSlots(cfg, key, weekStart);
   const need = { image: 0, carousel: 0, reel: 0 };
   slots.forEach((s) => need[s.format]++);
@@ -244,6 +259,7 @@ async function generatePage(cfg, key, weekStart, signals, force) {
   const posts = assign(slots, cands, pg, cfg, key, weekId);
   U.writeJSON(file, { week: weekId, page: key, weekStart, generatedAt: new Date().toISOString(), model: cfg.model, posts });
   U.writeJSON(histFile, history.concat(posts.map(U.postText)).slice(-600));
+  Library.markUsed(posts.flatMap((p) => [p.clip, p.still].filter(Boolean)));
   const avg = posts.reduce((t, p) => t + p.score, 0) / (posts.length || 1);
   U.log(`${key}: queued ${posts.length}/${slots.length} posts for ${weekId}, average score ${avg.toFixed(1)}`);
   return posts;

@@ -29,12 +29,18 @@ const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47
 (async () => {
   execFileSync("bash", ["-c", `cd "${SRC}" && tar --exclude=node_modules --exclude=site --exclude=.git -cf - . | (cd "${TMP}" && tar -xf -)`]);
   fs.rmSync(path.join(TMP, "queue"), { recursive: true, force: true }); fs.mkdirSync(path.join(TMP, "queue"));
+  fs.rmSync(path.join(TMP, "library"), { recursive: true, force: true }); fs.rmSync(path.join(TMP, "state", "archive-seen.json"), { force: true });
   const SITE = path.join(TMP, "site"); fs.mkdirSync(SITE);
   execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-f", "lavfi", "-i", "sine=frequency=330:duration=12", "-c:a", "libmp3lame", path.join(TMP, "assets/audio/funny/test-tone.mp3")]);
   const ASSETS = path.join(TMP, "test-assets"); fs.mkdirSync(ASSETS);
   for (const [k, c] of [[1, "red"], [2, "blue"], [3, "green"]]) execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-f", "lavfi", "-i", `testsrc2=size=1280x853`, "-frames:v", "1", "-vf", `drawbox=x=0:y=0:w=200:h=200:color=${c}:t=fill`, path.join(ASSETS, `photo${k}.jpg`)]);
   execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-f", "lavfi", "-i", "color=c=0x3366cc:s=600x600", "-frames:v", "1", path.join(ASSETS, "meme.png")]);
   execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-f", "lavfi", "-i", "sine=frequency=80:duration=1", "-ac", "2", path.join(ASSETS, "sfx.mp3")]);
+  // a 28s "vintage film" with 7 hard cuts and a soundtrack
+  const segs = ["testsrc2", "color=c=0xaa2222", "smptebars", "color=c=0xeeeeee", "rgbtestsrc", "color=c=0x2244aa", "testsrc"];
+  execFileSync("ffmpeg", ["-y", "-loglevel", "error", ...segs.flatMap((g) => ["-f", "lavfi", "-i", `${g}${g.includes("=") ? ":" : "="}s=640x480:r=30:d=4`]), "-f", "lavfi", "-i", "sine=frequency=330:duration=28",
+    "-filter_complex", segs.map((_, k) => `[${k}:v]setsar=1[v${k}]`).join(";") + ";" + segs.map((_, k) => `[v${k}]`).join("") + `concat=n=${segs.length}:v=1:a=0[v]`,
+    "-map", "[v]", "-map", `${segs.length}:a`, "-pix_fmt", "yuv420p", "-c:a", "aac", "-shortest", path.join(ASSETS, "film.mp4")]);
   for (const k of [1, 2]) execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-f", "lavfi", "-i", "testsrc2=size=1080x1920:rate=30:duration=6", "-pix_fmt", "yuv420p", path.join(ASSETS, `clip${k}.mp4`)]);
   const { server, port, log } = await mock.start({ siteDir: SITE, ghRoot: TMP, assetDir: ASSETS });
   const base = `http://127.0.0.1:${port}`;
@@ -42,7 +48,7 @@ const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47
     NO_GIT: "1", SITE_DIR: SITE, ANTHROPIC_API_KEY: "test", ANTHROPIC_BASE_URL: base,
     NODE_PATH: "/opt/npm-tools/node_modules", CHROME_PATH: "/usr/bin/google-chrome",
     PIXABAY_API_KEY: "test", PIXABAY_BASE: `${base}/pixabay/api`,
-    MEMEGEN_BASE: `${base}/memegen`, IMGFLIP_BASE: `${base}/imgflip`, IMGFLIP_API_KEY: "test-imgflip", IMGFLIP_PREMIUM: "true", FREESOUND_API_KEY: "test", FREESOUND_BASE: `${base}/freesound`,
+    ARCHIVE_BASE: `${base}/archive`, MEMEGEN_BASE: `${base}/memegen`, IMGFLIP_BASE: `${base}/imgflip`, IMGFLIP_API_KEY: "test-imgflip", IMGFLIP_PREMIUM: "true", FREESOUND_API_KEY: "test", FREESOUND_BASE: `${base}/freesound`,
     IG_API_BASE: base, MEDIA_BASE_URL: `${base}/site`, PUBLISH_ENABLED: "true",
     ...Object.fromEntries(["GYM", "ANIME", "MONEY", "SHITPOST"].flatMap((k, i) => [[`IG_USER_ID_${k}`, `17841400000${i}`], [`IG_TOKEN_${k}`, `tok_${k}`]])),
   };
@@ -54,6 +60,19 @@ const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47
     ok(U.zonedToUtc("2027-03-15", "06:30", "America/New_York").toISOString() === "2027-03-15T10:30:00.000Z", "6:30 AM Eastern after DST starts = 10:30 UTC");
     ok(U.nextMonday(new Date("2026-11-14T15:15:00Z"), "America/New_York") === "2026-11-16", "Saturday run targets the coming Monday");
     ok(U.isoWeekId("2026-11-16") === "2026-W47", "week id");
+
+    console.log("2a. Harvest vintage clips (Internet Archive stand-in)");
+    const hout = await run("engine/harvest.js", ENV);
+    const lib = JSON.parse(fs.readFileSync(path.join(TMP, "library/clips.json"), "utf8")).clips;
+    ok(log.iaSearch && log.iaSearch.every((q) => /mediatype:movies/.test(q) && /collection:\(prelinger\)/.test(q)), "searches only public-domain collections");
+    ok(!(log.iaDownloads || []).some((d) => /film_nc/.test(d)) && /film_one_512kb\.mp4$/.test(log.iaDownloads[0]) && log.iaDownloads.length === 1, "non-commercial-licensed films are skipped; each film downloaded once; picks the MP4");
+    ok(log.pickImages >= 5 && log.pickImages <= 40, `Claude looked at ${log.pickImages} shots`);
+    ok(lib.length === 4 && lib.every((c) => fs.existsSync(path.join(SITE, c.file)) && fs.existsSync(path.join(SITE, c.poster))), `${lib.length} clips kept (the low-fit one dropped), files saved`);
+    ok(lib.every((c) => !c.pages.includes("bogus") && c.pages.includes("gym") && c.hasAudio && c.sourceUrl === "https://archive.org/details/film_one"), "clips tagged with real pages, source link and sound");
+    const cp = JSON.parse(execFileSync("ffprobe", ["-v", "error", "-print_format", "json", "-show_format", "-show_streams", path.join(SITE, lib[0].file)]).toString());
+    ok(+cp.format.duration >= 2.4 && +cp.format.duration <= 7.2 && cp.streams.some((x) => x.codec_type === "audio"), `clips are short (${(+cp.format.duration).toFixed(1)}s) with audio`);
+    await run("engine/harvest.js", ENV);
+    ok(JSON.parse(fs.readFileSync(path.join(TMP, "library/clips.json"), "utf8")).clips.length === 4 && log.iaDownloads.length === 1, "a second harvest doesn't re-download films it already used");
 
     console.log("2. Generate (Claude stand-in; real trend sources are offline here)");
     const out = await run("engine/generate.js", ENV, ["2026-11-16"]);
@@ -94,7 +113,7 @@ const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47
     ok(car.media.length === 6 && car.media.every((m) => m.endsWith(".jpg")), "carousel rendered to 6 JPEG slides (title + 4 + follow)");
     ok(g2.posts.filter((p) => p.format === "image").every((p) => p.media[0].endsWith(".jpg")), "images are JPEG (Instagram requires JPEG)");
     const stills = g2.posts.filter((p) => p.format !== "reel");
-    const photoStills = stills.filter((p) => p.template !== "meme"), memePosts = stills.filter((p) => p.template === "meme");
+    const photoStills = stills.filter((p) => p.template !== "meme" && !p.still), memePosts = stills.filter((p) => p.template === "meme");
     ok(photoStills.every((p) => p.visual && /photo \d of 3/.test(p.renderNote || "") && p.visualSource), `all ${photoStills.length} photo memes got stock photos`);
     ok(memePosts.length >= 4 && memePosts.every((p) => p.mt && p.ml.length >= 2 && /meme template/.test(p.renderNote) && /\/memegen\/images\/|imgflip\.com\/memetemplate/.test(p.visualSource)), `${memePosts.length} classic meme-template posts rendered (Imgflip + Memegen)`);
     ok(memePosts.some((p) => p.ml.length === 3), "meme lines padded to the template's box count");
@@ -106,8 +125,20 @@ const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47
     ok(caps.every((c) => c.auth === "Bearer test-imgflip" && c.params["boxes[0][text]"] && c.params.no_watermark === "1"), "Imgflip calls send the key, fill boxes in order, and drop the watermark on Premium");
     const vs = stills.find((p) => p.template === "versus");
     ok(!vs || (vs.renderNote.match(/photo/g) || []).length === 2, "versus memes get a photo for each panel");
-    const stockReel = g2.posts.find((p) => p.format === "reel" && !p.customClip);
+    const stockReel = g2.posts.find((p) => p.format === "reel" && !p.customClip && !p.clip);
     ok(/Pixabay clip/.test(stockReel.renderNote), "Reels use Pixabay stock footage");
+    const archReel = g2.posts.find((p) => p.format === "reel" && p.clip && !p.customClip);
+    ok(archReel && /archive clip: "Your Posture Counts" \(1952\), original sound/.test(archReel.renderNote) && /film sound/.test(archReel.renderNote), "some Reels use archive clips with the film's own sound");
+    const row = (file, y) => execFileSync("ffmpeg", ["-loglevel", "error", "-ss", "1", "-i", file, "-frames:v", "1", "-vf", `crop=1080:6:0:${y},scale=54:1,format=gray`, "-f", "rawvideo", "-"]);
+    const avg = (b) => b.reduce((t, x) => t + x, 0) / b.length;
+    const archBottom = avg(row(path.join(SITE, archReel.media.find((m) => m.endsWith(".mp4"))), 1890)), stockBottom = avg(row(path.join(SITE, stockReel.media.find((m) => m.endsWith(".mp4"))), 1890));
+    if (process.env.SNAP) { execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-ss", "5", "-i", path.join(SITE, archReel.media.find((m) => m.endsWith(".mp4"))), "-frames:v", "1", "-vf", "scale=540:-2", path.join(SRC, "test", "archive-reel.jpg")]); }
+    ok(archBottom < 20 && stockBottom > 30, `archive Reels are letterboxed in black (bottom bar ${archBottom.toFixed(0)} vs stock ${stockBottom.toFixed(0)})`);
+    const stillPost = g2.posts.find((p) => p.still);
+    ok(stillPost && /archive still/.test(stillPost.renderNote), "some image memes use an archive still instead of a stock photo");
+    const usedIds = g2.posts.filter((p) => p.clip).map((p) => p.clip);
+    ok(new Set(usedIds).size === usedIds.length, "each clip is used at most once a week per page");
+    ok(JSON.parse(fs.readFileSync(path.join(TMP, "library/clips.json"), "utf8")).clips.some((c) => c.uses > 0), "clip use counts are tracked");
     ok(stockReel.sfx === "vine boom" && /sfx "boom\d" \(Freesound \d, CC0\)/.test(stockReel.renderNote) && log.freesound >= 1, "Reels get a CC0 Freesound effect on the punchline");
     // the punchline should only appear after the beat: compare a frame before and after
     const frame = (t) => execFileSync("ffmpeg", ["-loglevel", "error", "-ss", String(t), "-i", path.join(SITE, stockReel.media.find((m) => m.endsWith(".mp4"))), "-frames:v", "1", "-vf", "crop=1080:500:0:1000,scale=54:25,format=gray", "-f", "rawvideo", "-"]);
@@ -200,6 +231,16 @@ const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47
     ok(readQ("gym").posts.some((p) => p.a === "When the edit lands" && p.needsRender), "text edits save and queue a re-render");
     await pg.screenshot({ path: path.join(SRC, "test", "review-edit.png") });
     ok(await pg.$$eval(".card a[download]", (as) => as.length) >= 1, "Reels have a Download video button");
+    await pg.click("#libChip"); await pg.waitForTimeout(400);
+    const nClips = await pg.$$eval(".clip", (x) => x.length);
+    ok(nClips === 4, `Clip library shows ${nClips} clips`);
+    await pg.click(".clip >> text=★ Star");
+    for (let i = 0; i < 40 && !JSON.parse(fs.readFileSync(path.join(TMP, "library/clips.json"), "utf8")).clips.some((c) => c.status === "starred"); i++) await pg.waitForTimeout(500);
+    ok(JSON.parse(fs.readFileSync(path.join(TMP, "library/clips.json"), "utf8")).clips.some((c) => c.status === "starred"), "starring a clip saves to the library");
+    await pg.click(".clip:not(.starred) >> text=Ban");
+    for (let i = 0; i < 40 && !JSON.parse(fs.readFileSync(path.join(TMP, "library/clips.json"), "utf8")).clips.some((c) => c.status === "banned"); i++) await pg.waitForTimeout(500);
+    ok(JSON.parse(fs.readFileSync(path.join(TMP, "library/clips.json"), "utf8")).clips.some((c) => c.status === "banned"), "banning a clip saves to the library");
+    await pg.click("text=Needs review"); await pg.waitForTimeout(300);
     // Bulk: delete everything shown in the gym "Needs review" view, then clear the money tab
     pg.on("dialog", (d) => d.accept());
     const gymBefore = readQ("gym").posts.length, postedGym = readQ("gym").posts.filter((p) => p.status === "posted").length;

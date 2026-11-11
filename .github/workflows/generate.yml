@@ -61,6 +61,16 @@ jobs:
         run: node engine/metrics.js
         continue-on-error: true
 
+      - name: Harvest vintage clips (Internet Archive, public domain)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          args=""
+          [ -n "${{ inputs.page }}" ] && args="--page ${{ inputs.page }}"
+          node engine/harvest.js $args
+        continue-on-error: true
+        timeout-minutes: 45
+
       - name: Collect trends and write memes with Claude
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -73,7 +83,7 @@ jobs:
           node engine/generate.js $args
       - name: Save the new queue
         run: |
-          git add queue state
+          git add queue state library
           git diff --cached --quiet || git commit -q -m "Generate queue"
           for i in 1 2 3 4; do git push -q origin HEAD:main && exit 0; git pull -q --rebase origin main; done
           echo "could not push the new queue" >&2; exit 1

@@ -12,6 +12,7 @@
     3,
     5
   ],
+  "archive": { "enabled": true, "collections": ["prelinger"], "filmsPerPage": 2, "keepPerFilm": 12, "minFit": 6, "maxClips": 240 },
   "pages": {
     "gym": {
       "name": "Caffeine Junkey",
@@ -56,6 +57,7 @@
       "manualReels": false,
       "reelSlot": 0,
       "carouselSlot": 3,
+      "archiveQueries": ["exercise", "physical fitness", "posture", "calisthenics", "nutrition", "sports"],
       "imgflipSearch": ["gym", "workout", "protein", "bodybuilder"],
       "xQuery": "(gym OR \"leg day\" OR \"pre workout\" OR preworkout OR \"gym bro\" OR bulking) -is:retweet -is:reply lang:en",
       "visualStyle": "Real gym photos and footage of people: muscular men and women lifting heavy, deadlifts, bench press, squats, flexing in the gym mirror, gym bros spotting each other, sweaty close-ups, pre-workout scoops and shaker bottles, energy drinks and coffee.",
@@ -109,6 +111,7 @@
       "manualReels": false,
       "reelSlot": 3,
       "carouselSlot": 1,
+      "archiveQueries": ["dream", "fantasy", "cartoon", "space", "science fiction", "dance"],
       "imgflipSearch": ["anime", "manga", "naruto", "one piece", "jujutsu kaisen"],
       "xQuery": "(anime OR manhwa OR manga OR \"new episode\" OR \"this season\") -is:retweet -is:reply lang:en",
       "visualStyle": "Atmospheric real-world photos and footage with anime energy, never anime art: neon Tokyo streets at night, rain on city lights, a gamer room lit by a monitor at 3 AM, ramen close-ups, cherry blossoms, dramatic skies, someone in a hoodie on a rooftop, convenience store at night.",
@@ -164,6 +167,7 @@
       "manualReels": false,
       "reelSlot": 3,
       "carouselSlot": 1,
+      "archiveQueries": ["money", "banking", "salesman", "stock market", "budget", "business"],
       "imgflipSearch": ["stocks", "money", "gambling", "sports betting"],
       "xQuery": "(parlay OR \"bad beat\" OR \"my portfolio\" OR stocks OR paycheck OR budgeting) -is:retweet -is:reply lang:en",
       "visualStyle": "Real photos and footage of the money and betting life: a guy staring at his phone in shock, sports fans losing it at a bar or on a couch, trading screens and red charts, cash and empty wallets, a stressed person at a laptop at night, a crowd cheering at a stadium.",
@@ -217,6 +221,7 @@
       "manualReels": false,
       "reelSlot": 1,
       "carouselSlot": 3,
+      "archiveQueries": ["etiquette", "dating", "manners", "safety", "household", "teenagers"],
       "imgflipSearch": ["cursed", "surreal", "cat", "wojak"],
       "xQuery": "(\"shower thought\" OR \"3am\" OR \"brain rot\" OR unhinged OR \"no context\") -is:retweet -is:reply lang:en",
       "visualStyle": "Weird, funny real-world photos and footage: pigeons, raccoons, goats, cats staring, ducks, a lone traffic cone, people mid-fall, dramatic slow-motion of mundane objects, an empty parking lot at night, a shopping cart abandoned in a field.",

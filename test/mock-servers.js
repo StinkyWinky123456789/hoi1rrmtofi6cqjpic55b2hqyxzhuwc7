@@ -14,10 +14,18 @@ const WORDS = {
 function pageFromSystem(sys) { const m = /about ([^.]+)\./.exec(sys || ""); const t = (m ? m[1] : "").toLowerCase(); return t.includes("gym") ? "gym" : t.includes("anime") ? "anime" : t.includes("finance") ? "money" : "shitpost"; }
 
 function claudeHandler(body, log) {
-  const tool = body.tools[0].name, prompt = body.messages[0].content;
+  const tool = body.tools[0].name, raw0 = body.messages[0].content;
+  if (tool === "pick_clips") {
+    const n = raw0.filter((c) => c.type === "image").length;
+    log.picks = (log.picks || 0) + 1; log.pickImages = (log.pickImages || 0) + n;
+    const keep = Array.from({ length: Math.min(5, n) }, (_, k) => ({ i: k + 1, desc: `man in suit stares at camera in shock, shot ${k + 1}`, pages: ["gym", "anime", "money", "shitpost", "bogus"], fit: k === 4 ? 4 : 8, idea: "me when the pre-workout kicks in", stillOk: true }));
+    return { content: [{ type: "tool_use", id: "t3", name: tool, input: { keep } }], usage: { input_tokens: 9000, output_tokens: 700 } };
+  }
+  const prompt = raw0;
   if (tool === "submit_memes") {
     const page = pageFromSystem(body.system), w = WORDS[page];
     const m = /Write (\d+) (IMAGE|CAROUSEL|REEL)/.exec(prompt), n = +m[1], kind = m[2];
+    const clipMenu = [...prompt.matchAll(/^- (ia-[\w-]+): /gm)].map((x) => x[1]);
     const menu = [...prompt.matchAll(/^- ([\w-]+): (.+?), (\d+) (?:lines|boxes)/gm)].map((x) => ({ id: x[1], name: x[2], lines: +x[3] }));
     log.memeMenus = (log.memeMenus || []).concat(kind === "IMAGE" ? [menu.map((t) => t.id)] : []);
     const tpls = page === "money" ? ["classic", "pov", "nobody", "tweet", "system", "versus", "ticker"] : ["classic", "pov", "nobody", "tweet", "system", "versus"];
@@ -27,9 +35,10 @@ function claudeHandler(body, log) {
       const u1 = word(), u2 = word(), u3 = word();
       const base = { a: `When ${u1} ${x} ${u2}`, b: `${u3} ${y} mode`, caption: `This one is about ${x}.`, inspiredBy: i % 3 ? "evergreen" : "Dates coming up" };
       if (kind === "IMAGE" && i % 3 === 2 && menu.length) { const t = menu[Math.floor(i / 3) % menu.length]; return { ...base, template: "meme", mt: t.id, ml: [`${u1} ${x}`, `${u2} ${y}`] }; }
+      if (kind === "IMAGE" && i % 6 === 0 && clipMenu.length) return { ...base, template: "classic", visual: `${x} person close up`, still: clipMenu[(i / 6) % clipMenu.length] };
       if (kind === "IMAGE") { const t = tpls[i % tpls.length]; return { ...base, template: t, visual: `${x} person close up`, visual2: `${y} person relaxing`, ...(t === "versus" ? { l: ["What I planned", "What I did"] } : {}), ...(t === "ticker" ? { a: `$${x.replace(/\W/g, "").toUpperCase().slice(0, 8)} ▼ ${10 + i}%` } : {}) }; }
       if (kind === "CAROUSEL") return { ...base, visual: `${x} people`, a: `Types of ${u1} at the ${x}`, b: "", s: [`The ${u2} expert`, `The ${x} rookie`, `The one who forgot the ${u3}`, `You, reading this`] };
-      return { ...base, footage: `${x} close up`, mood: ["dramatic", "hype", "chill", "sad", "funny"][i % 5], sfx: "vine boom" };
+      return { ...base, footage: `${x} close up`, mood: ["dramatic", "hype", "chill", "sad", "funny"][i % 5], sfx: "vine boom", ...(i % 2 === 0 && clipMenu.length ? { clip: clipMenu[(i / 2) % clipMenu.length] } : {}) };
     });
     return { content: [{ type: "tool_use", id: "t1", name: tool, input: { memes } }], usage: { input_tokens: 1200, output_tokens: 3000 } };
   }
@@ -54,6 +63,22 @@ function start({ siteDir, ghRoot, assetDir }) {
       }
       if (u.pathname === "/pixabay/api/videos/" || u.pathname === "/pixabay/api/videos") {
         return send(200, { hits: [1, 2].map((k) => ({ id: k, duration: 6, pageURL: `https://pixabay.example/video/${k}`, videos: { large: { url: `http://127.0.0.1:${server.address().port}/assets/clip${k}.mp4`, width: 1080, height: 1920 } } })) });
+      }
+      // Internet Archive stand-in
+      if (u.pathname === "/archive/advancedsearch.php") {
+        log.iaSearch = (log.iaSearch || []).concat([u.searchParams.get("q")]);
+        return send(200, { response: { numFound: 2, docs: [
+          { identifier: "film_nc", title: "Not Free", licenseurl: "http://creativecommons.org/licenses/by-nc/3.0/", collection: ["prelinger"], downloads: 9e6 },
+          { identifier: "film_one", title: "Your Posture Counts", year: "1952", collection: ["prelinger"], downloads: 1e6 },
+        ] } });
+      }
+      if (u.pathname.startsWith("/archive/metadata/")) {
+        const id = u.pathname.split("/").pop(), f = path.join(assetDir, "film.mp4");
+        return send(200, { metadata: { identifier: id, title: "Your Posture Counts", year: "1952" }, files: [{ name: `${id}.ogv`, format: "Ogg Video", size: "999" }, { name: `${id}_512kb.mp4`, format: "512Kb MPEG4", size: String(fs.statSync(f).size) }] });
+      }
+      if (u.pathname.startsWith("/archive/download/")) {
+        log.iaDownloads = (log.iaDownloads || []).concat([u.pathname]);
+        res.writeHead(200, { "content-type": "video/mp4" }); return fs.createReadStream(path.join(assetDir, "film.mp4")).pipe(res);
       }
       // Imgflip stand-in
       if (u.pathname === "/imgflip/get_memes") {

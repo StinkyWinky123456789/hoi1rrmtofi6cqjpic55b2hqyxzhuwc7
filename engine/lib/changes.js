@@ -8,7 +8,7 @@ const U = require("./util");
 
 /** Hash of everything that affects how a post looks. A render only "counts" if this still matches. */
 function contentHash(p) {
-  const s = JSON.stringify([p.format, p.template, p.a, p.b, p.l, p.s, p.footage, p.footageIndex, p.audioIndex, p.customClip, p.mood, p.visual, p.visual2, p.imageIndex, p.mt, p.ml, p.sfx, p.sfxIndex]);
+  const s = JSON.stringify([p.format, p.template, p.a, p.b, p.l, p.s, p.footage, p.footageIndex, p.audioIndex, p.customClip, p.mood, p.visual, p.visual2, p.imageIndex, p.mt, p.ml, p.sfx, p.sfxIndex, p.clip, p.still, p.clipAudio]);
   let h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); }
   return (h >>> 0).toString(16);
 }

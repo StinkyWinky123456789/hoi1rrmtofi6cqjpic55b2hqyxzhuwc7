@@ -95,6 +95,14 @@ Leave `PUBLISH_ENABLED` as `false` for the first day and check **Actions → Pub
 
 ---
 
+## Vintage clip library (Internet Archive)
+Every Generate run first harvests a couple of public-domain films per page from the Internet Archive (the **Prelinger Archives** by default: 1940s-60s educational films, ads and newsreels). It cuts each film at scene changes, Claude looks at two frames of every shot and keeps only the meme-worthy ones, and the keepers go into the **Clip library** in the review queue. Claude then builds about half of each page's Reels on these clips (letterboxed in black with the setup above and the punchline below, using the film's own sound) and uses some frames as photos for image memes.
+- Only public-domain collections are searched; anything carrying another licence (e.g. non-commercial) is skipped.
+- **Clip library tab:** ★ **Star** the funniest clips so they're used first; **Ban** duds (they're deleted at the next harvest). Each clip is used at most once a week per page.
+- On a Reel: **Another archive clip**, **Film sound: on/off**, **Stock footage instead**. On an image: **Stock photo instead**.
+- **Actions → Harvest archive clips** fills the library without generating posts (pick a page and number of films).
+- Settings live under `archive` in `config/pages.json` (collections, films per page, clips kept per film, minimum score, library size) and each page's `archiveQueries`. Claude's review of one film costs roughly 5 cents.
+
 ## Weekly routine (about 20 to 40 minutes)
 - **Saturday:** next week's 140 posts arrive in the review queue.
 - **Saturday to Monday morning:** review them. Use **Videos to review** to clear the Reels in one pass, and **Approve all shown scoring ≥ 8** to clear the strongest images quickly. Keys: `J`/`K` move, `A` approve, `R` reject, `E` edit, `Space` play the video.

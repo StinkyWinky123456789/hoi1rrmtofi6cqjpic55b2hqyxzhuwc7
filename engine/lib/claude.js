@@ -8,12 +8,12 @@ const BASE = (process.env.ANTHROPIC_BASE_URL || "https://api.anthropic.com").rep
  * Ask Claude to return structured data by calling `toolName` with `schema`.
  * Returns the tool input object.
  */
-async function askJSON({ model, system, prompt, toolName, toolDescription, schema, maxTokens = 16000 }) {
+async function askJSON({ model, system, prompt, content, toolName, toolDescription, schema, maxTokens = 16000 }) {
   const key = secret("ANTHROPIC_API_KEY");
   if (!key) throw new Error("ANTHROPIC_API_KEY is not set");
   const body = {
     model, max_tokens: maxTokens, system,
-    messages: [{ role: "user", content: prompt }],
+    messages: [{ role: "user", content: content || prompt }], // content: an array of text/image blocks
     tools: [{ name: toolName, description: toolDescription, input_schema: schema }],
     tool_choice: { type: "auto" },
   };

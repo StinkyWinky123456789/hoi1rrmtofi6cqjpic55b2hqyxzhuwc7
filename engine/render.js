@@ -8,6 +8,7 @@ const os = require("os");
 const { execFileSync } = require("child_process");
 const U = require("./lib/util");
 const Memes = require("./lib/memes");
+const Library = require("./lib/library");
 const { contentHash, applyChanges, commitQueue, pushSite } = require("./lib/changes");
 
 const REEL_SECONDS = 9;
@@ -56,6 +57,10 @@ async function photosFor(post) {
   if (post.format === "image" && post.template === "meme") {
     try { return { urls: [await Memes.render(post.mt, post.ml || [])], note: `meme template "${post.mtName || post.mt}"${String(post.mt).startsWith("if-") ? " (Imgflip)" : ""}`, source: Memes.sourceUrl(post.mt, post.ml || []) }; }
     catch (e) { return { urls: [], note: `meme template error (${e.message})` }; }
+  }
+  if (post.format === "image" && post.still) {
+    const c = Library.byId().get(post.still);
+    if (c && fs.existsSync(Library.filePath(c, "poster"))) return { urls: [`data:image/jpeg;base64,${fs.readFileSync(Library.filePath(c, "poster")).toString("base64")}`], note: `archive still: "${c.title}"${c.year ? ` (${c.year})` : ""}`, source: c.sourceUrl };
   }
   if (!["image", "carousel"].includes(post.format) || !post.visual) return { urls: [], note: "" };
   const want = post.format === "carousel" ? MemeTemplates_slideCount(post) : 1;
@@ -152,7 +157,7 @@ function punchTime(post) { const words = String(post.a || "").split(/\s+/).filte
  * Build the Reel: footage (or a plain background), setup text the whole time, punchline from P seconds
  * with a zoom punch and a quick flash, music ducked under an optional sound effect that hits on the punchline.
  */
-function ffmpegReel({ footage, bgColor, overlayA, overlayB, audio, sfx, punch, out }) {
+function ffmpegReel({ footage, bgColor, overlayA, overlayB, audio, sfx, punch, out, letterbox, footageAudio }) {
   const P = punch || 2.6, dur = REEL_SECONDS;
   const args = ["-y", "-hide_banner", "-loglevel", "error"];
   let n = 0;
@@ -160,11 +165,15 @@ function ffmpegReel({ footage, bgColor, overlayA, overlayB, audio, sfx, punch, o
   const vIdx = n++;
   args.push("-loop", "1", "-i", overlayA); const aIdx = n++;
   let bIdx = null; if (overlayB) { args.push("-loop", "1", "-i", overlayB); bIdx = n++; }
-  if (audio) args.push("-stream_loop", "-1", "-i", audio); else args.push("-f", "lavfi", "-i", "anullsrc=channel_layout=stereo:sample_rate=44100");
-  const mIdx = n++;
+  let mIdx, mLabel;
+  if (footage && footageAudio) { mLabel = `${vIdx}:a`; } // the archive film's own sound (narrator, music) loops with the clip
+  else { if (audio) args.push("-stream_loop", "-1", "-i", audio); else args.push("-f", "lavfi", "-i", "anullsrc=channel_layout=stereo:sample_rate=44100"); mIdx = n++; mLabel = `${mIdx}:a`; }
   let sIdx = null; if (sfx && overlayB) { args.push("-i", sfx); sIdx = n++; }
   const f = [];
-  f.push(`[${vIdx}:v]` + (footage ? "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1,fps=30,eq=brightness=-0.07:saturation=0.95" : "setsar=1,fps=30") + "[bg]");
+  const fill = letterbox
+    ? "scale=1080:1920:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:(oh-ih)/2:black,setsar=1,fps=30" // vintage clip framed in black, text in the bars
+    : "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1,fps=30,eq=brightness=-0.07:saturation=0.95";
+  f.push(`[${vIdx}:v]` + (footage ? fill : "setsar=1,fps=30") + "[bg]");
   if (overlayB) f.push(`[bg]zoompan=z='if(gte(it,${P}),1.10,1)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1080x1920:fps=30[z]`);
   else f.push("[bg]null[z]");
   f.push(`[z][${aIdx}:v]overlay=0:0:format=auto[v1]`);
@@ -172,8 +181,8 @@ function ffmpegReel({ footage, bgColor, overlayA, overlayB, audio, sfx, punch, o
     f.push(`[v1][${bIdx}:v]overlay=0:0:format=auto:enable='gte(t,${P})'[v2]`);
     f.push(`[v2]drawbox=x=0:y=0:w=iw:h=ih:color=white@0.28:t=fill:enable='between(t,${P},${(P + 0.07).toFixed(2)})',format=yuv420p[v]`);
   } else f.push("[v1]format=yuv420p[v]");
-  const musicVol = sIdx !== null ? 0.6 : 0.9;
-  f.push(`[${mIdx}:a]aresample=44100,volume=${musicVol},afade=t=out:st=${dur - 0.7}:d=0.7[m]`);
+  const musicVol = footageAudio ? (sIdx !== null ? 0.85 : 1) : sIdx !== null ? 0.6 : 0.9;
+  f.push(`[${mLabel}]aresample=44100,aformat=channel_layouts=stereo,volume=${musicVol},afade=t=out:st=${dur - 0.7}:d=0.7[m]`);
   if (sIdx !== null) {
     const ms = Math.round(P * 1000);
     f.push(`[${sIdx}:a]aresample=44100,volume=1.4,adelay=${ms}|${ms},apad[s]`);
@@ -207,8 +216,13 @@ async function soundEffect(query, index) {
 }
 
 async function renderReel(post, page, overlays, outDir, ver) {
-  let footage = null, note = "";
-  if (post.customClip) {
+  let footage = null, note = "", letterbox = false, footageAudio = false;
+  const libClip = !post.customClip && post.clip ? Library.byId().get(post.clip) : null;
+  if (libClip && fs.existsSync(Library.filePath(libClip, "file"))) {
+    footage = Library.filePath(libClip, "file"); letterbox = true; footageAudio = !!libClip.hasAudio && post.clipAudio !== false;
+    note = `archive clip: "${libClip.title}"${libClip.year ? ` (${libClip.year})` : ""}${footageAudio ? ", original sound" : ""}`;
+    post.footageSource = libClip.sourceUrl;
+  } else if (post.customClip) {
     footage = path.join(U.SITE, post.customClip);
     if (!fs.existsSync(footage)) { footage = null; note = "your uploaded clip was not found; used a plain background"; }
     else note = "your uploaded clip";
@@ -229,10 +243,10 @@ async function renderReel(post, page, overlays, outDir, ver) {
   let sfx = { file: null, note: "" };
   if (post.sfx && overlays[1]) { try { sfx = await soundEffect(post.sfx, post.sfxIndex || 0); } catch (e) { sfx = { file: null, note: `sfx error (${e.message})` }; } }
   const out = path.join(outDir, `v${ver}.mp4`);
-  ffmpegReel({ footage, bgColor: page.bg, overlayA: overlays[0], overlayB: overlays[1] || null, audio, sfx: sfx.file, punch: punchTime(post), out });
+  ffmpegReel({ footage, bgColor: page.bg, overlayA: overlays[0], overlayB: overlays[1] || null, audio, sfx: sfx.file, punch: punchTime(post), out, letterbox, footageAudio });
   const cover = path.join(outDir, `v${ver}-cover.jpg`);
   execFileSync("ffmpeg", ["-y", "-hide_banner", "-loglevel", "error", "-ss", "1.5", "-i", out, "-frames:v", "1", "-q:v", "3", cover]);
-  post.renderNote = `${note}; music: ${audio ? path.basename(audio) : "none (add tracks to assets/audio)"}${sfx.note ? "; " + sfx.note : ""}`;
+  post.renderNote = `${note}; music: ${footageAudio ? "off (film sound)" : audio ? path.basename(audio) : "none (add tracks to assets/audio)"}${sfx.note ? "; " + sfx.note : ""}`;
   return [out, cover];
 }
 

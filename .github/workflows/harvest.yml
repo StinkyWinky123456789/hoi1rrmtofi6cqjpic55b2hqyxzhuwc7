@@ -1,0 +1,70 @@
+name: Harvest archive clips
+
+# Run by hand to fill the clip library without generating posts: searches the Internet Archive's
+# public-domain collections, cuts films into shots, and keeps the ones Claude rates meme-worthy.
+on:
+  workflow_dispatch:
+    inputs:
+      page:
+        description: "Only this page (gym, anime, money, shitpost). Blank = all."
+        required: false
+      films:
+        description: "Films per page (default 2)"
+        required: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: meme-pipeline
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - name: Prepare media site
+        run: bash scripts/site-checkout.sh
+      - name: Tools
+        run: which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+      - name: Harvest
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          args=""
+          [ -n "${{ inputs.page }}" ] && args="$args --page ${{ inputs.page }}"
+          [ -n "${{ inputs.films }}" ] && args="$args --films ${{ inputs.films }}"
+          node engine/harvest.js $args
+      - name: Save the library
+        run: |
+          git add library state
+          git diff --cached --quiet || git commit -q -m "Archive clips"
+          for i in 1 2 3 4; do git push -q origin HEAD:main && exit 0; git pull -q --rebase origin main; done
+          echo "could not push the library" >&2; exit 1
+      - name: Update review app
+        run: |
+          node engine/site.js
+          bash scripts/site-push.sh "Archive clips"
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
