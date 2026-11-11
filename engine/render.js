@@ -17,7 +17,32 @@ function chromePath() {
   return c.find((p) => fs.existsSync(p));
 }
 
-/* ---------- Footage (Pexels, free license, no attribution required) ---------- */
+/* ---------- Footage: Pixabay (preferred) or Pexels. Both free, no attribution required. ---------- */
+async function pixabayClips(query) {
+  const key = process.env.PIXABAY_API_KEY;
+  if (!key) return [];
+  const cacheFile = path.join(U.ROOT, "state", "pixabay-cache.json"), cache = U.readJSON(cacheFile, {});
+  if (cache[query] && Date.now() - cache[query].t < 864e5) return cache[query].clips; // Pixabay asks for caching up to 24h
+  const words = String(query).split(/\s+/).filter(Boolean);
+  let clips = [];
+  // Try the full phrase, then shorter versions if nothing comes back
+  for (const q of [words.join(" "), words.slice(0, 2).join(" "), words[0]].filter((v, i, a) => v && a.indexOf(v) === i)) {
+    const params = new URLSearchParams({ key, q, per_page: "20", safesearch: "true", order: "popular" });
+    const r = await fetch(`https://pixabay.com/api/videos/?${params}`);
+    if (!r.ok) { U.log(`Pixabay ${r.status} for "${q}"`); break; }
+    const j = await r.json();
+    clips = (j.hits || []).map((h) => {
+      const v = h.videos || {};
+      const pick = [v.large, v.medium, v.small].find((f) => f && f.url && f.height >= 720 && f.height <= 2160) || v.medium || v.small;
+      return pick && pick.url ? { id: `pb${h.id}`, url: pick.url, duration: h.duration, page: h.pageURL, portrait: pick.height > pick.width } : null;
+    }).filter(Boolean);
+    clips.sort((a, b) => Number(b.portrait) - Number(a.portrait)); // vertical clips first; others get center-cropped to 9:16
+    if (clips.length) break;
+  }
+  cache[query] = { t: Date.now(), clips }; U.writeJSON(cacheFile, cache);
+  return clips;
+}
+
 async function pexelsClips(query) {
   const key = process.env.PEXELS_API_KEY;
   if (!key) return [];
@@ -75,13 +100,15 @@ async function renderReel(post, page, overlayFile, outDir, ver) {
     else note = "your uploaded clip";
   } else {
     try {
-      const clips = await pexelsClips(post.footage || page.niche);
+      const q = post.footage || page.niche;
+      let clips = await pixabayClips(q);
+      if (!clips.length) clips = await pexelsClips(q);
       if (clips.length) {
         const c = clips[(post.footageIndex || 0) % clips.length];
         footage = await download(c.url, path.join(os.tmpdir(), "meme-footage", `${c.id}.mp4`));
-        note = `Pexels clip ${c.id} (${(post.footageIndex || 0) % clips.length + 1} of ${clips.length} for "${post.footage}")`;
+        note = `${String(c.id).startsWith("pb") ? "Pixabay" : "Pexels"} clip ${c.id} (${(post.footageIndex || 0) % clips.length + 1} of ${clips.length} for "${post.footage}")`;
         post.footageSource = c.page;
-      } else note = process.env.PEXELS_API_KEY ? `no Pexels clips for "${post.footage}"; plain background` : "no PEXELS_API_KEY; plain background";
+      } else note = process.env.PIXABAY_API_KEY || process.env.PEXELS_API_KEY ? `no stock clips for "${post.footage}"; plain background` : "no PIXABAY_API_KEY; plain background";
     } catch (e) { note = `footage error (${e.message}); plain background`; }
   }
   const tracks = audioTracks(post.mood), audio = tracks.length ? tracks[(post.audioIndex || 0) % tracks.length] : null;
@@ -164,5 +191,5 @@ async function main() {
   }
 }
 
-module.exports = { ffmpegReel, renderPending };
+module.exports = { ffmpegReel, renderPending, pixabayClips };
 if (require.main === module) main().catch((e) => { console.error(e); process.exit(1); });

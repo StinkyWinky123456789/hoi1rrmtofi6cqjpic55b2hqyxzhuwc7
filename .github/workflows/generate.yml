@@ -81,6 +81,7 @@ jobs:
       - name: Render images, carousels and Reels
         env:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
         run: node engine/render.js --commit
 
       - name: Update review app and clean old media

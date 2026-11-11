@@ -75,6 +75,7 @@ jobs:
       - name: Re-render edited posts
         env:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
         run: node engine/render.js --commit
       - run: |
           node engine/site.js

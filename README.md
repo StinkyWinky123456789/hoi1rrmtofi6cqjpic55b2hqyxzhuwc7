@@ -20,7 +20,7 @@ Every 20 min      Publisher posts the next approved post for each page (never tw
 |---|---|
 | Claude API (Sonnet 5.5 writes and scores about 300 memes a week) | about $3 to $5 a month |
 | X API trend reads (hard cap of 2,000 reads a month, $0.005 each) | up to $10 a month |
-| GitHub Actions, GitHub Pages (public repo), Pexels footage, Instagram API | free |
+| GitHub Actions, GitHub Pages (public repo), Pixabay footage, Instagram API | free |
 
 ## Safety rules built in
 
@@ -57,7 +57,7 @@ In each of the four accounts go to **Settings → Account type and tools → Swi
 |---|---|---|
 | Claude API | [platform.claude.com](https://platform.claude.com) → API keys | Add $10 of credit and set a monthly spend limit |
 | X API | [developer.x.com](https://developer.x.com) → your app → Bearer token | Buy a small credit pack; the engine stops itself at 2,000 reads a month |
-| Pexels | [pexels.com/api](https://www.pexels.com/api/) | Free; provides the stock footage behind Reels |
+| Pixabay | [pixabay.com/api/docs](https://pixabay.com/api/docs/) (log in; your key is shown on that page) | Free; provides the stock footage behind Reels. Pexels also works if you already have a key (new Pexels keys are paused) |
 
 ### 5. Add the secrets
 In the repo: **Settings → Secrets and variables → Actions → New repository secret**.
@@ -66,7 +66,7 @@ In the repo: **Settings → Secrets and variables → Actions → New repository
 |---|---|
 | `ANTHROPIC_API_KEY` | Claude API key |
 | `X_BEARER_TOKEN` | X bearer token |
-| `PEXELS_API_KEY` | Pexels key |
+| `PIXABAY_API_KEY` | Pixabay key (or `PEXELS_API_KEY` if you have one) |
 | `IG_USER_ID_GYM`, `IG_TOKEN_GYM` | @caffeinejunkey's Instagram user ID and token |
 | `IG_USER_ID_ANIME`, `IG_TOKEN_ANIME` | @gombaregombare |
 | `IG_USER_ID_MONEY`, `IG_TOKEN_MONEY` | @moneyfordummees |
