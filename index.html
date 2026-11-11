@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meme Engine: Review queue</title>
+<style>
+  @font-face{font-family:Inter;src:url(fonts/Inter-Regular.otf);font-weight:400}
+  @font-face{font-family:Inter;src:url(fonts/Inter-Medium.otf);font-weight:500}
+  @font-face{font-family:Inter;src:url(fonts/Inter-SemiBold.otf);font-weight:600}
+  @font-face{font-family:Inter;src:url(fonts/Inter-Bold.otf);font-weight:700}
+  @font-face{font-family:Inter;src:url(fonts/Inter-ExtraBold.otf);font-weight:800}
+  @font-face{font-family:Anton;src:url(fonts/Anton-Regular.ttf)}
+  @font-face{font-family:Rajdhani;src:url(fonts/Rajdhani-Bold.ttf);font-weight:700}
+  @font-face{font-family:"Archivo Black";src:url(fonts/ArchivoBlack-Regular.ttf)}
+  @font-face{font-family:"JetBrains Mono";src:url(fonts/JetBrainsMono.ttf);font-weight:100 900}
+  :root{--bg:#0e0f11;--panel:#16181b;--panel2:#1d2024;--line:#2a2e33;--ink:#ecebe6;--muted:#8d9198;--acc:#3dff6e;--good:#35d07f;--bad:#ff5a5a;--warn:#f2b84b}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.4 Inter,system-ui,sans-serif}
+  button,input,select,textarea{font:inherit;color:inherit}
+  header{position:sticky;top:0;z-index:5;background:rgba(14,15,17,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:10px 16px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .brand{font-weight:800;letter-spacing:.12em;font-size:12px;text-transform:uppercase}
+  .tabs,.filters{display:flex;gap:6px;flex-wrap:wrap}
+  .chip{padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:transparent;cursor:pointer;font-weight:600;font-size:13px;display:flex;gap:7px;align-items:center}
+  .chip.on{background:var(--panel2);border-color:var(--ink)}
+  .chip .n{font-size:11px;background:var(--panel2);border-radius:999px;padding:1px 7px;color:var(--muted)}
+  .chip.on .n{background:var(--ink);color:#111}
+  .dot{width:9px;height:9px;border-radius:50%}
+  .spacer{flex:1}
+  .btn{padding:8px 12px;border-radius:9px;border:1px solid var(--line);background:var(--panel);cursor:pointer;font-weight:600;white-space:nowrap}
+  .btn:hover{border-color:#555}.btn:disabled{opacity:.4;cursor:default}
+  .btn.ok{background:var(--good);border-color:var(--good);color:#06210f}
+  .btn.no{border-color:#5a2a2a;color:#ffb3b3}
+  .btn.sm{padding:6px 10px;font-size:12.5px}
+  #save{font-size:12.5px;color:var(--muted)}
+  main{padding:16px;display:flex;flex-direction:column;gap:14px;max-width:1180px;margin:0 auto}
+  .toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .card{display:grid;grid-template-columns:minmax(260px,380px) 1fr;gap:16px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;scroll-margin-top:120px}
+  .card.focus{border-color:var(--acc);box-shadow:0 0 0 1px var(--acc)}
+  .card.approved{border-left:4px solid var(--good)}.card.rejected{opacity:.55;border-left:4px solid var(--bad)}.card.posted{opacity:.75}
+  .media{position:relative;background:#000;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;min-height:200px}
+  .media img,.media video,.media canvas{width:100%;height:auto;display:block}
+  .media video{max-height:620px;background:#000}
+  .strip{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x mandatory;width:100%}
+  .strip img,.strip canvas{flex:0 0 100%;scroll-snap-align:start}
+  .badge{position:absolute;top:8px;left:8px;background:rgba(0,0,0,.72);border-radius:999px;padding:4px 10px;font-size:11.5px;font-weight:700}
+  .badge.warn{background:var(--warn);color:#2a1d00}
+  .meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--muted)}
+  .pill{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+  .pill.st-approved{color:var(--good);border-color:var(--good)}.pill.st-rejected,.pill.st-failed,.pill.st-missed{color:var(--bad);border-color:var(--bad)}.pill.st-posted{color:var(--acc);border-color:var(--acc)}
+  .score{font-weight:800;color:var(--ink)}
+  .text{font-size:16px;font-weight:600;margin:8px 0 4px}
+  .sub{color:var(--muted);font-size:12.5px;margin:2px 0}
+  label{display:block;font-size:12px;color:var(--muted);margin:8px 0 4px}
+  textarea,input[type=text]{width:100%;padding:8px 10px;border-radius:9px;border:1px solid var(--line);background:var(--panel2);outline:none}
+  textarea:focus,input:focus{border-color:var(--acc)}
+  .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .edit{display:none;border-top:1px solid var(--line);margin-top:10px;padding-top:6px}
+  .card.editing .edit{display:block}
+  .err{color:#ffb3b3;font-size:12.5px;margin-top:6px}
+  #empty{color:var(--muted);text-align:center;padding:60px 10px}
+  #settings{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:10;padding:16px}
+  #settings.show{display:flex}
+  #settings .box{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;width:min(520px,100%)}
+  .help{font-size:12.5px;color:var(--muted);line-height:1.5}
+  .hide{display:none!important}
+  kbd{font:11px "JetBrains Mono",monospace;border:1px solid var(--line);border-radius:4px;padding:1px 5px}
+  @media (max-width:760px){.card{grid-template-columns:1fr}.media video{max-height:70vh}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">Review queue</div>
+  <div class="tabs" id="tabs"></div>
+  <div class="spacer"></div>
+  <span id="save"></span>
+  <button class="btn sm" id="reload">Refresh</button>
+  <button class="btn sm" id="openSettings">Settings</button>
+</header>
+<main>
+  <div class="toolbar">
+    <div class="filters" id="filters"></div>
+    <div class="spacer"></div>
+    <label style="margin:0" class="help">Approve all shown scoring ≥</label>
+    <input type="text" id="minScore" value="8" style="width:52px">
+    <button class="btn sm" id="bulk">Approve</button>
+  </div>
+  <div class="help">Keys: <kbd>J</kbd>/<kbd>K</kbd> next/previous · <kbd>A</kbd> approve · <kbd>R</kbd> reject · <kbd>E</kbd> edit · <kbd>Space</kbd> play/pause video. Changes save automatically.</div>
+  <div id="list"></div>
+  <div id="empty" class="hide"></div>
+</main>
+
+<div id="settings"><div class="box">
+  <h3 style="margin:0 0 6px">Connect to your GitHub repo</h3>
+  <p class="help">Create a fine-grained personal access token for this one repository with <b>Contents: Read and write</b> permission. It's stored only in this browser.</p>
+  <label>Repository (owner/name)</label><input type="text" id="sRepo" placeholder="yourname/meme-engine">
+  <label>Access token</label><input type="text" id="sToken" placeholder="github_pat_...">
+  <div class="actions"><button class="btn ok" id="sSave">Save and load</button><button class="btn" id="sClose">Close</button></div>
+</div></div>
+
+<script src="templates.js"></script>
+<script>
+"use strict";
+const $ = (id) => document.getElementById(id);
+const store = { get(k, d) { try { return localStorage.getItem(k) ?? d; } catch { return d; } }, set(k, v) { try { localStorage.setItem(k, v); } catch {} } };
+let CFG = null;
+const API = store.get("mq-api", "https://api.github.com"); // overridable for testing
+const S = { repo: store.get("mq-repo", ""), token: store.get("mq-token", ""), page: store.get("mq-page", "all"), filter: "review", files: {}, posts: [], pending: [], focus: 0, saving: false };
+
+// Guess owner/repo from a GitHub Pages URL: https://owner.github.io/repo/
+if (!S.repo && /\.github\.io$/.test(location.hostname)) S.repo = location.hostname.split(".")[0] + "/" + location.pathname.split("/")[1];
+
+/* ---------- GitHub API ---------- */
+async function gh(method, path, body) {
+  const r = await fetch(`${API}/repos/${S.repo}/${path}`, {
+    method, headers: { Authorization: `Bearer ${S.token}`, Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28" },
+    body: body ? JSON.stringify(body) : undefined, cache: "no-store",
+  });
+  if (!r.ok) { const j = await r.json().catch(() => ({})); throw Object.assign(new Error(`GitHub ${r.status}: ${j.message || ""}`), { status: r.status }); }
+  return r.status === 204 ? null : r.json();
+}
+const b64dec = (b) => new TextDecoder().decode(Uint8Array.from(atob(b.replace(/\n/g, "")), (c) => c.charCodeAt(0)));
+function b64enc(bytes) { let s = ""; for (let i = 0; i < bytes.length; i += 0x8000) s += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000)); return btoa(s); }
+async function getFile(path) { const j = await gh("GET", `contents/${path}?ref=main&t=${Date.now()}`); return { sha: j.sha, doc: JSON.parse(b64dec(j.content)) }; }
+
+/* ---------- Load ---------- */
+function weekId(d) { const t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate())); const day = t.getUTCDay() || 7; t.setUTCDate(t.getUTCDate() + 4 - day); const y0 = new Date(Date.UTC(t.getUTCFullYear(), 0, 1)); return `${t.getUTCFullYear()}-W${String(Math.ceil(((t - y0) / 864e5 + 1) / 7)).padStart(2, "0")}`; }
+async function load() {
+  if (!S.repo || !S.token) { $("settings").classList.add("show"); return; }
+  status("Loading…");
+  try {
+    CFG = CFG || await (await fetch("config.json", { cache: "no-store" })).json();
+    const weeks = (await gh("GET", "contents/queue?ref=main")).filter((x) => x.type === "dir").map((x) => x.name).sort();
+    const lastWeek = weekId(new Date(Date.now() - 7 * 864e5));
+    const recent = weeks.filter((w) => w >= lastWeek);
+    S.files = {};
+    for (const w of recent) {
+      const files = await gh("GET", `contents/queue/${w}?ref=main`);
+      await Promise.all(files.filter((f) => f.name.endsWith(".json")).map(async (f) => { S.files[`queue/${w}/${f.name}`] = await getFile(`queue/${w}/${f.name}`); }));
+    }
+    rebuild(); status(S.pending.length ? `${S.pending.length} unsaved` : "Up to date");
+  } catch (e) { status("Couldn't load: " + e.message, true); if (e.status === 401 || e.status === 404) $("settings").classList.add("show"); }
+}
+function rebuild() {
+  S.posts = [];
+  for (const [path, f] of Object.entries(S.files)) for (const p of f.doc.posts) S.posts.push({ path, p });
+  S.posts.sort((x, y) => Date.parse(x.p.scheduledAt) - Date.parse(y.p.scheduledAt));
+  render();
+}
+
+/* ---------- Changes (auto-saved, merged onto the latest file) ---------- */
+function change(item, patch) {
+  Object.assign(item.p, patch);
+  S.pending.push({ path: item.path, id: item.p.id, patch });
+  status(`${S.pending.length} unsaved…`); clearTimeout(change.t); change.t = setTimeout(save, 1500);
+  render();
+}
+async function save() {
+  if (S.saving || !S.pending.length) return;
+  S.saving = true; status("Saving…");
+  const batch = S.pending.splice(0), byPath = {};
+  batch.forEach((c) => (byPath[c.path] = byPath[c.path] || []).push(c));
+  try {
+    for (const [path, list] of Object.entries(byPath)) {
+      for (let attempt = 1; ; attempt++) {
+        const latest = await getFile(path);
+        for (const c of list) { const p = latest.doc.posts.find((x) => x.id === c.id); if (p) Object.assign(p, c.patch); }
+        const bytes = new TextEncoder().encode(JSON.stringify(latest.doc, null, 2) + "\n");
+        try {
+          const r = await gh("PUT", `contents/${path}`, { message: `Review: ${list.length} change(s)`, content: b64enc(bytes), sha: latest.sha, branch: "main" });
+          S.files[path] = { sha: r.content.sha, doc: latest.doc }; break;
+        } catch (e) { if (e.status !== 409 && e.status !== 422 || attempt >= 5) throw e; }
+      }
+    }
+    // Re-apply anything changed locally while we were saving
+    rebuild(); S.pending.forEach((c) => { const it = S.posts.find((x) => x.p.id === c.id); if (it) Object.assign(it.p, c.patch); });
+    status(S.pending.length ? `${S.pending.length} unsaved…` : "Saved ✓");
+  } catch (e) { S.pending.unshift(...batch); status("Save failed: " + e.message + " (will retry)", true); setTimeout(save, 10000); }
+  finally { S.saving = false; if (S.pending.length) setTimeout(save, 1500); }
+}
+function status(msg, bad) { $("save").textContent = msg; $("save").style.color = bad ? "var(--bad)" : "var(--muted)"; }
+window.addEventListener("beforeunload", (e) => { if (S.pending.length) { e.preventDefault(); e.returnValue = ""; } });
+
+/* ---------- Views ---------- */
+const FILTERS = [
+  ["review", "Needs review", (p) => p.status === "pending"],
+  ["videos", "Videos to review", (p) => p.status === "pending" && p.format === "reel"],
+  ["approved", "Approved", (p) => p.status === "approved"],
+  ["posted", "Posted", (p) => p.status === "posted"],
+  ["rejected", "Rejected", (p) => p.status === "rejected"],
+  ["problems", "Problems", (p) => ["failed", "missed"].includes(p.status) || p.renderError],
+  ["all", "All", () => true],
+];
+function visible() {
+  const f = FILTERS.find((x) => x[0] === S.filter)[2];
+  return S.posts.filter((x) => (S.page === "all" || x.p.page === S.page) && f(x.p));
+}
+function renderTabs() {
+  const pend = (k) => S.posts.filter((x) => (k === "all" || x.p.page === k) && x.p.status === "pending").length;
+  $("tabs").innerHTML = "";
+  [["all", "All pages", "#ecebe6"], ...Object.entries(CFG.pages).map(([k, v]) => [k, v.name, v.accent])].forEach(([k, name, col]) => {
+    const b = document.createElement("button"); b.className = "chip" + (S.page === k ? " on" : "");
+    b.innerHTML = `<span class="dot" style="background:${col}"></span><span></span><span class="n">${pend(k)}</span>`;
+    b.children[1].textContent = name;
+    b.onclick = () => { S.page = k; store.set("mq-page", k); S.focus = 0; render(); };
+    $("tabs").appendChild(b);
+  });
+  $("filters").innerHTML = "";
+  FILTERS.forEach(([k, name, fn]) => {
+    const n = S.posts.filter((x) => (S.page === "all" || x.p.page === S.page) && fn(x.p)).length;
+    const b = document.createElement("button"); b.className = "chip" + (S.filter === k ? " on" : "");
+    b.innerHTML = `<span></span><span class="n">${n}</span>`; b.children[0].textContent = name;
+    b.onclick = () => { S.filter = k; S.focus = 0; render(); };
+    $("filters").appendChild(b);
+  });
+}
+function when(p) { return new Date(p.scheduledAt).toLocaleString(undefined, { weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }); }
+function previewCanvas(page, p, kind, slide) {
+  const fr = kind === "overlay" ? [1080, 1920] : [1080, 1350];
+  const c = document.createElement("canvas"); c.width = fr[0]; c.height = fr[1];
+  const g = c.getContext("2d");
+  if (kind === "overlay") { g.fillStyle = "#222"; g.fillRect(0, 0, c.width, c.height); }
+  MemeTemplates.drawPost(g, fr[0], fr[1], page, p, { kind, slide });
+  return c;
+}
+function mediaEl(item) {
+  const p = item.p, page = CFG.pages[p.page], box = document.createElement("div"); box.className = "media";
+  const stale = p.needsRender || !p.media || !p.media.length;
+  if (p.format === "reel") {
+    if (!stale) {
+      const v = document.createElement("video");
+      v.src = p.media.find((m) => m.endsWith(".mp4")); v.poster = p.media.find((m) => m.endsWith("cover.jpg")) || "";
+      v.controls = true; v.loop = true; v.playsInline = true; v.preload = "metadata";
+      box.appendChild(v);
+    } else box.appendChild(previewCanvas(page, p, "overlay"));
+  } else if (p.format === "carousel") {
+    const strip = document.createElement("div"); strip.className = "strip";
+    if (!stale) p.media.forEach((m) => { const i = new Image(); i.loading = "lazy"; i.src = m; strip.appendChild(i); });
+    else MemeTemplates.slideList(p).forEach((_, k) => strip.appendChild(previewCanvas(page, p, "slide", k)));
+    box.appendChild(strip);
+  } else {
+    if (!stale) { const i = new Image(); i.loading = "lazy"; i.src = p.media[0]; box.appendChild(i); }
+    else box.appendChild(previewCanvas(page, p, "feed"));
+  }
+  const badge = document.createElement("div"); badge.className = "badge" + (stale ? " warn" : "");
+  badge.textContent = stale ? (p.format === "reel" ? "Preview: video re-renders within ~20 min" : "Preview: final image renders within ~20 min")
+    : p.format === "reel" ? "▶ Final video" : p.format === "carousel" ? `Carousel · ${p.media.length} slides` : "Final image";
+  box.appendChild(badge);
+  return box;
+}
+function render() {
+  if (!CFG) return;
+  renderTabs();
+  const list = $("list"), items = visible(); list.innerHTML = "";
+  $("empty").classList.toggle("hide", items.length > 0);
+  $("empty").textContent = S.filter === "review" ? "Nothing waiting for review. New posts are generated every Saturday." : "Nothing here.";
+  S.focus = Math.min(S.focus, Math.max(0, items.length - 1));
+  items.forEach((item, idx) => list.appendChild(cardEl(item, idx)));
+}
+function field(labelText, value, multiline, onSave) {
+  const wrap = document.createElement("div"); const l = document.createElement("label"); l.textContent = labelText;
+  const el = document.createElement(multiline ? "textarea" : "input"); if (!multiline) el.type = "text"; else el.rows = 3;
+  el.value = value ?? ""; el.dataset.key = labelText; wrap.append(l, el); wrap.get = () => el.value; return wrap;
+}
+function cardEl(item, idx) {
+  const p = item.p, page = CFG.pages[p.page];
+  const card = document.createElement("div"); card.className = `card ${p.status}` + (idx === S.focus ? " focus" : ""); card.dataset.idx = idx;
+  card.onclick = () => { if (S.focus !== idx) { S.focus = idx; document.querySelectorAll(".card.focus").forEach((c) => c.classList.remove("focus")); card.classList.add("focus"); } };
+  card.appendChild(mediaEl(item));
+  const right = document.createElement("div");
+  const fmt = p.format === "reel" ? "Video · Reel" : p.format === "carousel" ? "Carousel" : `Image · ${p.template}`;
+  right.innerHTML = `<div class="meta"><span class="dot" style="background:${page.accent}"></span><b style="color:var(--ink)"></b><span></span>
+    <span class="pill st-${p.status}">${p.status}</span><span class="pill">${fmt}</span><span>score <span class="score">${Number(p.score || 0).toFixed(1)}</span></span></div>
+    <div class="text"></div><div class="sub why"></div><div class="sub note"></div>`;
+  right.querySelector("b").textContent = page.name; right.querySelectorAll(".meta span")[1].textContent = when(p);
+  right.querySelector(".text").textContent = [p.a, p.b, ...(p.s || [])].filter(Boolean).join(" / ");
+  right.querySelector(".why").textContent = [p.why && `Editor: ${p.why}`, p.inspiredBy && p.inspiredBy !== "evergreen" && `Inspired by: ${p.inspiredBy}`].filter(Boolean).join(" · ");
+  right.querySelector(".note").textContent = p.format === "reel" ? [p.renderNote, p.footageSource && `source ${p.footageSource}`].filter(Boolean).join(" · ") : "";
+  if (p.renderError || p.lastError) { const e = document.createElement("div"); e.className = "err"; e.textContent = p.renderError || p.lastError; right.appendChild(e); }
+  if (p.permalink) { const a = document.createElement("a"); a.href = p.permalink; a.textContent = "View on Instagram"; a.style.color = "var(--acc)"; right.appendChild(a); }
+
+  const cap = field("Caption (editing this doesn't re-render)", p.caption, true); right.appendChild(cap);
+  const capEl = cap.querySelector("textarea");
+  capEl.onchange = () => { if (capEl.value !== p.caption) change(item, { caption: capEl.value }); };
+
+  const locked = p.status === "posted";
+  const actions = document.createElement("div"); actions.className = "actions";
+  const btn = (txt, cls, fn, disabled, title) => { const b = document.createElement("button"); b.className = "btn sm " + (cls || ""); b.textContent = txt; b.disabled = !!disabled; if (title) b.title = title; b.onclick = (e) => { e.stopPropagation(); fn(); }; actions.appendChild(b); return b; };
+  if (!locked) {
+    const canApprove = !p.needsRender && p.media && p.media.length && !p.renderError;
+    if (p.status !== "approved") btn(p.format === "reel" ? "Approve video" : "Approve", "ok", () => approve(item), !canApprove, canApprove ? "" : "Wait for the final render before approving");
+    else btn("Undo approval", "", () => change(item, { status: "pending", approvedVersion: null }));
+    if (p.status !== "rejected") btn("Reject", "no", () => change(item, { status: "rejected" })); else btn("Restore", "", () => change(item, { status: "pending" }));
+    btn("Edit text", "", () => card.classList.toggle("editing"));
+    if (p.format === "reel") {
+      btn("Swap footage", "", () => rerender(item, { footageIndex: (p.footageIndex || 0) + 1, customClip: null }));
+      btn("Swap audio", "", () => rerender(item, { audioIndex: (p.audioIndex || 0) + 1 }));
+      const up = document.createElement("input"); up.type = "file"; up.accept = "video/mp4,video/quicktime"; up.style.display = "none";
+      up.onchange = () => uploadClip(item, up.files[0]); actions.appendChild(up);
+      btn(p.customClip ? "Replace my clip" : "Use my own clip", "", () => up.click());
+      if (p.customClip) btn("Back to stock footage", "", () => rerender(item, { customClip: null }));
+    }
+  }
+  right.appendChild(actions);
+
+  // Text editor
+  const ed = document.createElement("div"); ed.className = "edit";
+  const fA = field(p.format === "carousel" ? "Title slide" : p.format === "reel" ? "On-screen hook" : "Text 1", p.a), fB = field(p.format === "reel" ? "Payoff line" : "Text 2", p.b);
+  ed.append(fA); if (p.format !== "carousel" && p.template !== "tweet") ed.append(fB);
+  let fL1, fL2, fS, fF;
+  if (p.template === "versus") { fL1 = field("Top label", p.l?.[0]); fL2 = field("Bottom label", p.l?.[1]); ed.append(fL1, fL2); }
+  if (p.format === "carousel") { fS = field("Slides (one per line)", (p.s || []).join("\n"), true); ed.append(fS); }
+  if (p.format === "reel") { fF = field("Footage search words", p.footage); ed.append(fF); }
+  const eAct = document.createElement("div"); eAct.className = "actions";
+  const saveB = document.createElement("button"); saveB.className = "btn sm ok"; saveB.textContent = p.format === "reel" ? "Save and re-render video" : "Save and re-render";
+  saveB.onclick = (e) => {
+    e.stopPropagation();
+    const patch = { a: fA.get().trim() };
+    if (p.format !== "carousel" && p.template !== "tweet") patch.b = fB.get().trim();
+    if (fL1) patch.l = [fL1.get().trim(), fL2.get().trim()];
+    if (fS) patch.s = fS.get().split("\n").map((x) => x.trim()).filter(Boolean);
+    if (fF && fF.get().trim() !== p.footage) { patch.footage = fF.get().trim(); patch.footageIndex = 0; }
+    rerender(item, patch);
+  };
+  eAct.appendChild(saveB); ed.appendChild(eAct); right.appendChild(ed);
+  card.appendChild(right);
+  return card;
+}
+function approve(item) { change(item, { status: "approved", approvedVersion: item.p.renderVersion }); next(); }
+function rerender(item, patch) { change(item, { ...patch, needsRender: true, status: "pending", approvedVersion: null }); }
+async function uploadClip(item, file) {
+  if (!file) return;
+  if (file.size > 25 * 1024 * 1024) { alertBox("That clip is over 25 MB. Trim it to under 15 seconds or export at 1080p."); return; }
+  status("Uploading clip…");
+  try {
+    const path = `uploads/${item.p.page}/${item.p.id}-${Date.now()}.mp4`;
+    const bytes = new Uint8Array(await file.arrayBuffer());
+    await gh("PUT", `contents/${path}`, { message: `Clip for ${item.p.id}`, content: b64enc(bytes), branch: "media" });
+    rerender(item, { customClip: path });
+    status("Clip uploaded; the video re-renders within ~20 min");
+  } catch (e) { status("Upload failed: " + e.message, true); }
+}
+function alertBox(msg) { status(msg, true); }
+function next() { const n = visible().length; S.focus = Math.min(S.focus, n - 1); setTimeout(() => focusCard(S.focus), 50); }
+function focusCard(i) { const c = document.querySelector(`.card[data-idx="${i}"]`); document.querySelectorAll(".card.focus").forEach((x) => x.classList.remove("focus")); if (c) { c.classList.add("focus"); c.scrollIntoView({ behavior: "smooth", block: "start" }); } }
+
+document.addEventListener("keydown", (e) => {
+  if (/INPUT|TEXTAREA/.test(e.target.tagName) || e.metaKey || e.ctrlKey) return;
+  const items = visible(), it = items[S.focus]; const k = e.key.toLowerCase();
+  if (k === "j") { S.focus = Math.min(items.length - 1, S.focus + 1); focusCard(S.focus); }
+  else if (k === "k") { S.focus = Math.max(0, S.focus - 1); focusCard(S.focus); }
+  else if (!it) return;
+  else if (k === "a" && !it.p.needsRender && it.p.media?.length && it.p.status !== "posted") approve(it);
+  else if (k === "r" && it.p.status !== "posted") { change(it, { status: "rejected" }); next(); }
+  else if (k === "e") document.querySelector(`.card[data-idx="${S.focus}"]`)?.classList.toggle("editing");
+  else if (k === " ") { const v = document.querySelector(`.card[data-idx="${S.focus}"] video`); if (v) { e.preventDefault(); v.paused ? v.play() : v.pause(); } }
+});
+$("bulk").onclick = () => {
+  const min = parseFloat($("minScore").value) || 8;
+  const list = visible().filter((x) => x.p.status === "pending" && (x.p.score || 0) >= min && !x.p.needsRender && x.p.media?.length && !x.p.renderError);
+  if (!list.length) { status(`Nothing pending with score ≥ ${min} (videos and images must be rendered first)`); return; }
+  list.forEach((x) => { Object.assign(x.p, { status: "approved", approvedVersion: x.p.renderVersion }); S.pending.push({ path: x.path, id: x.p.id, patch: { status: "approved", approvedVersion: x.p.renderVersion } }); });
+  status(`Approved ${list.length}; saving…`); render(); save();
+};
+$("reload").onclick = () => { if (S.pending.length) save().then(load); else load(); };
+$("openSettings").onclick = () => { $("sRepo").value = S.repo; $("sToken").value = S.token; $("settings").classList.add("show"); };
+$("sClose").onclick = () => $("settings").classList.remove("show");
+$("sSave").onclick = () => { S.repo = $("sRepo").value.trim().replace(/^https:\/\/github\.com\//, "").replace(/\/$/, ""); S.token = $("sToken").value.trim(); store.set("mq-repo", S.repo); store.set("mq-token", S.token); $("settings").classList.remove("show"); load(); };
+setInterval(() => { if (!S.pending.length && !S.saving && document.visibilityState === "visible" && !document.querySelector(".card.editing") && ![...document.querySelectorAll("video")].some((v) => !v.paused)) load(); }, 5 * 60e3);
+document.fonts && document.fonts.ready.then(() => CFG && render());
+load();
+</script>
+</body>
+</html>
