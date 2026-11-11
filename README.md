@@ -59,6 +59,7 @@ In each of the four accounts go to **Settings → Account type and tools → Swi
 | X API | [developer.x.com](https://developer.x.com) → your app → Bearer token | Buy a small credit pack; the engine stops itself at 2,000 reads a month |
 | Pixabay | [pixabay.com/api/docs](https://pixabay.com/api/docs/) (log in; your key is shown on that page) | Free; provides the stock footage behind Reels. Pexels also works if you already have a key (new Pexels keys are paused) |
 | Freesound | [freesound.org/apiv2/apply](https://freesound.org/apiv2/apply) (make a free account, fill in the short form; copy the **Client secret/Api key**) | Free; supplies the meme sound effects (vine boom, record scratch…) that hit on each Reel's punchline. Only CC0 sounds are used, so no credit is needed |
+| Imgflip | [imgflip.com/api](https://imgflip.com/api) → API settings → create a key (shown once) | The main meme-template library: the 100 most-captioned templates right now, captioned into the right boxes. Free accounts add a small "imgflip.com" watermark. With Imgflip Premium ($9.99/mo), add a repo **variable** `IMGFLIP_PREMIUM` = `true`: no watermark (100/month included, then $0.01 each) and niche template searches per page (`imgflipSearch` in `config/pages.json`) |
 | Memegen | nothing to sign up for | Free, open source; supplies the classic meme templates (Drake, Distracted Boyfriend, This Is Fine…). About 40% of image posts use one |
 
 ### 5. Add the secrets
@@ -69,6 +70,7 @@ In the repo: **Settings → Secrets and variables → Actions → New repository
 | `ANTHROPIC_API_KEY` | Claude API key |
 | `X_BEARER_TOKEN` | X bearer token |
 | `PIXABAY_API_KEY` | Pixabay key (or `PEXELS_API_KEY` if you have one) |
+| `IMGFLIP_API_KEY` | Imgflip API key (optional; without it only Memegen templates are used) |
 | `FREESOUND_API_KEY` | Freesound API key (optional; without it Reels have music but no sound effect) |
 | `IG_USER_ID_GYM`, `IG_TOKEN_GYM` | @caffeinejunkey's Instagram user ID and token |
 | `IG_USER_ID_ANIME`, `IG_TOKEN_ANIME` | @gombaregombare |

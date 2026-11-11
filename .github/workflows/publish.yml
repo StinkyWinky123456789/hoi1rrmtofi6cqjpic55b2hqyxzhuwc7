@@ -77,6 +77,8 @@ jobs:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
           FREESOUND_API_KEY: ${{ secrets.FREESOUND_API_KEY }}
+          IMGFLIP_API_KEY: ${{ secrets.IMGFLIP_API_KEY }}
+          IMGFLIP_PREMIUM: ${{ vars.IMGFLIP_PREMIUM }}
         run: node engine/render.js --commit
       - run: |
           node engine/site.js

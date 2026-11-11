@@ -13,18 +13,20 @@ const WORDS = {
 };
 function pageFromSystem(sys) { const m = /about ([^.]+)\./.exec(sys || ""); const t = (m ? m[1] : "").toLowerCase(); return t.includes("gym") ? "gym" : t.includes("anime") ? "anime" : t.includes("finance") ? "money" : "shitpost"; }
 
-function claudeHandler(body) {
+function claudeHandler(body, log) {
   const tool = body.tools[0].name, prompt = body.messages[0].content;
   if (tool === "submit_memes") {
     const page = pageFromSystem(body.system), w = WORDS[page];
     const m = /Write (\d+) (IMAGE|CAROUSEL|REEL)/.exec(prompt), n = +m[1], kind = m[2];
+    const menu = [...prompt.matchAll(/^- ([\w-]+): (.+?), (\d+) (?:lines|boxes)/gm)].map((x) => ({ id: x[1], name: x[2], lines: +x[3] }));
+    log.memeMenus = (log.memeMenus || []).concat(kind === "IMAGE" ? [menu.map((t) => t.id)] : []);
     const tpls = page === "money" ? ["classic", "pov", "nobody", "tweet", "system", "versus", "ticker"] : ["classic", "pov", "nobody", "tweet", "system", "versus"];
     const memes = Array.from({ length: n }, (_, i) => {
       const x = w[i % w.length], y = w[(i * 7 + 3) % w.length];
       const syl = ["ka", "zo", "mi", "ru", "te", "lo", "vu", "ne", "pa", "shi", "bo", "ga"], R = () => Math.floor(Math.random() * 1e6), word = () => { const k = R(); return syl[k % 12] + syl[(k >> 4) % 12] + syl[(k >> 8) % 12] + syl[(k >> 12) % 12]; };
       const u1 = word(), u2 = word(), u3 = word();
       const base = { a: `When ${u1} ${x} ${u2}`, b: `${u3} ${y} mode`, caption: `This one is about ${x}.`, inspiredBy: i % 3 ? "evergreen" : "Dates coming up" };
-      if (kind === "IMAGE" && i % 3 === 2) return { ...base, template: "meme", mt: ["drake", "db", "fine"][Math.floor(i / 3) % 3], ml: [`${u1} ${x}`, `${u2} ${y}`] };
+      if (kind === "IMAGE" && i % 3 === 2 && menu.length) { const t = menu[Math.floor(i / 3) % menu.length]; return { ...base, template: "meme", mt: t.id, ml: [`${u1} ${x}`, `${u2} ${y}`] }; }
       if (kind === "IMAGE") { const t = tpls[i % tpls.length]; return { ...base, template: t, visual: `${x} person close up`, visual2: `${y} person relaxing`, ...(t === "versus" ? { l: ["What I planned", "What I did"] } : {}), ...(t === "ticker" ? { a: `$${x.replace(/\W/g, "").toUpperCase().slice(0, 8)} ▼ ${10 + i}%` } : {}) }; }
       if (kind === "CAROUSEL") return { ...base, visual: `${x} people`, a: `Types of ${u1} at the ${x}`, b: "", s: [`The ${u2} expert`, `The ${x} rookie`, `The one who forgot the ${u3}`, `You, reading this`] };
       return { ...base, footage: `${x} close up`, mood: ["dramatic", "hype", "chill", "sad", "funny"][i % 5], sfx: "vine boom" };
@@ -53,6 +55,21 @@ function start({ siteDir, ghRoot, assetDir }) {
       if (u.pathname === "/pixabay/api/videos/" || u.pathname === "/pixabay/api/videos") {
         return send(200, { hits: [1, 2].map((k) => ({ id: k, duration: 6, pageURL: `https://pixabay.example/video/${k}`, videos: { large: { url: `http://127.0.0.1:${server.address().port}/assets/clip${k}.mp4`, width: 1080, height: 1920 } } })) });
       }
+      // Imgflip stand-in
+      if (u.pathname === "/imgflip/get_memes") {
+        return send(200, { success: true, data: { memes: [["181913649", "Drake Hotline Bling", 2, 900000], ["87743020", "Two Buttons", 3, 700000], ["112126428", "Distracted Boyfriend", 3, 800000], ["99999", "Sad Biden", 2, 5000]].map(([id, name, box_count, captions]) => ({ id, name, url: `https://i.imgflip.com/${id}.jpg`, width: 600, height: 600, box_count, captions })) } });
+      }
+      if (u.pathname === "/imgflip/search_memes") {
+        if (req.headers.authorization !== "Bearer test-imgflip") return send(200, { success: false, error_message: "Invalid API key" });
+        return send(200, { success: true, data: { memes: [{ id: "555", name: "Gym Mirror Guy", box_count: 2, captions: 4000 }, { id: "556", name: "Obscure Thing", box_count: 2, captions: 3 }] } });
+      }
+      if (u.pathname === "/imgflip/caption_image") {
+        const params = new URLSearchParams(raw);
+        log.imgflipCaptions = (log.imgflipCaptions || []).concat([{ auth: req.headers.authorization, params: Object.fromEntries(params) }]);
+        if (req.headers.authorization !== "Bearer test-imgflip") return send(200, { success: false, error_message: "Invalid API key" });
+        if (!params.get("boxes[0][text]")) return send(200, { success: false, error_message: "No texts specified" });
+        return send(200, { success: true, data: { url: `http://127.0.0.1:${server.address().port}/assets/meme.png`, page_url: "https://imgflip.example/i/abc" } });
+      }
       // Memegen stand-in
       if (u.pathname === "/memegen/templates/" || u.pathname === "/memegen/templates") {
         return send(200, [["drake", "Drakeposting", 2], ["db", "Distracted Boyfriend", 3], ["fine", "This is Fine", 2]].map(([id, name, lines]) => ({ id, name, lines, keywords: [] })));
@@ -72,7 +89,7 @@ function start({ siteDir, ghRoot, assetDir }) {
         if (fs.existsSync(f)) { res.writeHead(200, { "content-type": f.endsWith(".mp4") ? "video/mp4" : f.endsWith(".mp3") ? "audio/mpeg" : f.endsWith(".png") ? "image/png" : "image/jpeg" }); return fs.createReadStream(f).pipe(res); }
       }
       // Claude
-      if (u.pathname === "/v1/messages") { log.claude++; return send(200, claudeHandler(JSON.parse(raw))); }
+      if (u.pathname === "/v1/messages") { log.claude++; return send(200, claudeHandler(JSON.parse(raw), log)); }
       // Instagram
       if (u.pathname.startsWith("/v27.0/")) {
         const parts = u.pathname.split("/").slice(2), params = Object.fromEntries(new URLSearchParams(raw || u.search));

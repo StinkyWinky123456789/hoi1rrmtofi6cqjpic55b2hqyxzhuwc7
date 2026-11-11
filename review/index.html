@@ -277,7 +277,7 @@ function cardEl(item, idx) {
   card.onclick = () => { if (S.focus !== idx) { S.focus = idx; document.querySelectorAll(".card.focus").forEach((c) => c.classList.remove("focus")); card.classList.add("focus"); } };
   card.appendChild(mediaEl(item));
   const right = document.createElement("div");
-  const fmt = p.format === "reel" ? "Video · Reel" : p.format === "carousel" ? "Carousel" : p.template === "meme" ? `Meme · ${p.mt}` : `Image · ${p.template}`;
+  const fmt = p.format === "reel" ? "Video · Reel" : p.format === "carousel" ? "Carousel" : p.template === "meme" ? `Meme · ${p.mtName || p.mt}` : `Image · ${p.template}`;
   right.innerHTML = `<div class="meta"><span class="dot" style="background:${page.accent}"></span><b style="color:var(--ink)"></b><span></span>
     <span class="pill st-${p.status}">${p.status}</span><span class="pill">${fmt}</span><span>score <span class="score">${Number(p.score || 0).toFixed(1)}</span></span></div>
     <div class="text"></div><div class="sub why"></div><div class="sub note"></div>`;
@@ -330,7 +330,7 @@ function cardEl(item, idx) {
   let fL1, fL2, fS, fF;
   if (p.template === "versus") { fL1 = field("Top label", p.l?.[0]); fL2 = field("Bottom label", p.l?.[1]); ed.append(fL1, fL2); }
   let fML;
-  if (p.template === "meme") { fML = field(`Meme lines for "${p.mt}" (one per line)`, (p.ml || []).join("\n"), true); ed.append(fML); }
+  if (p.template === "meme") { fML = field(`Meme lines for "${p.mtName || p.mt}" (one per line, one per box)`, (p.ml || []).join("\n"), true); ed.append(fML); }
   if (p.format === "carousel") { fS = field("Slides (one per line)", (p.s || []).join("\n"), true); ed.append(fS); }
   if (p.format === "reel") { fF = field("Footage search words", p.footage); ed.append(fF); }
   let fV, fV2;

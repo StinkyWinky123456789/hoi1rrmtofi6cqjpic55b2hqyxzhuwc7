@@ -42,7 +42,7 @@ const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47
     NO_GIT: "1", SITE_DIR: SITE, ANTHROPIC_API_KEY: "test", ANTHROPIC_BASE_URL: base,
     NODE_PATH: "/opt/npm-tools/node_modules", CHROME_PATH: "/usr/bin/google-chrome",
     PIXABAY_API_KEY: "test", PIXABAY_BASE: `${base}/pixabay/api`,
-    MEMEGEN_BASE: `${base}/memegen`, FREESOUND_API_KEY: "test", FREESOUND_BASE: `${base}/freesound`,
+    MEMEGEN_BASE: `${base}/memegen`, IMGFLIP_BASE: `${base}/imgflip`, IMGFLIP_API_KEY: "test-imgflip", IMGFLIP_PREMIUM: "true", FREESOUND_API_KEY: "test", FREESOUND_BASE: `${base}/freesound`,
     IG_API_BASE: base, MEDIA_BASE_URL: `${base}/site`, PUBLISH_ENABLED: "true",
     ...Object.fromEntries(["GYM", "ANIME", "MONEY", "SHITPOST"].flatMap((k, i) => [[`IG_USER_ID_${k}`, `17841400000${i}`], [`IG_TOKEN_${k}`, `tok_${k}`]])),
   };
@@ -96,8 +96,14 @@ const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47
     const stills = g2.posts.filter((p) => p.format !== "reel");
     const photoStills = stills.filter((p) => p.template !== "meme"), memePosts = stills.filter((p) => p.template === "meme");
     ok(photoStills.every((p) => p.visual && /photo \d of 3/.test(p.renderNote || "") && p.visualSource), `all ${photoStills.length} photo memes got stock photos`);
-    ok(memePosts.length >= 4 && memePosts.every((p) => p.mt && p.ml.length >= 2 && /meme template/.test(p.renderNote) && /\/memegen\/images\//.test(p.visualSource)), `${memePosts.length} classic meme-template posts rendered via Memegen`);
-    ok(memePosts.some((p) => p.mt === "db" && p.ml.length === 3), "meme lines padded to the template's line count");
+    ok(memePosts.length >= 4 && memePosts.every((p) => p.mt && p.ml.length >= 2 && /meme template/.test(p.renderNote) && /\/memegen\/images\/|imgflip\.com\/memetemplate/.test(p.visualSource)), `${memePosts.length} classic meme-template posts rendered (Imgflip + Memegen)`);
+    ok(memePosts.some((p) => p.ml.length === 3), "meme lines padded to the template's box count");
+    const menu = log.memeMenus[0] || [];
+    ok(menu[0] === "if-555" && menu.includes("if-181913649") && !menu.includes("if-556") && !menu.includes("if-99999"), "template menu: niche Imgflip search first, then trending; unpopular and political templates left out");
+    ok(!menu.includes("drake") && menu.includes("fine"), "memegen fills in only the classics Imgflip doesn't already cover");
+    const ifPosts = memePosts.filter((p) => p.mt.startsWith("if-")), caps = log.imgflipCaptions || [];
+    ok(ifPosts.length >= 2 && ifPosts.every((p) => p.mtName && /\(Imgflip\)/.test(p.renderNote)) && caps.length >= ifPosts.length, `${ifPosts.length} posts captioned through the Imgflip API`);
+    ok(caps.every((c) => c.auth === "Bearer test-imgflip" && c.params["boxes[0][text]"] && c.params.no_watermark === "1"), "Imgflip calls send the key, fill boxes in order, and drop the watermark on Premium");
     const vs = stills.find((p) => p.template === "versus");
     ok(!vs || (vs.renderNote.match(/photo/g) || []).length === 2, "versus memes get a photo for each panel");
     const stockReel = g2.posts.find((p) => p.format === "reel" && !p.customClip);
@@ -189,7 +195,8 @@ const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47
     await pg.click("text=Needs review"); await pg.waitForTimeout(300);
     await pg.click(".card.focus >> text=Edit text");
     await pg.fill(".card.focus .edit input", "When the edit lands");
-    await pg.click(".card.focus >> text=Save and re-render"); await pg.waitForTimeout(3500);
+    await pg.click(".card.focus >> text=Save and re-render");
+    for (let i = 0; i < 40 && !readQ("gym").posts.some((p) => p.a === "When the edit lands"); i++) await pg.waitForTimeout(500);
     ok(readQ("gym").posts.some((p) => p.a === "When the edit lands" && p.needsRender), "text edits save and queue a re-render");
     await pg.screenshot({ path: path.join(SRC, "test", "review-edit.png") });
     ok(await pg.$$eval(".card a[download]", (as) => as.length) >= 1, "Reels have a Download video button");

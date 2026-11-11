@@ -100,8 +100,8 @@ ${(pg.examples || []).map((x) => "- " + x).join("\n")}`;
 
 async function writeCandidates(cfg, key, pg, sig, avoid, format, count) {
   const pieces = [];
-  const memeList = format === "image" ? await Memes.templates() : [];
-  const memeGuide = memeList.length ? `\nMeme templates you can use (id: name, number of lines, example):\n${memeList.map((t) => `- ${t.id}: ${t.name}, ${t.lines} lines, e.g. ${JSON.stringify(t.example)}`).join("\n")}` : "";
+  const memeList = format === "image" ? await Memes.templates(pg) : [];
+  const memeGuide = memeList.length ? `\nMeme templates you can use (id: name, number of text boxes in order${memeList.some((t) => t.example.length) ? ", example" : ""}). Use the template the way the internet uses it (you know these formats by name); "mt" must be the exact id; "ml" has one entry per box, in box order. Templates marked [niche] were picked for this page.\n${memeList.map((t) => `- ${t.id}: ${t.name}, ${t.lines} boxes${t.niche ? " [niche]" : ""}${t.example.length ? `, e.g. ${JSON.stringify(t.example)}` : ""}`).join("\n")}` : "";
   for (let left = count; left > 0; left -= 25) {
     const n = Math.min(25, left);
     const spec = format === "image"
@@ -126,14 +126,14 @@ Keep "a" under 90 characters and "b" under 100. Call submit_memes with all ${n}.
 const NICHE_PHOTO = { gym: "people lifting weights gym", anime: "neon city street night", money: "man stressed looking at phone", shitpost: "funny animal staring camera" };
 function fallbackVisual(key) { return NICHE_PHOTO[key] || "people laughing"; }
 
-let memeIds = new Map(); // id -> line count, filled before cleaning
+let memeIds = new Map(); // id -> { lines, name }, filled before cleaning
 function clean(m, key) {
   const str = (v, n) => String(v || "").replace(/\s+/g, " ").trim().slice(0, n);
   const out = { format: m.format, a: str(m.a, 120), b: str(m.b, 130), caption: str(m.caption, 300), inspiredBy: str(m.inspiredBy, 120) };
   if (m.format === "image") {
     if (m.template === "meme" && m.mt && memeIds.has(m.mt)) {
-      out.template = "meme"; out.mt = m.mt;
-      const n = memeIds.get(m.mt);
+      out.template = "meme"; out.mt = m.mt; out.mtName = memeIds.get(m.mt).name;
+      const n = memeIds.get(m.mt).lines;
       out.ml = Array.from({ length: n }, (_, i) => str((m.ml || [])[i], 90));
       out.visual = ""; out.b = "";
       return out;
@@ -195,7 +195,7 @@ function assign(slots, cands, pg, cfg, key, weekId) {
     const id = `${key}-${s.ymd.replace(/-/g, "")}-${s.index + 1}`;
     posts.push({
       id, page: key, week: weekId, date: s.ymd, time: s.time, scheduledAt: s.at,
-      format: c.format, template: c.template || null, a: c.a, b: c.b || "", l: c.l, s: c.s, mt: c.mt, ml: c.ml,
+      format: c.format, template: c.template || null, a: c.a, b: c.b || "", l: c.l, s: c.s, mt: c.mt, mtName: c.mtName, ml: c.ml,
       footage: c.footage, mood: c.mood, sfx: c.sfx, sfxIndex: 0, footageIndex: 0, audioIndex: 0, customClip: null,
       visual: c.visual || "", visual2: c.visual2 || "", imageIndex: 0,
       caption: `${c.caption}\n\nFollow ${pg.handle} for daily ${pg.noun} memes.\n\n${pg.tags.slice(0, 5).join(" ")}`,
@@ -212,7 +212,7 @@ async function generatePage(cfg, key, weekStart, signals, force) {
   // A week that was cleared out (or fully rejected) in the review queue regenerates without --force
   const live = fs.existsSync(file) ? U.readJSON(file, { posts: [] }).posts.filter((p) => !["rejected"].includes(p.status)) : [];
   if (fs.existsSync(file) && !force && live.length) { U.log(`${key}: ${weekId} already generated, skipping (use --force to redo)`); return null; }
-  memeIds = new Map((await Memes.templates()).map((t) => [t.id, t.lines]));
+  memeIds = new Map((await Memes.templates(pg)).map((t) => [t.id, { lines: t.lines, name: t.name }]));
   const slots = buildSlots(cfg, key, weekStart);
   const need = { image: 0, carousel: 0, reel: 0 };
   slots.forEach((s) => need[s.format]++);

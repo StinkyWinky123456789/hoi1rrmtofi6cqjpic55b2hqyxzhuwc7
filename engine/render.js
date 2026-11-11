@@ -54,7 +54,7 @@ async function pixabayImages(query) {
 /** Photos for a post as data: URLs. Images get 1 (versus 2: one per panel), carousels one per slide. */
 async function photosFor(post) {
   if (post.format === "image" && post.template === "meme") {
-    try { return { urls: [await Memes.render(post.mt, post.ml || [])], note: `meme template "${post.mt}"`, source: Memes.imageUrl(post.mt, post.ml || []) }; }
+    try { return { urls: [await Memes.render(post.mt, post.ml || [])], note: `meme template "${post.mtName || post.mt}"${String(post.mt).startsWith("if-") ? " (Imgflip)" : ""}`, source: Memes.sourceUrl(post.mt, post.ml || []) }; }
     catch (e) { return { urls: [], note: `meme template error (${e.message})` }; }
   }
   if (!["image", "carousel"].includes(post.format) || !post.visual) return { urls: [], note: "" };
