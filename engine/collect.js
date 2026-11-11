@@ -51,22 +51,31 @@ async function anilist(weekStart, tz) {
 
 async function markets() {
   const out = [];
-  for (const [sym, label] of [["^spx", "S&P 500"], ["^ndq", "Nasdaq"]]) {
+  const say = (label, date, d1, d5) => `${label} closed ${date} ${d1 >= 0 ? "up" : "down"} ${Math.abs(d1).toFixed(1)}% on the day, ${d5 >= 0 ? "up" : "down"} ${Math.abs(d5).toFixed(1)}% over 5 trading days`;
+  for (const [yh, sq, label] of [["^GSPC", "^spx", "S&P 500"], ["^IXIC", "^ndq", "Nasdaq"], ["BTC-USD", "btcusd", "Bitcoin"]]) {
     try {
-      const csv = (await getText(`https://stooq.com/q/d/l/?s=${encodeURIComponent(sym)}&i=d`)).trim().split("\n");
+      const j = JSON.parse(await getText(`https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(yh)}?range=1mo&interval=1d`, { headers: { Accept: "application/json", "User-Agent": "Mozilla/5.0" } }));
+      const r = j.chart.result[0], closes = r.indicators.quote[0].close, ts = r.timestamp;
+      const rows = ts.map((t, i) => [t, closes[i]]).filter((x) => x[1] != null);
+      if (rows.length < 6) throw new Error("not enough data");
+      const last = rows.at(-1), prev = rows.at(-2), wk = rows.at(-6);
+      out.push(say(label, new Date(last[0] * 1000).toISOString().slice(0, 10), (last[1] / prev[1] - 1) * 100, (last[1] / wk[1] - 1) * 100));
+      continue;
+    } catch (e) { U.log(`markets (Yahoo) ${label}: ${e.message}`); }
+    try {
+      const csv = (await getText(`https://stooq.com/q/d/l/?s=${encodeURIComponent(sq)}&i=d`)).trim().split("\n");
       const rows = csv.slice(1).map((l) => l.split(",")).filter((r) => r.length >= 5 && !isNaN(+r[4]));
       if (rows.length < 6) continue;
       const last = rows.at(-1), prev = rows.at(-2), wk = rows.at(-6);
-      const d1 = ((+last[4] / +prev[4] - 1) * 100).toFixed(1), d5 = ((+last[4] / +wk[4] - 1) * 100).toFixed(1);
-      out.push(`${label} closed ${last[0]} ${d1 >= 0 ? "up" : "down"} ${Math.abs(d1)}% on the day, ${d5 >= 0 ? "up" : "down"} ${Math.abs(d5)}% over 5 trading days`);
-    } catch (e) { U.log("markets:", sym, e.message); }
+      out.push(say(label, last[0], (+last[4] / +prev[4] - 1) * 100, (+last[4] / +wk[4] - 1) * 100));
+    } catch (e) { U.log(`markets (Stooq) ${label}: ${e.message}`); }
   }
   return out;
 }
 
 /** X recent search, billed per post returned ($0.005 each). Enforces config.xMonthlyReadCap. */
 async function xSearch(cfg, pageKey) {
-  const token = process.env.X_BEARER_TOKEN;
+  const token = U.secret("X_BEARER_TOKEN");
   if (!token) return [];
   const usageFile = path.join(U.ROOT, "state", "x-usage.json");
   const month = new Date().toISOString().slice(0, 7);
@@ -77,6 +86,7 @@ async function xSearch(cfg, pageKey) {
   const q = new URLSearchParams({ query: cfg.pages[pageKey].xQuery, max_results: String(Math.min(100, want)), sort_order: "relevancy", "tweet.fields": "public_metrics" });
   const r = await fetch(`https://api.x.com/2/tweets/search/recent?${q}`, { headers: { Authorization: `Bearer ${token}` } });
   const j = await r.json().catch(() => ({}));
+  if (r.status === 402) { U.log(`X ${pageKey}: no X credits left (add credit in console.x.com → Billing); skipping X trends`); return []; }
   if (!r.ok) { U.log(`X ${pageKey}: ${r.status} ${JSON.stringify(j).slice(0, 200)}`); return []; }
   const data = j.data || [];
   usage[month] = used + data.length; U.writeJSON(usageFile, usage);
@@ -120,7 +130,7 @@ async function collectSignals(cfg, weekStart) {
   return out;
 }
 
-module.exports = { collectSignals, holidaySignals };
+module.exports = { collectSignals, holidaySignals, markets };
 
 if (require.main === module) {
   (async () => {

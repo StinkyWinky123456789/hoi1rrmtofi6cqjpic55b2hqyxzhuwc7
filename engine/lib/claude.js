@@ -1,6 +1,6 @@
 // Minimal Claude Messages API client with retries and a forced-JSON tool.
 "use strict";
-const { log, sleep } = require("./util");
+const { log, sleep, secret } = require("./util");
 
 const BASE = (process.env.ANTHROPIC_BASE_URL || "https://api.anthropic.com").replace(/\/$/, "");
 
@@ -9,7 +9,7 @@ const BASE = (process.env.ANTHROPIC_BASE_URL || "https://api.anthropic.com").rep
  * Returns the tool input object.
  */
 async function askJSON({ model, system, prompt, toolName, toolDescription, schema, maxTokens = 16000 }) {
-  const key = process.env.ANTHROPIC_API_KEY;
+  const key = secret("ANTHROPIC_API_KEY");
   if (!key) throw new Error("ANTHROPIC_API_KEY is not set");
   const body = {
     model, max_tokens: maxTokens, system,

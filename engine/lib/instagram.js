@@ -3,7 +3,7 @@
 //  - Instagram Login tokens (start with "IG") -> graph.instagram.com
 // The publishing endpoints are the same on both hosts.
 "use strict";
-const { sleep, log } = require("./util");
+const { sleep, log, secret } = require("./util");
 
 function baseFor(token) {
   if (process.env.IG_API_BASE) return process.env.IG_API_BASE.replace(/\/$/, "");
@@ -14,7 +14,7 @@ const VER = process.env.IG_API_VERSION || "v27.0";
 
 function creds(pageKey) {
   const K = pageKey.toUpperCase();
-  const id = process.env[`IG_USER_ID_${K}`], token = process.env[`IG_TOKEN_${K}`];
+  const id = secret(`IG_USER_ID_${K}`), token = secret(`IG_TOKEN_${K}`);
   return id && token ? { id, token } : null;
 }
 

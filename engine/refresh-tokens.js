@@ -9,7 +9,7 @@ const IG = require("./lib/instagram");
   const cfg = U.loadConfig();
   let bad = 0;
   for (const key of Object.keys(cfg.pages)) {
-    const name = `IG_TOKEN_${key.toUpperCase()}`, token = process.env[name];
+    const name = `IG_TOKEN_${key.toUpperCase()}`, token = U.secret(name);
     if (!token) { U.log(`${key}: no ${name} secret yet`); continue; }
     try {
       if (IG.isSystemUserToken(token)) { U.log(`${key}: Unified Login system-user token; it never expires, nothing to refresh`); continue; }

@@ -15,6 +15,15 @@ function writeJSON(file, data) {
   fs.writeFileSync(file, JSON.stringify(data, null, 2) + "\n");
 }
 function loadConfig() { return readJSON(path.join(ROOT, "config", "pages.json")); }
+/** Read a secret from the environment, tolerating stray spaces, quotes and line breaks from copy-paste.
+ *  If a value spans several lines (e.g. pasted twice), the first non-empty line is used. */
+function secret(name) {
+  const raw = process.env[name];
+  if (!raw) return "";
+  const lines = String(raw).split(/\r?\n/).map((l) => l.trim().replace(/^["']|["']$/g, "").replace(/^Bearer\s+/i, "")).filter(Boolean);
+  if (lines.length > 1) console.warn(`warning: secret ${name} has ${lines.length} lines; using the first one. Re-save it as a single line.`);
+  return lines[0] || "";
+}
 function log(...a) { console.log(new Date().toISOString().slice(11, 19), ...a); }
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -85,7 +94,7 @@ function jaccard(a, b) {
 function postText(p) { return [p.a, p.b, ...(p.s || [])].filter(Boolean).join(" "); }
 
 module.exports = {
-  ROOT, SITE, QUEUE, readJSON, writeJSON, loadConfig, log, sleep,
+  ROOT, SITE, QUEUE, readJSON, writeJSON, loadConfig, log, sleep, secret,
   tzParts, zonedToUtc, ymdOf, addDays, weekday, nextMonday, isoWeekId, prettyDate,
   queueFile, listQueueFiles, tokens, jaccard, postText,
 };

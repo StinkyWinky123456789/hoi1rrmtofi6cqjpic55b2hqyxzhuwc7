@@ -19,7 +19,7 @@ function chromePath() {
 
 /* ---------- Footage: Pixabay (preferred) or Pexels. Both free, no attribution required. ---------- */
 async function pixabayClips(query) {
-  const key = process.env.PIXABAY_API_KEY;
+  const key = U.secret("PIXABAY_API_KEY");
   if (!key) return [];
   const cacheFile = path.join(U.ROOT, "state", "pixabay-cache.json"), cache = U.readJSON(cacheFile, {});
   if (cache[query] && Date.now() - cache[query].t < 864e5) return cache[query].clips; // Pixabay asks for caching up to 24h
@@ -44,7 +44,7 @@ async function pixabayClips(query) {
 }
 
 async function pexelsClips(query) {
-  const key = process.env.PEXELS_API_KEY;
+  const key = U.secret("PEXELS_API_KEY");
   if (!key) return [];
   const cacheFile = path.join(U.ROOT, "state", "pexels-cache.json"), cache = U.readJSON(cacheFile, {});
   if (cache[query] && Date.now() - cache[query].t < 14 * 864e5) return cache[query].clips;
