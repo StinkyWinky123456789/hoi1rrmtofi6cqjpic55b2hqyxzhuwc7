@@ -378,7 +378,7 @@
       "format": "reel",
       "template": "classic",
       "a": "Me trying to look casual walking past the squat rack someone is hogging",
-      "b": "Staring contest with the chalk bucket",
+      "b": "Staring contest with yams",
       "footage": "squat rack empty gym",
       "mood": "dramatic",
       "footageIndex": 0,
@@ -389,7 +389,7 @@
       "why": "Squat rack hogging universal, chalk bucket detail funny",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": false,
+      "needsRender": true,
       "renderVersion": 1,
       "approvedVersion": null,
       "media": [
