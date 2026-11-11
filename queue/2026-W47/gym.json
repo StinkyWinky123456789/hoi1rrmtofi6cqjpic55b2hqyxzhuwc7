@@ -26,14 +26,21 @@
       "why": "Rest day failure is relatable, tag-a-friend potential",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261116-1/v1.mp4",
+        "m/gym/gym-20261116-1/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:45:27.604Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb185888 (1 of 20 for \"couch lounging living room\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-185888/"
     },
     {
       "id": "gym-20261116-2",
@@ -54,14 +61,20 @@
       "why": "Parking lot victory laps, vivid and specific",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261116-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:45:27.672Z",
+      "renderError": null,
+      "renderNote": null,
+      "footageSource": null
     },
     {
       "id": "gym-20261116-3",
@@ -82,14 +95,20 @@
       "why": "Leg bounce tell is sharp, relatable",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261116-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:45:27.700Z",
+      "renderError": null,
+      "renderNote": null,
+      "footageSource": null
     },
     {
       "id": "gym-20261116-4",
@@ -117,14 +136,26 @@
       "why": "Specific pre-workout stages, funny sweater line",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261116-4/v1-01.jpg",
+        "m/gym/gym-20261116-4/v1-02.jpg",
+        "m/gym/gym-20261116-4/v1-03.jpg",
+        "m/gym/gym-20261116-4/v1-04.jpg",
+        "m/gym/gym-20261116-4/v1-05.jpg",
+        "m/gym/gym-20261116-4/v1-06.jpg",
+        "m/gym/gym-20261116-4/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:45:27.891Z",
+      "renderError": null,
+      "renderNote": null,
+      "footageSource": null
     },
     {
       "id": "gym-20261116-5",
@@ -145,14 +176,20 @@
       "why": "Color-coded plan nails caffeine overdrive, light",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261116-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:45:27.914Z",
+      "renderError": null,
+      "renderNote": null,
+      "footageSource": null
     },
     {
       "id": "gym-20261117-1",
@@ -175,14 +212,21 @@
       "why": "Shaker callout is specific, tag-worthy, in voice",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261117-1/v1.mp4",
+        "m/gym/gym-20261117-1/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:45:34.680Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb133507 (1 of 20 for \"powder scoop shaker bottle\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-133507/"
     },
     {
       "id": "gym-20261117-2",
@@ -203,14 +247,20 @@
       "why": "Tingles then set 2 crash, sharp",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261117-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:45:34.710Z",
+      "renderError": null,
+      "renderNote": null,
+      "footageSource": null
     },
     {
       "id": "gym-20261117-3",
@@ -231,14 +281,20 @@
       "why": "Staring at wall debuff, crisp caffeine crash",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261117-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:45:34.740Z",
+      "renderError": null,
+      "renderNote": null,
+      "footageSource": null
     },
     {
       "id": "gym-20261117-4",
@@ -263,14 +319,20 @@
       "why": "Lights humming is fresh caffeine image",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261117-4/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:45:34.762Z",
+      "renderError": null,
+      "renderNote": null,
+      "footageSource": null
     },
     {
       "id": "gym-20261117-5",
@@ -291,14 +353,20 @@
       "why": "Resistance band union is fresh and funny",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261117-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:45:34.791Z",
+      "renderError": null,
+      "renderNote": null,
+      "footageSource": null
     },
     {
       "id": "gym-20261118-1",
@@ -321,14 +389,21 @@
       "why": "Squat rack hogging universal, chalk bucket detail funny",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261118-1/v1.mp4",
+        "m/gym/gym-20261118-1/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:45:48.770Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb14900 (1 of 20 for \"squat rack empty gym\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-14900/"
     },
     {
       "id": "gym-20261118-2",
@@ -353,14 +428,20 @@
       "why": "Garage at 2 AM, instant and relatable",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261118-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:45:48.808Z",
+      "renderError": null,
+      "renderNote": null,
+      "footageSource": null
     },
     {
       "id": "gym-20261118-3",
@@ -381,14 +462,20 @@
       "why": "Alphabetizing gym bag is specific and funny",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261118-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:45:48.830Z",
+      "renderError": null,
+      "renderNote": null,
+      "footageSource": null
     },
     {
       "id": "gym-20261118-4",
@@ -416,14 +503,26 @@
       "why": "Strong voice, 'lying down with intent' lands",
       "inspiredBy": "rest days and soreness",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261118-4/v1-01.jpg",
+        "m/gym/gym-20261118-4/v1-02.jpg",
+        "m/gym/gym-20261118-4/v1-03.jpg",
+        "m/gym/gym-20261118-4/v1-04.jpg",
+        "m/gym/gym-20261118-4/v1-05.jpg",
+        "m/gym/gym-20261118-4/v1-06.jpg",
+        "m/gym/gym-20261118-4/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:45:48.949Z",
+      "renderError": null,
+      "renderNote": null,
+      "footageSource": null
     },
     {
       "id": "gym-20261118-5",
@@ -444,14 +543,20 @@
       "why": "Shaker collection hits a real habit",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261118-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:45:48.979Z",
+      "renderError": null,
+      "renderNote": null,
+      "footageSource": null
     },
     {
       "id": "gym-20261119-1",
@@ -474,14 +579,21 @@
       "why": "Scraping the tub is instantly relatable, vivid image",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261119-1/v1.mp4",
+        "m/gym/gym-20261119-1/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:45:59.238Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb189018 (1 of 20 for \"empty tub powder close up\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-189018/"
     },
     {
       "id": "gym-20261119-2",
@@ -502,14 +614,20 @@
       "why": "Squat rack texting is universal gym annoyance",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261119-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:45:59.281Z",
+      "renderError": null,
+      "renderNote": null,
+      "footageSource": null
     },
     {
       "id": "gym-20261119-3",
@@ -530,14 +648,20 @@
       "why": "'Set two is a rumor' is a good line",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261119-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:45:59.304Z",
+      "renderError": null,
+      "renderNote": null,
+      "footageSource": null
     },
     {
       "id": "gym-20261119-4",
@@ -558,14 +682,20 @@
       "why": "Friend-tag worthy, 'last set' trope common",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261119-4/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:45:59.332Z",
+      "renderError": null,
+      "renderNote": null,
+      "footageSource": null
     },
     {
       "id": "gym-20261119-5",
@@ -586,14 +716,20 @@
       "why": "Relatable late pre-workout mistake, mild",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261119-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:45:59.353Z",
+      "renderError": null,
+      "renderNote": null,
+      "footageSource": null
     },
     {
       "id": "gym-20261120-1",
@@ -616,14 +752,21 @@
       "why": "Relatable pre-workout behavior, slightly generic but on-voice",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261120-1/v1.mp4",
+        "m/gym/gym-20261120-1/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:46:07.273Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb77916 (1 of 20 for \"gym treadmill row empty\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-77916/"
     },
     {
       "id": "gym-20261120-2",
@@ -644,14 +787,20 @@
       "why": "Entrance music is relatable, gentle",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261120-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:46:07.302Z",
+      "renderError": null,
+      "renderNote": null,
+      "footageSource": null
     },
     {
       "id": "gym-20261120-3",
@@ -672,14 +821,20 @@
       "why": "Matching dumbbell fury is relatable",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261120-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:46:07.331Z",
+      "renderError": null,
+      "renderNote": null,
+      "footageSource": null
     },
     {
       "id": "gym-20261120-4",
@@ -707,14 +862,26 @@
       "why": "Relatable gym types, familiar format, safe",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261120-4/v1-01.jpg",
+        "m/gym/gym-20261120-4/v1-02.jpg",
+        "m/gym/gym-20261120-4/v1-03.jpg",
+        "m/gym/gym-20261120-4/v1-04.jpg",
+        "m/gym/gym-20261120-4/v1-05.jpg",
+        "m/gym/gym-20261120-4/v1-06.jpg",
+        "m/gym/gym-20261120-4/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:46:07.451Z",
+      "renderError": null,
+      "renderNote": null,
+      "footageSource": null
     },
     {
       "id": "gym-20261120-5",
@@ -735,14 +902,20 @@
       "why": "Fun Black Friday gym angle, slightly wordy",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261120-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:46:07.478Z",
+      "renderError": null,
+      "renderNote": null,
+      "footageSource": null
     },
     {
       "id": "gym-20261121-1",
@@ -765,14 +938,21 @@
       "why": "Gym culture jab, clear image, decent punchline",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261121-1/v1.mp4",
+        "m/gym/gym-20261121-1/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:46:15.854Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb231259 (1 of 20 for \"barbell bench press gym\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-231259/"
     },
     {
       "id": "gym-20261121-2",
@@ -793,14 +973,20 @@
       "why": "Thanksgiving uncle bench question is relatable",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261121-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:46:15.893Z",
+      "renderError": null,
+      "renderNote": null,
+      "footageSource": null
     },
     {
       "id": "gym-20261121-3",
@@ -825,14 +1011,20 @@
       "why": "Supplement sale browsing hits gym culture",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261121-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:46:15.918Z",
+      "renderError": null,
+      "renderNote": null,
+      "footageSource": null
     },
     {
       "id": "gym-20261121-4",
@@ -853,14 +1045,20 @@
       "why": "Vibrating with cold brew is good, light",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261121-4/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:46:15.948Z",
+      "renderError": null,
+      "renderNote": null,
+      "footageSource": null
     },
     {
       "id": "gym-20261121-5",
@@ -881,14 +1079,20 @@
       "why": "Scoop serving comparison is relatable and clean",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261121-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:46:15.978Z",
+      "renderError": null,
+      "renderNote": null,
+      "footageSource": null
     },
     {
       "id": "gym-20261122-1",
@@ -911,14 +1115,21 @@
       "why": "Hypocrisy of grindset guys, clear and fair",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261122-1/v1.mp4",
+        "m/gym/gym-20261122-1/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:46:24.539Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb155020 (1 of 20 for \"car interior daytime nap\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-155020/"
     },
     {
       "id": "gym-20261122-2",
@@ -939,14 +1150,20 @@
       "why": "Song shuffle strength feeling is relatable",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261122-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:46:24.570Z",
+      "renderError": null,
+      "renderNote": null,
+      "footageSource": null
     },
     {
       "id": "gym-20261122-3",
@@ -967,14 +1184,20 @@
       "why": "Relatable gym culture, slightly familiar setup",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261122-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:46:24.600Z",
+      "renderError": null,
+      "renderNote": null,
+      "footageSource": null
     },
     {
       "id": "gym-20261122-4",
@@ -1002,14 +1225,26 @@
       "why": "Relatable caffeine personality, light and safe",
       "inspiredBy": "pre-workout and caffeine addiction",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261122-4/v1-01.jpg",
+        "m/gym/gym-20261122-4/v1-02.jpg",
+        "m/gym/gym-20261122-4/v1-03.jpg",
+        "m/gym/gym-20261122-4/v1-04.jpg",
+        "m/gym/gym-20261122-4/v1-05.jpg",
+        "m/gym/gym-20261122-4/v1-06.jpg",
+        "m/gym/gym-20261122-4/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:46:24.719Z",
+      "renderError": null,
+      "renderNote": null,
+      "footageSource": null
     },
     {
       "id": "gym-20261122-5",
@@ -1030,14 +1265,20 @@
       "why": "Fine but overlaps with meme 26",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261122-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T02:46:24.748Z",
+      "renderError": null,
+      "renderNote": null,
+      "footageSource": null
     }
   ]
 }
