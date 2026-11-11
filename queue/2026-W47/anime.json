@@ -27,14 +27,21 @@
       "why": "Laid-off mage vs 'per my last email', sharp contrast",
       "inspiredBy": "The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261116-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:52:52.496Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man at office desk holding cardboard box\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/man-write-plan-desk-notes-pen-593333/"
     },
     {
       "id": "anime-20261116-2",
@@ -65,14 +72,27 @@
       "why": "Specific 3AM manhwa beats, 'Season 1 End' lands",
       "inspiredBy": "reading manhwa at 3 AM",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261116-2/v1-01.jpg",
+        "m/anime/anime-20261116-2/v1-02.jpg",
+        "m/anime/anime-20261116-2/v1-03.jpg",
+        "m/anime/anime-20261116-2/v1-04.jpg",
+        "m/anime/anime-20261116-2/v1-05.jpg",
+        "m/anime/anime-20261116-2/v1-06.jpg",
+        "m/anime/anime-20261116-2/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:52:54.299Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"phone glowing dark bedroom\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/bedside-table-lamp-bedroom-bed-6571362/"
     },
     {
       "id": "anime-20261116-3",
@@ -96,14 +116,21 @@
       "why": "Apothecary poison side-eye at casserole, specific and fresh",
       "inspiredBy": "The Apothecary Diaries Season 3",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261116-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:52:54.714Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"green bean casserole thanksgiving table\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/thanksgiving-dinner-table-turkey-4673692/"
     },
     {
       "id": "anime-20261116-4",
@@ -129,14 +156,22 @@
       "why": "Power-scaling 'Vibes' is sharp, niche, DM-able",
       "inspiredBy": "power-scaling debates",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261116-4/v1.mp4",
+        "m/anime/anime-20261116-4/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:53:03.252Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb363873 (1 of 20 for \"friends arguing laptop dark room\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-363873/",
+      "visualSource": null
     },
     {
       "id": "anime-20261116-5",
@@ -160,14 +195,21 @@
       "why": "Aunt Linda's drawer of chargers, specific and escalating",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261116-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:53:03.527Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"phone low battery dark bedroom\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/woman-lying-down-on-the-phone-593134/"
     },
     {
       "id": "anime-20261117-1",
@@ -195,14 +237,21 @@
       "why": "Time-travel fix vs sweater return, strong contrast",
       "inspiredBy": "A Returner's Magic Should be Special S2 ep 7",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261117-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:53:04.469Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"hooded man standing rooftop city night\"; photo 1 of 20 for \"long customer line return counter store\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/couple-love-dating-man-woman-7297174/"
     },
     {
       "id": "anime-20261117-2",
@@ -226,14 +275,21 @@
       "why": "Relatable all-nighter, specific details, but common",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261117-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:53:08.960Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"phone glow bedroom window dawn light\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/woman-lying-down-on-the-phone-593134/"
     },
     {
       "id": "anime-20261117-3",
@@ -261,14 +317,21 @@
       "why": "Specific coin-unlock manhwa spending, relatable and sharp",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261117-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:53:09.718Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"crowded store black friday shoppers\"; photo 1 of 20 for \"person reading phone in dark bedroom\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/mall-shop-establishment-mountain-2595002/"
     },
     {
       "id": "anime-20261117-4",
@@ -294,14 +357,22 @@
       "why": "Specific show, decent 'no legs, no rent' punch",
       "inspiredBy": "Reincarnated as a Sword Season 2 episode 8",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261117-4/v1.mp4",
+        "m/anime/anime-20261117-4/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:53:16.017Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb202753 (1 of 20 for \"man walking dark kitchen night\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-202753/",
+      "visualSource": null
     },
     {
       "id": "anime-20261117-5",
@@ -329,14 +400,21 @@
       "why": "Aunt question vs 100 enemies, clean escalation",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261117-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:53:16.939Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man standing rooftop neon city night\"; photo 1 of 20 for \"crowded family dinner table holiday\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/streetphotography-vietnam-hanoi-8068217/"
     },
     {
       "id": "anime-20261118-1",
@@ -360,14 +438,21 @@
       "why": "Returner reset fixing 2017 text, fresh and relatable",
       "inspiredBy": "A Returner's Magic Should be Special Season 2",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261118-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:53:17.355Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man looking at phone embarrassed\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/man-black-portrait-male-black-man-2442565/"
     },
     {
       "id": "anime-20261118-2",
@@ -398,14 +483,27 @@
       "why": "Power-scaling roles are niche and recognizable, rock ending good",
       "inspiredBy": "power-scaling debates",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261118-2/v1-01.jpg",
+        "m/anime/anime-20261118-2/v1-02.jpg",
+        "m/anime/anime-20261118-2/v1-03.jpg",
+        "m/anime/anime-20261118-2/v1-04.jpg",
+        "m/anime/anime-20261118-2/v1-05.jpg",
+        "m/anime/anime-20261118-2/v1-06.jpg",
+        "m/anime/anime-20261118-2/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:53:19.471Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"friends arguing phones table\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/camera-phone-girl-hands-1869430/"
     },
     {
       "id": "anime-20261118-3",
@@ -433,14 +531,21 @@
       "why": "Power-scaling debater can't open jar, specific bite",
       "inspiredBy": "power-scaling",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261118-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:53:20.241Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"explosion dramatic stormy sky lightning\"; photo 1 of 20 for \"man struggling to open pickle jar\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/flash-thunderstorm-ore-mountains-1455285/"
     },
     {
       "id": "anime-20261118-4",
@@ -466,14 +571,22 @@
       "why": "Grocery bag trope parallel is relatable, familiar",
       "inspiredBy": "protagonist logic vs real life",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261118-4/v1.mp4",
+        "m/anime/anime-20261118-4/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:53:28.850Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb3627 (1 of 20 for \"person carrying many grocery bags\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-3627/",
+      "visualSource": null
     },
     {
       "id": "anime-20261118-5",
@@ -497,14 +610,21 @@
       "why": "Thankful table punchline lands, clear instantly",
       "inspiredBy": "Thanksgiving / weekly anime",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261118-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:53:29.357Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"people holding hands thanksgiving dinner table\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/woman-pumpkin-thanksgiving-squash-1838545/"
     },
     {
       "id": "anime-20261119-1",
@@ -532,14 +652,21 @@
       "why": "Isekai welcome party vs laptop lanyard, sharp",
       "inspiredBy": "isekai",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261119-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:53:30.210Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"fantasy castle sunrise dramatic landscape\"; photo 1 of 20 for \"new employee office laptop confused\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/fantasy-castle-cloud-sky-tower-782001/"
     },
     {
       "id": "anime-20261119-2",
@@ -563,14 +690,21 @@
       "why": "Talking sword explanation, specific Thanksgiving pain",
       "inspiredBy": "Thanksgiving + Reincarnated as a Sword Season 2",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261119-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:53:30.456Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"family Thanksgiving dinner table awkward\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/people-joy-smile-holiday-friends-2295052/"
     },
     {
       "id": "anime-20261119-3",
@@ -594,14 +728,21 @@
       "why": "Long-title parody is familiar but still funny",
       "inspiredBy": "seasonal title overload",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261119-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:53:30.890Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"neon Tokyo street night rain signs\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/street-japan-tokyo-night-urban-8331198/"
     },
     {
       "id": "anime-20261119-4",
@@ -627,14 +768,22 @@
       "why": "Heater vs glacier is relatable but mild",
       "inspiredBy": "The Ramparts of Ice Season 2 episode 8",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261119-4/v1.mp4",
+        "m/anime/anime-20261119-4/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:53:39.014Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb336603 (1 of 20 for \"person bundled blanket cold window\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-336603/",
+      "visualSource": null
     },
     {
       "id": "anime-20261119-5",
@@ -658,14 +807,21 @@
       "why": "Nakama in work meeting is specific and funny",
       "inspiredBy": "Trending: ONE PIECE",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261119-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:53:43.693Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man hoodie laptop dark room monitor glow\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/keyboard-computer-technology-light-5017973/"
     },
     {
       "id": "anime-20261120-1",
@@ -689,14 +845,21 @@
       "why": "Relatable but common explain-anime-to-relatives joke",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261120-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:53:43.909Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"family thanksgiving dinner table confused\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/people-joy-smile-holiday-friends-2295052/"
     },
     {
       "id": "anime-20261120-2",
@@ -727,14 +890,27 @@
       "why": "Isekai tropes specific; sword opinions and paragraph title land",
       "inspiredBy": "Reincarnated as a Sword / Laid-Off Mage",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261120-2/v1-01.jpg",
+        "m/anime/anime-20261120-2/v1-02.jpg",
+        "m/anime/anime-20261120-2/v1-03.jpg",
+        "m/anime/anime-20261120-2/v1-04.jpg",
+        "m/anime/anime-20261120-2/v1-05.jpg",
+        "m/anime/anime-20261120-2/v1-06.jpg",
+        "m/anime/anime-20261120-2/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:53:46.097Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"neon tokyo street night\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/street-autumn-japan-city-travel-6884534/"
     },
     {
       "id": "anime-20261120-3",
@@ -758,14 +934,21 @@
       "why": "Bleach cousin judging stuffing, specific Gotei 13 jargon",
       "inspiredBy": "Trending: Bleach + Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261120-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:53:46.303Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man talking passionately dinner table family\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/people-joy-smile-holiday-friends-2295052/"
     },
     {
       "id": "anime-20261120-4",
@@ -791,14 +974,22 @@
       "why": "Systems/level-up parody is niche but familiar",
       "inspiredBy": "video-game system notifications",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261120-4/v1.mp4",
+        "m/anime/anime-20261120-4/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:53:53.233Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb185863 (1 of 20 for \"person walking living room slippers\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-185863/",
+      "visualSource": null
     },
     {
       "id": "anime-20261120-5",
@@ -822,14 +1013,21 @@
       "why": "Truck-kun turkey joke is okay, familiar format",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261120-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:53:53.643Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man lying on couch full after dinner\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/girl-model-portrait-female-model-97433/"
     },
     {
       "id": "anime-20261121-1",
@@ -853,14 +1051,21 @@
       "why": "Wiki-rabbit-hole joke, niche but loose punchline",
       "inspiredBy": "Witch on the Holy Night episode 1",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261121-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:53:54.029Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"gamer room monitor glow 3 AM\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/interior-design-home-office-8922413/"
     },
     {
       "id": "anime-20261121-2",
@@ -884,14 +1089,21 @@
       "why": "Gacha duplicate pain is relatable but familiar",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261121-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:53:54.215Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"gamer face disappointed monitor glow\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/interior-design-home-office-8922413/"
     },
     {
       "id": "anime-20261121-3",
@@ -915,14 +1127,21 @@
       "why": "Cute but generic smiling-at-phone relatable",
       "inspiredBy": "The Cold Sato-san is Only Sweet to Me",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261121-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:53:54.601Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"person smiling at phone in dark room\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/iphone-smartphone-apps-apple-inc-410324/"
     },
     {
       "id": "anime-20261121-4",
@@ -948,14 +1167,22 @@
       "why": "Manhwa-specific but battery joke is common",
       "inspiredBy": "reading manhwa at 3 AM",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261121-4/v1.mp4",
+        "m/anime/anime-20261121-4/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:54:00.709Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb233390 (1 of 20 for \"phone low battery bed dark\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-233390/",
+      "visualSource": null
     },
     {
       "id": "anime-20261121-5",
@@ -979,14 +1206,21 @@
       "why": "Preview-teaser gripe is relatable but generic",
       "inspiredBy": "weekly episodes",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261121-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:54:01.157Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man staring at tv screen night anticipation\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/cats-eyes-cat-black-looking-gaze-2944820/"
     },
     {
       "id": "anime-20261122-1",
@@ -1014,14 +1248,21 @@
       "why": "Bookmark backlog relatable, TV half is filler",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261122-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:54:01.818Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"crowded store Black Friday shoppers TV aisle\"; photo 1 of 20 for \"phone glowing in dark bedroom reading\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/supermarket-stalls-coolers-market-949913/"
     },
     {
       "id": "anime-20261122-2",
@@ -1052,14 +1293,27 @@
       "why": "Fresh setting, vivid specific images, opening theme closer",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261122-2/v1-01.jpg",
+        "m/anime/anime-20261122-2/v1-02.jpg",
+        "m/anime/anime-20261122-2/v1-03.jpg",
+        "m/anime/anime-20261122-2/v1-04.jpg",
+        "m/anime/anime-20261122-2/v1-05.jpg",
+        "m/anime/anime-20261122-2/v1-06.jpg",
+        "m/anime/anime-20261122-2/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:54:03.939Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"convenience store night\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/building-dark-night-convenience-2583628/"
     },
     {
       "id": "anime-20261122-3",
@@ -1083,14 +1337,21 @@
       "why": "Race comparison is clever but stretched",
       "inspiredBy": "STEEL BALL RUN ep 9",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261122-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:54:04.322Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"car dashboard highway road trip holiday traffic\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/driving-car-road-winter-speed-916405/"
     },
     {
       "id": "anime-20261122-4",
@@ -1116,14 +1377,22 @@
       "why": "Work-life balance fantasy is decent but safe",
       "inspiredBy": "The Laid-Off Cheat-Granting Mage episode 7",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261122-4/v1.mp4",
+        "m/anime/anime-20261122-4/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:54:11.559Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb215751 (1 of 20 for \"office worker looking window tired\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-215751/",
+      "visualSource": null
     },
     {
       "id": "anime-20261122-5",
@@ -1147,14 +1416,21 @@
       "why": "Generic blanket-phone joke, any page",
       "inspiredBy": "reading manhwa at 3 AM",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261122-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:54:11.758Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"person under blanket glowing phone\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/iphone-smartphone-apps-apple-inc-410324/"
     }
   ]
 }

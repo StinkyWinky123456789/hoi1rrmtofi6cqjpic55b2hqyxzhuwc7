@@ -27,14 +27,21 @@
       "why": "Canned cranberry ridges reverence is specific and funny",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261116-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:34.178Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"cranberry sauce cylinder on plate\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/spaghetti-pasta-cooking-kitchen-6639970/"
     },
     {
       "id": "shitpost-20261116-2",
@@ -60,14 +67,22 @@
       "why": "Uncle waking up like turkey, specific and absurd",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261116-2/v1.mp4",
+        "m/shitpost/shitpost-20261116-2/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:40.457Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb236256 (1 of 20 for \"carved roast turkey kitchen table\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-236256/",
+      "visualSource": null
     },
     {
       "id": "shitpost-20261116-3",
@@ -91,14 +106,21 @@
       "why": "Inflatable turkey surveillance is absurd and specific",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261116-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:40.860Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"giant inflatable turkey lawn night\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/moon-road-night-sky-space-meadow-7461962/"
     },
     {
       "id": "shitpost-20261116-4",
@@ -129,14 +151,27 @@
       "why": "Pigeon POV is absurd, specific, escalates nicely",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261116-4/v1-01.jpg",
+        "m/shitpost/shitpost-20261116-4/v1-02.jpg",
+        "m/shitpost/shitpost-20261116-4/v1-03.jpg",
+        "m/shitpost/shitpost-20261116-4/v1-04.jpg",
+        "m/shitpost/shitpost-20261116-4/v1-05.jpg",
+        "m/shitpost/shitpost-20261116-4/v1-06.jpg",
+        "m/shitpost/shitpost-20261116-4/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:42.785Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"pigeon city street\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/amsterdam-dam-square-child-pigeons-6823002/"
     },
     {
       "id": "shitpost-20261116-5",
@@ -160,14 +195,21 @@
       "why": "Goat perspective is absurd and fresh",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261116-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:43.188Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"goat staring over fence\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/billy-goat-goat-goatee-animal-459232/"
     },
     {
       "id": "shitpost-20261117-1",
@@ -191,14 +233,21 @@
       "why": "Cat background checks since 2022 is great escalation",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261117-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:43.361Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"cat staring on chair\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/cats-eyes-cat-black-looking-gaze-2944820/"
     },
     {
       "id": "shitpost-20261117-2",
@@ -224,14 +273,22 @@
       "why": "Late cart rolling to family dinner, fresh absurd",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261117-2/v1.mp4",
+        "m/shitpost/shitpost-20261117-2/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:49.430Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb40572 (1 of 20 for \"shopping cart empty parking lot\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-40572/",
+      "visualSource": null
     },
     {
       "id": "shitpost-20261117-3",
@@ -255,14 +312,21 @@
       "why": "Drumstick laser pointer slideshow is specific escalation",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261117-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:49.775Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man pointing with turkey leg at table\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/suit-business-man-banana-business-673697/"
     },
     {
       "id": "shitpost-20261117-4",
@@ -286,14 +350,21 @@
       "why": "Nervous turkey is cute, relatable timing",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261117-4/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:50.124Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"turkey in oven kitchen clock\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/kitchen-home-interior-modern-room-2165756/"
     },
     {
       "id": "shitpost-20261117-5",
@@ -317,14 +388,21 @@
       "why": "Wobbly chair destiny is specific and warm",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261117-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:50.618Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"wobbly wooden chair dining table\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/brick-wall-chairs-furniture-1834784/"
     },
     {
       "id": "shitpost-20261118-1",
@@ -348,14 +426,21 @@
       "why": "Uncle thankful for pie lands, 'Valid' works",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261118-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:50.946Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"awkward family dinner table silence\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/people-joy-smile-holiday-friends-2295052/"
     },
     {
       "id": "shitpost-20261118-2",
@@ -381,14 +466,22 @@
       "why": "Goose-defending-pond eyes is vivid, familiar setup",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261118-2/v1.mp4",
+        "m/shitpost/shitpost-20261118-2/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:58.687Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb1383 (1 of 20 for \"crowd waiting outside store doors\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-1383/",
+      "visualSource": null
     },
     {
       "id": "shitpost-20261118-3",
@@ -412,14 +505,21 @@
       "why": "Knees agreement line is solid",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261118-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:59.080Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"people falling backyard football game\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/football-grass-ball-green-grass-2778583/"
     },
     {
       "id": "shitpost-20261118-4",
@@ -450,14 +550,27 @@
       "why": "House plant POV is fresh, crimson hat lands",
       "inspiredBy": "alabama football schedule",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261118-4/v1-01.jpg",
+        "m/shitpost/shitpost-20261118-4/v1-02.jpg",
+        "m/shitpost/shitpost-20261118-4/v1-03.jpg",
+        "m/shitpost/shitpost-20261118-4/v1-04.jpg",
+        "m/shitpost/shitpost-20261118-4/v1-05.jpg",
+        "m/shitpost/shitpost-20261118-4/v1-06.jpg",
+        "m/shitpost/shitpost-20261118-4/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:57:01.195Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"house plant living room\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/house-home-residence-interior-2608548/"
     },
     {
       "id": "shitpost-20261118-5",
@@ -481,14 +594,21 @@
       "why": "Duck unaware of holiday, bread gag is fun",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261118-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:57:01.578Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"duck on pond staring\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/mandarin-ducks-duck-bird-animal-8525827/"
     },
     {
       "id": "shitpost-20261119-1",
@@ -512,14 +632,21 @@
       "why": "Silent standoff at oven timer is specific",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261119-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:57:01.932Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"oven timer kitchen family waiting\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/indoor-time-waiting-classic-mood-5235953/"
     },
     {
       "id": "shitpost-20261119-2",
@@ -545,14 +672,22 @@
       "why": "System upgrade format fits, structural engineering lands",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261119-2/v1.mp4",
+        "m/shitpost/shitpost-20261119-2/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:57:07.936Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb237504 (1 of 20 for \"overloaded dinner plate thanksgiving food\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-237504/",
+      "visualSource": null
     },
     {
       "id": "shitpost-20261119-3",
@@ -576,14 +711,21 @@
       "why": "Pie on lap speed bumps is vivid",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261119-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:57:08.318Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"person holding pie in car\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/apple-pie-woman-holding-pie-fall-635241/"
     },
     {
       "id": "shitpost-20261119-4",
@@ -607,14 +749,21 @@
       "why": "Dare-issuing collapsing chair has character",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261119-4/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:57:08.736Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"single folding chair empty room\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/chairs-seating-event-stadium-seats-9636132/"
     },
     {
       "id": "shitpost-20261119-5",
@@ -638,14 +787,21 @@
       "why": "Stuffing secret past is clever weirdness",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261119-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:57:09.130Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"stuffing in baking dish\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/pancakes-crepe-pancake-s%C3%BCsspeise-2020863/"
     },
     {
       "id": "shitpost-20261120-1",
@@ -669,14 +825,21 @@
       "why": "Leaving escalation timeline is painfully accurate",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261120-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:57:09.561Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"family hugging at front door evening\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/house-home-door-sidewalk-2606818/"
     },
     {
       "id": "shitpost-20261120-2",
@@ -702,14 +865,22 @@
       "why": "Cat keeping log for court is relatable",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261120-2/v1.mp4",
+        "m/shitpost/shitpost-20261120-2/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:57:17.421Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb10853 (1 of 20 for \"cat staring at kitchen counter night\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-10853/",
+      "visualSource": null
     },
     {
       "id": "shitpost-20261120-3",
@@ -733,14 +904,21 @@
       "why": "Last slice retired boxer is vivid",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261120-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:57:17.786Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"last slice of pie in pan\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/dessert-food-tart-pie-raspberries-5712284/"
     },
     {
       "id": "shitpost-20261120-4",
@@ -771,14 +949,27 @@
       "why": "Relatable roles, dog closer works, familiar though",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261120-4/v1-01.jpg",
+        "m/shitpost/shitpost-20261120-4/v1-02.jpg",
+        "m/shitpost/shitpost-20261120-4/v1-03.jpg",
+        "m/shitpost/shitpost-20261120-4/v1-04.jpg",
+        "m/shitpost/shitpost-20261120-4/v1-05.jpg",
+        "m/shitpost/shitpost-20261120-4/v1-06.jpg",
+        "m/shitpost/shitpost-20261120-4/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:57:18.401Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"thanksgiving dinner table family\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/cranberries-thanksgiving-wine-salad-4658414/"
     },
     {
       "id": "shitpost-20261120-5",
@@ -802,14 +993,21 @@
       "why": "Abandoned cart melancholy has voice",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261120-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:57:18.834Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"abandoned shopping cart empty parking lot\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/shopping-carts-grocery-shopping-1275480/"
     },
     {
       "id": "shitpost-20261121-1",
@@ -837,14 +1035,21 @@
       "why": "Waffle maker tug fine, setup muddled",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261121-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:57:19.541Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"empty store aisle soft light\"; photo 1 of 20 for \"two shoppers tug of war box\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/beverages-bottles-shelf-cans-coke-3105631/"
     },
     {
       "id": "shitpost-20261121-2",
@@ -870,14 +1075,22 @@
       "why": "Dramatic pigeon roll moment, clear and funny",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261121-2/v1.mp4",
+        "m/shitpost/shitpost-20261121-2/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:57:27.416Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb152798 (1 of 20 for \"pigeon walking city street bread\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-152798/",
+      "visualSource": null
     },
     {
       "id": "shitpost-20261121-3",
@@ -901,14 +1114,21 @@
       "why": "Kids' table image decent, 'zero hope' stock",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261121-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:57:27.770Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"crowded folding table cups dinner\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/coffee-cup-cappuccino-latte-2608864/"
     },
     {
       "id": "shitpost-20261121-4",
@@ -932,14 +1152,21 @@
       "why": "Formal complaint nap is familiar",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261121-4/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:57:28.157Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man asleep on couch blanket\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/father-baby-portrait-infant-22194/"
     },
     {
       "id": "shitpost-20261121-5",
@@ -967,14 +1194,21 @@
       "why": "Dessert crater contrast clear but familiar",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261121-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:57:28.958Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"whole lattice pie on table\"; photo 1 of 20 for \"half eaten pie messy forks\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/apple-pie-dough-apple-cake-dessert-5479993/"
     },
     {
       "id": "shitpost-20261122-1",
@@ -998,14 +1232,21 @@
       "why": "Traffic cone angle odd but truncated",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261122-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:57:29.359Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"lone traffic cone empty parking lot night\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/parking-space-man-city-person-1487891/"
     },
     {
       "id": "shitpost-20261122-2",
@@ -1031,14 +1272,22 @@
       "why": "Fridge inspection framing is clear and funny",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261122-2/v1.mp4",
+        "m/shitpost/shitpost-20261122-2/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:57:36.885Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb46637 (1 of 20 for \"person opening fridge at night eating\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-46637/",
+      "visualSource": null
     },
     {
       "id": "shitpost-20261122-3",
@@ -1062,14 +1311,21 @@
       "why": "Boss fight parking is common format",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261122-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:57:37.286Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"packed parking lot cars shoppers\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/car-vehicle-man-7232127/"
     },
     {
       "id": "shitpost-20261122-4",
@@ -1100,14 +1356,27 @@
       "why": "Good escalation, pretzel at peace is great",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261122-4/v1-01.jpg",
+        "m/shitpost/shitpost-20261122-4/v1-02.jpg",
+        "m/shitpost/shitpost-20261122-4/v1-03.jpg",
+        "m/shitpost/shitpost-20261122-4/v1-04.jpg",
+        "m/shitpost/shitpost-20261122-4/v1-05.jpg",
+        "m/shitpost/shitpost-20261122-4/v1-06.jpg",
+        "m/shitpost/shitpost-20261122-4/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:57:39.515Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"crowded shopping mall people\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/architecture-building-white-space-2746846/"
     },
     {
       "id": "shitpost-20261122-5",
@@ -1131,14 +1400,21 @@
       "why": "Pants as rumor is decent, achievement format tired",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261122-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:57:39.712Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man lying on couch holding stomach\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/girl-model-portrait-female-model-97433/"
     }
   ]
 }

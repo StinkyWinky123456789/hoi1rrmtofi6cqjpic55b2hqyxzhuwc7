@@ -27,14 +27,21 @@
       "why": "Garbage-time backdoor pain, 'to hurt you personally' lands",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261116-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:23.907Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man shocked staring at phone sports bar\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/train-track-railroad-smartphone-2507499/"
     },
     {
       "id": "money-20261116-2",
@@ -65,14 +72,27 @@
       "why": "Backdoor cover slang, '$10... Okay it was $35'",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261116-2/v1-01.jpg",
+        "m/money/money-20261116-2/v1-02.jpg",
+        "m/money/money-20261116-2/v1-03.jpg",
+        "m/money/money-20261116-2/v1-04.jpg",
+        "m/money/money-20261116-2/v1-05.jpg",
+        "m/money/money-20261116-2/v1-06.jpg",
+        "m/money/money-20261116-2/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:26.143Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"sports fans losing it bar\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/audience-soccer-stadium-1866738/"
     },
     {
       "id": "money-20261116-3",
@@ -96,14 +116,21 @@
       "why": "Halftime momentum delusion, parenthetical sells it",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261116-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:26.500Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man leaning forward couch watching tv anxious\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/man-sofa-coffee-mug-cup-drink-2178466/"
     },
     {
       "id": "money-20261116-4",
@@ -129,14 +156,22 @@
       "why": "Specific escalation, joke on bettor, relatable",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261116-4/v1.mp4",
+        "m/money/money-20261116-4/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:33.509Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb245932 (1 of 20 for \"man arguing kitchen couple\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-245932/",
+      "visualSource": null
     },
     {
       "id": "money-20261116-5",
@@ -160,14 +195,21 @@
       "why": "'Rebuilding year' leg joke is sharp, specific",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261116-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:33.706Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man stunned looking at phone couch\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/man-black-portrait-male-black-man-2442565/"
     },
     {
       "id": "money-20261117-1",
@@ -191,14 +233,21 @@
       "why": "'Market does not know my name' is great",
       "inspiredBy": "Nasdaq/S&P down",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261117-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:33.896Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man shocked staring at phone\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/train-track-railroad-smartphone-2507499/"
     },
     {
       "id": "money-20261117-2",
@@ -222,14 +271,21 @@
       "why": "Stuffing as best asset, fresh and funny",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261117-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:34.296Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"thanksgiving leftovers in fridge\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/pumpkin-orange-green-variety-10470647/"
     },
     {
       "id": "money-20261117-3",
@@ -253,14 +309,21 @@
       "why": "Rest day news at tip-off, painfully specific",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261117-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:34.673Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"sports fans stunned at bar watching tv\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/streaming-tv-sports-game-watching-9009377/"
     },
     {
       "id": "money-20261117-4",
@@ -286,14 +349,22 @@
       "why": "Painfully specific bettor sweat, strong image",
       "inspiredBy": "trey kaufman renn",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261117-4/v1.mp4",
+        "m/money/money-20261117-4/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:41.219Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb185888 (1 of 20 for \"man yelling at tv sports couch\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-185888/",
+      "visualSource": null
     },
     {
       "id": "money-20261117-5",
@@ -317,14 +388,21 @@
       "why": "Overtime prayer for garbage-time basket, specific",
       "inspiredBy": "NBA night games",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261117-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:41.616Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man hands on head couch watching tv\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/adult-annoyed-blur-burnout-1850268/"
     },
     {
       "id": "money-20261118-1",
@@ -348,14 +426,21 @@
       "why": "Relatable bad-beat, specific backdoor cover; joke on bettor",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261118-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:41.812Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man hands on head watching tv couch\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/adult-annoyed-blur-burnout-1850268/"
     },
     {
       "id": "money-20261118-2",
@@ -386,14 +471,27 @@
       "why": "Specific parlay agony, half-point and fridge light",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261118-2/v1-01.jpg",
+        "m/money/money-20261118-2/v1-02.jpg",
+        "m/money/money-20261118-2/v1-03.jpg",
+        "m/money/money-20261118-2/v1-04.jpg",
+        "m/money/money-20261118-2/v1-05.jpg",
+        "m/money/money-20261118-2/v1-06.jpg",
+        "m/money/money-20261118-2/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:43.277Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man reacting watching sports couch\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/man-sofa-coffee-mug-cup-drink-2178466/"
     },
     {
       "id": "money-20261118-3",
@@ -417,14 +515,21 @@
       "why": "Rent punchline works, 'I need zero TVs' sharp",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261118-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:43.526Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"crowd shoppers rushing store doors\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/mall-shop-establishment-mountain-2595002/"
     },
     {
       "id": "money-20261118-4",
@@ -450,14 +555,22 @@
       "why": "Rabbit-hole escalation, van retirement punchline",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261118-4/v1.mp4",
+        "m/money/money-20261118-4/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:53.563Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb345996 (1 of 20 for \"stressed man laptop night desk\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-345996/",
+      "visualSource": null
     },
     {
       "id": "money-20261118-5",
@@ -481,14 +594,21 @@
       "why": "'Maybe next year, champ' is a good line",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261118-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:53.762Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man shocked looking at phone\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/man-black-portrait-male-black-man-2442565/"
     },
     {
       "id": "money-20261119-1",
@@ -512,14 +632,21 @@
       "why": "Eulogy and playlist escalation is fun",
       "inspiredBy": "S&P 500 down 0.6% over 5 days",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261119-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:54.160Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man sad staring at laptop\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/man-writing-laptop-computer-write-2562325/"
     },
     {
       "id": "money-20261119-2",
@@ -543,14 +670,21 @@
       "why": "Rent opened at 9:01 is punchy",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261119-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:54.376Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man looking at phone bank app surprised\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/iphone-smartphone-apps-apple-inc-410324/"
     },
     {
       "id": "money-20261119-3",
@@ -574,14 +708,21 @@
       "why": "Mouthful of rolls dodge is relatable",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261119-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:54.774Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man eating at crowded thanksgiving table\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/environment-still-life-pumpkins-8802931/"
     },
     {
       "id": "money-20261119-4",
@@ -607,14 +748,22 @@
       "why": "Specific, unreasonable confidence lands, bettor is target",
       "inspiredBy": "alabama football schedule",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261119-4/v1.mp4",
+        "m/money/money-20261119-4/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:04.062Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb1630 (1 of 20 for \"fans cheering football stadium crowd\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-1630/",
+      "visualSource": null
     },
     {
       "id": "money-20261119-5",
@@ -638,14 +787,21 @@
       "why": "Losing $450 efficiently has bite",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261119-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:04.414Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man carrying huge TV box\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/students-boys-rural-walking-teens-5831655/"
     },
     {
       "id": "money-20261120-1",
@@ -669,14 +825,21 @@
       "why": "Checked 14 more times escalates nicely",
       "inspiredBy": "market red day",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261120-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:04.619Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man staring at phone dark room\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/cats-eyes-cat-black-looking-gaze-2944820/"
     },
     {
       "id": "money-20261120-2",
@@ -707,14 +870,27 @@
       "why": "Relatable family archetypes, 'won't show the app' lands",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261120-2/v1-01.jpg",
+        "m/money/money-20261120-2/v1-02.jpg",
+        "m/money/money-20261120-2/v1-03.jpg",
+        "m/money/money-20261120-2/v1-04.jpg",
+        "m/money/money-20261120-2/v1-05.jpg",
+        "m/money/money-20261120-2/v1-06.jpg",
+        "m/money/money-20261120-2/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:06.210Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"family thanksgiving dinner table\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/cranberries-thanksgiving-wine-salad-4658414/"
     },
     {
       "id": "money-20261120-3",
@@ -742,14 +918,21 @@
       "why": "Forgotten cranberry sauce is a relatable detail",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261120-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:06.752Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man calm writing budget notebook\"; photo 1 of 20 for \"shocked man reading long grocery receipt\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/man-writing-laptop-computer-write-2562325/"
     },
     {
       "id": "money-20261120-4",
@@ -775,14 +958,22 @@
       "why": "Relatable, 'earn it back on savings' bites",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261120-4/v1.mp4",
+        "m/money/money-20261120-4/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:12.923Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb40572 (1 of 20 for \"woman laptop night shopping cart\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-40572/",
+      "visualSource": null
     },
     {
       "id": "money-20261120-5",
@@ -806,14 +997,21 @@
       "why": "45 seconds of chewing, good visual",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261120-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:13.096Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"awkward family thanksgiving dinner table\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/people-joy-smile-holiday-friends-2295052/"
     },
     {
       "id": "money-20261121-1",
@@ -837,14 +1035,21 @@
       "why": "Cash: $14 undercuts nicely",
       "inspiredBy": "market dip",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261121-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:13.445Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"empty wallet open\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/wallet-empty-poverty-bankrupt-3548021/"
     },
     {
       "id": "money-20261121-2",
@@ -868,14 +1073,21 @@
       "why": "Relatable but generic; brokerage app borderline",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261121-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:13.814Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"grandmother handing papers to grandson\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/christmas-wallpaper-hands-old-2906458/"
     },
     {
       "id": "money-20261121-3",
@@ -899,14 +1111,21 @@
       "why": "Familiar overreaction format, decent $14 detail",
       "inspiredBy": "S&P 500 down 0.4%",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261121-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:14.187Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man staring at red chart laptop night\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/computer-summary-chart-business-767776/"
     },
     {
       "id": "money-20261121-4",
@@ -932,14 +1151,22 @@
       "why": "Dad getaway-cart coupon detail is charming",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261121-4/v1.mp4",
+        "m/money/money-20261121-4/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:20.642Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb1402 (1 of 20 for \"shoppers rushing store doors black friday\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-1402/",
+      "visualSource": null
     },
     {
       "id": "money-20261121-5",
@@ -963,14 +1190,21 @@
       "why": "'I'll bring ice' is decent but familiar",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261121-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:20.999Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man holding bag of ice kitchen\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/happy-holidays-woman-shopping-3040029/"
     },
     {
       "id": "money-20261122-1",
@@ -994,14 +1228,21 @@
       "why": "Relatable but common portfolio-checking joke",
       "inspiredBy": "Nasdaq down 0.7%",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261122-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:21.207Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"stressed person laptop dark room night\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/adult-annoyed-blur-burnout-1850268/"
     },
     {
       "id": "money-20261122-2",
@@ -1032,14 +1273,27 @@
       "why": "Slot-machine refresh is good; format is common",
       "inspiredBy": "S&P and Nasdaq down this week",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261122-2/v1-01.jpg",
+        "m/money/money-20261122-2/v1-02.jpg",
+        "m/money/money-20261122-2/v1-03.jpg",
+        "m/money/money-20261122-2/v1-04.jpg",
+        "m/money/money-20261122-2/v1-05.jpg",
+        "m/money/money-20261122-2/v1-06.jpg",
+        "m/money/money-20261122-2/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:22.924Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man stressed looking at phone\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/desperate-think-stressed-out-5011953/"
     },
     {
       "id": "money-20261122-3",
@@ -1063,14 +1317,21 @@
       "why": "Standard system format, portfolio-before-bed trope",
       "inspiredBy": "market dip",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261122-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:23.111Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man awake in bed staring at phone\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/happy-valentines-day-couple-lying-1822497/"
     },
     {
       "id": "money-20261122-4",
@@ -1096,14 +1357,22 @@
       "why": "Relatable but could fit any page",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261122-4/v1.mp4",
+        "m/money/money-20261122-4/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:33.401Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb159049 (1 of 20 for \"sports fans nervous watching bar\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-159049/",
+      "visualSource": null
     },
     {
       "id": "money-20261122-5",
@@ -1127,14 +1396,21 @@
       "why": "'Just one tiny parlay' fine but common",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261122-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:56:33.804Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man head in hands bar tv sports\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/valentines-day-background-people-2561053/"
     }
   ]
 }

@@ -29,14 +29,22 @@
       "why": "Pre-workout procrastination, 'business days' lands well",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261116-1/v1.mp4",
+        "m/gym/gym-20261116-1/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:54:18.388Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb138891 (1 of 20 for \"man arm circles warming up gym\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-138891/",
+      "visualSource": null
     },
     {
       "id": "gym-20261116-2",
@@ -60,14 +68,21 @@
       "why": "Clapping spotter with bar on sternum escalates well",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261116-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:54:18.788Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man bench press spotter gym\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/fitness-exercise-men-work-out-gym-9180669/"
     },
     {
       "id": "gym-20261116-3",
@@ -91,14 +106,21 @@
       "why": "Rolling subscription with no cancel is fresh",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261116-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:54:19.180Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man drinking iced coffee gym\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/coffee-hands-preparation-pouring-6600644/"
     },
     {
       "id": "gym-20261116-4",
@@ -129,14 +151,27 @@
       "why": "Specific timeline, 'named the bar Gary' lands",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261116-4/v1-01.jpg",
+        "m/gym/gym-20261116-4/v1-02.jpg",
+        "m/gym/gym-20261116-4/v1-03.jpg",
+        "m/gym/gym-20261116-4/v1-04.jpg",
+        "m/gym/gym-20261116-4/v1-05.jpg",
+        "m/gym/gym-20261116-4/v1-06.jpg",
+        "m/gym/gym-20261116-4/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:54:20.843Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"gym early morning lifting\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/tree-dawn-morning-sun-sunrise-3189339/"
     },
     {
       "id": "gym-20261116-5",
@@ -160,14 +195,21 @@
       "why": "Vent line is sharp, specific 5:59 AM",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261116-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:54:21.021Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"empty gym early morning lifters\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/tree-dawn-morning-sun-sunrise-3189339/"
     },
     {
       "id": "gym-20261117-1",
@@ -193,14 +235,22 @@
       "why": "Specific, niche, on-brand, funny water-in-trunk escalation",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261117-1/v1.mp4",
+        "m/gym/gym-20261117-1/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:54:27.456Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb236256 (1 of 20 for \"hand holding coffee cup driving car\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-236256/",
+      "visualSource": null
     },
     {
       "id": "gym-20261117-2",
@@ -224,14 +274,21 @@
       "why": "Shaker with personality, vivid and relatable",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261117-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:54:27.808Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man disgusted smelling shaker bottle\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/woman-flowers-portrait-girl-female-5582962/"
     },
     {
       "id": "gym-20261117-3",
@@ -255,14 +312,21 @@
       "why": "Loan against 2 AM self is sharp",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261117-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:54:28.261Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man awake night staring ceiling coffee\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/happy-valentines-day-couple-lying-1822497/"
     },
     {
       "id": "gym-20261117-4",
@@ -286,14 +350,21 @@
       "why": "Pin on bottom plate, 9 minutes, very specific",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261117-4/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:54:28.472Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man gym cable machine looking at phone\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/man-black-portrait-male-black-man-2442565/"
     },
     {
       "id": "gym-20261117-5",
@@ -317,14 +388,21 @@
       "why": "Sleep scheduled for Thursday has edge, stays light",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261117-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:54:28.703Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man holding iced coffee car night\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/coffee-hands-preparation-pouring-6600644/"
     },
     {
       "id": "gym-20261118-1",
@@ -350,14 +428,22 @@
       "why": "Escalating 'vibes' ending, relatable pre-workout energy",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261118-1/v1.mp4",
+        "m/gym/gym-20261118-1/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:54:40.183Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb14900 (1 of 20 for \"man arranging dumbbells gym rack\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-14900/",
+      "visualSource": null
     },
     {
       "id": "gym-20261118-2",
@@ -381,14 +467,21 @@
       "why": "Dumbbell kick-up noise is specific and visual",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261118-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:54:40.592Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man dumbbell bench press sitting up\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/woman-personal-trainer-fitness-2260736/"
     },
     {
       "id": "gym-20261118-3",
@@ -412,14 +505,21 @@
       "why": "International Chest Day is relatable, familiar bit",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261118-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:54:40.880Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man bench press gym heavy\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/woman-personal-trainer-fitness-2260736/"
     },
     {
       "id": "gym-20261118-4",
@@ -450,14 +550,27 @@
       "why": "Relatable spending, Blue Razz Apocalypse is fun",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261118-4/v1-01.jpg",
+        "m/gym/gym-20261118-4/v1-02.jpg",
+        "m/gym/gym-20261118-4/v1-03.jpg",
+        "m/gym/gym-20261118-4/v1-04.jpg",
+        "m/gym/gym-20261118-4/v1-05.jpg",
+        "m/gym/gym-20261118-4/v1-06.jpg",
+        "m/gym/gym-20261118-4/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:54:42.542Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"gym supplements shaker bottles\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/whey-supplement-vitamins-dumbbell-6759621/"
     },
     {
       "id": "gym-20261118-5",
@@ -481,14 +594,21 @@
       "why": "Cable hog scenario is specific, well-worn",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261118-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:54:42.951Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man cable machine gym workout\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/man-training-gym-strengthening-3545063/"
     },
     {
       "id": "gym-20261119-1",
@@ -514,14 +634,22 @@
       "why": "Relatable spotter lie, sharp punchline",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261119-1/v1.mp4",
+        "m/gym/gym-20261119-1/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:54:50.678Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb231259 (1 of 20 for \"spotter helping man bench press\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-231259/",
+      "visualSource": null
     },
     {
       "id": "gym-20261119-2",
@@ -545,14 +673,21 @@
       "why": "Gallon jug irrigation image is vivid",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261119-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:54:51.055Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man filling large water jug gym\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/man-woman-push-ups-wellness-2264825/"
     },
     {
       "id": "gym-20261119-3",
@@ -576,14 +711,21 @@
       "why": "Talking to lats is fun, specific",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261119-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:54:51.529Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"muscular man flexing back mirror\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/man-muscular-back-male-guy-fit-461195/"
     },
     {
       "id": "gym-20261119-4",
@@ -607,14 +749,21 @@
       "why": "Caffeine overconfidence works, slightly familiar",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261119-4/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:54:51.937Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man espresso coffee gym bag morning\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/coffee-coffee-cup-cup-drink-beans-2714970/"
     },
     {
       "id": "gym-20261119-5",
@@ -638,14 +787,21 @@
       "why": "Plate re-racking love language is relatable",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261119-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:54:52.315Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man racking weight plates gym\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/exercise-gym-weights-training-3899877/"
     },
     {
       "id": "gym-20261120-1",
@@ -671,14 +827,22 @@
       "why": "Grindset contrast, 'recovery protocol' is sharp",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261120-1/v1.mp4",
+        "m/gym/gym-20261120-1/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:01.221Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb203660 (1 of 20 for \"man ice bath cold plunge\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-203660/",
+      "visualSource": null
     },
     {
       "id": "gym-20261120-2",
@@ -702,14 +866,21 @@
       "why": "Since-2019 punchline lands, leg day is overdone",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261120-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:01.436Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man gym mirror flexing arms\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/man-muscular-back-male-guy-fit-461195/"
     },
     {
       "id": "gym-20261120-3",
@@ -733,14 +904,21 @@
       "why": "Negotiating with the bar is clever but mild",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261120-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:01.861Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"woman warming up barbell gym\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/crossfit-sports-fitness-training-534615/"
     },
     {
       "id": "gym-20261120-4",
@@ -771,14 +949,27 @@
       "why": "Good escalation, 'Who hurt you?' is strong",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261120-4/v1-01.jpg",
+        "m/gym/gym-20261120-4/v1-02.jpg",
+        "m/gym/gym-20261120-4/v1-03.jpg",
+        "m/gym/gym-20261120-4/v1-04.jpg",
+        "m/gym/gym-20261120-4/v1-05.jpg",
+        "m/gym/gym-20261120-4/v1-06.jpg",
+        "m/gym/gym-20261120-4/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:03.927Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"squat barbell heavy lifting\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/man-person-power-strength-strong-1282232/"
     },
     {
       "id": "gym-20261120-5",
@@ -802,14 +993,21 @@
       "why": "Stare in silence option is a nice beat",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261120-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:04.475Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man sitting bench gym looking at camera\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/woman-fashion-beauty-glamour-1274056/"
     },
     {
       "id": "gym-20261121-1",
@@ -835,14 +1033,22 @@
       "why": "Gym ego flex joke is specific and relatable",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261121-1/v1.mp4",
+        "m/gym/gym-20261121-1/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:11.420Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb131945 (1 of 20 for \"man loading weight plates barbell\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-131945/",
+      "visualSource": null
     },
     {
       "id": "gym-20261121-2",
@@ -870,14 +1076,21 @@
       "why": "Reps: 'ish' is a good flourish",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261121-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:11.845Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man flexing mirror gym selfie\"; photo 1 of 20 for \"man barbell bench press light weight\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/man-muscular-back-male-guy-fit-461195/"
     },
     {
       "id": "gym-20261121-3",
@@ -901,14 +1114,21 @@
       "why": "135 bench form opinions is specific and true",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261121-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:12.049Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man bench press gym celebrating\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/woman-personal-trainer-fitness-2260736/"
     },
     {
       "id": "gym-20261121-4",
@@ -936,14 +1156,21 @@
       "why": "Podcast about birds is a fresh turn",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261121-4/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:12.782Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man headphones gym playlist phone\"; photo 1 of 20 for \"man lifting weights wearing earbuds\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/boy-young-phone-relaxation-spring-5207984/"
     },
     {
       "id": "gym-20261121-5",
@@ -967,14 +1194,21 @@
       "why": "Tingles count as cardio is pre-workout niche",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261121-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:13.186Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man shaker bottle gym ready\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/training-gym-exercise-set-built-5028879/"
     },
     {
       "id": "gym-20261122-1",
@@ -1000,14 +1234,22 @@
       "why": "Familiar Black Friday comparison, adjustable bench is specific",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261122-1/v1.mp4",
+        "m/gym/gym-20261122-1/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:20.965Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb1006 (1 of 20 for \"crowd rushing store doors sale\"); audio: silent (add tracks to assets/audio)",
+      "footageSource": "https://pixabay.com/videos/id-1006/",
+      "visualSource": null
     },
     {
       "id": "gym-20261122-2",
@@ -1031,14 +1273,21 @@
       "why": "Belt for curls, short and punchy",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261122-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:21.400Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man lifting belt dumbbell curl gym\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/weight-dumbbell-strength-arm-force-8246973/"
     },
     {
       "id": "gym-20261122-3",
@@ -1062,14 +1311,21 @@
       "why": "Empty rack hallucination is relatable but familiar",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261122-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:21.742Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"empty squat rack gym\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/gym-fit-exercise-sports-workout-6888637/"
     },
     {
       "id": "gym-20261122-4",
@@ -1100,14 +1356,27 @@
       "why": "Relatable escalation, drumroll eye stays light",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261122-4/v1-01.jpg",
+        "m/gym/gym-20261122-4/v1-02.jpg",
+        "m/gym/gym-20261122-4/v1-03.jpg",
+        "m/gym/gym-20261122-4/v1-04.jpg",
+        "m/gym/gym-20261122-4/v1-05.jpg",
+        "m/gym/gym-20261122-4/v1-06.jpg",
+        "m/gym/gym-20261122-4/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:23.324Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"iced coffee gym\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/coffee-hands-preparation-pouring-6600644/"
     },
     {
       "id": "gym-20261122-5",
@@ -1131,14 +1400,21 @@
       "why": "Cargo shorts senior lifter is specific and relatable",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261122-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-11T03:55:23.527Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"older man bench press gym\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/woman-personal-trainer-fitness-2260736/"
     }
   ]
 }
