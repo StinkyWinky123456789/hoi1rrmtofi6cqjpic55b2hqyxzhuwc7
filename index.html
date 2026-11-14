@@ -41,6 +41,12 @@
   .media{position:relative;background:#000;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;min-height:200px}
   .media img,.media video,.media canvas{width:100%;height:auto;display:block}
   .media video{max-height:620px;background:#000}
+  .libgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin-top:10px}
+  .clip{background:var(--card,#1b1b1b);border:1px solid #333;border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+  .clip video{width:100%;aspect-ratio:4/3;object-fit:contain;background:#000;display:block}
+  .clip .body{padding:8px 10px;display:flex;flex-direction:column;gap:6px;font-size:13px}
+  .clip.starred{border-color:#e7c14a}.clip.banned{opacity:.45}
+  .clip .src{color:var(--muted);font-size:12px}.clip .src a{color:var(--muted)}
   .strip{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x mandatory;width:100%}
   .strip img,.strip canvas{flex:0 0 100%;scroll-snap-align:start}
   .badge{position:absolute;top:8px;left:8px;background:rgba(0,0,0,.72);border-radius:999px;padding:4px 10px;font-size:11.5px;font-weight:700}
@@ -85,6 +91,12 @@
     <input type="text" id="minScore" value="8" style="width:52px">
     <button class="btn sm" id="bulk">Approve</button>
   </div>
+  <div class="toolbar">
+    <span class="help">Bulk actions on everything shown below (posted posts are never touched):</span>
+    <button class="btn sm no" id="bulkReject">Reject all shown</button>
+    <button class="btn sm no" id="bulkDelete">Delete all shown</button>
+    <button class="btn sm no" id="clearAll">Clear queue (this page tab)</button>
+  </div>
   <div class="help">Keys: <kbd>J</kbd>/<kbd>K</kbd> next/previous · <kbd>A</kbd> approve · <kbd>R</kbd> reject · <kbd>E</kbd> edit · <kbd>Space</kbd> play/pause video. Changes save automatically.</div>
   <div id="list"></div>
   <div id="empty" class="hide"></div>
@@ -105,7 +117,8 @@ const $ = (id) => document.getElementById(id);
 const store = { get(k, d) { try { return localStorage.getItem(k) ?? d; } catch { return d; } }, set(k, v) { try { localStorage.setItem(k, v); } catch {} } };
 let CFG = null;
 const API = store.get("mq-api", "https://api.github.com"); // overridable for testing
-const S = { repo: store.get("mq-repo", ""), token: store.get("mq-token", ""), page: store.get("mq-page", "all"), filter: "review", files: {}, posts: [], pending: [], focus: 0, saving: false };
+const LIB = "library/clips.json";
+const S = { lib: { sha: null, doc: { clips: [] } }, repo: store.get("mq-repo", ""), token: store.get("mq-token", ""), page: store.get("mq-page", "all"), filter: "review", files: {}, posts: [], pending: [], focus: 0, saving: false };
 
 // Guess owner/repo from a GitHub Pages URL: https://owner.github.io/repo/
 if (!S.repo && /\.github\.io$/.test(location.hostname)) S.repo = location.hostname.split(".")[0] + "/" + location.pathname.split("/")[1];
@@ -138,6 +151,7 @@ async function load() {
       const files = await gh("GET", `contents/queue/${w}?ref=main`);
       await Promise.all(files.filter((f) => f.name.endsWith(".json")).map(async (f) => { S.files[`queue/${w}/${f.name}`] = await getFile(`queue/${w}/${f.name}`); }));
     }
+    try { S.lib = await getFile(LIB); } catch (e) { if (e.status !== 404) throw e; S.lib = { sha: null, doc: { clips: [] } }; }
     rebuild(); status(S.pending.length ? `${S.pending.length} unsaved` : "Up to date");
   } catch (e) { status("Couldn't load: " + e.message, true); if (e.status === 401 || e.status === 404) $("settings").classList.add("show"); }
 }
@@ -164,7 +178,16 @@ async function save() {
     for (const [path, list] of Object.entries(byPath)) {
       for (let attempt = 1; ; attempt++) {
         const latest = await getFile(path);
-        for (const c of list) { const p = latest.doc.posts.find((x) => x.id === c.id); if (p) Object.assign(p, c.patch); }
+        if (path === LIB) {
+          for (const c of list) { const x = latest.doc.clips.find((y) => y.id === c.id); if (x) Object.assign(x, c.patch); }
+          const bytes = new TextEncoder().encode(JSON.stringify(latest.doc, null, 2) + "\n");
+          try { const r = await gh("PUT", `contents/${path}`, { message: `Library: ${list.length} change(s)`, content: b64enc(bytes), sha: latest.sha, branch: "main" }); S.lib = { sha: r.content.sha, doc: latest.doc }; break; }
+          catch (e) { if (e.status !== 409 && e.status !== 422 || attempt >= 5) throw e; continue; }
+        }
+        for (const c of list) {
+          if (c.patch.__delete) { latest.doc.posts = latest.doc.posts.filter((x) => x.id !== c.id || x.status === "posted"); continue; }
+          const p = latest.doc.posts.find((x) => x.id === c.id); if (p) Object.assign(p, c.patch);
+        }
         const bytes = new TextEncoder().encode(JSON.stringify(latest.doc, null, 2) + "\n");
         try {
           const r = await gh("PUT", `contents/${path}`, { message: `Review: ${list.length} change(s)`, content: b64enc(bytes), sha: latest.sha, branch: "main" });
@@ -173,7 +196,7 @@ async function save() {
       }
     }
     // Re-apply anything changed locally while we were saving
-    rebuild(); S.pending.forEach((c) => { const it = S.posts.find((x) => x.p.id === c.id); if (it) Object.assign(it.p, c.patch); });
+    rebuild(); S.pending.forEach((c) => applyLocal(c));
     status(S.pending.length ? `${S.pending.length} unsaved…` : "Saved ✓");
   } catch (e) { S.pending.unshift(...batch); status("Save failed: " + e.message + " (will retry)", true); setTimeout(save, 10000); }
   finally { S.saving = false; if (S.pending.length) setTimeout(save, 1500); }
@@ -192,6 +215,7 @@ const FILTERS = [
   ["all", "All", () => true],
 ];
 function visible() {
+  if (S.filter === "library") return [];
   const f = FILTERS.find((x) => x[0] === S.filter)[2];
   return S.posts.filter((x) => (S.page === "all" || x.p.page === S.page) && f(x.p));
 }
@@ -213,6 +237,45 @@ function renderTabs() {
     b.onclick = () => { S.filter = k; S.focus = 0; render(); };
     $("filters").appendChild(b);
   });
+  const lb = document.createElement("button"); lb.className = "chip" + (S.filter === "library" ? " on" : ""); lb.id = "libChip";
+  lb.innerHTML = `<span>Clip library</span><span class="n">${libClips().length}</span>`;
+  lb.onclick = () => { S.filter = "library"; render(); };
+  $("filters").appendChild(lb);
+}
+/* ---------- Clip library (vintage public-domain clips from the Internet Archive) ---------- */
+function libClips(page) { const pg = page || S.page; return (S.lib.doc.clips || []).filter((c) => pg === "all" || (c.pages || []).includes(pg)); }
+function usableClips(page) { return libClips(page).filter((c) => c.status !== "banned").sort((a, b) => (b.status === "starred") - (a.status === "starred") || (a.uses || 0) - (b.uses || 0) || (b.fit || 0) - (a.fit || 0)); }
+function libChange(clip, patch) {
+  Object.assign(clip, patch);
+  S.pending.push({ path: LIB, id: clip.id, patch });
+  status(`${S.pending.length} unsaved…`); clearTimeout(change.t); change.t = setTimeout(save, 1500);
+  render();
+}
+function renderLibrary() {
+  const list = $("list"); list.innerHTML = "";
+  const clips = libClips().slice().sort((a, b) => (b.status === "starred") - (a.status === "starred") || (a.status === "banned") - (b.status === "banned") || Date.parse(b.addedAt) - Date.parse(a.addedAt));
+  $("empty").classList.toggle("hide", clips.length > 0);
+  $("empty").textContent = "No clips yet. They're harvested from the Internet Archive when Generate runs (or run Actions → Harvest archive clips).";
+  const intro = document.createElement("div"); intro.className = "help";
+  intro.textContent = "Vintage public-domain clips Claude picked from Internet Archive films. Star the funniest so they're used first; ban duds so they're never used (banned clips are deleted at the next harvest). Hover or tap to play.";
+  const grid = document.createElement("div"); grid.className = "libgrid";
+  for (const c of clips) {
+    const el = document.createElement("div"); el.className = `clip ${c.status}`;
+    const v = document.createElement("video"); v.src = c.file; v.poster = c.poster; v.muted = true; v.loop = true; v.playsInline = true; v.preload = "none";
+    v.onmouseenter = () => v.play().catch(() => {}); v.onmouseleave = () => v.pause(); v.onclick = () => (v.paused ? v.play() : v.pause());
+    const body = document.createElement("div"); body.className = "body";
+    const d = document.createElement("div"); d.textContent = c.desc;
+    const idea = document.createElement("div"); idea.className = "help"; idea.textContent = c.idea ? `Idea: ${c.idea}` : "";
+    const meta = document.createElement("div"); meta.className = "src";
+    meta.innerHTML = `fit ${Number(c.fit || 0).toFixed(0)}/10 · used ${c.uses || 0}× · ${(c.pages || []).map((k) => CFG.pages[k] ? CFG.pages[k].name.split(" ")[0] : k).join(", ")}<br><a target="_blank" rel="noopener"></a>`;
+    const a = meta.querySelector("a"); a.href = c.sourceUrl; a.textContent = `${c.title}${c.year ? ` (${c.year})` : ""}`;
+    const acts = document.createElement("div"); acts.className = "actions";
+    const b = (txt, cls, fn) => { const x = document.createElement("button"); x.className = "btn sm " + cls; x.textContent = txt; x.onclick = fn; acts.appendChild(x); };
+    if (c.status === "starred") b("Unstar", "", () => libChange(c, { status: "new" })); else if (c.status !== "banned") b("★ Star", "ok", () => libChange(c, { status: "starred" }));
+    if (c.status === "banned") b("Unban", "", () => libChange(c, { status: "new" })); else b("Ban", "no", () => libChange(c, { status: "banned" }));
+    body.append(d, idea, meta, acts); el.append(v, body); grid.appendChild(el);
+  }
+  list.append(intro, grid);
 }
 function when(p) { return new Date(p.scheduledAt).toLocaleString(undefined, { weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }); }
 function previewCanvas(page, p, kind, slide) {
@@ -251,6 +314,7 @@ function mediaEl(item) {
 function render() {
   if (!CFG) return;
   renderTabs();
+  if (S.filter === "library") return renderLibrary();
   const list = $("list"), items = visible(); list.innerHTML = "";
   $("empty").classList.toggle("hide", items.length > 0);
   $("empty").textContent = S.filter === "review" ? "Nothing waiting for review. New posts are generated every Saturday." : "Nothing here.";
@@ -268,12 +332,12 @@ function cardEl(item, idx) {
   card.onclick = () => { if (S.focus !== idx) { S.focus = idx; document.querySelectorAll(".card.focus").forEach((c) => c.classList.remove("focus")); card.classList.add("focus"); } };
   card.appendChild(mediaEl(item));
   const right = document.createElement("div");
-  const fmt = p.format === "reel" ? "Video · Reel" : p.format === "carousel" ? "Carousel" : `Image · ${p.template}`;
+  const fmt = p.format === "reel" ? "Video · Reel" : p.format === "carousel" ? "Carousel" : p.template === "meme" ? `Meme · ${p.mtName || p.mt}` : `Image · ${p.template}`;
   right.innerHTML = `<div class="meta"><span class="dot" style="background:${page.accent}"></span><b style="color:var(--ink)"></b><span></span>
     <span class="pill st-${p.status}">${p.status}</span><span class="pill">${fmt}</span><span>score <span class="score">${Number(p.score || 0).toFixed(1)}</span></span></div>
     <div class="text"></div><div class="sub why"></div><div class="sub note"></div>`;
   right.querySelector("b").textContent = page.name; right.querySelectorAll(".meta span")[1].textContent = when(p);
-  right.querySelector(".text").textContent = [p.a, p.b, ...(p.s || [])].filter(Boolean).join(" / ");
+  right.querySelector(".text").textContent = [p.a, ...(p.ml || []), p.b, ...(p.s || [])].filter(Boolean).join(" / ");
   right.querySelector(".why").textContent = [p.why && `Editor: ${p.why}`, p.inspiredBy && p.inspiredBy !== "evergreen" && `Inspired by: ${p.inspiredBy}`].filter(Boolean).join(" · ");
   right.querySelector(".note").textContent = p.format === "reel" ? [p.renderNote, p.footageSource && `source ${p.footageSource}`].filter(Boolean).join(" · ")
     : p.visual ? [p.renderNote, p.visualSource && `source ${p.visualSource}`].filter(Boolean).join(" · ") : "";
@@ -293,10 +357,26 @@ function cardEl(item, idx) {
     else btn("Undo approval", "", () => change(item, { status: "pending", approvedVersion: null }));
     if (p.status !== "rejected") btn("Reject", "no", () => change(item, { status: "rejected" })); else btn("Restore", "", () => change(item, { status: "pending" }));
     btn("Edit text", "", () => card.classList.toggle("editing"));
-    if (["image", "carousel"].includes(p.format)) btn(p.format === "carousel" ? "Swap photos" : "Swap image", "", () => rerender(item, { imageIndex: (p.imageIndex || 0) + 1 }));
+    if (p.still) btn("Stock photo instead", "", () => rerender(item, { still: null }));
+    if (["image", "carousel"].includes(p.format) && p.template !== "meme") btn(p.format === "carousel" ? "Swap photos" : "Swap image", "", () => rerender(item, { imageIndex: (p.imageIndex || 0) + 1, still: null }));
     if (p.format === "reel") {
-      btn("Swap footage", "", () => rerender(item, { footageIndex: (p.footageIndex || 0) + 1, customClip: null }));
-      btn("Swap audio", "", () => rerender(item, { audioIndex: (p.audioIndex || 0) + 1 }));
+      const pool = usableClips(p.page);
+      if (p.clip) {
+        btn("Another archive clip", "", () => { const others = pool.filter((c) => c.id !== p.clip); if (others.length) rerender(item, { clip: others[0].id, clipDesc: others[0].desc, customClip: null }); });
+        const cl = (S.lib.doc.clips || []).find((c) => c.id === p.clip);
+        if (cl && cl.hasAudio) btn(p.clipAudio === false ? "Film sound: off" : "Film sound: on", "", () => rerender(item, { clipAudio: p.clipAudio === false }));
+        btn("Stock footage instead", "", () => rerender(item, { clip: null, clipDesc: "" }));
+      } else if (pool.length) btn("Use an archive clip", "", () => rerender(item, { clip: pool[0].id, clipDesc: pool[0].desc, customClip: null }));
+      btn("Swap footage", "", () => rerender(item, { footageIndex: (p.footageIndex || 0) + 1, customClip: null, clip: null }));
+      btn("Swap music", "", () => rerender(item, { audioIndex: (p.audioIndex || 0) + 1 }));
+      if (p.sfx) btn("Swap sound effect", "", () => rerender(item, { sfxIndex: (p.sfxIndex || 0) + 1 }));
+      const mp4 = (p.media || []).find((m) => m.endsWith(".mp4"));
+      if (mp4 && !p.needsRender) {
+        const a = document.createElement("a"); a.href = mp4; a.download = `${p.id}.mp4`; a.className = "btn sm"; a.textContent = "Download video";
+        a.onclick = (e) => e.stopPropagation(); actions.appendChild(a);
+      }
+      if (CFG.pages[p.page] && CFG.pages[p.page].manualReels)
+        btn("Mark as posted", "", () => { if (confirm("Mark this Reel as posted? (Do this after you've posted it yourself in the Instagram app.)")) change(item, { status: "posted", postedAt: new Date().toISOString(), manual: true }); });
       const up = document.createElement("input"); up.type = "file"; up.accept = "video/mp4,video/quicktime"; up.style.display = "none";
       up.onchange = () => uploadClip(item, up.files[0]); actions.appendChild(up);
       btn(p.customClip ? "Replace my clip" : "Use my own clip", "", () => up.click());
@@ -308,22 +388,27 @@ function cardEl(item, idx) {
   // Text editor
   const ed = document.createElement("div"); ed.className = "edit";
   const fA = field(p.format === "carousel" ? "Title slide" : p.format === "reel" ? "On-screen hook" : "Text 1", p.a), fB = field(p.format === "reel" ? "Payoff line" : "Text 2", p.b);
-  ed.append(fA); if (p.format !== "carousel" && p.template !== "tweet") ed.append(fB);
+  ed.append(fA); if (p.format !== "carousel" && !["tweet", "meme"].includes(p.template)) ed.append(fB);
+  let fSfx = null; if (p.format === "reel") { fSfx = field("Sound effect on the punchline (e.g. vine boom, record scratch; blank = none)", p.sfx || ""); ed.append(fSfx); }
   let fL1, fL2, fS, fF;
   if (p.template === "versus") { fL1 = field("Top label", p.l?.[0]); fL2 = field("Bottom label", p.l?.[1]); ed.append(fL1, fL2); }
+  let fML;
+  if (p.template === "meme") { fML = field(`Meme lines for "${p.mtName || p.mt}" (one per line, one per box)`, (p.ml || []).join("\n"), true); ed.append(fML); }
   if (p.format === "carousel") { fS = field("Slides (one per line)", (p.s || []).join("\n"), true); ed.append(fS); }
   if (p.format === "reel") { fF = field("Footage search words", p.footage); ed.append(fF); }
   let fV, fV2;
-  if (["image", "carousel"].includes(p.format)) { fV = field(p.template === "versus" ? "Top photo search words" : "Photo search words", p.visual); ed.append(fV); }
+  if (["image", "carousel"].includes(p.format) && p.template !== "meme") { fV = field(p.template === "versus" ? "Top photo search words" : "Photo search words", p.visual); ed.append(fV); }
   if (p.template === "versus") { fV2 = field("Bottom photo search words", p.visual2); ed.append(fV2); }
   const eAct = document.createElement("div"); eAct.className = "actions";
   const saveB = document.createElement("button"); saveB.className = "btn sm ok"; saveB.textContent = p.format === "reel" ? "Save and re-render video" : "Save and re-render";
   saveB.onclick = (e) => {
     e.stopPropagation();
     const patch = { a: fA.get().trim() };
-    if (p.format !== "carousel" && p.template !== "tweet") patch.b = fB.get().trim();
+    if (p.format !== "carousel" && !["tweet", "meme"].includes(p.template)) patch.b = fB.get().trim();
+    if (fML) { const n = (p.ml || []).length || 2; const lines = fML.get().split("\n"); patch.ml = Array.from({ length: n }, (_, i) => (lines[i] || "").trim()); }
     if (fL1) patch.l = [fL1.get().trim(), fL2.get().trim()];
     if (fS) patch.s = fS.get().split("\n").map((x) => x.trim()).filter(Boolean);
+    if (fSfx && fSfx.get().trim() !== (p.sfx || "")) { patch.sfx = fSfx.get().trim(); patch.sfxIndex = 0; }
     if (fF && fF.get().trim() !== p.footage) { patch.footage = fF.get().trim(); patch.footageIndex = 0; }
     if (fV && fV.get().trim() !== (p.visual || "")) { patch.visual = fV.get().trim(); patch.imageIndex = 0; }
     if (fV2 && fV2.get().trim() !== (p.visual2 || "")) { patch.visual2 = fV2.get().trim(); patch.imageIndex = 0; }
@@ -369,6 +454,22 @@ $("bulk").onclick = () => {
   list.forEach((x) => { Object.assign(x.p, { status: "approved", approvedVersion: x.p.renderVersion }); S.pending.push({ path: x.path, id: x.p.id, patch: { status: "approved", approvedVersion: x.p.renderVersion } }); });
   status(`Approved ${list.length}; saving…`); render(); save();
 };
+function applyLocal(c) {
+  if (c.path === LIB) { const x = S.lib.doc.clips.find((y) => y.id === c.id); if (x) Object.assign(x, c.patch); return; }
+  const f = S.files[c.path]; if (!f) return;
+  if (c.patch.__delete) { f.doc.posts = f.doc.posts.filter((x) => x.id !== c.id || x.status === "posted"); S.posts = S.posts.filter((x) => !(x.p.id === c.id && x.p.status !== "posted")); return; }
+  const it = S.posts.find((x) => x.p.id === c.id); if (it) Object.assign(it.p, c.patch);
+}
+function bulk(items, patch, label) {
+  const list = items.filter((x) => x.p.status !== "posted");
+  if (!list.length) { status("Nothing to " + label); return; }
+  if (!confirm(`${label[0].toUpperCase() + label.slice(1)} ${list.length} post(s)? ${patch.__delete ? "Deleted posts are removed from the queue for good." : ""}`)) return;
+  list.forEach((x) => { const c = { path: x.path, id: x.p.id, patch }; S.pending.push(c); applyLocal(c); });
+  status(`${list.length} post(s) ${patch.__delete ? "deleted" : "rejected"}; saving…`); S.focus = 0; render(); save();
+}
+$("bulkReject").onclick = () => bulk(visible(), { status: "rejected" }, "reject");
+$("bulkDelete").onclick = () => bulk(visible(), { __delete: true }, "delete");
+$("clearAll").onclick = () => bulk(S.posts.filter((x) => S.page === "all" || x.p.page === S.page), { __delete: true }, "delete every unposted post in this tab:");
 $("reload").onclick = () => { if (S.pending.length) save().then(load); else load(); };
 $("openSettings").onclick = () => { $("sRepo").value = S.repo; $("sToken").value = S.token; $("settings").classList.add("show"); };
 $("sClose").onclick = () => $("settings").classList.remove("show");
