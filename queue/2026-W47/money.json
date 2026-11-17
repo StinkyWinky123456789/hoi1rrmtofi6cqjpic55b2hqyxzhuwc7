@@ -155,7 +155,7 @@
       "score": 7,
       "why": "Specific escalation, joke on bettor, relatable",
       "inspiredBy": "evergreen",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -164,7 +164,7 @@
         "m/money/money-20261116-4/v1-cover.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:55:33.509Z",
