@@ -194,7 +194,7 @@
       "score": 7,
       "why": "Vent line is sharp, specific 5:59 AM",
       "inspiredBy": "evergreen",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -202,7 +202,7 @@
         "m/gym/gym-20261116-5/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:54:21.021Z",
