@@ -105,7 +105,7 @@
       "score": 7,
       "why": "Inflatable turkey surveillance is absurd and specific",
       "inspiredBy": "Thanksgiving",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -113,7 +113,7 @@
         "m/shitpost/shitpost-20261116-3/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:56:40.860Z",
