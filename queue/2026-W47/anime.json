@@ -194,7 +194,7 @@
       "score": 7,
       "why": "Aunt Linda's drawer of chargers, specific and escalating",
       "inspiredBy": "Thanksgiving",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -202,7 +202,7 @@
         "m/anime/anime-20261116-5/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:53:03.527Z",
