@@ -3,3 +3,4 @@ site/
 *.log
 test/*.png
 .DS_Store
+pool-files/

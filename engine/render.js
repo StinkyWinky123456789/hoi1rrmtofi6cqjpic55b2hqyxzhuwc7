@@ -9,6 +9,7 @@ const { execFileSync } = require("child_process");
 const U = require("./lib/util");
 const Memes = require("./lib/memes");
 const Library = require("./lib/library");
+const Pool = require("./lib/pool");
 const { contentHash, applyChanges, commitQueue, pushSite } = require("./lib/changes");
 
 const REEL_SECONDS = 9;
@@ -57,6 +58,10 @@ async function photosFor(post) {
   if (post.format === "image" && post.template === "meme") {
     try { return { urls: [await Memes.render(post.mt, post.ml || [])], note: `meme template "${post.mtName || post.mt}"${String(post.mt).startsWith("if-") ? " (Imgflip)" : ""}`, source: Memes.sourceUrl(post.mt, post.ml || []) }; }
     catch (e) { return { urls: [], note: `meme template error (${e.message})` }; }
+  }
+  if (post.format === "image" && post.pool) {
+    const x = Pool.byId().get(post.pool);
+    if (x) return { urls: [await Pool.dataUrl(x)], note: `pool image (${x.source})`, source: x.from };
   }
   if (post.format === "image" && post.still) {
     const c = Library.byId().get(post.still);
@@ -301,6 +306,11 @@ async function renderPending() {
           renderedAt: new Date().toISOString(), renderError: null, renderNote: post.renderNote || null, footageSource: post.footageSource || null, visualSource: post.visualSource || null,
         };
         if (post.status === "approved" && post.approvedVersion !== ver) patch.status = "pending"; // approval is tied to the exact render
+        // near-duplicate of an earlier post (any page)? flag it for review
+        // (stills only: Reels share footage by design and are de-duplicated on their text)
+        // (classic templates like Drake are meant to repeat with new jokes; those are de-duplicated on their text)
+        const look = post.format !== "reel" && post.template !== "meme" && media.find((f) => /\.(jpe?g|png)$/.test(f));
+        patch.dupOf = look ? Pool.checkRendered(post.id, q.page, look) : null;
         changes.push({ file: relFile, id: post.id, expectHash, patch });
         done++;
       } catch (e) {

@@ -23,6 +23,7 @@ function run(script, env, args = []) {
     c.on("close", (code) => { clearTimeout(t); if (code !== 0) { console.log(out); reject(new Error(`${script} exited ${code}`)); } else resolve(out); });
   });
 }
+const CFGP = () => JSON.parse(fs.readFileSync(path.join(TMP, "config/pages.json"), "utf8"));
 const readQ = (page) => JSON.parse(fs.readFileSync(path.join(TMP, "queue", "2026-W47", `${page}.json`), "utf8"));
 const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47", `${page}.json`), JSON.stringify(doc, null, 2));
 
@@ -42,13 +43,22 @@ const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47
     "-filter_complex", segs.map((_, k) => `[${k}:v]setsar=1[v${k}]`).join(";") + ";" + segs.map((_, k) => `[v${k}]`).join("") + `concat=n=${segs.length}:v=1:a=0[v]`,
     "-map", "[v]", "-map", `${segs.length}:a`, "-pix_fmt", "yuv420p", "-c:a", "aac", "-shortest", path.join(ASSETS, "film.mp4")]);
   for (const k of [1, 2]) execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-f", "lavfi", "-i", "testsrc2=size=1080x1920:rate=30:duration=6", "-pix_fmt", "yuv420p", path.join(ASSETS, `clip${k}.mp4`)]);
-  const { server, port, log } = await mock.start({ siteDir: SITE, ghRoot: TMP, assetDir: ASSETS });
+  // a meme site: 12 distinct images (no. 9 is a resized copy of no. 2), plus a tiny logo
+  const SITEIMG = path.join(ASSETS, "site"); fs.mkdirSync(SITEIMG);
+  for (let k = 1; k <= 12; k++) if (k !== 9) { // deterministic "pictures": a colored background with three blocks in different places
+    const box = (j) => `drawbox=x=${(k * 67 + j * 131) % 300}:y=${(k * 113 + j * 71) % 300}:w=${60 + ((k + j) * 37) % 90}:h=${50 + ((k * 3 + j) * 29) % 110}:color=${["white", "black", "yellow", "navy"][(k + j) % 4]}:t=fill`;
+    execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-f", "lavfi", "-i", `color=c=0x${(k * 0x1f3a5b % 0xffffff).toString(16).padStart(6, "0")}:s=400x400`, "-frames:v", "1", "-vf", [0, 1, 2].map(box).join(","), path.join(SITEIMG, `${k}.png`)]); }
+  execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-i", path.join(SITEIMG, "2.png"), "-vf", "scale=560:560", path.join(SITEIMG, "9.png")]);
+  execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-f", "lavfi", "-i", "color=c=red:s=32x32", "-frames:v", "1", path.join(SITEIMG, "icon.png")]);
+  const POOLDIR = path.join(TMP, "pool-files"); fs.mkdirSync(POOLDIR);
+  fs.rmSync(path.join(TMP, "library", "pool"), { recursive: true, force: true });
+  const { server, port, log } = await mock.start({ siteDir: SITE, ghRoot: TMP, assetDir: ASSETS, poolDir: POOLDIR });
   const base = `http://127.0.0.1:${port}`;
   const ENV = {
     NO_GIT: "1", SITE_DIR: SITE, ANTHROPIC_API_KEY: "test", ANTHROPIC_BASE_URL: base,
     NODE_PATH: "/opt/npm-tools/node_modules", CHROME_PATH: "/usr/bin/google-chrome",
     PIXABAY_API_KEY: "test", PIXABAY_BASE: `${base}/pixabay/api`,
-    ARCHIVE_BASE: `${base}/archive`, MEMEGEN_BASE: `${base}/memegen`, IMGFLIP_BASE: `${base}/imgflip`, IMGFLIP_API_KEY: "test-imgflip", IMGFLIP_PREMIUM: "true", FREESOUND_API_KEY: "test", FREESOUND_BASE: `${base}/freesound`,
+    ARCHIVE_BASE: `${base}/archive`, POOL_DIR: POOLDIR, POOL_BASE: `${base}/pool`, MEMEGEN_BASE: `${base}/memegen`, IMGFLIP_BASE: `${base}/imgflip`, IMGFLIP_API_KEY: "test-imgflip", IMGFLIP_PREMIUM: "true", FREESOUND_API_KEY: "test", FREESOUND_BASE: `${base}/freesound`,
     IG_API_BASE: base, MEDIA_BASE_URL: `${base}/site`, PUBLISH_ENABLED: "true",
     ...Object.fromEntries(["GYM", "ANIME", "MONEY", "SHITPOST"].flatMap((k, i) => [[`IG_USER_ID_${k}`, `17841400000${i}`], [`IG_TOKEN_${k}`, `tok_${k}`]])),
   };
@@ -74,6 +84,30 @@ const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47
     await run("engine/harvest.js", ENV);
     ok(JSON.parse(fs.readFileSync(path.join(TMP, "library/clips.json"), "utf8")).clips.length === 4 && log.iaDownloads.length === 1, "a second harvest doesn't re-download films it already used");
 
+    console.log("2b. Scrape image sources (meme-site stand-in)");
+    {
+      const cfgP = path.join(TMP, "config/pages.json"), cj = JSON.parse(fs.readFileSync(cfgP, "utf8"));
+      cj.sources = [{ id: "testsite", name: "Test site", url: `${base}/site/memes`, minSize: 200 }, { id: "blocked", url: `${base}/site/private` }];
+      cj.scrape = Object.assign({}, cj.scrape, { delayMs: 10, scrollWaitMs: 500 });
+      fs.writeFileSync(cfgP, JSON.stringify(cj, null, 2));
+    }
+    const sout = await run("engine/scrape.js", ENV);
+    if (process.env.DEBUG_SCRAPE) console.log(sout);
+    const shard = () => JSON.parse(fs.readFileSync(path.join(TMP, "library/pool/testsite.json"), "utf8"));
+    let items = shard().items;
+    ok(!fs.existsSync(path.join(TMP, "library/pool/blocked.json")) && !(log.sitePages || []).includes("/site/private"), "robots.txt is respected (disallowed page never opened)");
+    ok(log.screened === 11, `the resized copy and the tiny logo were dropped before Claude saw them (${log.screened} screened)`);
+    ok(items.length === 9 && items.every((x) => fs.existsSync(path.join(POOLDIR, x.file)) && fs.existsSync(path.join(POOLDIR, x.thumb))), `${items.length} images kept (finished memes rejected), files + thumbnails saved`);
+    ok(items.every((x) => /^[0-9a-f]{16}$/.test(x.hash) && x.desc && x.pages.length === 4) && items.some((x) => x.person === "private"), "each image has a perceptual hash, description, pages and a person flag");
+    const imgsBefore = log.siteImgs;
+    await run("engine/scrape.js", ENV);
+    ok(imgsBefore === 12 && log.siteImgs === imgsBefore && shard().items.length === 9, `a second scrape downloads nothing it already handled (first run downloaded ${imgsBefore}; the logo was never downloaded)`);
+    // ban one: file deleted, never comes back
+    const sh = shard(), banned = sh.items[0]; banned.status = "banned"; fs.writeFileSync(path.join(TMP, "library/pool/testsite.json"), JSON.stringify(sh, null, 2));
+    const seenF = path.join(TMP, "state/pool-seen-testsite.json"), seen = JSON.parse(fs.readFileSync(seenF, "utf8")); delete seen.urls[banned.from]; fs.writeFileSync(seenF, JSON.stringify(seen));
+    await run("engine/scrape.js", ENV);
+    ok(!shard().items.some((x) => x.id === banned.id) && !fs.existsSync(path.join(POOLDIR, banned.file)), "banned images are deleted and not re-added even when the site still shows them");
+
     console.log("2. Generate (Claude stand-in; real trend sources are offline here)");
     const out = await run("engine/generate.js", ENV, ["2026-11-16"]);
     for (const page of ["gym", "anime", "money", "shitpost"]) {
@@ -97,7 +131,7 @@ const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47
     execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-f", "lavfi", "-i", "testsrc2=size=720x1280:rate=30:duration=4", "-pix_fmt", "yuv420p", path.join(SITE, clipRel)]);
     firstReel.customClip = clipRel; writeQ("gym", gym);
     const t0 = Date.now();
-    await run("engine/render.js", ENV);
+    await run("engine/render.js", { ...ENV, POOL_DIR: path.join(TMP, "no-local-pool") }); // like GitHub: pool images come over HTTPS from the pool branch
     console.log(`   (render took ${((Date.now() - t0) / 1000).toFixed(0)}s)`);
     for (const page of QUICK ? ["gym", "money"] : ["gym", "anime", "money", "shitpost"]) {
       const q = readQ(page);
@@ -113,7 +147,7 @@ const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47
     ok(car.media.length === 6 && car.media.every((m) => m.endsWith(".jpg")), "carousel rendered to 6 JPEG slides (title + 4 + follow)");
     ok(g2.posts.filter((p) => p.format === "image").every((p) => p.media[0].endsWith(".jpg")), "images are JPEG (Instagram requires JPEG)");
     const stills = g2.posts.filter((p) => p.format !== "reel");
-    const photoStills = stills.filter((p) => p.template !== "meme" && !p.still), memePosts = stills.filter((p) => p.template === "meme");
+    const photoStills = stills.filter((p) => p.template !== "meme" && !p.still && !p.pool), memePosts = stills.filter((p) => p.template === "meme");
     ok(photoStills.every((p) => p.visual && /photo \d of 3/.test(p.renderNote || "") && p.visualSource), `all ${photoStills.length} photo memes got stock photos`);
     ok(memePosts.length >= 4 && memePosts.every((p) => p.mt && p.ml.length >= 2 && /meme template/.test(p.renderNote) && /\/memegen\/images\/|imgflip\.com\/memetemplate/.test(p.visualSource)), `${memePosts.length} classic meme-template posts rendered (Imgflip + Memegen)`);
     ok(memePosts.some((p) => p.ml.length === 3), "meme lines padded to the template's box count");
@@ -139,6 +173,26 @@ const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47
     const usedIds = g2.posts.filter((p) => p.clip).map((p) => p.clip);
     ok(new Set(usedIds).size === usedIds.length, "each clip is used at most once a week per page");
     ok(JSON.parse(fs.readFileSync(path.join(TMP, "library/clips.json"), "utf8")).clips.some((c) => c.uses > 0), "clip use counts are tracked");
+    const poolPosts = ["gym", "money"].flatMap((k) => readQ(k).posts.filter((p) => p.pool));
+    const privateIds = JSON.parse(fs.readFileSync(path.join(TMP, "library/pool/testsite.json"), "utf8")).items.filter((x) => x.person === "private").map((x) => x.id);
+    ok(poolPosts.length >= 2 && poolPosts.every((p) => /pool image \(testsite\)/.test(p.renderNote)) && log.poolFetch >= poolPosts.length, `${poolPosts.length} image memes built on pool images, fetched from the pool branch`);
+    ok(!poolPosts.some((p) => privateIds.includes(p.pool)) && !(log.poolMenus || []).some((m) => m.some((id) => privateIds.includes(id))), "images of ordinary people are never offered unless starred");
+    const gymPool = new Set(readQ("gym").posts.map((p) => p.pool).filter(Boolean)), moneyPool = readQ("money").posts.map((p) => p.pool).filter(Boolean);
+    const usesRecorded = JSON.parse(fs.readFileSync(path.join(TMP, "library/pool/testsite.json"), "utf8")).items.filter((x) => Object.keys(x.uses || {}).length).length;
+    const allPool = Object.keys(CFGP().pages).flatMap((k) => { try { return readQ(k).posts.map((p) => p.pool).filter(Boolean); } catch { return []; } });
+    ok(usesRecorded === allPool.length && new Set(allPool).size === allPool.length, `pool use is recorded per page, no image on two pages (${usesRecorded} used across all pages)`);
+    // (the stand-in only has 3 stock photos, so many posts genuinely share a picture; a false alarm is a flag between two DIFFERENT pictures)
+    const allPosts = ["gym", "money"].flatMap((k) => readQ(k).posts), byId = new Map(allPosts.map((p) => [p.id, p]));
+    const pic = (p) => p.pool || p.still || p.visualSource || p.mt;
+    const falseAlarms = allPosts.filter((p) => p.dupOf && byId.get(p.dupOf) && pic(byId.get(p.dupOf)) !== pic(p));
+    ok(falseAlarms.length === 0 && !allPosts.some((p) => p.template === "meme" && p.dupOf), `duplicate flags only fire on the same picture (${allPosts.filter((p) => p.dupOf).length} same-picture flags, ${falseAlarms.length} false alarms)`);
+    // a deliberate duplicate: copy an image post under a new id and render it
+    { const gq = readQ("gym"), src = gq.posts.find((p) => p.format === "image" && !p.dupOf && p.status === "pending");
+      const copy = JSON.parse(JSON.stringify(src)); copy.id = src.id + "-copy"; copy.needsRender = true; copy.renderVersion = 0; copy.media = []; gq.posts.push(copy); writeQ("gym", gq);
+      await run("engine/render.js", ENV);
+      const c2 = readQ("gym").posts.find((p) => p.id === copy.id);
+      ok(c2.dupOf === src.id, `a post that looks like an earlier one is flagged as a duplicate (${c2.dupOf})`);
+      const gq2 = readQ("gym"); gq2.posts = gq2.posts.filter((p) => p.id !== copy.id); writeQ("gym", gq2); }
     ok(stockReel.sfx === "vine boom" && /sfx "boom\d" \(Freesound \d, CC0\)/.test(stockReel.renderNote) && log.freesound >= 1, "Reels get a CC0 Freesound effect on the punchline");
     // the punchline should only appear after the beat: compare a frame before and after
     const frame = (t) => execFileSync("ffmpeg", ["-loglevel", "error", "-ss", String(t), "-i", path.join(SITE, stockReel.media.find((m) => m.endsWith(".mp4"))), "-frames:v", "1", "-vf", "crop=1080:500:0:1000,scale=54:25,format=gray", "-f", "rawvideo", "-"]);
@@ -223,7 +277,6 @@ const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47
     await pg.click(".card.focus >> text=Swap footage"); await pg.waitForTimeout(3500);
     const swapped = readQ("gym").posts.find((p) => p.format === "reel" && p.needsRender && p.footageIndex === 1);
     ok(!!swapped && swapped.status === "pending" && swapped.approvedVersion === null, "Swap footage queues a re-render and requires re-approval");
-    await pg.click("text=Needs review"); await pg.waitForTimeout(300);
     await pg.click(".card.focus >> text=Edit text");
     await pg.fill(".card.focus .edit input", "When the edit lands");
     await pg.click(".card.focus >> text=Save and re-render");
@@ -240,6 +293,14 @@ const writeQ = (page, doc) => fs.writeFileSync(path.join(TMP, "queue", "2026-W47
     await pg.click(".clip:not(.starred) >> text=Ban");
     for (let i = 0; i < 40 && !JSON.parse(fs.readFileSync(path.join(TMP, "library/clips.json"), "utf8")).clips.some((c) => c.status === "banned"); i++) await pg.waitForTimeout(500);
     ok(JSON.parse(fs.readFileSync(path.join(TMP, "library/clips.json"), "utf8")).clips.some((c) => c.status === "banned"), "banning a clip saves to the library");
+    await pg.click("#lib-images"); await pg.waitForTimeout(400);
+    const nImgs = await pg.$$eval(".clip", (x) => x.length);
+    ok(nImgs === 8, `Library → Images shows ${nImgs} pool images for this page`);
+    await pg.click(".clip >> text=★ Star");
+    const shardNow = () => JSON.parse(fs.readFileSync(path.join(TMP, "library/pool/testsite.json"), "utf8")).items;
+    for (let i = 0; i < 40 && !shardNow().some((x) => x.status === "starred"); i++) await pg.waitForTimeout(500);
+    ok(shardNow().some((x) => x.status === "starred"), "starring a pool image saves to its index file");
+    await pg.click("#lib-clips"); await pg.waitForTimeout(200);
     await pg.click("text=Needs review"); await pg.waitForTimeout(300);
     // Bulk: delete everything shown in the gym "Needs review" view, then clear the money tab
     pg.on("dialog", (d) => d.accept());

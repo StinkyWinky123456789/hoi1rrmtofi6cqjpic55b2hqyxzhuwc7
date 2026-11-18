@@ -15,6 +15,14 @@ function pageFromSystem(sys) { const m = /about ([^.]+)\./.exec(sys || ""); cons
 
 function claudeHandler(body, log) {
   const tool = body.tools[0].name, raw0 = body.messages[0].content;
+  if (tool === "screen_images") {
+    const n = raw0.filter((c) => c.type === "image").length;
+    log.screened = (log.screened || 0) + n;
+    const images = Array.from({ length: n }, (_, k) => { const g = (log.screenSeq = (log.screenSeq || 0) + 1);
+      return g % 4 === 0 ? { i: k + 1, keep: false, reason: "finished meme", kind: "other", desc: "", tags: [], pages: [], fit: 1, person: "none" }
+        : { i: k + 1, keep: true, kind: ["template", "reaction", "cursed", "art"][g % 4], desc: `weird image number ${g}, a pattern that looks like static`, tags: ["weird"], pages: ["gym", "anime", "money", "shitpost"], fit: 7, person: g === 2 ? "private" : "none" }; });
+    return { content: [{ type: "tool_use", id: "t4", name: tool, input: { images } }], usage: { input_tokens: 3000, output_tokens: 400 } };
+  }
   if (tool === "pick_clips") {
     const n = raw0.filter((c) => c.type === "image").length;
     log.picks = (log.picks || 0) + 1; log.pickImages = (log.pickImages || 0) + n;
@@ -26,6 +34,8 @@ function claudeHandler(body, log) {
     const page = pageFromSystem(body.system), w = WORDS[page];
     const m = /Write (\d+) (IMAGE|CAROUSEL|REEL)/.exec(prompt), n = +m[1], kind = m[2];
     const clipMenu = [...prompt.matchAll(/^- (ia-[\w-]+): /gm)].map((x) => x[1]);
+    const poolMenu = [...prompt.matchAll(/^- ([\w-]+): \((?:template|reaction|cursed|art|photo|other)\)/gm)].map((x) => x[1]);
+    log.poolMenus = (log.poolMenus || []).concat(kind === "IMAGE" ? [poolMenu] : []);
     const menu = [...prompt.matchAll(/^- ([\w-]+): (.+?), (\d+) (?:lines|boxes)/gm)].map((x) => ({ id: x[1], name: x[2], lines: +x[3] }));
     log.memeMenus = (log.memeMenus || []).concat(kind === "IMAGE" ? [menu.map((t) => t.id)] : []);
     const tpls = page === "money" ? ["classic", "pov", "nobody", "tweet", "system", "versus", "ticker"] : ["classic", "pov", "nobody", "tweet", "system", "versus"];
@@ -35,6 +45,7 @@ function claudeHandler(body, log) {
       const u1 = word(), u2 = word(), u3 = word();
       const base = { a: `When ${u1} ${x} ${u2}`, b: `${u3} ${y} mode`, caption: `This one is about ${x}.`, inspiredBy: i % 3 ? "evergreen" : "Dates coming up" };
       if (kind === "IMAGE" && i % 3 === 2 && menu.length) { const t = menu[Math.floor(i / 3) % menu.length]; return { ...base, template: "meme", mt: t.id, ml: [`${u1} ${x}`, `${u2} ${y}`] }; }
+      if (kind === "IMAGE" && i % 6 === 3 && poolMenu.length) return { ...base, template: "classic", visual: `${x} person close up`, pool: poolMenu[Math.floor(i / 6) % poolMenu.length] };
       if (kind === "IMAGE" && i % 6 === 0 && clipMenu.length) return { ...base, template: "classic", visual: `${x} person close up`, still: clipMenu[(i / 6) % clipMenu.length] };
       if (kind === "IMAGE") { const t = tpls[i % tpls.length]; return { ...base, template: t, visual: `${x} person close up`, visual2: `${y} person relaxing`, ...(t === "versus" ? { l: ["What I planned", "What I did"] } : {}), ...(t === "ticker" ? { a: `$${x.replace(/\W/g, "").toUpperCase().slice(0, 8)} ▼ ${10 + i}%` } : {}) }; }
       if (kind === "CAROUSEL") return { ...base, visual: `${x} people`, a: `Types of ${u1} at the ${x}`, b: "", s: [`The ${u2} expert`, `The ${x} rookie`, `The one who forgot the ${u3}`, `You, reading this`] };
@@ -46,7 +57,7 @@ function claudeHandler(body, log) {
   return { content: [{ type: "text", text: "Here are the scores." }, { type: "tool_use", id: "t2", name: tool, input: { scores: nums.map((i) => ({ i, score: 4 + ((i * 37) % 60) / 10, reason: "solid, specific setup" })) } }], usage: { input_tokens: 2000, output_tokens: 800 } };
 }
 
-function start({ siteDir, ghRoot, assetDir }) {
+function start({ siteDir, ghRoot, assetDir, poolDir }) {
   const log = { claude: 0, ig: [], ghPuts: [] };
   let n = 1000;
   const server = http.createServer((req, res) => {
@@ -63,6 +74,29 @@ function start({ siteDir, ghRoot, assetDir }) {
       }
       if (u.pathname === "/pixabay/api/videos/" || u.pathname === "/pixabay/api/videos") {
         return send(200, { hits: [1, 2].map((k) => ({ id: k, duration: 6, pageURL: `https://pixabay.example/video/${k}`, videos: { large: { url: `http://127.0.0.1:${server.address().port}/assets/clip${k}.mp4`, width: 1080, height: 1920 } } })) });
+      }
+      // A meme website with infinite scroll (stand-in for a source like Meme Depot)
+      if (u.pathname === "/robots.txt") return res.writeHead(200, { "content-type": "text/plain" }), res.end("User-agent: *\nDisallow: /site/private\n\nUser-agent: BadBot\nDisallow: /\n");
+      if (u.pathname === "/site/memes" || u.pathname === "/site/private") {
+        log.sitePages = (log.sitePages || []).concat([u.pathname]);
+        const html = `<!doctype html><html><body style="margin:0"><img src="/site/img/icon.png" width="32" alt="logo"><div id="g"></div><script>
+          const all = ${JSON.stringify(Array.from({ length: 12 }, (_, k) => k + 1))}; let next = 0;
+          function more(n) { for (let k = 0; k < n && next < all.length; k++, next++) { const i = document.createElement("img"); i.src = "/site/img/" + all[next] + ".png"; i.alt = "img " + all[next]; i.style.cssText = "display:block;width:400px;height:400px"; document.getElementById("g").appendChild(i); } }
+          more(4); addEventListener("scroll", () => setTimeout(() => more(3), 300));
+        </script></body></html>`;
+        res.writeHead(200, { "content-type": "text/html" }); return res.end(html);
+      }
+      if (u.pathname.startsWith("/site/img/") && assetDir) {
+        if (!/image\/(avif|webp)/.test(req.headers.accept || "")) log.siteImgs = (log.siteImgs || 0) + 1; // the scraper's own downloads, not the browser showing the page
+        const f = path.join(assetDir, "site", path.basename(u.pathname));
+        if (!fs.existsSync(f)) return send(404, { message: "nope" });
+        res.writeHead(200, { "content-type": "image/png" }); return fs.createReadStream(f).pipe(res);
+      }
+      if (u.pathname.startsWith("/pool/") && poolDir) {
+        const f = path.join(poolDir, decodeURIComponent(u.pathname.slice(6)));
+        if (!fs.existsSync(f)) return send(404, { message: "nope" });
+        log.poolFetch = (log.poolFetch || 0) + 1;
+        res.writeHead(200, { "content-type": "image/jpeg" }); return fs.createReadStream(f).pipe(res);
       }
       // Internet Archive stand-in
       if (u.pathname === "/archive/advancedsearch.php") {
@@ -136,7 +170,7 @@ function start({ siteDir, ghRoot, assetDir }) {
         const root = branch === "media" ? siteDir : ghRoot, file = path.join(root, rel);
         if (req.method === "GET") {
           if (!fs.existsSync(file)) return send(404, { message: "Not Found" });
-          if (fs.statSync(file).isDirectory()) return send(200, fs.readdirSync(file).map((name) => ({ name, type: fs.statSync(path.join(file, name)).isDirectory() ? "dir" : "file" })));
+          if (fs.statSync(file).isDirectory()) return send(200, fs.readdirSync(file).map((name) => ({ name, path: `${rel.replace(/\/$/, "")}/${name}`, type: fs.statSync(path.join(file, name)).isDirectory() ? "dir" : "file" })));
           const buf = fs.readFileSync(file);
           return send(200, { content: buf.toString("base64"), sha: require("crypto").createHash("sha1").update(buf).digest("hex") });
         }

@@ -1,0 +1,70 @@
+name: Scrape image sources
+
+# Fills the image pool from the "sources" in config/pages.json (blank templates, reaction pics, cursed images, art).
+# Images live on the "pool" branch (one squashed commit); the index lives in library/pool/ on main.
+on:
+  schedule:
+    - cron: "23 14 * * 5" # Fridays, the day before Generate
+  workflow_dispatch:
+    inputs:
+      source:
+        description: "Only this source id (blank = all enabled sources)"
+        required: false
+      max:
+        description: "Max new images per source this run (blank = config default)"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: meme-pipeline
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - name: Tools
+        run: which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+      - name: Get the current image pool
+        run: |
+          git config user.name "meme-engine bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p pool-files
+          if git fetch -q --depth 1 origin pool; then
+            GIT_INDEX_FILE="$RUNNER_TEMP/pool.index" git -C pool-files --git-dir="$GITHUB_WORKSPACE/.git" --work-tree=. checkout FETCH_HEAD -- .
+          fi
+          echo "pool has $(find pool-files -name '*.jpg' -not -path '*/t/*' | wc -l) images"
+      - name: Scrape
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          POOL_DIR: pool-files
+        run: |
+          args=""
+          [ -n "${{ inputs.source }}" ] && args="$args --source ${{ inputs.source }}"
+          [ -n "${{ inputs.max }}" ] && args="$args --max ${{ inputs.max }}"
+          node engine/scrape.js $args
+      - name: Save images (pool branch, one squashed commit)
+        run: |
+          export GIT_INDEX_FILE="$RUNNER_TEMP/pool-save.index"
+          rm -f "$GIT_INDEX_FILE"
+          G="git -C pool-files --git-dir=$GITHUB_WORKSPACE/.git --work-tree=."
+          $G add -A .
+          tree=$($G write-tree)
+          commit=$(git commit-tree "$tree" -m "Image pool")
+          git push -q -f origin "$commit:refs/heads/pool"
+      - name: Save the index
+        run: |
+          git add library state
+          git diff --cached --quiet || git commit -q -m "Image pool index"
+          for i in 1 2 3 4; do git push -q origin HEAD:main && exit 0; git pull -q --rebase origin main; done
+          echo "could not push the index" >&2; exit 1

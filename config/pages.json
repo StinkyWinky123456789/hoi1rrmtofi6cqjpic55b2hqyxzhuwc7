@@ -13,6 +13,10 @@
     5
   ],
   "archive": { "enabled": true, "collections": ["prelinger"], "filmsPerPage": 2, "keepPerFilm": 12, "minFit": 6, "maxClips": 240 },
+  "scrape": { "delayMs": 700, "maxNewPerRun": 400, "minFit": 5, "reuseDays": 365, "crossPageDays": 21 },
+  "sources": [
+    { "id": "memedepot-templates", "name": "Meme Depot · Meme Templates", "type": "page", "url": "https://memedepot.com/d/memetemplates", "enabled": true, "maxNewPerRun": 400, "minSize": 200 }
+  ],
   "pages": {
     "gym": {
       "name": "Caffeine Junkey",

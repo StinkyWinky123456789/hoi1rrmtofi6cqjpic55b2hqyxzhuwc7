@@ -103,6 +103,17 @@ Every Generate run first harvests a couple of public-domain films per page from 
 - **Actions → Harvest archive clips** fills the library without generating posts (pick a page and number of films).
 - Settings live under `archive` in `config/pages.json` (collections, films per page, clips kept per film, minimum score, library size) and each page's `archiveQueries`. Claude's review of one film costs roughly 5 cents.
 
+## Image pool (scraped sources)
+**Actions → Scrape image sources** (also runs automatically every Friday) fills a pool of raw material: blank templates, reaction pics, cursed images and art. Sources are listed under `sources` in `config/pages.json`; to add a site, add another line with an `id`, a `name` and the page `url`.
+- The scraper checks each site's robots.txt first and skips pages the site disallows. It identifies itself as `MemeEngineBot` and waits between downloads (`scrape.delayMs`).
+- It scrolls the page until nothing new loads, downloads the images, and resizes them to at most 1080 px.
+- **No duplicates are stored:** every image gets a perceptual fingerprint, so re-uploads, resized and re-saved copies are skipped, across all sources.
+- Claude screens each new image: finished memes (caption already on it), nudity, gore, hate symbols and images centred on a child are rejected and never downloaded again. Images whose main subject is an ordinary (non-famous) person are kept but only used if you ★ star them.
+- Up to `maxNewPerRun` (400) new images per source per run; a big source fills up over a few runs. Screening costs roughly $1–2 per 1,000 images.
+- Images are stored on the `pool` branch (one squashed commit, so the repo doesn't grow forever); the index is in `library/pool/`.
+- **No duplicate posts:** each pool image is used at most once per page and never on two pages within 3 weeks (`scrape.reuseDays`, `scrape.crossPageDays`). Every finished image post is also fingerprinted: if it looks almost identical to an earlier post on any page, its card shows a ⚠ warning. Classic templates (Drake etc.) are meant to repeat with new jokes, so those are checked on their text instead.
+- **Library → Images** in the review queue: ★ Star favorites; **Ban** deletes an image and it never comes back. On a post: **Another pool image** or **Stock photo instead**.
+
 ## Weekly routine (about 20 to 40 minutes)
 - **Saturday:** next week's 140 posts arrive in the review queue.
 - **Saturday to Monday morning:** review them. Use **Videos to review** to clear the Reels in one pass, and **Approve all shown scoring ≥ 8** to clear the strongest images quickly. Keys: `J`/`K` move, `A` approve, `R` reject, `E` edit, `Space` play the video.

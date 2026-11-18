@@ -9,6 +9,7 @@ const { askJSON } = require("./lib/claude");
 const { collectSignals } = require("./collect");
 const Memes = require("./lib/memes");
 const Library = require("./lib/library");
+const Pool = require("./lib/pool");
 
 const TEMPLATE_GUIDE = `Image templates (the joke must work as text on a branded graphic; no photo is added):
 - classic: "a" = caption bar on top, "b" = big punchline over the graphic.
@@ -63,6 +64,7 @@ const ITEM_SCHEMA = {
           sfx: { type: "string", description: "reels: 1-3 word sound effect that hits on the punchline" },
           clip: { type: "string", description: "reels: id of an archive clip to use instead of stock footage" },
           still: { type: "string", description: "images: id of an archive clip whose frame is the photo" },
+          pool: { type: "string", description: "images: id of a pool image (template/reaction/cursed/art) to caption" },
           caption: { type: "string", description: "one short caption line, no hashtags" },
           mt: { type: "string", description: "meme template id (template 'meme' only)" },
           ml: { type: "array", items: { type: "string" }, description: "meme template text lines (template 'meme' only)" },
@@ -110,6 +112,9 @@ async function writeCandidates(cfg, key, pg, sig, avoid, format, count) {
   const libGuide = !lib.length ? "" : format === "reel"
     ? `\nARCHIVE CLIPS: real vintage public-domain footage (1940s-60s films). Use one by putting its id in "clip" (then "footage" is ignored). Aim for about half of these Reels to use a clip when one genuinely fits: the old footage IS the joke, so write "a"/"b" that recontextualize exactly what happens on screen (modern problems over 1950s footage). Use each clip at most once. [starred] clips are the editor's favorites.\n${lib.map((c) => `- ${c.id}: ${c.desc}${c.idea ? ` (idea: ${c.idea})` : ""}${c.status === "starred" ? " [starred]" : ""}`).join("\n")}`
     : `\nARCHIVE STILLS: frames from vintage public-domain films. For a classic, pov or nobody meme you may set "still" to one of these ids instead of a stock photo (it replaces "visual"). Use a few where the frame is funnier than any stock photo; each at most once.\n${lib.map((c) => `- ${c.id}: ${c.desc}${c.status === "starred" ? " [starred]" : ""}`).join("\n")}`;
+  const S = cfg.scrape || {};
+  const poolList = format === "image" ? Pool.forPage(key, S).slice(0, 50) : [];
+  const poolGuide = poolList.length ? `\nIMAGE POOL: blank templates, reaction pics, cursed images and art. For a classic, pov or nobody meme you can set "pool" to one of these ids (it replaces "visual" and "still"). The image must BE the joke's punchline or setup; write the caption for exactly what it shows. Aim for about a third of these posts to use the pool when an image genuinely fits. Each id at most once. [starred] = editor's favorites.\n${poolList.map((x) => `- ${x.id}: (${x.kind}) ${x.desc}${x.status === "starred" ? " [starred]" : ""}`).join("\n")}` : "";
   for (let left = count; left > 0; left -= 25) {
     const n = Math.min(25, left);
     const spec = format === "image"
@@ -121,7 +126,7 @@ async function writeCandidates(cfg, key, pg, sig, avoid, format, count) {
 Recently used ideas (do NOT repeat these):
 ${avoid.slice(-60).map((x) => "- " + x).join("\n") || "- none yet"}
 
-${spec}${libGuide}
+${spec}${libGuide}${poolGuide}
 Keep "a" under 90 characters and "b" under 100. Call submit_memes with all ${n}.`;
     const { data, usage } = await askJSON({ model: cfg.model, system: systemPrompt(pg, key), prompt, toolName: "submit_memes", toolDescription: "Submit the memes", schema: ITEM_SCHEMA });
     U.log(`${key}: Claude wrote ${data.memes?.length || 0} ${format} candidates (${usage?.input_tokens || "?"} in / ${usage?.output_tokens || "?"} out tokens)`);
@@ -136,6 +141,7 @@ function fallbackVisual(key) { return NICHE_PHOTO[key] || "people laughing"; }
 
 let memeIds = new Map(); // id -> { lines, name }, filled before cleaning
 let libClips = new Map(); // archive clip id -> clip (for this page), filled before cleaning
+let poolItems = new Map(); // pool image id -> item (usable on this page now)
 function clean(m, key) {
   const str = (v, n) => String(v || "").replace(/\s+/g, " ").trim().slice(0, n);
   const out = { format: m.format, a: str(m.a, 120), b: str(m.b, 130), caption: str(m.caption, 300), inspiredBy: str(m.inspiredBy, 120) };
@@ -148,7 +154,8 @@ function clean(m, key) {
       return out;
     }
     out.visual = str(m.visual, 70) || fallbackVisual(key, out);
-    if (m.still && libClips.has(m.still) && libClips.get(m.still).stillOk && ["classic", "pov", "nobody"].includes(m.template)) { out.still = m.still; out.clipDesc = libClips.get(m.still).desc; }
+    if (m.pool && poolItems.has(m.pool) && ["classic", "pov", "nobody"].includes(m.template)) { out.pool = m.pool; out.clipDesc = poolItems.get(m.pool).desc; }
+    else if (m.still && libClips.has(m.still) && libClips.get(m.still).stillOk && ["classic", "pov", "nobody"].includes(m.template)) { out.still = m.still; out.clipDesc = libClips.get(m.still).desc; }
     if (m.template === "versus") out.visual2 = str(m.visual2, 70) || out.visual;
     const allowed = key === "money" ? ["classic", "pov", "nobody", "tweet", "system", "versus", "ticker"] : ["classic", "pov", "nobody", "tweet", "system", "versus"];
     out.template = allowed.includes(m.template) ? m.template : "classic";
@@ -205,12 +212,12 @@ function assign(slots, cands, pg, cfg, key, weekId) {
     if (idx < 0 || idx > 3) idx = 0; // don't sacrifice much quality for variety
     const c = pool.splice(idx, 1)[0];
     prevTpl = c.template;
-    for (const k of ["clip", "still"]) if (c[k]) { if (usedClips.has(c[k])) { c[k] = null; c.clipDesc = ""; } else usedClips.add(c[k]); }
+    for (const k of ["clip", "still", "pool"]) if (c[k]) { if (usedClips.has(c[k])) { c[k] = null; c.clipDesc = ""; } else usedClips.add(c[k]); }
     const id = `${key}-${s.ymd.replace(/-/g, "")}-${s.index + 1}`;
     posts.push({
       id, page: key, week: weekId, date: s.ymd, time: s.time, scheduledAt: s.at,
       format: c.format, template: c.template || null, a: c.a, b: c.b || "", l: c.l, s: c.s, mt: c.mt, mtName: c.mtName, ml: c.ml,
-      footage: c.footage, mood: c.mood, sfx: c.sfx, clip: c.clip || null, still: c.still || null, clipDesc: c.clipDesc || "", clipAudio: true, sfxIndex: 0, footageIndex: 0, audioIndex: 0, customClip: null,
+      footage: c.footage, mood: c.mood, sfx: c.sfx, clip: c.clip || null, still: c.still || null, pool: c.pool || null, clipDesc: c.clipDesc || "", clipAudio: true, sfxIndex: 0, footageIndex: 0, audioIndex: 0, customClip: null,
       visual: c.visual || "", visual2: c.visual2 || "", imageIndex: 0,
       caption: `${c.caption}\n\nFollow ${pg.handle} for daily ${pg.noun} memes.\n\n${pg.tags.slice(0, 5).join(" ")}`,
       score: c.score, why: c.why || "", inspiredBy: c.inspiredBy || "",
@@ -228,6 +235,7 @@ async function generatePage(cfg, key, weekStart, signals, force) {
   if (fs.existsSync(file) && !force && live.length) { U.log(`${key}: ${weekId} already generated, skipping (use --force to redo)`); return null; }
   memeIds = new Map((await Memes.templates(pg)).map((t) => [t.id, { lines: t.lines, name: t.name }]));
   libClips = new Map(Library.forPage(key).map((c) => [c.id, c]));
+  poolItems = new Map(Pool.forPage(key, cfg.scrape || {}).map((x) => [x.id, x]));
   const slots = buildSlots(cfg, key, weekStart);
   const need = { image: 0, carousel: 0, reel: 0 };
   slots.forEach((s) => need[s.format]++);
@@ -260,6 +268,7 @@ async function generatePage(cfg, key, weekStart, signals, force) {
   U.writeJSON(file, { week: weekId, page: key, weekStart, generatedAt: new Date().toISOString(), model: cfg.model, posts });
   U.writeJSON(histFile, history.concat(posts.map(U.postText)).slice(-600));
   Library.markUsed(posts.flatMap((p) => [p.clip, p.still].filter(Boolean)));
+  Pool.markUsed(key, posts.map((p) => p.pool).filter(Boolean));
   const avg = posts.reduce((t, p) => t + p.score, 0) / (posts.length || 1);
   U.log(`${key}: queued ${posts.length}/${slots.length} posts for ${weekId}, average score ${avg.toFixed(1)}`);
   return posts;
