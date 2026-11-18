@@ -387,7 +387,7 @@
       "score": 7,
       "why": "Sleep scheduled for Thursday has edge, stays light",
       "inspiredBy": "evergreen",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -395,7 +395,7 @@
         "m/gym/gym-20261117-5/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:54:28.703Z",
