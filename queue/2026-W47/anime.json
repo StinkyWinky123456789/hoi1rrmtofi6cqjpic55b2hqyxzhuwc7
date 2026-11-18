@@ -356,7 +356,7 @@
       "score": 6,
       "why": "Specific show, decent 'no legs, no rent' punch",
       "inspiredBy": "Reincarnated as a Sword Season 2 episode 8",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -365,7 +365,7 @@
         "m/anime/anime-20261117-4/v1-cover.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:53:16.017Z",
