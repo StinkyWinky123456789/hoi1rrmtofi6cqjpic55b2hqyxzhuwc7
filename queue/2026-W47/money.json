@@ -270,7 +270,7 @@
       "score": 7,
       "why": "Stuffing as best asset, fresh and funny",
       "inspiredBy": "Thanksgiving",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -278,7 +278,7 @@
         "m/money/money-20261117-2/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:55:34.296Z",
