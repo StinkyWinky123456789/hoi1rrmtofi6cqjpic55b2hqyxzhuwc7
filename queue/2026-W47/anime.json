@@ -399,7 +399,7 @@
       "score": 6,
       "why": "Aunt question vs 100 enemies, clean escalation",
       "inspiredBy": "Thanksgiving",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -407,7 +407,7 @@
         "m/anime/anime-20261117-5/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:53:16.939Z",
