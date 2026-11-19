@@ -549,7 +549,7 @@
       "score": 7,
       "why": "House plant POV is fresh, crimson hat lands",
       "inspiredBy": "alabama football schedule",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -563,7 +563,7 @@
         "m/shitpost/shitpost-20261118-4/v1-07.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:57:01.195Z",
