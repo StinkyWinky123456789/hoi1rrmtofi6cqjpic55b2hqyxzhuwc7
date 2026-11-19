@@ -593,7 +593,7 @@
       "score": 6,
       "why": "Duck unaware of holiday, bread gag is fun",
       "inspiredBy": "Thanksgiving",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -601,7 +601,7 @@
         "m/shitpost/shitpost-20261118-5/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:57:01.578Z",
