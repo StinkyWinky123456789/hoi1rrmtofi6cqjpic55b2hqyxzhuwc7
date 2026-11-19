@@ -482,7 +482,7 @@
       "score": 6,
       "why": "Power-scaling roles are niche and recognizable, rock ending good",
       "inspiredBy": "power-scaling debates",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -496,7 +496,7 @@
         "m/anime/anime-20261118-2/v1-07.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:53:19.471Z",

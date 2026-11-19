@@ -504,7 +504,7 @@
       "score": 6,
       "why": "Knees agreement line is solid",
       "inspiredBy": "Thanksgiving",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -512,7 +512,7 @@
         "m/shitpost/shitpost-20261118-3/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:56:59.080Z",
