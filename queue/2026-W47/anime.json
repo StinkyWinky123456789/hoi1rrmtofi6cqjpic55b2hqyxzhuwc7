@@ -767,7 +767,7 @@
       "score": 5,
       "why": "Heater vs glacier is relatable but mild",
       "inspiredBy": "The Ramparts of Ice Season 2 episode 8",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -776,7 +776,7 @@
         "m/anime/anime-20261119-4/v1-cover.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:53:39.014Z",
