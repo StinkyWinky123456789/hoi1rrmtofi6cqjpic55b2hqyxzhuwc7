@@ -710,7 +710,7 @@
       "score": 6,
       "why": "Pie on lap speed bumps is vivid",
       "inspiredBy": "Thanksgiving",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -718,7 +718,7 @@
         "m/shitpost/shitpost-20261119-3/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:57:08.318Z",

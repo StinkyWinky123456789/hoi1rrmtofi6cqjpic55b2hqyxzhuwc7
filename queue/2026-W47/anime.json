@@ -689,7 +689,7 @@
       "score": 6,
       "why": "Talking sword explanation, specific Thanksgiving pain",
       "inspiredBy": "Thanksgiving + Reincarnated as a Sword Season 2",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -697,7 +697,7 @@
         "m/anime/anime-20261119-2/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:53:30.456Z",
