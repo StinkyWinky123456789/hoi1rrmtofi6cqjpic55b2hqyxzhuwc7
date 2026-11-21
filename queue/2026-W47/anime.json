@@ -889,7 +889,7 @@
       "score": 6,
       "why": "Isekai tropes specific; sword opinions and paragraph title land",
       "inspiredBy": "Reincarnated as a Sword / Laid-Off Mage",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -903,7 +903,7 @@
         "m/anime/anime-20261120-2/v1-07.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:53:46.097Z",
