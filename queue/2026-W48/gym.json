@@ -36,14 +36,23 @@
       "why": "Scoop-to-900lb delusion is specific, dancing dog fits",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261123-1/v1.mp4",
+        "m/gym/gym-20261123-1/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:18:28.585Z",
+      "renderError": null,
+      "renderNote": "archive clip: \"Experiments in the Revival of Organisms\" (1940), original sound; music: off (film sound); no FREESOUND_API_KEY",
+      "footageSource": "https://archive.org/details/Experime1940",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "gym-20261123-2",
@@ -73,14 +82,22 @@
       "why": "Cold brew to be allowed inside, very on-voice",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261123-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:18:28.927Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man drinking coffee in car dawn\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/man-guy-long-hair-suspender-4875665/",
+      "dupOf": null
     },
     {
       "id": "gym-20261123-3",
@@ -117,14 +134,22 @@
       "why": "Curls in squat rack is relatable, sharp",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261123-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:18:29.602Z",
+      "renderError": null,
+      "renderNote": "meme template \"Panik Kalm Panik\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/panik-kalm-panik/Squat_rack_is_finally_open/You're_loading_the_bar,_nobody's_near/Guy_walks_in._Starts_doing_curls_in_it.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "gym-20261123-4",
@@ -161,14 +186,28 @@
       "why": "Specific Thanksgiving gym types, relatable, slightly list-y",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261123-4/v1-01.jpg",
+        "m/gym/gym-20261123-4/v1-02.jpg",
+        "m/gym/gym-20261123-4/v1-03.jpg",
+        "m/gym/gym-20261123-4/v1-04.jpg",
+        "m/gym/gym-20261123-4/v1-05.jpg",
+        "m/gym/gym-20261123-4/v1-06.jpg",
+        "m/gym/gym-20261123-4/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:18:31.083Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"gym people lifting\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/family-parent-baby-father-mom-9050396/",
+      "dupOf": null
     },
     {
       "id": "gym-20261123-5",
@@ -198,14 +237,22 @@
       "why": "Pre-workout vs 2 PM desk contrast lands",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261123-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:18:31.269Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/4ea6a7c2-ac1c-4c2f-bb1b-71c3e7c23100/width=3840",
+      "dupOf": null
     },
     {
       "id": "gym-20261124-1",
@@ -238,14 +285,23 @@
       "why": "Phone-between-sets hypocrisy is specific, relatable, footage fits",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261124-1/v1.mp4",
+        "m/gym/gym-20261124-1/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:18:39.853Z",
+      "renderError": null,
+      "renderNote": "archive clip: \"Despotism\" (1946), original sound; music: off (film sound); no FREESOUND_API_KEY",
+      "footageSource": "https://archive.org/details/Despotis1946",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "gym-20261124-2",
@@ -275,14 +331,22 @@
       "why": "Form divorce, back lawyer escalation is strong",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261124-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:18:40.271Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man struggling bicep curl dumbbell\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/weight-dumbbell-strength-arm-force-8246973/",
+      "dupOf": null
     },
     {
       "id": "gym-20261124-3",
@@ -312,14 +376,22 @@
       "why": "Salt Bae chalk for 65 lbs, sharp",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261124-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:18:40.447Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/b2f28e61-9632-4ead-175a-ae02147a2500/width=3840",
+      "dupOf": null
     },
     {
       "id": "gym-20261124-4",
@@ -349,14 +421,22 @@
       "why": "3 PM coffee debuff, chest opinions, on-voice",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261124-4/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:18:40.909Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"iced coffee cup afternoon desk\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/workspace-coffee-laptop-macbook-1280538/",
+      "dupOf": null
     },
     {
       "id": "gym-20261124-5",
@@ -392,14 +472,22 @@
       "why": "Eyeballing scoop with trust issues is specific",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261124-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:18:41.879Z",
+      "renderError": null,
+      "renderNote": "meme template \"Drakeposting\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/drake/Measuring_the_scoop_carefully/Eyeballing_it_like_a_chef_with_trust_issues.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "gym-20261125-1",
@@ -432,14 +520,23 @@
       "why": "Pre-workout crash relatable; footage fits, familiar beat",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261125-1/v1.mp4",
+        "m/gym/gym-20261125-1/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:18:50.884Z",
+      "renderError": null,
+      "renderNote": "archive clip: \"Experiments in the Revival of Organisms\" (1940), original sound; music: off (film sound); no FREESOUND_API_KEY",
+      "footageSource": "https://archive.org/details/Experime1940",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "gym-20261125-2",
@@ -475,14 +572,22 @@
       "why": "Same hand, same minute adds nice specificity",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261125-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:18:51.507Z",
+      "renderError": null,
+      "renderNote": "meme template \"Why Not Both?\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/both/Pre--workout_or_cold_brew_before_the_gym~q/Both._Same_hand._Same_minute..png?width=1080",
+      "dupOf": null
     },
     {
       "id": "gym-20261125-3",
@@ -512,14 +617,22 @@
       "why": "Immaculate form while stuck at 205 is funny",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261125-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:18:51.620Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/cbd2fe4f-e1d4-4a10-432a-a860e1ba7200/width=3840",
+      "dupOf": null
     },
     {
       "id": "gym-20261125-4",
@@ -556,14 +669,28 @@
       "why": "Good niche details, tub joke lands, familiar format",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261125-4/v1-01.jpg",
+        "m/gym/gym-20261125-4/v1-02.jpg",
+        "m/gym/gym-20261125-4/v1-03.jpg",
+        "m/gym/gym-20261125-4/v1-04.jpg",
+        "m/gym/gym-20261125-4/v1-05.jpg",
+        "m/gym/gym-20261125-4/v1-06.jpg",
+        "m/gym/gym-20261125-4/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:18:53.572Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"shaker bottle gym\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/whey-supplement-vitamins-dumbbell-6759621/",
+      "dupOf": null
     },
     {
       "id": "gym-20261125-5",
@@ -593,14 +720,22 @@
       "why": "Gym app guilt, '47 days' specific, punchy",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261125-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:18:53.726Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/ac142ff2-ef5e-4492-f964-00a878c1fb00/width=3840",
+      "dupOf": null
     },
     {
       "id": "gym-20261126-1",
@@ -633,14 +768,23 @@
       "why": "Spotter moral support is relatable, footage matches nicely",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261126-1/v1.mp4",
+        "m/gym/gym-20261126-1/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:19:02.169Z",
+      "renderError": null,
+      "renderNote": "archive clip: \"Exercise and Health\" (1949), original sound; music: off (film sound); no FREESOUND_API_KEY",
+      "footageSource": "https://archive.org/details/Exercise1949",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "gym-20261126-2",
@@ -670,14 +814,22 @@
       "why": "Set-interrupting guy, 'Two.' has edge",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261126-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:19:02.282Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/c14cd4f9-e0b0-4633-3309-836b2757c400/width=3840",
+      "dupOf": null
     },
     {
       "id": "gym-20261126-3",
@@ -707,14 +859,22 @@
       "why": "Grip width debate is specific niche nerdery",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261126-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:19:02.429Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/cb920945-e31a-417e-bdea-5d758f15f600/width=3840",
+      "dupOf": null
     },
     {
       "id": "gym-20261126-4",
@@ -744,14 +904,22 @@
       "why": "Creatine chats penalty is niche and true",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261126-4/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:19:02.791Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"gym clock wall closeup\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/clock-time-alarm-clock-hours-650753/",
+      "dupOf": null
     },
     {
       "id": "gym-20261126-5",
@@ -789,14 +957,22 @@
       "why": "Raccoon in a dryer is vivid",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261126-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:19:03.536Z",
+      "renderError": null,
+      "renderNote": "meme template \"Gru's Plan\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/gru/Bed_by_9_for_5_AM_legs/Lights_out_at_11:40_after_one_video/Wake_up_at_5_feeling_rested/Wake_up_feeling_like_a_raccoon_in_a_dryer.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "gym-20261127-1",
@@ -829,14 +1005,23 @@
       "why": "Scoop chaos fits, but punchline is vague",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261127-1/v1.mp4",
+        "m/gym/gym-20261127-1/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:19:12.775Z",
+      "renderError": null,
+      "renderNote": "archive clip: \"About Bananas\" (1935), original sound; music: off (film sound); no FREESOUND_API_KEY",
+      "footageSource": "https://archive.org/details/AboutBan1935",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "gym-20261127-2",
@@ -873,14 +1058,22 @@
       "why": "Unflavored backup tub is specific, relatable",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261127-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:19:13.403Z",
+      "renderError": null,
+      "renderNote": "meme template \"Panik Kalm Panik\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/panik-kalm-panik/Pre--workout_tub_is_empty/Backup_tub_in_the_closet/It's_the_one_with_no_flavor.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "gym-20261127-3",
@@ -910,14 +1103,22 @@
       "why": "Re-racking plates as cardio is relatable",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261127-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:19:13.553Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"people lifting weights gym\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/physiotherapy-weight-training-595529/",
+      "dupOf": null
     },
     {
       "id": "gym-20261127-4",
@@ -954,14 +1155,28 @@
       "why": "Light caffeine behaviors, on-brand, jackhammer leg relatable",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261127-4/v1-01.jpg",
+        "m/gym/gym-20261127-4/v1-02.jpg",
+        "m/gym/gym-20261127-4/v1-03.jpg",
+        "m/gym/gym-20261127-4/v1-04.jpg",
+        "m/gym/gym-20261127-4/v1-05.jpg",
+        "m/gym/gym-20261127-4/v1-06.jpg",
+        "m/gym/gym-20261127-4/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:19:15.111Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"coffee gym\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/coffee-coffee-cup-cup-drink-beans-2714970/",
+      "dupOf": null
     },
     {
       "id": "gym-20261127-5",
@@ -991,14 +1206,22 @@
       "why": "Polite squat-rack suffering suits Harold",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261127-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:19:15.292Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/c21054c2-d24a-4e0e-65cf-a82523c30d00/width=3840",
+      "dupOf": null
     },
     {
       "id": "gym-20261128-1",
@@ -1031,14 +1254,23 @@
       "why": "Plate-carrying gym wanderer is specific, no footage",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261128-1/v1.mp4",
+        "m/gym/gym-20261128-1/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:19:29.154Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb148208 (1 of 20 for \"man carrying weight plate gym\"); music: none (add tracks to assets/audio); no FREESOUND_API_KEY",
+      "footageSource": "https://pixabay.com/videos/id-148208/",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "gym-20261128-2",
@@ -1068,14 +1300,22 @@
       "why": "Color-coded split abandoned Thursday is relatable",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261128-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:19:29.198Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"people lifting weights gym\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/physiotherapy-weight-training-595529/",
+      "dupOf": null
     },
     {
       "id": "gym-20261128-3",
@@ -1105,14 +1345,22 @@
       "why": "Grocery bag lifting discipline is fresh angle",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261128-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:19:29.638Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man carrying many grocery bags\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/man-person-people-together-two-3244702/",
+      "dupOf": null
     },
     {
       "id": "gym-20261128-4",
@@ -1142,14 +1390,22 @@
       "why": "Quick stretch turns into chest sets",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261128-4/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:19:30.022Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man stretching gym floor\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/kettlebell-stretching-fitness-2052765/",
+      "dupOf": null
     },
     {
       "id": "gym-20261128-5",
@@ -1183,14 +1439,22 @@
       "why": "Forgot legs, chest repeated, clean escalation",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261128-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:19:30.560Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man explaining whiteboard workout plan\"; photo 1 of 20 for \"man resting phone gym bench\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/startup-whiteboard-room-indoors-3267505/",
+      "dupOf": null
     },
     {
       "id": "gym-20261129-1",
@@ -1223,14 +1487,23 @@
       "why": "Shaker noise is relatable, roommate punchline mild",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261129-1/v1.mp4",
+        "m/gym/gym-20261129-1/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:19:46.234Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb213748 (1 of 20 for \"woman shaking protein shaker bottle kitchen\"); music: none (add tracks to assets/audio); no FREESOUND_API_KEY",
+      "footageSource": "https://pixabay.com/videos/id-213748/",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "gym-20261129-2",
@@ -1266,14 +1539,22 @@
       "why": "Clear and on-brand, but very familiar Drake",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261129-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:19:47.088Z",
+      "renderError": null,
+      "renderNote": "meme template \"Drakeposting\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/drake/Sipping_water_between_sets/Chugging_cold_brew_between_sets.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "gym-20261129-3",
@@ -1303,14 +1584,22 @@
       "why": "Stairs after leg day is common",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261129-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:19:47.133Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"people lifting weights gym\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/physiotherapy-weight-training-595529/",
+      "dupOf": null
     },
     {
       "id": "gym-20261129-4",
@@ -1347,14 +1636,28 @@
       "why": "Funny specifics: unmeasured doorframe, shorts 'saw things'",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261129-4/v1-01.jpg",
+        "m/gym/gym-20261129-4/v1-02.jpg",
+        "m/gym/gym-20261129-4/v1-03.jpg",
+        "m/gym/gym-20261129-4/v1-04.jpg",
+        "m/gym/gym-20261129-4/v1-05.jpg",
+        "m/gym/gym-20261129-4/v1-06.jpg",
+        "m/gym/gym-20261129-4/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:19:48.412Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"home gym equipment\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/physiotherapy-weight-training-595529/",
+      "dupOf": null
     },
     {
       "id": "gym-20261129-5",
@@ -1392,14 +1695,22 @@
       "why": "Escalation works, but warm-up joke is common",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261129-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:19:49.330Z",
+      "renderError": null,
+      "renderNote": "meme template \"Galaxy Brain\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/gb/Warming_up/Warming_up_with_arm_circles/Warming_up_by_reading_about_warm--ups/Warming_up_for_40_minutes,_then_going_home.png?width=1080",
+      "dupOf": null
     }
   ]
 }

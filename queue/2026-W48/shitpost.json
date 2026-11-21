@@ -33,14 +33,22 @@
       "why": "Spatula in 2021 is fresh, specific, DM-able",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261123-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:21:14.363Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"cat staring at laptop screen night\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/cats-eyes-cat-black-looking-gaze-2944820/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261123-2",
@@ -73,14 +81,23 @@
       "why": "Goat knows casserole debts, specific and absurd",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261123-2/v1.mp4",
+        "m/shitpost/shitpost-20261123-2/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:21:25.660Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb189018 (1 of 20 for \"goat staring at camera close up\"); music: none (add tracks to assets/audio); no FREESOUND_API_KEY",
+      "footageSource": "https://pixabay.com/videos/id-189018/",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "shitpost-20261123-3",
@@ -110,14 +127,22 @@
       "why": "Detective pigeon stuffing mix, perfectly absurd",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261123-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:21:25.793Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/9361f304-451c-4727-c300-5fe906411200/width=3840",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261123-4",
@@ -154,14 +179,28 @@
       "why": "Raccoon retirement over dinner roll, escalates well",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261123-4/v1-01.jpg",
+        "m/shitpost/shitpost-20261123-4/v1-02.jpg",
+        "m/shitpost/shitpost-20261123-4/v1-03.jpg",
+        "m/shitpost/shitpost-20261123-4/v1-04.jpg",
+        "m/shitpost/shitpost-20261123-4/v1-05.jpg",
+        "m/shitpost/shitpost-20261123-4/v1-06.jpg",
+        "m/shitpost/shitpost-20261123-4/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:21:27.562Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"raccoon trash night\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/disposal-dump-garbage-junk-1846033/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261123-5",
@@ -191,14 +230,22 @@
       "why": "Polar bear chainsaw fits electric knife uncle",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261123-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:21:27.742Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/c77fcf63-2492-41bc-bf58-aa6c7841ec00/width=3840",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261124-1",
@@ -228,14 +275,22 @@
       "why": "Waffle maker person is sharp and specific",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261124-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:21:27.822Z",
+      "renderError": null,
+      "renderNote": "archive still: \"Have I Told You Lately That I Love You?\" (1958)",
+      "footageSource": null,
+      "visualSource": "https://archive.org/details/HaveITol1958",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261124-2",
@@ -268,14 +323,23 @@
       "why": "2014 city bathtub brain, strong match",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261124-2/v1.mp4",
+        "m/shitpost/shitpost-20261124-2/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:21:36.785Z",
+      "renderError": null,
+      "renderNote": "archive clip: \"Breath-Takers, 2\", original sound; music: off (film sound); no FREESOUND_API_KEY",
+      "footageSource": "https://archive.org/details/breath_takers_2",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "shitpost-20261124-3",
@@ -305,14 +369,22 @@
       "why": "Bathroom return line is absurd and clever",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261124-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:21:37.223Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"empty shopping mall hallway night\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/mall-shopping-empty-shopping-mall-971890/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261124-4",
@@ -342,14 +414,22 @@
       "why": "Cart line is absurd and specific",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261124-4/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:21:37.394Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/9ab8695d-a27f-44c0-9e99-243f50c04b00/width=3840",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261124-5",
@@ -379,14 +459,22 @@
       "why": "Fight over toaster in nice font, sharp",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261124-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:21:37.847Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"crowd shoppers store doors morning\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/mall-shop-establishment-mountain-2595002/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261125-1",
@@ -423,14 +511,22 @@
       "why": "Foot spa is specific and funny",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261125-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:21:40.626Z",
+      "renderError": null,
+      "renderNote": "meme template \"Distracted Boyfriend\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/db/My_original_shopping_list/Me,_Black_Friday/A_70~p_off_foot_spa.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261125-2",
@@ -463,14 +559,23 @@
       "why": "Crescent moon pie math escalates well",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261125-2/v1.mp4",
+        "m/shitpost/shitpost-20261125-2/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:21:48.970Z",
+      "renderError": null,
+      "renderNote": "archive clip: \"Eat for Health\" (1954), original sound; music: off (film sound); no FREESOUND_API_KEY",
+      "footageSource": "https://archive.org/details/EatforHe1954",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "shitpost-20261125-3",
@@ -500,14 +605,22 @@
       "why": "Graveyard with free shipping is clever",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261125-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:21:49.360Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"laptop shopping cart late night\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/e-commerce-online-commerce-3692440/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261125-4",
@@ -544,14 +657,28 @@
       "why": "Goat list unhinged, jacket ending great",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261125-4/v1-01.jpg",
+        "m/shitpost/shitpost-20261125-4/v1-02.jpg",
+        "m/shitpost/shitpost-20261125-4/v1-03.jpg",
+        "m/shitpost/shitpost-20261125-4/v1-04.jpg",
+        "m/shitpost/shitpost-20261125-4/v1-05.jpg",
+        "m/shitpost/shitpost-20261125-4/v1-06.jpg",
+        "m/shitpost/shitpost-20261125-4/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:21:51.235Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"goats farm\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/billy-goat-goat-goatee-animal-459232/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261125-5",
@@ -587,14 +714,22 @@
       "why": "Cold-buffet theme has good absurd denial",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261125-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:21:51.899Z",
+      "renderError": null,
+      "renderNote": "meme template \"This is Fine\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/fine/Guests_arrive_in_40_minutes._Turkey_is_still_frozen./it's_a_cold--buffet_theme_this_year.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261126-1",
@@ -624,14 +759,22 @@
       "why": "Popeye closed store pairing is sad-funny",
       "inspiredBy": "store closures",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261126-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:21:52.032Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/443f7737-0388-4b84-329d-2908c92f3900/width=3840",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261126-2",
@@ -664,14 +807,23 @@
       "why": "Rent is four crumbs, charming absurd",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261126-2/v1.mp4",
+        "m/shitpost/shitpost-20261126-2/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:22:05.691Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb168811 (1 of 20 for \"pigeon walking city sidewalk\"); music: none (add tracks to assets/audio); no FREESOUND_API_KEY",
+      "footageSource": "https://pixabay.com/videos/id-168811/",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "shitpost-20261126-3",
@@ -701,14 +853,22 @@
       "why": "Turtle peeking suits group chat dread",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261126-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:22:05.725Z",
+      "renderError": null,
+      "renderNote": "archive still: \"Duck and Cover\" (1951)",
+      "footageSource": null,
+      "visualSource": "https://archive.org/details/DuckandC1951",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261126-4",
@@ -738,14 +898,22 @@
       "why": "Recurring weather casserole, solid observation",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261126-4/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:22:06.161Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"lone casserole dish on table\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/lasagna-cheese-tomatoes-noodles-1900529/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261126-5",
@@ -775,14 +943,22 @@
       "why": "'The set' is niche, relatable",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261126-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:22:06.575Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"overflowing shopping cart in store aisle\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/shopping-carts-grocery-shopping-1275480/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261127-1",
@@ -816,14 +992,22 @@
       "why": "Taco pillow contrast is funny",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261127-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:22:07.223Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"determined shopper outside store early morning\"; photo 1 of 20 for \"man hugging taco pillow in store\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/tree-dawn-morning-sun-sunrise-3189339/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261127-2",
@@ -856,14 +1040,23 @@
       "why": "Needed but never asked, deadpan absurd",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261127-2/v1.mp4",
+        "m/shitpost/shitpost-20261127-2/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:22:19.721Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb21116 (1 of 20 for \"traffic cone empty parking lot night\"); music: none (add tracks to assets/audio); no FREESOUND_API_KEY",
+      "footageSource": "https://pixabay.com/videos/id-21116/",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "shitpost-20261127-3",
@@ -901,14 +1094,22 @@
       "why": "Cart as small apartment escalates nicely",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261127-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:22:20.382Z",
+      "renderError": null,
+      "renderNote": "meme template \"Gru's Plan\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/gru/Open_laptop_for_one_cheap_charger/Add_charger_to_cart/Add_'frequently_bought_together'_items/Cart_is_now_a_small_apartment.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261127-4",
@@ -945,14 +1146,28 @@
       "why": "Goldfish legally a witness, parrot closer",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261127-4/v1-01.jpg",
+        "m/shitpost/shitpost-20261127-4/v1-02.jpg",
+        "m/shitpost/shitpost-20261127-4/v1-03.jpg",
+        "m/shitpost/shitpost-20261127-4/v1-04.jpg",
+        "m/shitpost/shitpost-20261127-4/v1-05.jpg",
+        "m/shitpost/shitpost-20261127-4/v1-06.jpg",
+        "m/shitpost/shitpost-20261127-4/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:22:21.832Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"cat staring table\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/cat-eyes-feline-tabby-peek-boo-14220/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261127-5",
@@ -982,14 +1197,22 @@
       "why": "Cart chaos image fits, air fryer specific",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261127-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:22:22.231Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"funny animal staring camera\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/photographer-frog-photo-shoot-fun-1080016/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261128-1",
@@ -1019,14 +1242,22 @@
       "why": "Turtle shell fits host procrastination",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261128-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:22:22.326Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"funny animal staring camera\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/photographer-frog-photo-shoot-fun-1080016/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261128-2",
@@ -1059,14 +1290,23 @@
       "why": "Two waffle makers, turtle fits",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261128-2/v1.mp4",
+        "m/shitpost/shitpost-20261128-2/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:22:32.854Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb303794 (1 of 20 for \"city night timelapse\"); music: none (add tracks to assets/audio); no FREESOUND_API_KEY",
+      "footageSource": "https://pixabay.com/videos/id-303794/",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "shitpost-20261128-3",
@@ -1096,14 +1336,22 @@
       "why": "Polar bear chainsaw, decent absurd image",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261128-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:22:32.914Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"funny animal staring camera\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/photographer-frog-photo-shoot-fun-1080016/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261128-4",
@@ -1133,14 +1381,22 @@
       "why": "Even the sample lady is good",
       "inspiredBy": "warehouse store holiday closures",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261128-4/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:22:33.017Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"funny animal staring camera\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/photographer-frog-photo-shoot-fun-1080016/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261128-5",
@@ -1170,14 +1426,22 @@
       "why": "Receipt in other pants is relatable",
       "inspiredBy": "Black Friday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261128-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:22:33.283Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"long line customer service counter\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/receptionists-phone-call-hotel-5975962/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261129-1",
@@ -1207,14 +1471,22 @@
       "why": "Tidy sliver and cat observing works",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261129-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:22:33.466Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/1fd4c4b6-d156-409e-d8f9-f73c175a2800/width=3840",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261129-2",
@@ -1247,14 +1519,23 @@
       "why": "Fitted sheet war is relatable, matching clip",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261129-2/v1.mp4",
+        "m/shitpost/shitpost-20261129-2/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:22:42.058Z",
+      "renderError": null,
+      "renderNote": "archive clip: \"Exercise and Health\" (1949), original sound; music: off (film sound); no FREESOUND_API_KEY",
+      "footageSource": "https://archive.org/details/Exercise1949",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "shitpost-20261129-3",
@@ -1288,14 +1569,22 @@
       "why": "Kayak and no lake is crisp",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261129-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:22:42.702Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"person calmly typing laptop coffee\"; photo 1 of 20 for \"man surrounded by cardboard boxes\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/student-typing-keyboard-text-849825/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261129-4",
@@ -1332,14 +1621,28 @@
       "why": "Lemon for vibes, foil ends world, strong",
       "inspiredBy": "costco thanksgiving holiday store closures",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261129-4/v1-01.jpg",
+        "m/shitpost/shitpost-20261129-4/v1-02.jpg",
+        "m/shitpost/shitpost-20261129-4/v1-03.jpg",
+        "m/shitpost/shitpost-20261129-4/v1-04.jpg",
+        "m/shitpost/shitpost-20261129-4/v1-05.jpg",
+        "m/shitpost/shitpost-20261129-4/v1-06.jpg",
+        "m/shitpost/shitpost-20261129-4/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:22:44.553Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"empty parking lot night\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/brick-wall-empty-lighted-night-1834446/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261129-5",
@@ -1377,14 +1680,22 @@
       "why": "Relatable, but gru ice joke is mild",
       "inspiredBy": "Thanksgiving",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261129-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-21T16:22:45.234Z",
+      "renderError": null,
+      "renderNote": "meme template \"Gru's Plan\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/gru/Volunteer_to_bring_ice/Arrive_with_one_bag_of_ice/Six_cousins_also_brought_ice/Six_cousins_also_brought_ice.png?width=1080",
+      "dupOf": null
     }
   ]
 }
