@@ -118,7 +118,7 @@ const store = { get(k, d) { try { return localStorage.getItem(k) ?? d; } catch {
 let CFG = null;
 const API = store.get("mq-api", "https://api.github.com"); // overridable for testing
 const LIB = "library/clips.json";
-const S = { lib: { sha: null, doc: { clips: [] } }, repo: store.get("mq-repo", ""), token: store.get("mq-token", ""), page: store.get("mq-page", "all"), filter: "review", files: {}, posts: [], pending: [], focus: 0, saving: false };
+const S = { lib: { sha: null, doc: { clips: [] } }, pool: {}, libView: "clips", repo: store.get("mq-repo", ""), token: store.get("mq-token", ""), page: store.get("mq-page", "all"), filter: "review", files: {}, posts: [], pending: [], focus: 0, saving: false };
 
 // Guess owner/repo from a GitHub Pages URL: https://owner.github.io/repo/
 if (!S.repo && /\.github\.io$/.test(location.hostname)) S.repo = location.hostname.split(".")[0] + "/" + location.pathname.split("/")[1];
@@ -134,7 +134,11 @@ async function gh(method, path, body) {
 }
 const b64dec = (b) => new TextDecoder().decode(Uint8Array.from(atob(b.replace(/\n/g, "")), (c) => c.charCodeAt(0)));
 function b64enc(bytes) { let s = ""; for (let i = 0; i < bytes.length; i += 0x8000) s += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000)); return btoa(s); }
-async function getFile(path) { const j = await gh("GET", `contents/${path}?ref=main&t=${Date.now()}`); return { sha: j.sha, doc: JSON.parse(b64dec(j.content)) }; }
+async function getFile(path) {
+  const j = await gh("GET", `contents/${path}?ref=main&t=${Date.now()}`);
+  if (j.encoding === "none" || (!j.content && j.size > 0)) { const b = await gh("GET", `git/blobs/${j.sha}`); return { sha: j.sha, doc: JSON.parse(b64dec(b.content)) }; } // files over 1 MB
+  return { sha: j.sha, doc: JSON.parse(b64dec(j.content)) };
+}
 
 /* ---------- Load ---------- */
 function weekId(d) { const t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate())); const day = t.getUTCDay() || 7; t.setUTCDate(t.getUTCDate() + 4 - day); const y0 = new Date(Date.UTC(t.getUTCFullYear(), 0, 1)); return `${t.getUTCFullYear()}-W${String(Math.ceil(((t - y0) / 864e5 + 1) / 7)).padStart(2, "0")}`; }
@@ -152,6 +156,11 @@ async function load() {
       await Promise.all(files.filter((f) => f.name.endsWith(".json")).map(async (f) => { S.files[`queue/${w}/${f.name}`] = await getFile(`queue/${w}/${f.name}`); }));
     }
     try { S.lib = await getFile(LIB); } catch (e) { if (e.status !== 404) throw e; S.lib = { sha: null, doc: { clips: [] } }; }
+    try {
+      const ls = await gh("GET", `contents/library/pool?ref=main&t=${Date.now()}`);
+      const shards = await Promise.all(ls.filter((f) => f.name.endsWith(".json")).map(async (f) => [f.path, await getFile(f.path)]));
+      S.pool = Object.fromEntries(shards);
+    } catch (e) { if (e.status !== 404) throw e; S.pool = {}; }
     rebuild(); status(S.pending.length ? `${S.pending.length} unsaved` : "Up to date");
   } catch (e) { status("Couldn't load: " + e.message, true); if (e.status === 401 || e.status === 404) $("settings").classList.add("show"); }
 }
@@ -178,10 +187,11 @@ async function save() {
     for (const [path, list] of Object.entries(byPath)) {
       for (let attempt = 1; ; attempt++) {
         const latest = await getFile(path);
-        if (path === LIB) {
-          for (const c of list) { const x = latest.doc.clips.find((y) => y.id === c.id); if (x) Object.assign(x, c.patch); }
+        if (path === LIB || path.startsWith("library/pool/")) {
+          const arr = path === LIB ? latest.doc.clips : latest.doc.items;
+          for (const c of list) { const x = arr.find((y) => y.id === c.id); if (x) Object.assign(x, c.patch); }
           const bytes = new TextEncoder().encode(JSON.stringify(latest.doc, null, 2) + "\n");
-          try { const r = await gh("PUT", `contents/${path}`, { message: `Library: ${list.length} change(s)`, content: b64enc(bytes), sha: latest.sha, branch: "main" }); S.lib = { sha: r.content.sha, doc: latest.doc }; break; }
+          try { const r = await gh("PUT", `contents/${path}`, { message: `Library: ${list.length} change(s)`, content: b64enc(bytes), sha: latest.sha, branch: "main" }); if (path === LIB) S.lib = { sha: r.content.sha, doc: latest.doc }; else S.pool[path] = { sha: r.content.sha, doc: latest.doc }; break; }
           catch (e) { if (e.status !== 409 && e.status !== 422 || attempt >= 5) throw e; continue; }
         }
         for (const c of list) {
@@ -238,21 +248,37 @@ function renderTabs() {
     $("filters").appendChild(b);
   });
   const lb = document.createElement("button"); lb.className = "chip" + (S.filter === "library" ? " on" : ""); lb.id = "libChip";
-  lb.innerHTML = `<span>Clip library</span><span class="n">${libClips().length}</span>`;
+  lb.innerHTML = `<span>Library</span><span class="n">${libClips().length + poolItems().length}</span>`;
   lb.onclick = () => { S.filter = "library"; render(); };
   $("filters").appendChild(lb);
 }
 /* ---------- Clip library (vintage public-domain clips from the Internet Archive) ---------- */
 function libClips(page) { const pg = page || S.page; return (S.lib.doc.clips || []).filter((c) => pg === "all" || (c.pages || []).includes(pg)); }
 function usableClips(page) { return libClips(page).filter((c) => c.status !== "banned").sort((a, b) => (b.status === "starred") - (a.status === "starred") || (a.uses || 0) - (b.uses || 0) || (b.fit || 0) - (a.fit || 0)); }
-function libChange(clip, patch) {
+function poolItems(page) { const pg = page || S.page; return Object.values(S.pool).flatMap((s) => s.doc.items).filter((x) => pg === "all" || (x.pages || []).includes(pg)); }
+function poolPath(x) { return `library/pool/${x.source}.json`; }
+function poolUrl(rel) { return `https://raw.githubusercontent.com/${S.repo}/pool/${rel.split("/").map(encodeURIComponent).join("/")}`; }
+function usablePool(page, excludeId) {
+  const day = 864e5, now = Date.now();
+  return poolItems(page).filter((x) => x.id !== excludeId && x.status !== "banned" && (x.person !== "private" || x.status === "starred")
+    && !(x.uses && x.uses[page]) && !Object.values(x.uses || {}).some((d) => now - Date.parse(d) < 21 * day))
+    .sort((a, b) => (b.status === "starred") - (a.status === "starred") || (b.fit || 0) - (a.fit || 0));
+}
+function libChange(clip, patch, path) {
   Object.assign(clip, patch);
-  S.pending.push({ path: LIB, id: clip.id, patch });
+  S.pending.push({ path: path || LIB, id: clip.id, patch });
   status(`${S.pending.length} unsaved…`); clearTimeout(change.t); change.t = setTimeout(save, 1500);
   render();
 }
 function renderLibrary() {
   const list = $("list"); list.innerHTML = "";
+  const sw = document.createElement("div"); sw.className = "actions";
+  [["clips", `Archive clips (${libClips().length})`], ["images", `Images (${poolItems().length})`]].forEach(([k, t]) => {
+    const b = document.createElement("button"); b.className = "btn sm" + (S.libView === k ? " ok" : ""); b.textContent = t; b.id = `lib-${k}`;
+    b.onclick = () => { S.libView = k; render(); }; sw.appendChild(b);
+  });
+  list.appendChild(sw);
+  if (S.libView === "images") return renderPool(list);
   const clips = libClips().slice().sort((a, b) => (b.status === "starred") - (a.status === "starred") || (a.status === "banned") - (b.status === "banned") || Date.parse(b.addedAt) - Date.parse(a.addedAt));
   $("empty").classList.toggle("hide", clips.length > 0);
   $("empty").textContent = "No clips yet. They're harvested from the Internet Archive when Generate runs (or run Actions → Harvest archive clips).";
@@ -276,6 +302,31 @@ function renderLibrary() {
     body.append(d, idea, meta, acts); el.append(v, body); grid.appendChild(el);
   }
   list.append(intro, grid);
+}
+function renderPool(list) {
+  const items = poolItems().slice().sort((a, b) => (b.status === "starred") - (a.status === "starred") || (a.status === "banned") - (b.status === "banned") || (b.fit || 0) - (a.fit || 0));
+  $("empty").classList.toggle("hide", items.length > 0);
+  $("empty").textContent = "No images yet. Run Actions → Scrape image sources (sources are listed under \"sources\" in config/pages.json).";
+  const intro = document.createElement("div"); intro.className = "help";
+  intro.textContent = "Templates, reaction pics, cursed images and art scraped from your sources and screened by Claude. Each is used at most once per page and not on two pages within 3 weeks. ★ Star favorites; Ban removes the image and it is never scraped again. Images of ordinary (non-famous) people are held back unless you star them.";
+  const grid = document.createElement("div"); grid.className = "libgrid";
+  const shown = items.slice(0, S.poolShow || 120);
+  for (const x of shown) {
+    const el = document.createElement("div"); el.className = `clip ${x.status}`;
+    const img = new Image(); img.loading = "lazy"; img.src = poolUrl(x.thumb); img.style.cssText = "width:100%;aspect-ratio:1;object-fit:contain;background:#000;display:block";
+    const body = document.createElement("div"); body.className = "body";
+    const d = document.createElement("div"); d.textContent = x.desc;
+    const meta = document.createElement("div"); meta.className = "src";
+    const used = Object.keys(x.uses || {});
+    meta.textContent = `${x.kind} · fit ${Number(x.fit || 0).toFixed(0)}/10 · ${used.length ? "used on " + used.join(", ") : "unused"}${x.person === "private" ? " · ordinary person (held back unless starred)" : ""}`;
+    const acts = document.createElement("div"); acts.className = "actions";
+    const b = (txt, cls, fn) => { const y = document.createElement("button"); y.className = "btn sm " + cls; y.textContent = txt; y.onclick = fn; acts.appendChild(y); };
+    if (x.status === "starred") b("Unstar", "", () => libChange(x, { status: "new" }, poolPath(x))); else if (x.status !== "banned") b("★ Star", "ok", () => libChange(x, { status: "starred" }, poolPath(x)));
+    if (x.status === "banned") b("Unban", "", () => libChange(x, { status: "new" }, poolPath(x))); else b("Ban", "no", () => libChange(x, { status: "banned" }, poolPath(x)));
+    body.append(d, meta, acts); el.append(img, body); grid.appendChild(el);
+  }
+  list.append(intro, grid);
+  if (items.length > shown.length) { const more = document.createElement("button"); more.className = "btn"; more.textContent = `Show more (${items.length - shown.length} left)`; more.onclick = () => { S.poolShow = (S.poolShow || 120) + 120; render(); }; list.appendChild(more); }
 }
 function when(p) { return new Date(p.scheduledAt).toLocaleString(undefined, { weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }); }
 function previewCanvas(page, p, kind, slide) {
@@ -339,6 +390,7 @@ function cardEl(item, idx) {
   right.querySelector("b").textContent = page.name; right.querySelectorAll(".meta span")[1].textContent = when(p);
   right.querySelector(".text").textContent = [p.a, ...(p.ml || []), p.b, ...(p.s || [])].filter(Boolean).join(" / ");
   right.querySelector(".why").textContent = [p.why && `Editor: ${p.why}`, p.inspiredBy && p.inspiredBy !== "evergreen" && `Inspired by: ${p.inspiredBy}`].filter(Boolean).join(" · ");
+  if (p.dupOf) { const w = document.createElement("div"); w.className = "badge warn"; w.style.position = "static"; w.textContent = `⚠ Looks almost identical to ${p.dupOf} (same picture). Swap the image or reject it.`; right.prepend(w); }
   right.querySelector(".note").textContent = p.format === "reel" ? [p.renderNote, p.footageSource && `source ${p.footageSource}`].filter(Boolean).join(" · ")
     : p.visual ? [p.renderNote, p.visualSource && `source ${p.visualSource}`].filter(Boolean).join(" · ") : "";
   if (p.renderError || p.lastError) { const e = document.createElement("div"); e.className = "err"; e.textContent = p.renderError || p.lastError; right.appendChild(e); }
@@ -358,7 +410,11 @@ function cardEl(item, idx) {
     if (p.status !== "rejected") btn("Reject", "no", () => change(item, { status: "rejected" })); else btn("Restore", "", () => change(item, { status: "pending" }));
     btn("Edit text", "", () => card.classList.toggle("editing"));
     if (p.still) btn("Stock photo instead", "", () => rerender(item, { still: null }));
-    if (["image", "carousel"].includes(p.format) && p.template !== "meme") btn(p.format === "carousel" ? "Swap photos" : "Swap image", "", () => rerender(item, { imageIndex: (p.imageIndex || 0) + 1, still: null }));
+    if (p.pool) {
+      btn("Another pool image", "", () => { const nx = usablePool(p.page, p.pool)[0]; if (nx) rerender(item, { pool: nx.id, clipDesc: nx.desc }); else alert("No other unused pool images for this page."); });
+      btn("Stock photo instead", "", () => rerender(item, { pool: null }));
+    }
+    if (["image", "carousel"].includes(p.format) && p.template !== "meme") btn(p.format === "carousel" ? "Swap photos" : "Swap image", "", () => rerender(item, { imageIndex: (p.imageIndex || 0) + 1, still: null, pool: null }));
     if (p.format === "reel") {
       const pool = usableClips(p.page);
       if (p.clip) {
@@ -456,6 +512,7 @@ $("bulk").onclick = () => {
 };
 function applyLocal(c) {
   if (c.path === LIB) { const x = S.lib.doc.clips.find((y) => y.id === c.id); if (x) Object.assign(x, c.patch); return; }
+  if (c.path.startsWith("library/pool/")) { const sh = S.pool[c.path]; const x = sh && sh.doc.items.find((y) => y.id === c.id); if (x) Object.assign(x, c.patch); return; }
   const f = S.files[c.path]; if (!f) return;
   if (c.patch.__delete) { f.doc.posts = f.doc.posts.filter((x) => x.id !== c.id || x.status === "posted"); S.posts = S.posts.filter((x) => !(x.p.id === c.id && x.p.status !== "posted")); return; }
   const it = S.posts.find((x) => x.p.id === c.id); if (it) Object.assign(it.p, c.patch);
