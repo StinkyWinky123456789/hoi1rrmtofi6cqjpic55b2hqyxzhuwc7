@@ -865,7 +865,7 @@
       "score": 6,
       "why": "Since-2019 punchline lands, leg day is overdone",
       "inspiredBy": "evergreen",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -873,7 +873,7 @@
         "m/gym/gym-20261120-2/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:55:01.436Z",
