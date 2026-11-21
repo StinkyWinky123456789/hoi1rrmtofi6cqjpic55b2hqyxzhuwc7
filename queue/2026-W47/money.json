@@ -869,7 +869,7 @@
       "score": 6,
       "why": "Relatable family archetypes, 'won't show the app' lands",
       "inspiredBy": "Thanksgiving",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -883,7 +883,7 @@
         "m/money/money-20261120-2/v1-07.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:56:06.210Z",
