@@ -957,7 +957,7 @@
       "score": 6,
       "why": "Relatable, 'earn it back on savings' bites",
       "inspiredBy": "Black Friday",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -966,7 +966,7 @@
         "m/money/money-20261120-4/v1-cover.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:56:12.923Z",
