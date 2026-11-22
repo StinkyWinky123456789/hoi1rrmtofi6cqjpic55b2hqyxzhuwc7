@@ -1110,7 +1110,7 @@
       "score": 5,
       "why": "Familiar overreaction format, decent $14 detail",
       "inspiredBy": "S&P 500 down 0.4%",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -1118,7 +1118,7 @@
         "m/money/money-20261121-3/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:56:14.187Z",
