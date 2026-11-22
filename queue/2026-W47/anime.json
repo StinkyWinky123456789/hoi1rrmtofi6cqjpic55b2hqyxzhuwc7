@@ -1166,7 +1166,7 @@
       "score": 5,
       "why": "Manhwa-specific but battery joke is common",
       "inspiredBy": "reading manhwa at 3 AM",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -1175,7 +1175,7 @@
         "m/anime/anime-20261121-4/v1-cover.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:54:00.709Z",
