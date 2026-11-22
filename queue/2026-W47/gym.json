@@ -1155,7 +1155,7 @@
       "score": 6,
       "why": "Podcast about birds is a fresh turn",
       "inspiredBy": "evergreen",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -1163,7 +1163,7 @@
         "m/gym/gym-20261121-4/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:55:12.782Z",
