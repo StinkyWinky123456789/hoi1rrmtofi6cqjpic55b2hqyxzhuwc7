@@ -1074,7 +1074,7 @@
       "score": 6,
       "why": "Dramatic pigeon roll moment, clear and funny",
       "inspiredBy": "evergreen",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -1083,7 +1083,7 @@
         "m/shitpost/shitpost-20261121-2/v1-cover.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:57:27.416Z",

@@ -1050,7 +1050,7 @@
       "score": 5,
       "why": "Wiki-rabbit-hole joke, niche but loose punchline",
       "inspiredBy": "Witch on the Holy Night episode 1",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -1058,7 +1058,7 @@
         "m/anime/anime-20261121-1/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:53:54.029Z",
