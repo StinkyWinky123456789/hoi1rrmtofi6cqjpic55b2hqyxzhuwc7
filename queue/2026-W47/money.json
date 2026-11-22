@@ -1034,7 +1034,7 @@
       "score": 6,
       "why": "Cash: $14 undercuts nicely",
       "inspiredBy": "market dip",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -1042,7 +1042,7 @@
         "m/money/money-20261121-1/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:56:13.445Z",
