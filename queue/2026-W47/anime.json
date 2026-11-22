@@ -1205,7 +1205,7 @@
       "score": 5,
       "why": "Preview-teaser gripe is relatable but generic",
       "inspiredBy": "weekly episodes",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -1213,7 +1213,7 @@
         "m/anime/anime-20261121-5/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:54:01.157Z",
