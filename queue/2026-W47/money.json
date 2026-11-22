@@ -1189,7 +1189,7 @@
       "score": 5,
       "why": "'I'll bring ice' is decent but familiar",
       "inspiredBy": "Thanksgiving",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -1197,7 +1197,7 @@
         "m/money/money-20261121-5/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:56:20.999Z",
