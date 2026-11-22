@@ -1126,7 +1126,7 @@
       "score": 5,
       "why": "Cute but generic smiling-at-phone relatable",
       "inspiredBy": "The Cold Sato-san is Only Sweet to Me",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -1134,7 +1134,7 @@
         "m/anime/anime-20261121-3/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:53:54.601Z",
