@@ -1336,7 +1336,7 @@
       "score": 5,
       "why": "Race comparison is clever but stretched",
       "inspiredBy": "STEEL BALL RUN ep 9",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -1344,7 +1344,7 @@
         "m/anime/anime-20261122-3/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:54:04.322Z",
