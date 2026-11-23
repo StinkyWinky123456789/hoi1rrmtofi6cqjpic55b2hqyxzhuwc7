@@ -1233,7 +1233,7 @@
       "score": 5,
       "why": "Familiar Black Friday comparison, adjustable bench is specific",
       "inspiredBy": "Black Friday",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -1242,7 +1242,7 @@
         "m/gym/gym-20261122-1/v1-cover.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-11T03:55:20.965Z",
