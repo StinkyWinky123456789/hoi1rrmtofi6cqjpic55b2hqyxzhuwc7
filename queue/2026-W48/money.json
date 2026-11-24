@@ -92,7 +92,7 @@
       "score": 8,
       "why": "Time-stamped parlay arc, escalating and specific",
       "inspiredBy": "evergreen",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -106,7 +106,7 @@
         "m/money/money-20261123-2/v1-07.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-21T16:19:51.556Z",
