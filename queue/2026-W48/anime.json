@@ -198,7 +198,7 @@
       "score": 8,
       "why": "Named side character means death, sharp",
       "inspiredBy": "Nia Liston: The Merciless Maiden",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -207,7 +207,7 @@
         "m/anime/anime-20261123-4/v1-cover.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-21T16:17:06.274Z",

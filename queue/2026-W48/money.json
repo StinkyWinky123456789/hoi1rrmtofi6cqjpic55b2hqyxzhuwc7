@@ -244,7 +244,7 @@
       "score": 7,
       "why": "Five funds holding hands is sharp",
       "inspiredBy": "Nasdaq -5.3%",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -252,7 +252,7 @@
         "m/money/money-20261123-5/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-21T16:20:00.612Z",
