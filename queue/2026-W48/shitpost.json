@@ -126,7 +126,7 @@
       "score": 8,
       "why": "Detective pigeon stuffing mix, perfectly absurd",
       "inspiredBy": "Black Friday",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -134,7 +134,7 @@
         "m/shitpost/shitpost-20261123-3/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-21T16:21:25.793Z",

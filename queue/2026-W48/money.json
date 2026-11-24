@@ -150,7 +150,7 @@
       "score": 7,
       "why": "Uncle Rick barbecue tip, instantly shareable",
       "inspiredBy": "Thanksgiving",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -158,7 +158,7 @@
         "m/money/money-20261123-3/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-21T16:19:52.021Z",

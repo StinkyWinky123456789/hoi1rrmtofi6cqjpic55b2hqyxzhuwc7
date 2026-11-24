@@ -91,7 +91,7 @@
       "score": 7,
       "why": "The '14:22' friend is gold",
       "inspiredBy": "weekly episodes",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -105,7 +105,7 @@
         "m/anime/anime-20261123-2/v1-07.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-21T16:16:57.165Z",
