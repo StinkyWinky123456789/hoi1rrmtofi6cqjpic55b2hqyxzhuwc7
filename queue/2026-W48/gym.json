@@ -185,7 +185,7 @@
       "score": 6,
       "why": "Specific Thanksgiving gym types, relatable, slightly list-y",
       "inspiredBy": "Thanksgiving",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -199,7 +199,7 @@
         "m/gym/gym-20261123-4/v1-07.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-21T16:18:31.083Z",
