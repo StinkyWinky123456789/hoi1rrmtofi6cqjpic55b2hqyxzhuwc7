@@ -32,7 +32,7 @@
       "score": 8,
       "why": "Spatula in 2021 is fresh, specific, DM-able",
       "inspiredBy": "Cyber Monday",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -40,7 +40,7 @@
         "m/shitpost/shitpost-20261123-1/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-21T16:21:14.363Z",
