@@ -39,7 +39,7 @@
       "score": 8,
       "why": "Niche reborn-as-object ranking, very specific",
       "inspiredBy": "Reincarnated as a Sword / Goblin",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -47,7 +47,7 @@
         "m/anime/anime-20261123-1/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-21T16:16:55.206Z",
