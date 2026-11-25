@@ -438,7 +438,7 @@
       "score": 7,
       "why": "Quiet side character theory thread, spot on",
       "inspiredBy": "Reincarnated as a Sword Season 2",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -447,7 +447,7 @@
         "m/anime/anime-20261124-4/v1-cover.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-21T16:17:16.354Z",
