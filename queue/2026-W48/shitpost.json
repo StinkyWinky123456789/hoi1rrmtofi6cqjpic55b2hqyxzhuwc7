@@ -368,7 +368,7 @@
       "score": 7,
       "why": "Bathroom return line is absurd and clever",
       "inspiredBy": "Cyber Monday",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -376,7 +376,7 @@
         "m/shitpost/shitpost-20261124-3/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-21T16:21:37.223Z",
