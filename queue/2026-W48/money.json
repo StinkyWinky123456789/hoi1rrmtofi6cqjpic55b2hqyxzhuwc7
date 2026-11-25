@@ -289,7 +289,7 @@
       "score": 7,
       "why": "Brokerage app notification roast, fresh angle",
       "inspiredBy": "Nasdaq -5.3%",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -297,7 +297,7 @@
         "m/money/money-20261124-1/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-21T16:20:00.980Z",
