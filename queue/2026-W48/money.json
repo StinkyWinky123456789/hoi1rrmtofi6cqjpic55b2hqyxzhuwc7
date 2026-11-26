@@ -696,7 +696,7 @@
       "score": 6,
       "why": "Not a plan, a grip, decent",
       "inspiredBy": "Nasdaq down 10% in 5 days",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -705,7 +705,7 @@
         "m/money/money-20261125-4/v1-cover.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-21T16:20:27.803Z",
