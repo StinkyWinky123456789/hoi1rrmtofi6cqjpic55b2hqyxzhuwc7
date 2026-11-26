@@ -691,7 +691,7 @@
       "score": 7,
       "why": "Chapter 90 recommendation, perfect template",
       "inspiredBy": "evergreen",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -700,7 +700,7 @@
         "m/anime/anime-20261125-4/v1-cover.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-21T16:17:28.449Z",
