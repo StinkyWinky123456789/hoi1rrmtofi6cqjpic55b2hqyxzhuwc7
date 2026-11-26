@@ -590,7 +590,7 @@
       "score": 7,
       "why": "Abundance candle and smart lamp specifics",
       "inspiredBy": "Cyber Monday",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -604,7 +604,7 @@
         "m/money/money-20261125-2/v1-07.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-21T16:20:17.819Z",
