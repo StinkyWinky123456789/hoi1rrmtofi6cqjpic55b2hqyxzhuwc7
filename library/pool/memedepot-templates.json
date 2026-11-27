@@ -8085,6 +8085,39 @@
       "status": "new",
       "uses": {},
       "addedAt": "2026-11-20T15:31:23.789Z"
+    },
+    {
+      "id": "memedepot-te-07b373078aee4b52",
+      "source": "memedepot-templates",
+      "from": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/ee5e7b3f-6a49-436d-1f16-11c2bdfd4b00/width=3840",
+      "file": "memedepot-templates/memedepot-te-07b373078aee4b52.jpg",
+      "thumb": "memedepot-templates/t/memedepot-te-07b373078aee4b52.jpg",
+      "hash": "07b373078aee4b52",
+      "hash16": "02151857a31f3f0ed71f3b2f293fb00fe8ed88c4e9e658ac5ca498ad9349f919",
+      "w": 500,
+      "h": 676,
+      "kind": "template",
+      "desc": "Plastic skeleton sitting on a wooden bench in front of grass and hay, slouched as if waiting forever. The classic 'Waiting Skeleton' meme template.",
+      "tags": [
+        "waiting",
+        "skeleton",
+        "bench",
+        "template",
+        "reaction",
+        "patience",
+        "dead"
+      ],
+      "pages": [
+        "gym",
+        "anime",
+        "money",
+        "shitpost"
+      ],
+      "fit": 9,
+      "person": "none",
+      "status": "new",
+      "uses": {},
+      "addedAt": "2026-11-27T15:20:19.039Z"
     }
   ],
   "name": "Meme Depot · Meme Templates",
