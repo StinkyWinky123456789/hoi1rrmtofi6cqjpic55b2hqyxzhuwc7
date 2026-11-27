@@ -903,7 +903,7 @@
       "score": 6,
       "why": "Creatine chats penalty is niche and true",
       "inspiredBy": "evergreen",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -911,7 +911,7 @@
         "m/gym/gym-20261126-4/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-21T16:19:02.791Z",
