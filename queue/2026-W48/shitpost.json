@@ -758,7 +758,7 @@
       "score": 6,
       "why": "Popeye closed store pairing is sad-funny",
       "inspiredBy": "store closures",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -766,7 +766,7 @@
         "m/shitpost/shitpost-20261126-1/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-21T16:21:52.032Z",
