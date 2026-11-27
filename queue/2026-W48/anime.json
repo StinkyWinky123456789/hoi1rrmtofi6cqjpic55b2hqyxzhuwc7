@@ -885,7 +885,7 @@
       "score": 6,
       "why": "Chapter-count door line is clever",
       "inspiredBy": "Black Friday",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -893,7 +893,7 @@
         "m/anime/anime-20261126-3/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-21T16:17:30.249Z",
