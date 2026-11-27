@@ -838,7 +838,7 @@
       "score": 6,
       "why": "Travolta confusion matches missing $300",
       "inspiredBy": "Black Friday",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -846,7 +846,7 @@
         "m/money/money-20261126-2/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-21T16:20:28.651Z",
