@@ -852,7 +852,7 @@
       "score": 6,
       "why": "Turtle peeking suits group chat dread",
       "inspiredBy": "Thanksgiving",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -860,7 +860,7 @@
         "m/shitpost/shitpost-20261126-3/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-21T16:22:05.725Z",
