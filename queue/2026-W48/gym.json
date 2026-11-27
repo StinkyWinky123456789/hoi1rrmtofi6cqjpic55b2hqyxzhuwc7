@@ -813,7 +813,7 @@
       "score": 6,
       "why": "Set-interrupting guy, 'Two.' has edge",
       "inspiredBy": "evergreen",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -821,7 +821,7 @@
         "m/gym/gym-20261126-2/v1-feed.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-21T16:19:02.282Z",
