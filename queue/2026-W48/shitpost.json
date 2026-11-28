@@ -1039,7 +1039,7 @@
       "score": 7,
       "why": "Needed but never asked, deadpan absurd",
       "inspiredBy": "evergreen",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -1048,7 +1048,7 @@
         "m/shitpost/shitpost-20261127-2/v1-cover.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-21T16:22:19.721Z",
