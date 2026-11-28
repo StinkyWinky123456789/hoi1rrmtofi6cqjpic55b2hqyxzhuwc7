@@ -33,14 +33,22 @@
       "why": "'Not scarcity, a personality' is sharp",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261130-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:29:50.127Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"empty store shelf with one item\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/apparel-boutique-bags-shoes-shop-1850804/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261130-2",
@@ -73,14 +81,23 @@
       "why": "Goat as fence critic is fun",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261130-2/v1.mp4",
+        "m/shitpost/shitpost-20261130-2/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:30:00.228Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb112761 (1 of 20 for \"goat jumping over fence farm\"); music: none (add tracks to assets/audio); no FREESOUND_API_KEY",
+      "footageSource": "https://pixabay.com/videos/id-112761/",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "shitpost-20261130-3",
@@ -117,14 +134,22 @@
       "why": "'You don't own a planter' escalates nicely",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261130-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:30:00.741Z",
+      "renderError": null,
+      "renderNote": "meme template \"Panik Kalm Panik\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/panik-kalm-panik/Tracking_says_'Delivered_2:14_PM'/Oh,_it's_behind_the_planter/You_don't_own_a_planter.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261130-4",
@@ -161,14 +186,28 @@
       "why": "Cat 3 AM wall escalation lands",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261130-4/v1-01.jpg",
+        "m/shitpost/shitpost-20261130-4/v1-02.jpg",
+        "m/shitpost/shitpost-20261130-4/v1-03.jpg",
+        "m/shitpost/shitpost-20261130-4/v1-04.jpg",
+        "m/shitpost/shitpost-20261130-4/v1-05.jpg",
+        "m/shitpost/shitpost-20261130-4/v1-06.jpg",
+        "m/shitpost/shitpost-20261130-4/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:30:02.229Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"cat staring dark room\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/cats-eyes-cat-black-looking-gaze-2944820/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261130-5",
@@ -205,14 +244,22 @@
       "why": "Bread-shaped candle is specific and absurd",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261130-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:30:03.091Z",
+      "renderError": null,
+      "renderNote": "meme template \"Left Exit 12 Off Ramp\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/exit/Stay_on_budget/Buy_a_candle_shaped_like_bread/Me_at_11:58_PM.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261201-1",
@@ -242,14 +289,22 @@
       "why": "Egg bottle visual is gross but funny",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261201-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:30:03.224Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/62886ede-9f18-49e6-0d6c-fe7f3922af00/width=3840",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261201-2",
@@ -282,14 +337,23 @@
       "why": "Committed cone is charming",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261201-2/v1.mp4",
+        "m/shitpost/shitpost-20261201-2/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:30:16.052Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb218013 (1 of 20 for \"lone traffic cone empty road\"); music: none (add tracks to assets/audio); no FREESOUND_API_KEY",
+      "footageSource": "https://pixabay.com/videos/id-218013/",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "shitpost-20261201-3",
@@ -319,14 +383,22 @@
       "why": "Raccoon negotiation has good chaotic energy",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261201-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:30:16.214Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"raccoon staring through glass door night\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/cats-eyes-cat-black-looking-gaze-2944820/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261201-4",
@@ -356,14 +428,22 @@
       "why": "Architect small-talk angle fits the image",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261201-4/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:30:16.398Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/ba8ba59e-f0c9-4755-6049-48fa8ba74800/width=3840",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261201-5",
@@ -393,14 +473,22 @@
       "why": "Respecting fake timers is specific and true",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261201-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:30:16.759Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"digital countdown clock closeup\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/the-eleventh-hour-time-to-rethink-3101625/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261202-1",
@@ -430,14 +518,22 @@
       "why": "Duck with ominous Monday line works",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261202-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:30:17.177Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"duck walking across parking lot\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/ducks-ducklings-birds-baby-birds-204332/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261202-2",
@@ -470,14 +566,23 @@
       "why": "Duck as manager is tidy absurdity",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261202-2/v1.mp4",
+        "m/shitpost/shitpost-20261202-2/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:30:27.667Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb176533 (1 of 20 for \"duck waddling across road cars waiting\"); music: none (add tracks to assets/audio); no FREESOUND_API_KEY",
+      "footageSource": "https://pixabay.com/videos/id-176533/",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "shitpost-20261202-3",
@@ -507,14 +612,22 @@
       "why": "Package sightseeing is charming absurdity",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261202-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:30:28.039Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"delivery van on empty road\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/way-street-architecture-city-4005288/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261202-4",
@@ -551,14 +664,28 @@
       "why": "Ranked carts escalate to goose doorstop",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261202-4/v1-01.jpg",
+        "m/shitpost/shitpost-20261202-4/v1-02.jpg",
+        "m/shitpost/shitpost-20261202-4/v1-03.jpg",
+        "m/shitpost/shitpost-20261202-4/v1-04.jpg",
+        "m/shitpost/shitpost-20261202-4/v1-05.jpg",
+        "m/shitpost/shitpost-20261202-4/v1-06.jpg",
+        "m/shitpost/shitpost-20261202-4/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:30:29.891Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"shopping cart empty\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/shopping-carts-grocery-shopping-1275480/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261202-5",
@@ -588,14 +715,22 @@
       "why": "Trusting the unknown lamp is oddly funny",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261202-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:30:30.278Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"delivery truck driving at dusk\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/truck-night-sky-vehicle-transport-8190240/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261203-1",
@@ -625,14 +760,22 @@
       "why": "Package has seen things, good voice",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261203-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:30:30.584Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"lone cardboard box on sidewalk\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/robot-light-shadow-thinking-7387740/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261203-2",
@@ -665,14 +808,23 @@
       "why": "GPS continue line is okay",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261203-2/v1.mp4",
+        "m/shitpost/shitpost-20261203-2/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:30:38.653Z",
+      "renderError": null,
+      "renderNote": "archive clip: \"Sleep for Health\" (1950), original sound; music: off (film sound); no FREESOUND_API_KEY",
+      "footageSource": "https://archive.org/details/Sleepfor1950",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "shitpost-20261203-3",
@@ -702,14 +854,22 @@
       "why": "Silence tastes like free shipping, good line",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261203-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:30:38.757Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/9fba8eec-5681-497d-d72c-531d49ffbf00/width=3840",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261203-4",
@@ -739,14 +899,22 @@
       "why": "Cows watching chat burn fits perfectly",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261203-4/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:30:38.906Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/b06f8390-9ea0-46f1-0931-a249019b5700/width=3840",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261203-5",
@@ -776,14 +944,22 @@
       "why": "Four percent hacker triumph is specific",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261203-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:30:39.058Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/30299941-93db-41e6-2928-4212db229900/width=3840",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261204-1",
@@ -819,14 +995,22 @@
       "why": "Goose grudge is specific and absurd",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261204-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:30:39.848Z",
+      "renderError": null,
+      "renderNote": "meme template \"Drakeposting\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/drake/Sleeping_at_11_PM/Googling_'can_a_goose_hold_a_grudge'_at_2:47_AM.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261204-2",
@@ -859,14 +1043,23 @@
       "why": "Child narrating failure is decent",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261204-2/v1.mp4",
+        "m/shitpost/shitpost-20261204-2/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:30:48.550Z",
+      "renderError": null,
+      "renderNote": "archive clip: \"Make Mine Freedom\" (1948), original sound; music: off (film sound); no FREESOUND_API_KEY",
+      "footageSource": "https://archive.org/details/MakeMine1948",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "shitpost-20261204-3",
@@ -896,14 +1089,22 @@
       "why": "Shopping cart understudy is whimsical",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261204-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:30:48.773Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"empty parking lot night shopping cart\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/shopping-carts-grocery-shopping-1275480/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261204-4",
@@ -940,14 +1141,28 @@
       "why": "Traffic cone resume is clever and absurd",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261204-4/v1-01.jpg",
+        "m/shitpost/shitpost-20261204-4/v1-02.jpg",
+        "m/shitpost/shitpost-20261204-4/v1-03.jpg",
+        "m/shitpost/shitpost-20261204-4/v1-04.jpg",
+        "m/shitpost/shitpost-20261204-4/v1-05.jpg",
+        "m/shitpost/shitpost-20261204-4/v1-06.jpg",
+        "m/shitpost/shitpost-20261204-4/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:30:50.440Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"traffic cone street\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/orange-cone-road-construction-639096/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261204-5",
@@ -977,14 +1192,22 @@
       "why": "House clearing its throat is eerie and funny",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261204-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:30:50.978Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"dark kitchen night dishwasher\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/kitchen-bar-stools-decor-apartment-3689918/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261205-1",
@@ -1020,14 +1243,22 @@
       "why": "Hot tub tab is fun, otherwise familiar",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261205-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:30:51.538Z",
+      "renderError": null,
+      "renderNote": "meme template \"This is Fine\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/fine/Work_laptop,_10:15_AM_Monday:_23_tabs,_one_is_a_hot_tub/Reviewing_the_competitive_landscape.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261205-2",
@@ -1060,14 +1291,23 @@
       "why": "Door in closet is a good absurd twist",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261205-2/v1.mp4",
+        "m/shitpost/shitpost-20261205-2/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:30:59.662Z",
+      "renderError": null,
+      "renderNote": "archive clip: \"Using the Bank\" (1947), original sound; music: off (film sound); no FREESOUND_API_KEY",
+      "footageSource": "https://archive.org/details/Usingthe1947",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "shitpost-20261205-3",
@@ -1103,14 +1343,22 @@
       "why": "Canoe paddle specific, format familiar",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261205-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:31:00.157Z",
+      "renderError": null,
+      "renderNote": "meme template \"Cheems\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/cheems/just_one_quick_look_at_the_deals/wakes_up_owning_a_canoe_paddle.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261205-4",
@@ -1140,14 +1388,22 @@
       "why": "Box accepting its fate is decent",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261205-4/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:31:00.644Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"cardboard package on porch rain\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/packages-boxes-delivery-outdoor-10416934/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261205-5",
@@ -1177,14 +1433,22 @@
       "why": "Nine boxes bracing is relatable",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261205-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:31:00.727Z",
+      "renderError": null,
+      "renderNote": "archive still: \"Duck and Cover\" (1951)",
+      "footageSource": null,
+      "visualSource": "https://archive.org/details/DuckandC1951",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261206-1",
@@ -1214,14 +1478,22 @@
       "why": "Unsubscribe irony is well known",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261206-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:31:01.104Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"overflowing mailbox with letters\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/management-time-life-inbox-outbox-1137648/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261206-2",
@@ -1254,14 +1526,23 @@
       "why": "68 vs 71 thermostat is specific",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261206-2/v1.mp4",
+        "m/shitpost/shitpost-20261206-2/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:31:09.725Z",
+      "renderError": null,
+      "renderNote": "archive clip: \"Duck and Cover\" (1951), original sound; music: off (film sound); no FREESOUND_API_KEY",
+      "footageSource": "https://archive.org/details/DuckandC1951",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "shitpost-20261206-3",
@@ -1295,14 +1576,22 @@
       "why": "Bag of clips is specific, setup thin",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261206-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:31:10.214Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"single phone case on desk\"; photo 1 of 20 for \"stack of cardboard boxes doorstep\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/a-book-covering-glasses-read-5083590/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261206-4",
@@ -1339,14 +1628,28 @@
       "why": "Pigeon types are specific and characterful",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261206-4/v1-01.jpg",
+        "m/shitpost/shitpost-20261206-4/v1-02.jpg",
+        "m/shitpost/shitpost-20261206-4/v1-03.jpg",
+        "m/shitpost/shitpost-20261206-4/v1-04.jpg",
+        "m/shitpost/shitpost-20261206-4/v1-05.jpg",
+        "m/shitpost/shitpost-20261206-4/v1-06.jpg",
+        "m/shitpost/shitpost-20261206-4/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:31:12.600Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"pigeons city street\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/amsterdam-dam-square-child-pigeons-6823002/",
+      "dupOf": null
     },
     {
       "id": "shitpost-20261206-5",
@@ -1376,14 +1679,22 @@
       "why": "Robot pigeon firmware is absurd, a bit gross",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/shitpost/shitpost-20261206-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:31:12.783Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/9d44c5b3-348d-4440-9c1f-08dd26533c00/width=3840",
+      "dupOf": null
     }
   ]
 }

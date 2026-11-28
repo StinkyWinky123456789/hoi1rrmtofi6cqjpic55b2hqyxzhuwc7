@@ -36,14 +36,23 @@
       "why": "Relatable scoop-to-sunrise energy, footage fits perfectly",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261130-1/v1.mp4",
+        "m/gym/gym-20261130-1/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:27:22.099Z",
+      "renderError": null,
+      "renderNote": "archive clip: \"Sleep for Health\" (1950), original sound; music: off (film sound); no FREESOUND_API_KEY",
+      "footageSource": "https://archive.org/details/Sleepfor1950",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "gym-20261130-2",
@@ -73,14 +82,22 @@
       "why": "Loan against 2 pm me is fresh",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261130-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:27:22.578Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man yawning at desk coffee\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/man-reading-touchscreen-blog-791049/",
+      "dupOf": null
     },
     {
       "id": "gym-20261130-3",
@@ -117,14 +134,22 @@
       "why": "5:05 vs 6:00 is a sharp, specific beat",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261130-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:27:23.157Z",
+      "renderError": null,
+      "renderNote": "meme template \"Panik Kalm Panik\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/panik-kalm-panik/Pre--workout_kicks_in_on_the_drive/Parked._Shaker_in_hand._Ready_to_lift./Gym_opens_at_6._It's_5:05..png?width=1080",
+      "dupOf": null
     },
     {
       "id": "gym-20261130-4",
@@ -161,14 +186,28 @@
       "why": "Specific rack archetypes, strong vibrating-scoops closer",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261130-4/v1-01.jpg",
+        "m/gym/gym-20261130-4/v1-02.jpg",
+        "m/gym/gym-20261130-4/v1-03.jpg",
+        "m/gym/gym-20261130-4/v1-04.jpg",
+        "m/gym/gym-20261130-4/v1-05.jpg",
+        "m/gym/gym-20261130-4/v1-06.jpg",
+        "m/gym/gym-20261130-4/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:27:24.858Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"gym people squat rack\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/man-person-power-strength-strong-1282232/",
+      "dupOf": null
     },
     {
       "id": "gym-20261130-5",
@@ -198,14 +237,22 @@
       "why": "Scoop-as-warm-up with stick-in-wheel fits perfectly",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261130-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:27:25.018Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/f0160b9c-e44e-4fc1-ac10-38dff1878f00/width=3840",
+      "dupOf": null
     },
     {
       "id": "gym-20261201-1",
@@ -238,14 +285,23 @@
       "why": "Specific ears-buzzing detail, footage matches distress well",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261201-1/v1.mp4",
+        "m/gym/gym-20261201-1/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:27:33.572Z",
+      "renderError": null,
+      "renderNote": "archive clip: \"Date With Your Family, A\" (1950), original sound; music: off (film sound); no FREESOUND_API_KEY",
+      "footageSource": "https://archive.org/details/DateWith1950",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "gym-20261201-2",
@@ -275,14 +331,22 @@
       "why": "Dumbbell twin across gym is painfully specific",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261201-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:27:33.759Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"dumbbell rack gym\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/fitness-dumbbells-training-gym-594143/",
+      "dupOf": null
     },
     {
       "id": "gym-20261201-3",
@@ -319,14 +383,22 @@
       "why": "Last Thursday's shaker escalates well",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261201-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:27:34.298Z",
+      "renderError": null,
+      "renderNote": "meme template \"Panik Kalm Panik\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/panik-kalm-panik/Gym_bag_smells_like_something_died/It's_just_the_old_shaker/It's_the_shaker_from_LAST_Thursday.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "gym-20261201-4",
@@ -356,14 +428,22 @@
       "why": "Scrolling detail sells the waiting skeleton",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261201-4/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:27:34.407Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/ee5e7b3f-6a49-436d-1f16-11c2bdfd4b00/width=3840",
+      "dupOf": null
     },
     {
       "id": "gym-20261201-5",
@@ -401,14 +481,22 @@
       "why": "Week 1 loop is true and specific",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261201-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:27:34.907Z",
+      "renderError": null,
+      "renderNote": "meme template \"Gru's Plan\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/gru/Buy_a_12--week_program/Do_week_1_perfectly/Do_week_1_again/Do_week_1_again.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "gym-20261202-1",
@@ -441,14 +529,23 @@
       "why": "Three scoops borderline, but funny; 'legally binding' lands",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261202-1/v1.mp4",
+        "m/gym/gym-20261202-1/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:27:43.724Z",
+      "renderError": null,
+      "renderNote": "archive clip: \"Sleep for Health\" (1950), original sound; music: off (film sound); no FREESOUND_API_KEY",
+      "footageSource": "https://archive.org/details/Sleepfor1950",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "gym-20261202-2",
@@ -484,14 +581,22 @@
       "why": "Spotter's-hands bench joke has bite",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261202-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:27:44.337Z",
+      "renderError": null,
+      "renderNote": "meme template \"Tuxedo Winnie the Pooh\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/pooh/I_bench_225/I_bench_225_(spotter's_hands_included).png?width=1080",
+      "dupOf": null
     },
     {
       "id": "gym-20261202-3",
@@ -521,14 +626,22 @@
       "why": "No video, no peace: very relatable",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261202-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:27:44.462Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/af5f62c5-b97f-4fd9-77b7-4905ef8c5900/width=3840",
+      "dupOf": null
     },
     {
       "id": "gym-20261202-4",
@@ -565,14 +678,28 @@
       "why": "Relatable tingle timeline, good escalation, specific",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261202-4/v1-01.jpg",
+        "m/gym/gym-20261202-4/v1-02.jpg",
+        "m/gym/gym-20261202-4/v1-03.jpg",
+        "m/gym/gym-20261202-4/v1-04.jpg",
+        "m/gym/gym-20261202-4/v1-05.jpg",
+        "m/gym/gym-20261202-4/v1-06.jpg",
+        "m/gym/gym-20261202-4/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:27:45.862Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"gym pre-workout shaker\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/physiotherapy-weight-training-595529/",
+      "dupOf": null
     },
     {
       "id": "gym-20261202-5",
@@ -602,14 +729,22 @@
       "why": "Doge tingles fits, template is dated",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261202-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:27:46.017Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/018a05cf-3e58-49be-0866-5666811dd000/width=3840",
+      "dupOf": null
     },
     {
       "id": "gym-20261203-1",
@@ -642,14 +777,23 @@
       "why": "Relatable crash, but cable row nap predictable",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261203-1/v1.mp4",
+        "m/gym/gym-20261203-1/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:27:54.820Z",
+      "renderError": null,
+      "renderNote": "archive clip: \"Sleep for Health\" (1950), original sound; music: off (film sound); no FREESOUND_API_KEY",
+      "footageSource": "https://archive.org/details/Sleepfor1950",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "gym-20261203-2",
@@ -683,14 +827,22 @@
       "why": "Gym-time reality check is relatable",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261203-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:27:55.662Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"bodybuilder screaming deadlift\"; photo 1 of 20 for \"man sitting bench gym phone\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/fitness-and-health-fitness-abs-5711493/",
+      "dupOf": null
     },
     {
       "id": "gym-20261203-3",
@@ -720,14 +872,22 @@
       "why": "'Lunch me never shows up' lands",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261203-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:27:55.746Z",
+      "renderError": null,
+      "renderNote": "archive still: \"Preventing the Spread of Disease\" (1940)",
+      "footageSource": null,
+      "visualSource": "https://archive.org/details/Preventi1940",
+      "dupOf": null
     },
     {
       "id": "gym-20261203-4",
@@ -761,14 +921,22 @@
       "why": "Sad piano mid-squat is specific",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261203-4/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:27:56.346Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man headphones choosing music gym\"; photo 1 of 20 for \"man struggling heavy barbell squat\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/adult-music-listening-sound-man-3086307/",
+      "dupOf": null
     },
     {
       "id": "gym-20261203-5",
@@ -798,14 +966,22 @@
       "why": "Stranger nod secret society is warm",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261203-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:27:56.567Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"two gym bros nodding at each other\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/physiotherapy-weight-training-595529/",
+      "dupOf": null
     },
     {
       "id": "gym-20261204-1",
@@ -838,14 +1014,23 @@
       "why": "Creatine placebo is specific, 'white powder and optimism' good",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261204-1/v1.mp4",
+        "m/gym/gym-20261204-1/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:28:07.640Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb13459 (1 of 20 for \"scooping powder supplement tub\"); music: none (add tracks to assets/audio); no FREESOUND_API_KEY",
+      "footageSource": "https://pixabay.com/videos/id-13459/",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "gym-20261204-2",
@@ -875,14 +1060,22 @@
       "why": "Owl blind-spot check is a fun observation",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261204-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:28:08.000Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man turning head driving car\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/automobile-road-direction-vehicle-8078415/",
+      "dupOf": null
     },
     {
       "id": "gym-20261204-3",
@@ -918,14 +1111,22 @@
       "why": "Safety pins and praying is relatable",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261204-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:28:08.813Z",
+      "renderError": null,
+      "renderNote": "meme template \"Drakeposting\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/drake/Asking_a_stranger_for_a_spot/Setting_the_safety_pins_and_praying.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "gym-20261204-4",
@@ -962,14 +1163,28 @@
       "why": "Specific texts, tag-a-lifting-buddy potential, slightly samey",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261204-4/v1-01.jpg",
+        "m/gym/gym-20261204-4/v1-02.jpg",
+        "m/gym/gym-20261204-4/v1-03.jpg",
+        "m/gym/gym-20261204-4/v1-04.jpg",
+        "m/gym/gym-20261204-4/v1-05.jpg",
+        "m/gym/gym-20261204-4/v1-06.jpg",
+        "m/gym/gym-20261204-4/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:28:10.139Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"gym friends lifting\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/fitness-exercise-men-work-out-gym-9180669/",
+      "dupOf": null
     },
     {
       "id": "gym-20261204-5",
@@ -999,14 +1214,22 @@
       "why": "95 lb bear grunt is a good gym-culture jab",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261204-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:28:10.315Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/558ca60a-04a2-4565-4b74-3c5066d18e00/width=3840",
+      "dupOf": null
     },
     {
       "id": "gym-20261205-1",
@@ -1039,14 +1262,23 @@
       "why": "Rep-by-rep escalation works, 'hanging emotionally' is good",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261205-1/v1.mp4",
+        "m/gym/gym-20261205-1/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:28:20.068Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb220150 (1 of 20 for \"man doing pull-ups gym\"); music: none (add tracks to assets/audio); no FREESOUND_API_KEY",
+      "footageSource": "https://pixabay.com/videos/id-220150/",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "gym-20261205-2",
@@ -1076,14 +1308,22 @@
       "why": "Loading-screen tingles is neat but derivative",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261205-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:28:20.233Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"people lifting weights gym\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/physiotherapy-weight-training-595529/",
+      "dupOf": null
     },
     {
       "id": "gym-20261205-3",
@@ -1113,14 +1353,22 @@
       "why": "Chalk crime-scene stat line is fun",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261205-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:28:20.328Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"people lifting weights gym\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/physiotherapy-weight-training-595529/",
+      "dupOf": null
     },
     {
       "id": "gym-20261205-4",
@@ -1156,14 +1404,22 @@
       "why": "Relatable, but the song-rest joke is familiar",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261205-4/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:28:21.107Z",
+      "renderError": null,
+      "renderNote": "meme template \"Drakeposting\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/drake/Resting_90_seconds_between_sets/Resting_until_the_7--minute_song_ends.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "gym-20261205-5",
@@ -1200,14 +1456,22 @@
       "why": "Skipping leg day is well-worn",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261205-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:28:21.617Z",
+      "renderError": null,
+      "renderNote": "meme template \"Distracted Boyfriend\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/db/Leg_day/Me/Chest._Again._With_a_'light'_cable_fly..png?width=1080",
+      "dupOf": null
     },
     {
       "id": "gym-20261206-1",
@@ -1240,14 +1504,23 @@
       "why": "Familiar skipped-arm-day trope, deadpan fits okay",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261206-1/v1.mp4",
+        "m/gym/gym-20261206-1/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:28:29.914Z",
+      "renderError": null,
+      "renderNote": "archive clip: \"Don't Be a Sucker\" (1947), original sound; music: off (film sound); no FREESOUND_API_KEY",
+      "footageSource": "https://archive.org/details/DontBeaS1947",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "gym-20261206-2",
@@ -1283,14 +1556,22 @@
       "why": "Fine relatable one, no real escalation",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261206-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:28:30.376Z",
+      "renderError": null,
+      "renderNote": "meme template \"Mocking Spongebob\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/spongebob/Me:_'Just_one_quick_set_of_curls'/Me,_set_11:_'jUsT_oNe_qUiCk_sEt'.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "gym-20261206-3",
@@ -1320,14 +1601,22 @@
       "why": "Nice moment, but no real punchline",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261206-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:28:30.491Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/f46cd5f8-05d3-4466-60b0-6d3e0d495f00/width=3840",
+      "dupOf": null
     },
     {
       "id": "gym-20261206-4",
@@ -1364,14 +1653,28 @@
       "why": "Good doorframe rumor line, seasonal, relatable",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261206-4/v1-01.jpg",
+        "m/gym/gym-20261206-4/v1-02.jpg",
+        "m/gym/gym-20261206-4/v1-03.jpg",
+        "m/gym/gym-20261206-4/v1-04.jpg",
+        "m/gym/gym-20261206-4/v1-05.jpg",
+        "m/gym/gym-20261206-4/v1-06.jpg",
+        "m/gym/gym-20261206-4/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:28:31.542Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"gym equipment shopping\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/physiotherapy-weight-training-595529/",
+      "dupOf": null
     },
     {
       "id": "gym-20261206-5",
@@ -1408,14 +1711,22 @@
       "why": "Shoulder-video rabbit hole is relatable but soft",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/gym/gym-20261206-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:28:32.273Z",
+      "renderError": null,
+      "renderNote": "meme template \"Left Exit 12 Off Ramp\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/exit/Going_to_bed_on_time/Watching_'one_more'_video_on_shoulder_training/Me_at_12:30_AM.png?width=1080",
+      "dupOf": null
     }
   ]
 }

@@ -41,14 +41,22 @@
       "why": "Isekai titles as résumés, sharp observation",
       "inspiredBy": "The Exiled Heavy Knight Knows How to Game the System",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261130-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:25:56.777Z",
+      "renderError": null,
+      "renderNote": "meme template \"Always Has Been\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/astronaut/Wait,_isekai_titles_are_just_résumés~q/Always_has_been/Me,_reading_one/The_Exiled_Heavy_Knight.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "anime-20261130-2",
@@ -85,14 +93,28 @@
       "why": "Group chat archetypes, tag-a-friend",
       "inspiredBy": "episodes airing this week",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261130-2/v1-01.jpg",
+        "m/anime/anime-20261130-2/v1-02.jpg",
+        "m/anime/anime-20261130-2/v1-03.jpg",
+        "m/anime/anime-20261130-2/v1-04.jpg",
+        "m/anime/anime-20261130-2/v1-05.jpg",
+        "m/anime/anime-20261130-2/v1-06.jpg",
+        "m/anime/anime-20261130-2/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:25:58.588Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"friends texting phones night\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/iphone-hand-girl-smartphone-500291/",
+      "dupOf": null
     },
     {
       "id": "anime-20261130-3",
@@ -122,14 +144,22 @@
       "why": "Manhwa purist blue shadows is specific",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261130-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:25:58.684Z",
+      "renderError": null,
+      "renderNote": "archive still: \"Good Table Manners\" (1951)",
+      "footageSource": null,
+      "visualSource": "https://archive.org/details/GoodTabl1951",
+      "dupOf": null
     },
     {
       "id": "anime-20261130-4",
@@ -162,14 +192,23 @@
       "why": "Grieving Dae-hyun is specific and funny",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261130-4/v1.mp4",
+        "m/anime/anime-20261130-4/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:26:06.934Z",
+      "renderError": null,
+      "renderNote": "archive clip: \"Sleep for Health\" (1950), original sound; music: off (film sound); no FREESOUND_API_KEY",
+      "footageSource": "https://archive.org/details/Sleepfor1950",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "anime-20261130-5",
@@ -199,14 +238,22 @@
       "why": "Friend finally finishes show, DM-worthy",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261130-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:26:07.674Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/ba6c631f-a149-428b-ba77-f843b06c3c00/width=3840",
+      "dupOf": null
     },
     {
       "id": "anime-20261201-1",
@@ -236,14 +283,22 @@
       "why": "Wrong since chapter 4, sharp specificity",
       "inspiredBy": "3 AM manhwa",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261201-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:26:08.069Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man face lit by phone in dark room\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/man-face-masculine-view-852770/",
+      "dupOf": null
     },
     {
       "id": "anime-20261201-2",
@@ -273,14 +328,22 @@
       "why": "Oreo power system, fresh angle",
       "inspiredBy": "oreo",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261201-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:26:08.535Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"oreo cookies dunked in milk\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/beverage-frappe-shake-drink-cold-4908765/",
+      "dupOf": null
     },
     {
       "id": "anime-20261201-3",
@@ -310,14 +373,22 @@
       "why": "Coworker anime small talk, very relatable",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261201-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:26:08.974Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"two coworkers chatting office kitchen\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/startup-meeting-brainstorming-594090/",
+      "dupOf": null
     },
     {
       "id": "anime-20261201-4",
@@ -350,14 +421,23 @@
       "why": "xX_Gojo_Xx wiki source is sharp",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261201-4/v1.mp4",
+        "m/anime/anime-20261201-4/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:26:17.482Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb237504 (1 of 20 for \"two men arguing dinner table\"); music: none (add tracks to assets/audio); no FREESOUND_API_KEY",
+      "footageSource": "https://pixabay.com/videos/id-237504/",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "anime-20261201-5",
@@ -387,14 +467,22 @@
       "why": "Hidden duke's family tree is specific",
       "inspiredBy": "3 AM manhwa",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261201-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:26:17.830Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"tired man dark circles bedroom night\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/woman-asleep-girl-sleep-bed-cozy-2197947/",
+      "dupOf": null
     },
     {
       "id": "anime-20261202-1",
@@ -424,14 +512,22 @@
       "why": "Cliffhanger sword-touch ending, named show",
       "inspiredBy": "The Ramparts of Ice Season 2",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261202-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:26:17.993Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/dbb5d900-88be-4527-9ce0-8410f5000c00/width=3840",
+      "dupOf": null
     },
     {
       "id": "anime-20261202-2",
@@ -468,14 +564,28 @@
       "why": "Good escalation, bird and timer grief",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261202-2/v1-01.jpg",
+        "m/anime/anime-20261202-2/v1-02.jpg",
+        "m/anime/anime-20261202-2/v1-03.jpg",
+        "m/anime/anime-20261202-2/v1-04.jpg",
+        "m/anime/anime-20261202-2/v1-05.jpg",
+        "m/anime/anime-20261202-2/v1-06.jpg",
+        "m/anime/anime-20261202-2/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:26:19.742Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"person phone bed dark\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/woman-lying-down-on-the-phone-593134/",
+      "dupOf": null
     },
     {
       "id": "anime-20261202-3",
@@ -505,14 +615,22 @@
       "why": "Goblin isekai plus precious, fits",
       "inspiredBy": "So What's Wrong with Getting Reborn as a Goblin?",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261202-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:26:19.903Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/0a39961b-966c-4779-492a-09be290ff500/width=3840",
+      "dupOf": null
     },
     {
       "id": "anime-20261202-4",
@@ -545,14 +663,23 @@
       "why": "Unsend a 2019 text, fresh",
       "inspiredBy": "Tokyo Revengers trending",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261202-4/v1.mp4",
+        "m/anime/anime-20261202-4/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:26:28.193Z",
+      "renderError": null,
+      "renderNote": "archive clip: \"Eat for Health\" (1954), original sound; music: off (film sound); no FREESOUND_API_KEY",
+      "footageSource": "https://archive.org/details/EatforHe1954",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "anime-20261202-5",
@@ -582,14 +709,22 @@
       "why": "Coin sale as Pennywise works",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261202-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:26:28.310Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/3f777d8b-50fe-4271-a0f9-026ad60a5b00/width=3840",
+      "dupOf": null
     },
     {
       "id": "anime-20261203-1",
@@ -619,14 +754,22 @@
       "why": "Sword reincarnation versus commute, relatable",
       "inspiredBy": "Reincarnated as a Sword Season 2",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261203-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:26:28.729Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"sword stuck in stone misty forest\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/hills-trees-fog-morning-fog-foggy-615429/",
+      "dupOf": null
     },
     {
       "id": "anime-20261203-2",
@@ -663,14 +806,22 @@
       "why": "Researching sword MC scaling at work",
       "inspiredBy": "The Laid-Off Cheat-Granting Mage",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261203-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:26:29.444Z",
+      "renderError": null,
+      "renderNote": "meme template \"Left Exit 12 Off Ramp\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/exit/Finishing_the_spreadsheet/Researching_how_a_sword_MC_scales/Me,_Monday,_2_PM.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "anime-20261203-3",
@@ -700,14 +851,22 @@
       "why": "Neon rain anticlimax lands",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261203-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:26:29.745Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man hoodie walking rainy neon street\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/man-elderly-coat-fashion-dabber-7518890/",
+      "dupOf": null
     },
     {
       "id": "anime-20261203-4",
@@ -740,14 +899,23 @@
       "why": "Chapter 5 loan is a good twist",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261203-4/v1.mp4",
+        "m/anime/anime-20261203-4/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:26:38.374Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb233390 (1 of 20 for \"person reading phone in bed night\"); music: none (add tracks to assets/audio); no FREESOUND_API_KEY",
+      "footageSource": "https://pixabay.com/videos/id-233390/",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "anime-20261203-5",
@@ -783,14 +951,22 @@
       "why": "Goblin's small hut is oddly touching",
       "inspiredBy": "So What's Wrong with Getting Reborn as a Goblin?",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261203-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:26:38.881Z",
+      "renderError": null,
+      "renderNote": "meme template \"Woman Yelling at a Cat\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/woman-cat/WHY_ARE_YOU_CRYING_AT_A_GOBLIN_ANIME~q/HE_JUST_WANTED_A_SMALL_HUT.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "anime-20261204-1",
@@ -826,14 +1002,22 @@
       "why": "Bankai in meetings, specific slang",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261204-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:26:39.453Z",
+      "renderError": null,
+      "renderNote": "meme template \"That Would Be Great\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/officespace/Yeah,_if_you_could_stop_saying_'bankai'_in_meetings/that'd_be_great.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "anime-20261204-2",
@@ -870,14 +1054,28 @@
       "why": "Dinner power-scaling, strong specifics",
       "inspiredBy": "power-scaling pillar",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261204-2/v1-01.jpg",
+        "m/anime/anime-20261204-2/v1-02.jpg",
+        "m/anime/anime-20261204-2/v1-03.jpg",
+        "m/anime/anime-20261204-2/v1-04.jpg",
+        "m/anime/anime-20261204-2/v1-05.jpg",
+        "m/anime/anime-20261204-2/v1-06.jpg",
+        "m/anime/anime-20261204-2/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:26:40.868Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"friends arguing dinner table\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/people-joy-smile-holiday-friends-2295052/",
+      "dupOf": null
     },
     {
       "id": "anime-20261204-3",
@@ -913,14 +1111,22 @@
       "why": "Relatable but familiar airing-list joke",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261204-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:26:41.694Z",
+      "renderError": null,
+      "renderNote": "meme template \"Drakeposting\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/drake/Finishing_one_show_before_starting_another/Adding_an_11th_airing_show_for_the_title_alone.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "anime-20261204-4",
@@ -953,14 +1159,23 @@
       "why": "Episode 12 gets good, relatable",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261204-4/v1.mp4",
+        "m/anime/anime-20261204-4/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:26:50.722Z",
+      "renderError": null,
+      "renderNote": "archive clip: \"Boys Beware\" (1961), original sound; music: off (film sound); no FREESOUND_API_KEY",
+      "footageSource": "https://archive.org/details/boys_beware",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "anime-20261204-5",
@@ -998,14 +1213,22 @@
       "why": "Comma-shaped melt is good, duplicated line",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261204-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:26:51.252Z",
+      "renderError": null,
+      "renderNote": "meme template \"Gru's Plan\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/gru/Buy_ergonomic_chair_for_3_AM_manhwa/Sit_upright_for_4_chapters/Slowly_melt_into_a_comma_shape/Slowly_melt_into_a_comma_shape.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "anime-20261205-1",
@@ -1035,14 +1258,22 @@
       "why": "Cliffhanger insomnia, familiar",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261205-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:26:51.283Z",
+      "renderError": null,
+      "renderNote": "archive still: \"Sleep for Health\" (1950)",
+      "footageSource": null,
+      "visualSource": "https://archive.org/details/Sleepfor1950",
+      "dupOf": null
     },
     {
       "id": "anime-20261205-2",
@@ -1079,14 +1310,22 @@
       "why": "Renamed group chat is decent",
       "inspiredBy": "episodes airing this week",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261205-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:26:51.822Z",
+      "renderError": null,
+      "renderNote": "meme template \"Panik Kalm Panik\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/panik-kalm-panik/Episode_9_drops_in_an_hour/Mute_every_keyword._Easy./Group_chat_renamed_'EP_9_WAIT'.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "anime-20261205-3",
@@ -1116,14 +1355,22 @@
       "why": "Sword phone stand is cute",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261205-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:26:52.194Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"neon tokyo street night rain\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/street-japan-tokyo-night-urban-8331198/",
+      "dupOf": null
     },
     {
       "id": "anime-20261205-4",
@@ -1156,14 +1403,23 @@
       "why": "Zero abs versus zero magic is fun",
       "inspiredBy": "Black Clover Season 2 trending",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261205-4/v1.mp4",
+        "m/anime/anime-20261205-4/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:27:01.179Z",
+      "renderError": null,
+      "renderNote": "archive clip: \"Stripper - Variety Girls\", original sound; music: off (film sound); no FREESOUND_API_KEY",
+      "footageSource": "https://archive.org/details/stripper_variety_girls",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "anime-20261205-5",
@@ -1199,14 +1455,22 @@
       "why": "Fine, but obvious spoiler gag",
       "inspiredBy": "episodes airing this week",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261205-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:27:01.597Z",
+      "renderError": null,
+      "renderNote": "meme template \"But That's None of My Business\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/kermit/Friend_waiting_to_binge_it_after_the_season_ends/but_he'll_get_spoiled_by_Thursday.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "anime-20261206-1",
@@ -1236,14 +1500,22 @@
       "why": "Party-leaving-sleep is serviceable",
       "inspiredBy": "seasonal anime",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261206-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:27:01.951Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"gamer room monitor glow 3 AM\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/interior-design-home-office-8922413/",
+      "dupOf": null
     },
     {
       "id": "anime-20261206-2",
@@ -1280,14 +1552,28 @@
       "why": "Season stages, accurate and escalating",
       "inspiredBy": "seasonal anime",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261206-2/v1-01.jpg",
+        "m/anime/anime-20261206-2/v1-02.jpg",
+        "m/anime/anime-20261206-2/v1-03.jpg",
+        "m/anime/anime-20261206-2/v1-04.jpg",
+        "m/anime/anime-20261206-2/v1-05.jpg",
+        "m/anime/anime-20261206-2/v1-06.jpg",
+        "m/anime/anime-20261206-2/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:27:03.804Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"neon city night rain\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/japan-osaka-night-asia-landmark-2014619/",
+      "dupOf": null
     },
     {
       "id": "anime-20261206-3",
@@ -1321,14 +1607,22 @@
       "why": "Free tickets detail helps, lacks punch",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261206-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:27:04.505Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"friends cheering watching tv living room\"; photo 1 of 20 for \"person alone in bed phone glow dark\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/whisky-modern-face-of-whisky-8381774/",
+      "dupOf": null
     },
     {
       "id": "anime-20261206-4",
@@ -1361,14 +1655,23 @@
       "why": "Animation was incredible, true to life",
       "inspiredBy": "seasonal anime",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261206-4/v1.mp4",
+        "m/anime/anime-20261206-4/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:27:13.288Z",
+      "renderError": null,
+      "renderNote": "archive clip: \"Experiments in the Revival of Organisms\" (1940), original sound; music: off (film sound); no FREESOUND_API_KEY",
+      "footageSource": "https://archive.org/details/Experime1940",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "anime-20261206-5",
@@ -1405,14 +1708,22 @@
       "why": "Season-skipping lie is relatable",
       "inspiredBy": "seasonal anime",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/anime/anime-20261206-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:27:13.817Z",
+      "renderError": null,
+      "renderNote": "meme template \"Distracted Boyfriend\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/db/New_season_I_swore_I'd_skip/Me/The_9_shows_I'm_already_behind_on.png?width=1080",
+      "dupOf": null
     }
   ]
 }

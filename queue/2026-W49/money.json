@@ -33,14 +33,22 @@
       "why": "Baby shower plus parlay overtime, great escalation",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261130-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:28:32.386Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/d09616da-7b90-4bca-bc40-1f71d9ade200/width=3840",
+      "dupOf": null
     },
     {
       "id": "money-20261130-2",
@@ -77,14 +85,28 @@
       "why": "Leg betrayals ranked, kicker miss hits",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261130-2/v1-01.jpg",
+        "m/money/money-20261130-2/v1-02.jpg",
+        "m/money/money-20261130-2/v1-03.jpg",
+        "m/money/money-20261130-2/v1-04.jpg",
+        "m/money/money-20261130-2/v1-05.jpg",
+        "m/money/money-20261130-2/v1-06.jpg",
+        "m/money/money-20261130-2/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:28:34.166Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"sports fans watching game bar\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/audience-soccer-stadium-1866738/",
+      "dupOf": null
     },
     {
       "id": "money-20261130-3",
@@ -114,14 +136,22 @@
       "why": "Win then lose $60, joke on bettor",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261130-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:28:34.540Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man celebrating phone couch\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/man-sofa-coffee-mug-cup-drink-2178466/",
+      "dupOf": null
     },
     {
       "id": "money-20261130-4",
@@ -154,14 +184,23 @@
       "why": "$0.43 dividend landlord, perfect fit",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261130-4/v1.mp4",
+        "m/money/money-20261130-4/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:28:42.997Z",
+      "renderError": null,
+      "renderNote": "archive clip: \"Health: Your Posture\" (1953), original sound; music: off (film sound); no FREESOUND_API_KEY",
+      "footageSource": "https://archive.org/details/HealthYo1953",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "money-20261130-5",
@@ -191,14 +230,22 @@
       "why": "11:40 PM call, four legs riding, vivid",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261130-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:28:43.375Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man stressed looking at phone\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/desperate-think-stressed-out-5011953/",
+      "dupOf": null
     },
     {
       "id": "money-20261201-1",
@@ -228,14 +275,22 @@
       "why": "$3.12 coffee thanks economy, great",
       "inspiredBy": "S&P up 1.6%",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261201-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:28:43.833Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man looking at phone smiling coffee shop\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/girl-fashion-portrait-beauty-5775940/",
+      "dupOf": null
     },
     {
       "id": "money-20261201-2",
@@ -265,14 +320,22 @@
       "why": "Free shipping threshold, very specific",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261201-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:28:44.197Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"person shopping on laptop at night\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/adult-annoyed-blur-burnout-1850268/",
+      "dupOf": null
     },
     {
       "id": "money-20261201-3",
@@ -306,14 +369,22 @@
       "why": "Free shipping on $9 item, great detail",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261201-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:28:44.905Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"calm man laptop spreadsheet desk\"; photo 1 of 20 for \"stressed man laptop credit card night\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/notebook-typing-coffee-computer-1850613/",
+      "dupOf": null
     },
     {
       "id": "money-20261201-4",
@@ -346,14 +417,23 @@
       "why": "Dead ticket as collateral, fresh",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261201-4/v1.mp4",
+        "m/money/money-20261201-4/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:28:53.371Z",
+      "renderError": null,
+      "renderNote": "archive clip: \"Using the Bank\" (1947), original sound; music: off (film sound); no FREESOUND_API_KEY",
+      "footageSource": "https://archive.org/details/Usingthe1947",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "money-20261201-5",
@@ -389,14 +469,22 @@
       "why": "Relatable parlay self-sabotage, standard format",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261201-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:28:53.820Z",
+      "renderError": null,
+      "renderNote": "meme template \"Mocking Spongebob\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/spongebob/Me:_no_parlays_on_Monday_night/Me:_jUsT_a_$5_tHrEe--LeG_sAmE_gAmE_pArLaY.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "money-20261202-1",
@@ -426,14 +514,22 @@
       "why": "Third phone stand is specific and funny",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261202-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:28:54.195Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man opening cardboard box confused\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/robot-light-shadow-thinking-7387740/",
+      "dupOf": null
     },
     {
       "id": "money-20261202-2",
@@ -470,14 +566,28 @@
       "why": "Cart archetypes, very specific, shareable",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261202-2/v1-01.jpg",
+        "m/money/money-20261202-2/v1-02.jpg",
+        "m/money/money-20261202-2/v1-03.jpg",
+        "m/money/money-20261202-2/v1-04.jpg",
+        "m/money/money-20261202-2/v1-05.jpg",
+        "m/money/money-20261202-2/v1-06.jpg",
+        "m/money/money-20261202-2/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:28:55.791Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"person shopping laptop night\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/work-workaholic-writer-programmer-1627703/",
+      "dupOf": null
     },
     {
       "id": "money-20261202-3",
@@ -515,14 +625,22 @@
       "why": "Specific skid-team betrayal, joke on bettor",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261202-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:28:56.319Z",
+      "renderError": null,
+      "renderNote": "meme template \"Gru's Plan\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/gru/Add_'just_one_more'_leg_to_the_parlay/Payout_looks_amazing/Last_leg:_team_on_a_7--game_skid/Ticket_dead_by_1:15_PM.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "money-20261202-4",
@@ -555,14 +673,23 @@
       "why": "$14 deliveries equal tiny house, clever",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261202-4/v1.mp4",
+        "m/money/money-20261202-4/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:29:04.549Z",
+      "renderError": null,
+      "renderNote": "archive clip: \"Have I Told You Lately That I Love You?\" (1958), original sound; music: off (film sound); no FREESOUND_API_KEY",
+      "footageSource": "https://archive.org/details/HaveITol1958",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "money-20261202-5",
@@ -592,14 +719,22 @@
       "why": "Told 4 people, relatable specificity",
       "inspiredBy": "S&P 500 up 1.6%",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261202-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:29:05.062Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man phone stock chart green\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/entrepreneur-idea-competence-vision-1340649/",
+      "dupOf": null
     },
     {
       "id": "money-20261203-1",
@@ -629,14 +764,22 @@
       "why": "Pay in 4 for lost hoodie lands",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261203-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:29:05.463Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"person stressed looking at phone bills\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/smile-happy-people-fun-young-2072907/",
+      "dupOf": null
     },
     {
       "id": "money-20261203-2",
@@ -666,14 +809,22 @@
       "why": "Treat yourself with countdown timer, sharp",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261203-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:29:05.696Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"person typing credit card laptop night\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/corona-coronavirus-virus-covid-19-4983590/",
+      "dupOf": null
     },
     {
       "id": "money-20261203-3",
@@ -703,14 +854,22 @@
       "why": "$11.40 counting quarters, specific",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261203-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:29:05.859Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/5542a422-d09b-4392-d64c-9b8cd5747700/width=3840",
+      "dupOf": null
     },
     {
       "id": "money-20261203-4",
@@ -743,14 +902,23 @@
       "why": "Three sauces and a candle, specific",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261203-4/v1.mp4",
+        "m/money/money-20261203-4/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:29:15.683Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb149944 (1 of 20 for \"shopper self checkout grocery store\"); music: none (add tracks to assets/audio); no FREESOUND_API_KEY",
+      "footageSource": "https://pixabay.com/videos/id-149944/",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "money-20261203-5",
@@ -780,14 +948,22 @@
       "why": "$63 DCA smugness, self-roast lands",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261203-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:29:15.788Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/e3eb6981-a603-4961-1079-5b037e63d900/width=3840",
+      "dupOf": null
     },
     {
       "id": "money-20261204-1",
@@ -817,14 +993,22 @@
       "why": "'What happened' category is sharp",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261204-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:29:16.156Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"person counting bills at kitchen table\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/kitchen-home-interior-modern-room-2165756/",
+      "dupOf": null
     },
     {
       "id": "money-20261204-2",
@@ -861,14 +1045,28 @@
       "why": "Final drive quotes, 'Sunday: again' lands",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261204-2/v1-01.jpg",
+        "m/money/money-20261204-2/v1-02.jpg",
+        "m/money/money-20261204-2/v1-03.jpg",
+        "m/money/money-20261204-2/v1-04.jpg",
+        "m/money/money-20261204-2/v1-05.jpg",
+        "m/money/money-20261204-2/v1-06.jpg",
+        "m/money/money-20261204-2/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:29:17.451Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"sports fans losing it couch\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/audience-soccer-stadium-1866738/",
+      "dupOf": null
     },
     {
       "id": "money-20261204-3",
@@ -904,14 +1102,22 @@
       "why": "Stonks with $9 gain, lunch tag helps",
       "inspiredBy": "S&P 500 up 1.6%",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261204-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:29:18.000Z",
+      "renderError": null,
+      "renderNote": "meme template \"Stonks\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/stonks/S~aP_up_1.6~p._I'm_up_$9./STONKS_(lunch_is_covered).png?width=1080",
+      "dupOf": null
     },
     {
       "id": "money-20261204-4",
@@ -944,14 +1150,23 @@
       "why": "4th and 2 dread, niche enough",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261204-4/v1.mp4",
+        "m/money/money-20261204-4/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:29:26.771Z",
+      "renderError": null,
+      "renderNote": "archive clip: \"Don't Be a Sucker\" (1947), original sound; music: off (film sound); no FREESOUND_API_KEY",
+      "footageSource": "https://archive.org/details/DontBeaS1947",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "money-20261204-5",
@@ -987,14 +1202,22 @@
       "why": "Rent vs cart, familiar premise",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261204-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:29:27.251Z",
+      "renderError": null,
+      "renderNote": "meme template \"This is Fine\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/fine/Rent_due_Tuesday._Checking:_$212._Cart:_$340./this_is_fine.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "money-20261205-1",
@@ -1024,14 +1247,22 @@
       "why": "Titanic band spending, seen before",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261205-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:29:27.391Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/1aba903c-83b0-4ab4-6999-2da926b42200/width=3840",
+      "dupOf": null
     },
     {
       "id": "money-20261205-2",
@@ -1067,14 +1298,22 @@
       "why": "Gas station gifts fine but familiar",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261205-2/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:29:28.001Z",
+      "renderError": null,
+      "renderNote": "meme template \"Tuxedo Winnie the Pooh\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/pooh/Buying_gifts_in_November/Buying_gifts_Dec_24,_4_PM,_at_a_gas_station.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "money-20261205-3",
@@ -1104,14 +1343,22 @@
       "why": "Clown makeup chart fits, but familiar",
       "inspiredBy": "S&P 500 up 1.6%",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261205-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:29:28.102Z",
+      "renderError": null,
+      "renderNote": "pool image (memedepot-templates)",
+      "footageSource": null,
+      "visualSource": "https://memedepot.com/cdn-cgi/imagedelivery/naCPMwxXX46-hrE49eZovw/b13b978e-6b1c-43c0-fd8a-84ddad0ef000/width=3840",
+      "dupOf": null
     },
     {
       "id": "money-20261205-4",
@@ -1144,14 +1391,23 @@
       "why": "Good line, no real format",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261205-4/v1.mp4",
+        "m/money/money-20261205-4/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:29:37.628Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb1028 (1 of 20 for \"man worried laptop night desk\"); music: none (add tracks to assets/audio); no FREESOUND_API_KEY",
+      "footageSource": "https://pixabay.com/videos/id-1028/",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "money-20261205-5",
@@ -1187,14 +1443,22 @@
       "why": "Portfolio refresh joke is common",
       "inspiredBy": "evergreen",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261205-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:29:38.161Z",
+      "renderError": null,
+      "renderNote": "meme template \"That Would Be Great\"",
+      "footageSource": null,
+      "visualSource": "https://api.memegen.link/images/officespace/yeah,_if_you_could_stop_refreshing/the_portfolio_every_4_minutes,_that'd_be_great.png?width=1080",
+      "dupOf": null
     },
     {
       "id": "money-20261206-1",
@@ -1224,14 +1488,22 @@
       "why": "'It was always vibes' decent, common",
       "inspiredBy": "Nasdaq up 2.3%",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261206-1/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:29:38.218Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man stressed looking at phone\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/desperate-think-stressed-out-5011953/",
+      "dupOf": null
     },
     {
       "id": "money-20261206-2",
@@ -1268,14 +1540,28 @@
       "why": "Napkin candle payoff, strong escalation",
       "inspiredBy": "Cyber Monday",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261206-2/v1-01.jpg",
+        "m/money/money-20261206-2/v1-02.jpg",
+        "m/money/money-20261206-2/v1-03.jpg",
+        "m/money/money-20261206-2/v1-04.jpg",
+        "m/money/money-20261206-2/v1-05.jpg",
+        "m/money/money-20261206-2/v1-06.jpg",
+        "m/money/money-20261206-2/v1-07.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:29:39.645Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"holiday shopping stressed\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/desperate-think-stressed-out-5011953/",
+      "dupOf": null
     },
     {
       "id": "money-20261206-3",
@@ -1309,14 +1595,22 @@
       "why": "Contrast works, a bit muddled",
       "inspiredBy": "S&P 500 up 1.6%",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261206-3/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:29:40.221Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"man celebrating phone couch\"; photo 1 of 20 for \"empty wallet hand\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/man-sofa-coffee-mug-cup-drink-2178466/",
+      "dupOf": null
     },
     {
       "id": "money-20261206-4",
@@ -1349,14 +1643,23 @@
       "why": "Bomb drill app opening, specific",
       "inspiredBy": "Leeds United search",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261206-4/v1.mp4",
+        "m/money/money-20261206-4/v1-cover.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:29:49.447Z",
+      "renderError": null,
+      "renderNote": "Pixabay clip pb185888 (1 of 20 for \"man covering face couch television\"); music: none (add tracks to assets/audio); no FREESOUND_API_KEY",
+      "footageSource": "https://pixabay.com/videos/id-185888/",
+      "visualSource": null,
+      "dupOf": null
     },
     {
       "id": "money-20261206-5",
@@ -1386,14 +1689,22 @@
       "why": "Fake ticker, familiar green-day gag",
       "inspiredBy": "S&P 500 up 1.6%",
       "status": "pending",
-      "needsRender": true,
-      "renderVersion": 0,
+      "needsRender": false,
+      "renderVersion": 1,
       "approvedVersion": null,
-      "media": [],
+      "media": [
+        "m/money/money-20261206-5/v1-feed.jpg"
+      ],
       "attempts": 0,
       "lastError": null,
       "igMediaId": null,
-      "postedAt": null
+      "postedAt": null,
+      "renderedAt": "2026-11-28T16:29:49.749Z",
+      "renderError": null,
+      "renderNote": "photo 1 of 20 for \"stock chart screen trader\"",
+      "footageSource": null,
+      "visualSource": "https://pixabay.com/photos/man-drinking-whiskey-brandy-liquor-8575459/",
+      "dupOf": null
     }
   ]
 }
