@@ -1073,7 +1073,7 @@
       "score": 7,
       "why": "Net-worth tiers escalate nicely, ceiling fan line",
       "inspiredBy": "S&P 500 down 3.7%",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -1086,7 +1086,7 @@
         "m/money/money-20261127-2/v1-06.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-21T16:20:39.183Z",
