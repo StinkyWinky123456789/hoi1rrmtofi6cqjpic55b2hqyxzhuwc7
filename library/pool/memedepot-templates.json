@@ -224,7 +224,9 @@
       "fit": 9,
       "person": "public",
       "status": "new",
-      "uses": {},
+      "uses": {
+        "money": "2026-11-28T16:22:41.374Z"
+      },
       "addedAt": "2026-11-20T15:26:33.008Z"
     },
     {
@@ -334,7 +336,9 @@
       "fit": 8,
       "person": "none",
       "status": "new",
-      "uses": {},
+      "uses": {
+        "shitpost": "2026-11-28T16:25:37.476Z"
+      },
       "addedAt": "2026-11-20T15:26:33.008Z"
     },
     {
@@ -560,7 +564,9 @@
       "fit": 8,
       "person": "none",
       "status": "new",
-      "uses": {},
+      "uses": {
+        "shitpost": "2026-11-28T16:25:37.476Z"
+      },
       "addedAt": "2026-11-20T15:27:01.293Z"
     },
     {
@@ -938,7 +944,9 @@
       "fit": 8,
       "person": "none",
       "status": "new",
-      "uses": {},
+      "uses": {
+        "gym": "2026-11-28T16:14:56.693Z"
+      },
       "addedAt": "2026-11-20T15:27:15.588Z"
     },
     {
@@ -1143,7 +1151,9 @@
       "fit": 8,
       "person": "none",
       "status": "new",
-      "uses": {},
+      "uses": {
+        "shitpost": "2026-11-28T16:25:37.476Z"
+      },
       "addedAt": "2026-11-20T15:27:15.589Z"
     },
     {
@@ -1376,7 +1386,9 @@
       "fit": 8,
       "person": "none",
       "status": "new",
-      "uses": {},
+      "uses": {
+        "anime": "2026-11-28T16:19:21.009Z"
+      },
       "addedAt": "2026-11-20T15:27:30.781Z"
     },
     {
@@ -1554,7 +1566,9 @@
       "fit": 8,
       "person": "none",
       "status": "new",
-      "uses": {},
+      "uses": {
+        "anime": "2026-11-28T16:19:21.009Z"
+      },
       "addedAt": "2026-11-20T15:27:30.782Z"
     },
     {
@@ -1973,7 +1987,9 @@
       "fit": 8,
       "person": "none",
       "status": "new",
-      "uses": {},
+      "uses": {
+        "anime": "2026-11-28T16:19:21.009Z"
+      },
       "addedAt": "2026-11-20T15:27:53.384Z"
     },
     {
@@ -2093,7 +2109,9 @@
       "fit": 9,
       "person": "public",
       "status": "new",
-      "uses": {},
+      "uses": {
+        "money": "2026-11-28T16:22:41.374Z"
+      },
       "addedAt": "2026-11-20T15:27:53.384Z"
     },
     {
@@ -2153,7 +2171,9 @@
       "fit": 9,
       "person": "none",
       "status": "new",
-      "uses": {},
+      "uses": {
+        "gym": "2026-11-28T16:14:56.693Z"
+      },
       "addedAt": "2026-11-20T15:27:53.385Z"
     },
     {
@@ -2856,7 +2876,9 @@
       "fit": 8,
       "person": "none",
       "status": "new",
-      "uses": {},
+      "uses": {
+        "shitpost": "2026-11-28T16:25:37.476Z"
+      },
       "addedAt": "2026-11-20T15:28:23.698Z"
     },
     {
@@ -3086,7 +3108,9 @@
       "fit": 8,
       "person": "public",
       "status": "new",
-      "uses": {},
+      "uses": {
+        "shitpost": "2026-11-28T16:25:37.476Z"
+      },
       "addedAt": "2026-11-20T15:28:23.700Z"
     },
     {
@@ -3265,7 +3289,9 @@
       "fit": 8,
       "person": "none",
       "status": "new",
-      "uses": {},
+      "uses": {
+        "gym": "2026-11-28T16:14:56.693Z"
+      },
       "addedAt": "2026-11-20T15:28:39.794Z"
     },
     {
@@ -5056,7 +5082,9 @@
       "fit": 8,
       "person": "none",
       "status": "new",
-      "uses": {},
+      "uses": {
+        "money": "2026-11-28T16:22:41.374Z"
+      },
       "addedAt": "2026-11-20T15:29:34.677Z"
     },
     {
@@ -5086,7 +5114,9 @@
       "fit": 8,
       "person": "public",
       "status": "new",
-      "uses": {},
+      "uses": {
+        "anime": "2026-11-28T16:19:21.009Z"
+      },
       "addedAt": "2026-11-20T15:29:34.677Z"
     },
     {
@@ -6178,7 +6208,9 @@
       "fit": 8,
       "person": "none",
       "status": "new",
-      "uses": {},
+      "uses": {
+        "gym": "2026-11-28T16:14:56.693Z"
+      },
       "addedAt": "2026-11-20T15:30:20.053Z"
     },
     {
@@ -6502,7 +6534,9 @@
       "fit": 8,
       "person": "none",
       "status": "new",
-      "uses": {},
+      "uses": {
+        "shitpost": "2026-11-28T16:25:37.476Z"
+      },
       "addedAt": "2026-11-20T15:30:35.228Z"
     },
     {
@@ -6727,7 +6761,9 @@
       "fit": 8,
       "person": "none",
       "status": "new",
-      "uses": {},
+      "uses": {
+        "money": "2026-11-28T16:22:41.374Z"
+      },
       "addedAt": "2026-11-20T15:30:35.229Z"
     },
     {
@@ -7902,7 +7938,9 @@
       "fit": 8,
       "person": "public",
       "status": "new",
-      "uses": {},
+      "uses": {
+        "money": "2026-11-28T16:22:41.374Z"
+      },
       "addedAt": "2026-11-20T15:31:23.788Z"
     },
     {
@@ -7992,7 +8030,9 @@
       "fit": 8,
       "person": "none",
       "status": "new",
-      "uses": {},
+      "uses": {
+        "gym": "2026-11-28T16:14:56.693Z"
+      },
       "addedAt": "2026-11-20T15:31:23.789Z"
     },
     {
@@ -8116,7 +8156,9 @@
       "fit": 9,
       "person": "none",
       "status": "new",
-      "uses": {},
+      "uses": {
+        "gym": "2026-11-28T16:14:56.693Z"
+      },
       "addedAt": "2026-11-27T15:20:19.039Z"
     }
   ],
