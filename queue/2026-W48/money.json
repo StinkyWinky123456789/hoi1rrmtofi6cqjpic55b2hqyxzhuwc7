@@ -1171,7 +1171,7 @@
       "score": 6,
       "why": "Dignity in another zip code, good",
       "inspiredBy": "evergreen",
-      "status": "pending",
+      "status": "missed",
       "needsRender": false,
       "renderVersion": 1,
       "approvedVersion": null,
@@ -1180,7 +1180,7 @@
         "m/money/money-20261127-4/v1-cover.jpg"
       ],
       "attempts": 0,
-      "lastError": null,
+      "lastError": "not approved within 12h of its slot",
       "igMediaId": null,
       "postedAt": null,
       "renderedAt": "2026-11-21T16:20:48.493Z",
